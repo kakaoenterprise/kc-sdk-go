@@ -1,0 +1,57 @@
+# -------------------------
+# Go
+# -------------------------
+/bin/
+/build/
+/dist/
+/out/
+/tmp/
+/coverage/
+/coverage*.out
+*.coverprofile
+*.test
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 모듈/워크스페이스 (필요 시)
+
+/vendor/
+
+# -------------------------
+# OpenAPI Generator (일반적 산출물)
+/.openapi-generator/
+/**/.openapi-generator/
+openapi.yaml
+openapi.yml
+swagger.yaml
+swagger.yml
+swagger.json
+/docs/
+/api-docs/
+
+# services 하위에 독립 go 모듈이 생기지 않도록(단일 SDK로 관리 시)
+services/**/go.mod
+services/**/go.sum
+
+# (생성 스텁/중간 산출물 경로를 쓰면 여기도 추가)
+# e.g. /tools/, /gen/, /specs/ 등
+
+# -------------------------
+# IDE
+# -------------------------
+.idea/
+.vscode/
+*.iml
+
+# -------------------------
+# OS & 기타 잡파일
+# -------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo

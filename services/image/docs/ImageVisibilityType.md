@@ -1,0 +1,13 @@
+# ImageVisibilityType
+
+## Enum
+
+
+* `BASIC` (value: `"basic"`)
+
+* `MY` (value: `"my"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

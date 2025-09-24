@@ -1,0 +1,318 @@
+# BcsVolumeV1ApiListVolumesModelImageMetaData
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ContainerFormat** | Pointer to **NullableString** |  | [optional] 
+**DiskFormat** | Pointer to **NullableString** |  | [optional] 
+**ImageId** | Pointer to **NullableString** |  | [optional] 
+**ImageName** | Pointer to **NullableString** |  | [optional] 
+**MinDisk** | Pointer to **NullableString** |  | [optional] 
+**OsType** | Pointer to **NullableString** |  | [optional] 
+**MinRam** | Pointer to **NullableString** |  | [optional] 
+**Size** | Pointer to **NullableString** |  | [optional] 
+
+## Methods
+
+### NewBcsVolumeV1ApiListVolumesModelImageMetaData
+
+`func NewBcsVolumeV1ApiListVolumesModelImageMetaData() *BcsVolumeV1ApiListVolumesModelImageMetaData`
+
+NewBcsVolumeV1ApiListVolumesModelImageMetaData instantiates a new BcsVolumeV1ApiListVolumesModelImageMetaData object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBcsVolumeV1ApiListVolumesModelImageMetaDataWithDefaults
+
+`func NewBcsVolumeV1ApiListVolumesModelImageMetaDataWithDefaults() *BcsVolumeV1ApiListVolumesModelImageMetaData`
+
+NewBcsVolumeV1ApiListVolumesModelImageMetaDataWithDefaults instantiates a new BcsVolumeV1ApiListVolumesModelImageMetaData object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetContainerFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetContainerFormat() string`
+
+GetContainerFormat returns the ContainerFormat field if non-nil, zero value otherwise.
+
+### GetContainerFormatOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetContainerFormatOk() (*string, bool)`
+
+GetContainerFormatOk returns a tuple with the ContainerFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetContainerFormat(v string)`
+
+SetContainerFormat sets ContainerFormat field to given value.
+
+### HasContainerFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasContainerFormat() bool`
+
+HasContainerFormat returns a boolean if a field has been set.
+
+### SetContainerFormatNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetContainerFormatNil(b bool)`
+
+ SetContainerFormatNil sets the value for ContainerFormat to be an explicit nil
+
+### UnsetContainerFormat
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetContainerFormat()`
+
+UnsetContainerFormat ensures that no value is present for ContainerFormat, not even an explicit nil
+### GetDiskFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetDiskFormat() string`
+
+GetDiskFormat returns the DiskFormat field if non-nil, zero value otherwise.
+
+### GetDiskFormatOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetDiskFormatOk() (*string, bool)`
+
+GetDiskFormatOk returns a tuple with the DiskFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiskFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetDiskFormat(v string)`
+
+SetDiskFormat sets DiskFormat field to given value.
+
+### HasDiskFormat
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasDiskFormat() bool`
+
+HasDiskFormat returns a boolean if a field has been set.
+
+### SetDiskFormatNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetDiskFormatNil(b bool)`
+
+ SetDiskFormatNil sets the value for DiskFormat to be an explicit nil
+
+### UnsetDiskFormat
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetDiskFormat()`
+
+UnsetDiskFormat ensures that no value is present for DiskFormat, not even an explicit nil
+### GetImageId
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetImageId() string`
+
+GetImageId returns the ImageId field if non-nil, zero value otherwise.
+
+### GetImageIdOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetImageIdOk() (*string, bool)`
+
+GetImageIdOk returns a tuple with the ImageId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageId
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetImageId(v string)`
+
+SetImageId sets ImageId field to given value.
+
+### HasImageId
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasImageId() bool`
+
+HasImageId returns a boolean if a field has been set.
+
+### SetImageIdNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetImageIdNil(b bool)`
+
+ SetImageIdNil sets the value for ImageId to be an explicit nil
+
+### UnsetImageId
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetImageId()`
+
+UnsetImageId ensures that no value is present for ImageId, not even an explicit nil
+### GetImageName
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetImageName() string`
+
+GetImageName returns the ImageName field if non-nil, zero value otherwise.
+
+### GetImageNameOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetImageNameOk() (*string, bool)`
+
+GetImageNameOk returns a tuple with the ImageName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageName
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetImageName(v string)`
+
+SetImageName sets ImageName field to given value.
+
+### HasImageName
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasImageName() bool`
+
+HasImageName returns a boolean if a field has been set.
+
+### SetImageNameNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetImageNameNil(b bool)`
+
+ SetImageNameNil sets the value for ImageName to be an explicit nil
+
+### UnsetImageName
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetImageName()`
+
+UnsetImageName ensures that no value is present for ImageName, not even an explicit nil
+### GetMinDisk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetMinDisk() string`
+
+GetMinDisk returns the MinDisk field if non-nil, zero value otherwise.
+
+### GetMinDiskOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetMinDiskOk() (*string, bool)`
+
+GetMinDiskOk returns a tuple with the MinDisk field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinDisk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetMinDisk(v string)`
+
+SetMinDisk sets MinDisk field to given value.
+
+### HasMinDisk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasMinDisk() bool`
+
+HasMinDisk returns a boolean if a field has been set.
+
+### SetMinDiskNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetMinDiskNil(b bool)`
+
+ SetMinDiskNil sets the value for MinDisk to be an explicit nil
+
+### UnsetMinDisk
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetMinDisk()`
+
+UnsetMinDisk ensures that no value is present for MinDisk, not even an explicit nil
+### GetOsType
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetOsType() string`
+
+GetOsType returns the OsType field if non-nil, zero value otherwise.
+
+### GetOsTypeOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetOsTypeOk() (*string, bool)`
+
+GetOsTypeOk returns a tuple with the OsType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOsType
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetOsType(v string)`
+
+SetOsType sets OsType field to given value.
+
+### HasOsType
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasOsType() bool`
+
+HasOsType returns a boolean if a field has been set.
+
+### SetOsTypeNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetOsTypeNil(b bool)`
+
+ SetOsTypeNil sets the value for OsType to be an explicit nil
+
+### UnsetOsType
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetOsType()`
+
+UnsetOsType ensures that no value is present for OsType, not even an explicit nil
+### GetMinRam
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetMinRam() string`
+
+GetMinRam returns the MinRam field if non-nil, zero value otherwise.
+
+### GetMinRamOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetMinRamOk() (*string, bool)`
+
+GetMinRamOk returns a tuple with the MinRam field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinRam
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetMinRam(v string)`
+
+SetMinRam sets MinRam field to given value.
+
+### HasMinRam
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasMinRam() bool`
+
+HasMinRam returns a boolean if a field has been set.
+
+### SetMinRamNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetMinRamNil(b bool)`
+
+ SetMinRamNil sets the value for MinRam to be an explicit nil
+
+### UnsetMinRam
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetMinRam()`
+
+UnsetMinRam ensures that no value is present for MinRam, not even an explicit nil
+### GetSize
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetSize() string`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) GetSizeOk() (*string, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetSize(v string)`
+
+SetSize sets Size field to given value.
+
+### HasSize
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
+
+### SetSizeNil
+
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) SetSizeNil(b bool)`
+
+ SetSizeNil sets the value for Size to be an explicit nil
+
+### UnsetSize
+`func (o *BcsVolumeV1ApiListVolumesModelImageMetaData) UnsetSize()`
+
+UnsetSize ensures that no value is present for Size, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
