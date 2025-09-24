@@ -1,4 +1,4 @@
-# OSS Notice | Kakaocloud SDK go#
+# OSS Notice | Kakaocloud SDK go
 
 This application is Copyright © Kakao Enterprise Corp. All rights reserved.
 
