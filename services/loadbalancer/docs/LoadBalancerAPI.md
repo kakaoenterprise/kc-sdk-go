@@ -397,7 +397,7 @@ func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 	id := "id_example" // string | 로드 밸런서 ID  (optional)
 	name := "name_example" // string | 로드 밸런서 이름  (optional)
-	type_ := "type__example" // string | 로드 밸런서 유형 (ALB, NLB, NLB_L4_DSR)  (optional)
+	type_ := "type__example" // string | [로드 밸런서 유형](https://docs.kakaocloud.com/service/bns/lb/lb-overview#features)<br/>- `ALB`: Application Load Balancer<br/>- `NLB`: Network Load Balancer<br/>- `NLB_L4_DSR`: Direct Server Return Network Load Balancer (optional)
 	privateVip := "privateVip_example" // string | 내부 VIP 주소  (optional)
 	publicVip := "publicVip_example" // string | 외부 VIP 주소  (optional)
 	provisioningStatus := openapiclient.ProvisioningStatus("ACTIVE") // ProvisioningStatus | 프로비저닝 상태 <br/> - `ACTIVE`: 활성 <br/> - `DELETED`: 삭제됨 <br/> - `ERROR`: 오류 <br/> - `PENDING_CREATE`: 생성 대기 중 <br/> - `PENDING_UPDATE`: 업데이트 대기 중 <br/> - `PENDING_DELETE`: 삭제 대기 중 (optional)
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
  **id** | **string** | 로드 밸런서 ID  | 
  **name** | **string** | 로드 밸런서 이름  | 
- **type_** | **string** | 로드 밸런서 유형 (ALB, NLB, NLB_L4_DSR)  | 
+ **type_** | **string** | [로드 밸런서 유형](https://docs.kakaocloud.com/service/bns/lb/lb-overview#features)&lt;br/&gt;- &#x60;ALB&#x60;: Application Load Balancer&lt;br/&gt;- &#x60;NLB&#x60;: Network Load Balancer&lt;br/&gt;- &#x60;NLB_L4_DSR&#x60;: Direct Server Return Network Load Balancer | 
  **privateVip** | **string** | 내부 VIP 주소  | 
  **publicVip** | **string** | 외부 VIP 주소  | 
  **provisioningStatus** | [**ProvisioningStatus**](ProvisioningStatus.md) | 프로비저닝 상태 &lt;br/&gt; - &#x60;ACTIVE&#x60;: 활성 &lt;br/&gt; - &#x60;DELETED&#x60;: 삭제됨 &lt;br/&gt; - &#x60;ERROR&#x60;: 오류 &lt;br/&gt; - &#x60;PENDING_CREATE&#x60;: 생성 대기 중 &lt;br/&gt; - &#x60;PENDING_UPDATE&#x60;: 업데이트 대기 중 &lt;br/&gt; - &#x60;PENDING_DELETE&#x60;: 삭제 대기 중 | 

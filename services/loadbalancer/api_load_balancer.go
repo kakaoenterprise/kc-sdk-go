@@ -1177,7 +1177,7 @@ func (r ApiListLoadBalancersRequest) Name(name string) ApiListLoadBalancersReque
 	return r
 }
 
-// 로드 밸런서 유형 (ALB, NLB, NLB_L4_DSR)
+// [로드 밸런서 유형](https://docs.kakaocloud.com/service/bns/lb/lb-overview#features)&lt;br/&gt;- &#x60;ALB&#x60;: Application Load Balancer&lt;br/&gt;- &#x60;NLB&#x60;: Network Load Balancer&lt;br/&gt;- &#x60;NLB_L4_DSR&#x60;: Direct Server Return Network Load Balancer
 func (r ApiListLoadBalancersRequest) Type_(type_ string) ApiListLoadBalancersRequest {
 	r.type_ = &type_
 	return r

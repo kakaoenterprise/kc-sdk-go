@@ -67,8 +67,6 @@ type APIClient struct {
 	UpgradesAPI      kubernetesengine.UpgradesAPI
 }
 
-// NewAPIClient : Config(Token/UserAgent 포함)을 받아
-// 모든 서비스에 자동 헤더 주입이 적용된 http.Client로 초기화
 func NewAPIClient(cfg Config) *APIClient {
 	c := &APIClient{cfg: cfg}
 
@@ -187,14 +185,12 @@ func NewAPIClient(cfg Config) *APIClient {
 	return c
 }
 
-// SetToken 토큰 런타임 교체
 func (c *APIClient) SetToken(tok string) {
 	if c.authRT != nil {
 		c.authRT.token.Store(tok)
 	}
 }
 
-// SetUserAgent User-Agent 런타임 교체(선택)
 func (c *APIClient) SetUserAgent(ua string) {
 	if c.authRT != nil {
 		c.authRT.userAgent.Store(ua)

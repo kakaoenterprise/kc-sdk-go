@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | 대상 노드 풀 이름 | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **FlavorId** | **string** | 인스턴스 유형 ID | 
-**VolumeSize** | **int32** | 노드 풀의 루트 볼륨 크기(단위: GiB) | 
+**VolumeSize** | Pointer to **NullableInt32** |  | [optional] 
 **NodeCount** | **int32** | 노드 풀의 노드 수 | 
 **SshKeyName** | **string** | SSH 키 이름 | 
 **Labels** | Pointer to [**[]LabelRequestModel**](LabelRequestModel.md) |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel
 
-`func NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel(name string, flavorId string, volumeSize int32, nodeCount int32, sshKeyName string, vpcInfo VpcInfoRequestModel, imageId string, ) *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel`
+`func NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel(name string, flavorId string, nodeCount int32, sshKeyName string, vpcInfo VpcInfoRequestModel, imageId string, ) *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel`
 
 NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel instantiates a new KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -131,7 +131,22 @@ and a boolean to check if the value has been set.
 
 SetVolumeSize sets VolumeSize field to given value.
 
+### HasVolumeSize
 
+`func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) HasVolumeSize() bool`
+
+HasVolumeSize returns a boolean if a field has been set.
+
+### SetVolumeSizeNil
+
+`func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) SetVolumeSizeNil(b bool)`
+
+ SetVolumeSizeNil sets the value for VolumeSize to be an explicit nil
+
+### UnsetVolumeSize
+`func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) UnsetVolumeSize()`
+
+UnsetVolumeSize ensures that no value is present for VolumeSize, not even an explicit nil
 ### GetNodeCount
 
 `func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) GetNodeCount() int32`

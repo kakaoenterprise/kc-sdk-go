@@ -24,9 +24,8 @@ type KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel struct {
 	Name        string         `json:"name"`
 	Description NullableString `json:"description,omitempty"`
 	// 인스턴스 유형 ID
-	FlavorId string `json:"flavor_id"`
-	// 노드 풀의 루트 볼륨 크기(단위: GiB)
-	VolumeSize int32 `json:"volume_size"`
+	FlavorId   string        `json:"flavor_id"`
+	VolumeSize NullableInt32 `json:"volume_size,omitempty"`
 	// 노드 풀의 노드 수
 	NodeCount int32 `json:"node_count"`
 	// SSH 키 이름
@@ -49,11 +48,10 @@ type _KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel KubernetesEng
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel(name string, flavorId string, volumeSize int32, nodeCount int32, sshKeyName string, vpcInfo VpcInfoRequestModel, imageId string) *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel {
+func NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel(name string, flavorId string, nodeCount int32, sshKeyName string, vpcInfo VpcInfoRequestModel, imageId string) *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel {
 	this := KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel{}
 	this.Name = name
 	this.FlavorId = flavorId
-	this.VolumeSize = volumeSize
 	this.NodeCount = nodeCount
 	this.SshKeyName = sshKeyName
 	this.VpcInfo = vpcInfo
@@ -160,28 +158,47 @@ func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) SetFlavor
 	o.FlavorId = v
 }
 
-// GetVolumeSize returns the VolumeSize field value
+// GetVolumeSize returns the VolumeSize field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) GetVolumeSize() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.VolumeSize.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.VolumeSize
+	return *o.VolumeSize.Get()
 }
 
-// GetVolumeSizeOk returns a tuple with the VolumeSize field value
+// GetVolumeSizeOk returns a tuple with the VolumeSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) GetVolumeSizeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.VolumeSize, true
+	return o.VolumeSize.Get(), o.VolumeSize.IsSet()
 }
 
-// SetVolumeSize sets field value
+// HasVolumeSize returns a boolean if a field has been set.
+func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) HasVolumeSize() bool {
+	if o != nil && o.VolumeSize.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumeSize gets a reference to the given NullableInt32 and assigns it to the VolumeSize field.
 func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) SetVolumeSize(v int32) {
-	o.VolumeSize = v
+	o.VolumeSize.Set(&v)
+}
+
+// SetVolumeSizeNil sets the value for VolumeSize to be an explicit nil
+func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) SetVolumeSizeNil() {
+	o.VolumeSize.Set(nil)
+}
+
+// UnsetVolumeSize ensures that no value is present for VolumeSize, not even an explicit nil
+func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) UnsetVolumeSize() {
+	o.VolumeSize.Unset()
 }
 
 // GetNodeCount returns the NodeCount field value
@@ -480,7 +497,9 @@ func (o KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) ToMap() (m
 		toSerialize["description"] = o.Description.Get()
 	}
 	toSerialize["flavor_id"] = o.FlavorId
-	toSerialize["volume_size"] = o.VolumeSize
+	if o.VolumeSize.IsSet() {
+		toSerialize["volume_size"] = o.VolumeSize.Get()
+	}
 	toSerialize["node_count"] = o.NodeCount
 	toSerialize["ssh_key_name"] = o.SshKeyName
 	if o.Labels != nil {
@@ -515,7 +534,6 @@ func (o *KubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel) Unmarshal
 	requiredProperties := []string{
 		"name",
 		"flavor_id",
-		"volume_size",
 		"node_count",
 		"ssh_key_name",
 		"vpc_info",

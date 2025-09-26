@@ -39,7 +39,7 @@ import (
 func main() {
 	clusterName := "clusterName_example" // string | 대상 클러스터 이름 
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	createK8sClusterNodePoolRequestModel := *openapiclient.NewCreateK8sClusterNodePoolRequestModel(*openapiclient.NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel("Name_example", "FlavorId_example", int32(123), int32(123), "SshKeyName_example", *openapiclient.NewVpcInfoRequestModel("Id_example", []string{"Subnets_example"}), "ImageId_example")) // CreateK8sClusterNodePoolRequestModel | 
+	createK8sClusterNodePoolRequestModel := *openapiclient.NewCreateK8sClusterNodePoolRequestModel(*openapiclient.NewKubernetesEngineV1ApiCreateNodePoolModelNodePoolRequestModel("Name_example", "FlavorId_example", int32(123), "SshKeyName_example", *openapiclient.NewVpcInfoRequestModel("Id_example", []string{"Subnets_example"}), "ImageId_example")) // CreateK8sClusterNodePoolRequestModel | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
