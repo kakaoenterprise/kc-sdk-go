@@ -574,7 +574,7 @@ import (
 func main() {
 	loadBalancerId := "loadBalancerId_example" // string | 액세스 로그 설정을 변경할 로드 밸런서 ID
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyUpdateAccessLog := *openapiclient.NewBodyUpdateAccessLog(*openapiclient.NewEditLoadBalancerAccessLogModel("Bucket_example", "AccessKey_example", "SecretKey_example")) // BodyUpdateAccessLog | 
+	bodyUpdateAccessLog := *openapiclient.NewBodyUpdateAccessLog() // BodyUpdateAccessLog |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

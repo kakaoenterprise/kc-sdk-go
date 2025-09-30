@@ -1793,9 +1793,6 @@ func (a *LoadBalancerAPIService) UpdateAccessLogExecute(r ApiUpdateAccessLogRequ
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.bodyUpdateAccessLog == nil {
-		return localVarReturnValue, nil, reportError("bodyUpdateAccessLog is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

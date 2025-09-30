@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessLogs** | [**EditLoadBalancerAccessLogModel**](EditLoadBalancerAccessLogModel.md) | 액세스 로그를 미사용으로 설정 시, &#x60;“access_logs” : null&#x60;로 설정 | 
+**AccessLogs** | Pointer to [**NullableEditLoadBalancerAccessLogModel**](EditLoadBalancerAccessLogModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewBodyUpdateAccessLog
 
-`func NewBodyUpdateAccessLog(accessLogs EditLoadBalancerAccessLogModel, ) *BodyUpdateAccessLog`
+`func NewBodyUpdateAccessLog() *BodyUpdateAccessLog`
 
 NewBodyUpdateAccessLog instantiates a new BodyUpdateAccessLog object
 This constructor will assign default values to properties that have it defined,
@@ -44,7 +44,22 @@ and a boolean to check if the value has been set.
 
 SetAccessLogs sets AccessLogs field to given value.
 
+### HasAccessLogs
 
+`func (o *BodyUpdateAccessLog) HasAccessLogs() bool`
+
+HasAccessLogs returns a boolean if a field has been set.
+
+### SetAccessLogsNil
+
+`func (o *BodyUpdateAccessLog) SetAccessLogsNil(b bool)`
+
+ SetAccessLogsNil sets the value for AccessLogs to be an explicit nil
+
+### UnsetAccessLogs
+`func (o *BodyUpdateAccessLog) UnsetAccessLogs()`
+
+UnsetAccessLogs ensures that no value is present for AccessLogs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

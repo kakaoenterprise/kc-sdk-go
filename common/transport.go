@@ -21,22 +21,3 @@ func (t *xAuthTokenTransport) RoundTrip(req *http.Request) (*http.Response, erro
 	}
 	return t.base.RoundTrip(r)
 }
-
-func newAuthedHTTPClient(base *http.Client, token, ua string) (*http.Client, *xAuthTokenTransport) {
-	if base == nil {
-		base = http.DefaultClient
-	}
-	rt := base.Transport
-	if rt == nil {
-		rt = http.DefaultTransport
-	}
-	auth := &xAuthTokenTransport{base: rt}
-	auth.token.Store(token)
-	auth.userAgent.Store(ua)
-
-	cli := &http.Client{
-		Transport: auth,
-		Timeout:   base.Timeout,
-	}
-	return cli, auth
-}

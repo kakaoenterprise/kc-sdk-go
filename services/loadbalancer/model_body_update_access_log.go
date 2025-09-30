@@ -12,7 +12,6 @@ package loadbalancer
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the BodyUpdateAccessLog type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,7 @@ var _ MappedNullable = &BodyUpdateAccessLog{}
 
 // BodyUpdateAccessLog struct for BodyUpdateAccessLog
 type BodyUpdateAccessLog struct {
-	// 액세스 로그를 미사용으로 설정 시, `“access_logs” : null`로 설정
-	AccessLogs           EditLoadBalancerAccessLogModel `json:"access_logs"`
+	AccessLogs           NullableEditLoadBalancerAccessLogModel `json:"access_logs,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,9 +29,8 @@ type _BodyUpdateAccessLog BodyUpdateAccessLog
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBodyUpdateAccessLog(accessLogs EditLoadBalancerAccessLogModel) *BodyUpdateAccessLog {
+func NewBodyUpdateAccessLog() *BodyUpdateAccessLog {
 	this := BodyUpdateAccessLog{}
-	this.AccessLogs = accessLogs
 	return &this
 }
 
@@ -45,28 +42,47 @@ func NewBodyUpdateAccessLogWithDefaults() *BodyUpdateAccessLog {
 	return &this
 }
 
-// GetAccessLogs returns the AccessLogs field value
+// GetAccessLogs returns the AccessLogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BodyUpdateAccessLog) GetAccessLogs() EditLoadBalancerAccessLogModel {
-	if o == nil {
+	if o == nil || IsNil(o.AccessLogs.Get()) {
 		var ret EditLoadBalancerAccessLogModel
 		return ret
 	}
-
-	return o.AccessLogs
+	return *o.AccessLogs.Get()
 }
 
-// GetAccessLogsOk returns a tuple with the AccessLogs field value
+// GetAccessLogsOk returns a tuple with the AccessLogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BodyUpdateAccessLog) GetAccessLogsOk() (*EditLoadBalancerAccessLogModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AccessLogs, true
+	return o.AccessLogs.Get(), o.AccessLogs.IsSet()
 }
 
-// SetAccessLogs sets field value
+// HasAccessLogs returns a boolean if a field has been set.
+func (o *BodyUpdateAccessLog) HasAccessLogs() bool {
+	if o != nil && o.AccessLogs.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessLogs gets a reference to the given NullableEditLoadBalancerAccessLogModel and assigns it to the AccessLogs field.
 func (o *BodyUpdateAccessLog) SetAccessLogs(v EditLoadBalancerAccessLogModel) {
-	o.AccessLogs = v
+	o.AccessLogs.Set(&v)
+}
+
+// SetAccessLogsNil sets the value for AccessLogs to be an explicit nil
+func (o *BodyUpdateAccessLog) SetAccessLogsNil() {
+	o.AccessLogs.Set(nil)
+}
+
+// UnsetAccessLogs ensures that no value is present for AccessLogs, not even an explicit nil
+func (o *BodyUpdateAccessLog) UnsetAccessLogs() {
+	o.AccessLogs.Unset()
 }
 
 func (o BodyUpdateAccessLog) MarshalJSON() ([]byte, error) {
@@ -79,7 +95,9 @@ func (o BodyUpdateAccessLog) MarshalJSON() ([]byte, error) {
 
 func (o BodyUpdateAccessLog) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["access_logs"] = o.AccessLogs
+	if o.AccessLogs.IsSet() {
+		toSerialize["access_logs"] = o.AccessLogs.Get()
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -89,27 +107,6 @@ func (o BodyUpdateAccessLog) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *BodyUpdateAccessLog) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"access_logs",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varBodyUpdateAccessLog := _BodyUpdateAccessLog{}
 
 	err = json.Unmarshal(data, &varBodyUpdateAccessLog)
