@@ -12,6 +12,7 @@ type Endpoints struct {
 	LoadBalancer     string
 	IAM              string
 	KubernetesEngine string
+	TGW              string
 }
 
 // Config SDK 전역 설정

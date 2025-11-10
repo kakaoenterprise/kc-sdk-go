@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**CreateTargetGroup**](LoadBalancerTargetGroupAPI.md#CreateTargetGroup) | **Post** /api/v1/load-balancers/target-groups | Create target group
 [**DeleteHealthMonitor**](LoadBalancerTargetGroupAPI.md#DeleteHealthMonitor) | **Delete** /api/v1/load-balancers/health-monitors/{health_monitor_id} | Delete health monitor
 [**DeleteTargetGroup**](LoadBalancerTargetGroupAPI.md#DeleteTargetGroup) | **Delete** /api/v1/load-balancers/target-groups/{target_group_id} | Delete target group
+[**GetTarget**](LoadBalancerTargetGroupAPI.md#GetTarget) | **Get** /api/v1/load-balancers/target-groups/{target_group_id}/members/{member_id} | Get target
 [**GetTargetGroup**](LoadBalancerTargetGroupAPI.md#GetTargetGroup) | **Get** /api/v1/load-balancers/target-groups/{target_group_id} | Get target group
 [**GetTargetGroupHealthCheckSubnets**](LoadBalancerTargetGroupAPI.md#GetTargetGroupHealthCheckSubnets) | **Get** /api/v1/load-balancers/target-groups/{target_group_id}/health-check-subnets | Get target group health check subnets
 [**GetTargetGroupHealthMonitor**](LoadBalancerTargetGroupAPI.md#GetTargetGroupHealthMonitor) | **Get** /api/v1/load-balancers/health-monitors/{health_monitor_id} | Get target group health monitor
@@ -357,6 +358,81 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[x-auth-token](../README.md#x-auth-token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTarget
+
+> BnsLoadBalancerV1ApiGetTargetModelTargetGroupMemberModel2 GetTarget(ctx, targetGroupId, memberId).XAuthToken(xAuthToken).Execute()
+
+Get target
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	targetGroupId := "targetGroupId_example" // string | 대상 그룹 ID 
+	memberId := "memberId_example" // string | 대상 그룹 내에서 조회할 멤버(member) 리소스의 ID <br/>- [List targets in target group ](/openapi/bns/lb/list-targets-in-target-group) API서 조회한 `member.id` 확인  
+	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LoadBalancerTargetGroupAPI.GetTarget(context.Background(), targetGroupId, memberId).XAuthToken(xAuthToken).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LoadBalancerTargetGroupAPI.GetTarget``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTarget`: BnsLoadBalancerV1ApiGetTargetModelTargetGroupMemberModel2
+	fmt.Fprintf(os.Stdout, "Response from `LoadBalancerTargetGroupAPI.GetTarget`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**targetGroupId** | **string** | 대상 그룹 ID  | 
+**memberId** | **string** | 대상 그룹 내에서 조회할 멤버(member) 리소스의 ID &lt;br/&gt;- [List targets in target group ](/openapi/bns/lb/list-targets-in-target-group) API서 조회한 &#x60;member.id&#x60; 확인   | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTargetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
+
+### Return type
+
+[**BnsLoadBalancerV1ApiGetTargetModelTargetGroupMemberModel2**](BnsLoadBalancerV1ApiGetTargetModelTargetGroupMemberModel2.md)
 
 ### Authorization
 

@@ -22,15 +22,17 @@ var _ MappedNullable = &BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel{}
 // BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel struct for BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel
 type BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel struct {
 	// 보안 그룹의 ID
-	Id                   string                                                       `json:"id"`
-	Name                 NullableString                                               `json:"name,omitempty"`
-	IsStateful           NullableBool                                                 `json:"is_stateful,omitempty"`
-	Description          NullableString                                               `json:"description,omitempty"`
-	Rules                []BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupRuleModel `json:"rules,omitempty"`
-	ProjectId            NullableString                                               `json:"project_id,omitempty"`
-	ProjectName          NullableString                                               `json:"project_name,omitempty"`
-	CreatedAt            NullableTime                                                 `json:"created_at,omitempty"`
-	UpdatedAt            NullableTime                                                 `json:"updated_at,omitempty"`
+	Id          string                                                       `json:"id"`
+	Name        NullableString                                               `json:"name,omitempty"`
+	IsStateful  NullableBool                                                 `json:"is_stateful,omitempty"`
+	Description NullableString                                               `json:"description,omitempty"`
+	Rules       []BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupRuleModel `json:"rules,omitempty"`
+	ProjectId   NullableString                                               `json:"project_id,omitempty"`
+	ProjectName NullableString                                               `json:"project_name,omitempty"`
+	// 태그 목록
+	Tags                 []string     `json:"tags"`
+	CreatedAt            NullableTime `json:"created_at,omitempty"`
+	UpdatedAt            NullableTime `json:"updated_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,9 +42,10 @@ type _BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel BnsNetworkV1ApiGetS
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel(id string) *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel {
+func NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel(id string, tags []string) *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel {
 	this := BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel{}
 	this.Id = id
+	this.Tags = tags
 	return &this
 }
 
@@ -326,6 +329,30 @@ func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) UnsetProjectNam
 	o.ProjectName.Unset()
 }
 
+// GetTags returns the Tags field value
+func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetCreatedAt() time.Time {
 	if o == nil || IsNil(o.CreatedAt.Get()) {
@@ -441,6 +468,7 @@ func (o BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) ToMap() (map[str
 	if o.ProjectName.IsSet() {
 		toSerialize["project_name"] = o.ProjectName.Get()
 	}
+	toSerialize["tags"] = o.Tags
 	if o.CreatedAt.IsSet() {
 		toSerialize["created_at"] = o.CreatedAt.Get()
 	}
@@ -461,6 +489,7 @@ func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) UnmarshalJSON(d
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
+		"tags",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -497,6 +526,7 @@ func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) UnmarshalJSON(d
 		delete(additionalProperties, "rules")
 		delete(additionalProperties, "project_id")
 		delete(additionalProperties, "project_name")
+		delete(additionalProperties, "tags")
 		delete(additionalProperties, "created_at")
 		delete(additionalProperties, "updated_at")
 		o.AdditionalProperties = additionalProperties

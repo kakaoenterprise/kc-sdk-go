@@ -7,6 +7,7 @@ import (
 	kubernetesengine "github.com/kakaoenterprise/kc-sdk-go/services/kubernetesengine"
 	loadbalancer "github.com/kakaoenterprise/kc-sdk-go/services/loadbalancer"
 	network "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	tgw "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 	volume "github.com/kakaoenterprise/kc-sdk-go/services/volume"
 	vpc "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
 )
@@ -65,6 +66,11 @@ type APIClient struct {
 	ScalingAPI       kubernetesengine.ScalingAPI
 	ServiceAgentsAPI kubernetesengine.ServiceAgentsAPI
 	UpgradesAPI      kubernetesengine.UpgradesAPI
+
+	// tgw
+	TgwsAPI        tgw.TgwsAPI
+	AttachmentsAPI tgw.AttachmentsAPI
+	RouteTablesAPI tgw.RouteTablesAPI
 }
 
 func NewAPIClient(cfg Config) *APIClient {
@@ -162,7 +168,6 @@ func NewAPIClient(cfg Config) *APIClient {
 		c.LoadBalancerL7PoliciesAPI = cli.LoadBalancerL7PoliciesAPI
 		c.LoadBalancerListenerAPI = cli.LoadBalancerListenerAPI
 		c.LoadBalancerTargetGroupAPI = cli.LoadBalancerTargetGroupAPI
-
 	}
 
 	{
@@ -179,7 +184,18 @@ func NewAPIClient(cfg Config) *APIClient {
 		c.ScalingAPI = cli.ScalingAPI
 		c.ServiceAgentsAPI = cli.ServiceAgentsAPI
 		c.UpgradesAPI = cli.UpgradesAPI
+	}
 
+	{
+		cc := tgw.NewConfiguration()
+		cc.HTTPClient = authedClient
+		cc.Servers = tgw.ServerConfigurations{{URL: cfg.Endpoints.TGW}}
+
+		cli := tgw.NewAPIClient(cc)
+
+		c.TgwsAPI = cli.TgwsAPI
+		c.AttachmentsAPI = cli.AttachmentsAPI
+		c.RouteTablesAPI = cli.RouteTablesAPI
 	}
 
 	return c

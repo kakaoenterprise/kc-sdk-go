@@ -25,6 +25,8 @@ type BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel struct {
 	Id string `json:"id"`
 	// 보안 그룹의 이름
 	Name string `json:"name"`
+	// 태그 목록
+	Tags []string `json:"tags"`
 	// 보안 그룹의 상태 기반(Stateful) 여부
 	IsStateful bool `json:"is_stateful"`
 	// 보안 그룹에 대한 설명
@@ -44,10 +46,11 @@ type _BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel BnsNetworkV1ApiU
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel(id string, name string, isStateful bool, description string, rules []BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupRuleModel, createdAt time.Time, updatedAt time.Time) *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel {
+func NewBnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel(id string, name string, tags []string, isStateful bool, description string, rules []BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupRuleModel, createdAt time.Time, updatedAt time.Time) *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel {
 	this := BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel{}
 	this.Id = id
 	this.Name = name
+	this.Tags = tags
 	this.IsStateful = isStateful
 	this.Description = description
 	this.Rules = rules
@@ -110,6 +113,30 @@ func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) GetNameOk() 
 // SetName sets field value
 func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) SetName(v string) {
 	o.Name = v
+}
+
+// GetTags returns the Tags field value
+func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) GetTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) SetTags(v []string) {
+	o.Tags = v
 }
 
 // GetIsStateful returns the IsStateful field value
@@ -244,6 +271,7 @@ func (o BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) ToMap() (map[
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+	toSerialize["tags"] = o.Tags
 	toSerialize["is_stateful"] = o.IsStateful
 	toSerialize["description"] = o.Description
 	toSerialize["rules"] = o.Rules
@@ -264,6 +292,7 @@ func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) UnmarshalJSO
 	requiredProperties := []string{
 		"id",
 		"name",
+		"tags",
 		"is_stateful",
 		"description",
 		"rules",
@@ -300,6 +329,7 @@ func (o *BnsNetworkV1ApiUpdateSecurityGroupModelSecurityGroupModel) UnmarshalJSO
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
+		delete(additionalProperties, "tags")
 		delete(additionalProperties, "is_stateful")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "rules")

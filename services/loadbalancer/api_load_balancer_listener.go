@@ -79,7 +79,7 @@ type LoadBalancerListenerAPI interface {
 		ListListeners List listeners
 
 		프로젝트 내 전체 리스너 목록을 조회합니다.<br/>
-	특정 로드 밸런서에 설정된 리스너를 확인하려면 [로드 밸런서 상세 정보 조회 API](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
+	특정 로드 밸런서에 설정된 리스너를 확인하려면 [Get load balancer](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@return ApiListListenersRequest
@@ -821,7 +821,7 @@ func (r ApiListListenersRequest) Execute() (*ListenerListModel, *http.Response, 
 ListListeners List listeners
 
 프로젝트 내 전체 리스너 목록을 조회합니다.<br/>
-특정 로드 밸런서에 설정된 리스너를 확인하려면 [로드 밸런서 상세 정보 조회 API](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
+특정 로드 밸런서에 설정된 리스너를 확인하려면 [Get load balancer](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return ApiListListenersRequest

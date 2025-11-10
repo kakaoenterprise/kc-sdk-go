@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | 보안 그룹의 ID | 
 **Name** | **string** | 보안 그룹 이름 | 
+**Tags** | **[]string** | 태그 목록 | 
 **IsStateful** | **bool** | 보안 그룹의 상태 기반(Stateful) 여부 | 
 **Description** | **string** | 보안 그룹에 대한 설명 | 
 **Rules** | [**[]BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupRuleModel**](BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupRuleModel.md) | 보안 그룹에 포함된 규칙 목록 | 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewBnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel
 
-`func NewBnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel(id string, name string, isStateful bool, description string, rules []BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupRuleModel, createdAt time.Time, updatedAt time.Time, ) *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel`
+`func NewBnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel(id string, name string, tags []string, isStateful bool, description string, rules []BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupRuleModel, createdAt time.Time, updatedAt time.Time, ) *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel`
 
 NewBnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel instantiates a new BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +70,26 @@ and a boolean to check if the value has been set.
 `func (o *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetTags
+
+`func (o *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *BnsNetworkV1ApiCreateSecurityGroupModelSecurityGroupModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
 
 
 ### GetIsStateful

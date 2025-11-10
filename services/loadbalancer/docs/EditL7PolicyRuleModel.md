@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompareType** | [**L7RuleCompareType**](L7RuleCompareType.md) | 규칙 값 비교 방식 &lt;br/&gt; - &#x60;CONTAINS&#x60;: 포함 &lt;br/&gt; - &#x60;ENDS_WITH&#x60;: ~로 끝남 &lt;br/&gt; - &#x60;EQUAL_TO&#x60;: 동일 &lt;br/&gt; - &#x60;STARTS_WITH&#x60;: ~로 시작함 | 
+**CompareType** | [**L7RuleCompareType**](L7RuleCompareType.md) | 규칙 값 비교 방식 | 
 **IsInverted** | Pointer to **NullableBool** |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Type** | [**L7RuleType**](L7RuleType.md) | 요청의 어느 속성을 기준으로 규칙을 평가할지 정의 &lt;br/&gt; - &#x60;COOKIE&#x60;: 쿠키 값 &lt;br/&gt; - &#x60;FILE_TYPE&#x60;: 파일 확장자 &lt;br/&gt; - &#x60;HEADER&#x60;: HTTP 헤더 &lt;br/&gt; - &#x60;HOST_NAME&#x60;: 호스트 이름 &lt;br/&gt; - &#x60;PATH&#x60;: 요청 경로 | 

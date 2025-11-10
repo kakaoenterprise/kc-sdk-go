@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompareType** | [**L7RuleCompareType**](L7RuleCompareType.md) | 규칙 값 비교 방식 &lt;br/&gt; - &#x60;CONTAINS&#x60;: 포함 &lt;br/&gt; - &#x60;ENDS_WITH&#x60;: ~로 끝남 &lt;br/&gt; - &#x60;EQUAL_TO&#x60;: 동일 &lt;br/&gt; - &#x60;STARTS_WITH&#x60;: ~로 시작함 | 
+**CompareType** | [**L7RuleCompareType**](L7RuleCompareType.md) | 규칙 값 비교 방식 | 
 **IsInverted** | Pointer to **NullableBool** |  | [optional] 
 **Key** | Pointer to **NullableString** |  | [optional] 
 **Type** | [**L7RuleType**](L7RuleType.md) | 규칙을 검사할 대상 유형 &lt;br/&gt;- &#x60;COOKIE&#x60;: HTTP 요청의 특정 쿠키 값을 기준으로 검사&lt;br/&gt;- &#x60;FILE_TYPE&#x60;: 요청한 리소스의 파일 확장자(예: &#x60;.jpg&#x60;, &#x60;.exe&#x60;)를 기준으로 검사&lt;br/&gt;- &#x60;HEADER&#x60;: HTTP 요청 헤더 값을 기준으로 검사&lt;br/&gt;- &#x60;HOST_NAME&#x60;: 요청의 Host 헤더(도메인 이름)를 기준으로 검사&lt;br/&gt;- &#x60;PATH&#x60;: 요청 URL 경로(예: &#x60;/images/_*&#x60;, &#x60;/api/v1/_*&#x60;)를 기준으로 검사 | 

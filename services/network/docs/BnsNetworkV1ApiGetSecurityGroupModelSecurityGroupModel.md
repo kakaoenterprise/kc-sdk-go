@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Rules** | Pointer to [**[]BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupRuleModel**](BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupRuleModel.md) |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
+**Tags** | **[]string** | 태그 목록 | 
 **CreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **UpdatedAt** | Pointer to **NullableTime** |  | [optional] 
 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel
 
-`func NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel(id string, ) *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel`
+`func NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel(id string, tags []string, ) *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel`
 
 NewBnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel instantiates a new BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel object
 This constructor will assign default values to properties that have it defined,
@@ -263,6 +264,26 @@ HasProjectName returns a boolean if a field has been set.
 `func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) UnsetProjectName()`
 
 UnsetProjectName ensures that no value is present for ProjectName, not even an explicit nil
+### GetTags
+
+`func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+
 ### GetCreatedAt
 
 `func (o *BnsNetworkV1ApiGetSecurityGroupModelSecurityGroupModel) GetCreatedAt() time.Time`

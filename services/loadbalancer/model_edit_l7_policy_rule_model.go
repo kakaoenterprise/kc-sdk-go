@@ -20,7 +20,7 @@ var _ MappedNullable = &EditL7PolicyRuleModel{}
 
 // EditL7PolicyRuleModel struct for EditL7PolicyRuleModel
 type EditL7PolicyRuleModel struct {
-	// 규칙 값 비교 방식 <br/> - `CONTAINS`: 포함 <br/> - `ENDS_WITH`: ~로 끝남 <br/> - `EQUAL_TO`: 동일 <br/> - `STARTS_WITH`: ~로 시작함
+	// 규칙 값 비교 방식
 	CompareType L7RuleCompareType `json:"compare_type"`
 	IsInverted  NullableBool      `json:"is_inverted,omitempty"`
 	Key         NullableString    `json:"key,omitempty"`
