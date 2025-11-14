@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ProvisioningStatus** | [**TGWProvisioningStatus**](TGWProvisioningStatus.md) | 프로비저닝 상태 | 
 **TgwProjectId** | **string** | VPC 소유자 ID | 
 **VpcName** | **string** | VPC 이름 | 
-**VpcCidrBlock** | **string** | VPC CIDR 블록 | 
+**CidrBlock** | **string** | VPC CIDR 블록 | 
 **ProjectId** | **string** | 프로젝트 ID | 
 **CreatedAt** | **time.Time** | 리소스가 생성된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
 **UpdatedAt** | **time.Time** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel
 
-`func NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, vpcCidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time, ) *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel`
+`func NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time, ) *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel`
 
 NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel instantiates a new BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -175,24 +175,24 @@ and a boolean to check if the value has been set.
 SetVpcName sets VpcName field to given value.
 
 
-### GetVpcCidrBlock
+### GetCidrBlock
 
-`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetVpcCidrBlock() string`
+`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetCidrBlock() string`
 
-GetVpcCidrBlock returns the VpcCidrBlock field if non-nil, zero value otherwise.
+GetCidrBlock returns the CidrBlock field if non-nil, zero value otherwise.
 
-### GetVpcCidrBlockOk
+### GetCidrBlockOk
 
-`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetVpcCidrBlockOk() (*string, bool)`
+`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetCidrBlockOk() (*string, bool)`
 
-GetVpcCidrBlockOk returns a tuple with the VpcCidrBlock field if it's non-nil, zero value otherwise
+GetCidrBlockOk returns a tuple with the CidrBlock field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVpcCidrBlock
+### SetCidrBlock
 
-`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) SetVpcCidrBlock(v string)`
+`func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) SetCidrBlock(v string)`
 
-SetVpcCidrBlock sets VpcCidrBlock field to given value.
+SetCidrBlock sets CidrBlock field to given value.
 
 
 ### GetProjectId

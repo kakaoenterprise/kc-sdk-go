@@ -36,7 +36,7 @@ type BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel struct {
 	// VPC 이름
 	VpcName string `json:"vpc_name"`
 	// VPC CIDR 블록
-	VpcCidrBlock string `json:"vpc_cidr_block"`
+	CidrBlock string `json:"cidr_block"`
 	// 프로젝트 ID
 	ProjectId string `json:"project_id"`
 	// 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준
@@ -52,7 +52,7 @@ type _BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel BnsTgwV1Api
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, vpcCidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time) *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel {
+func NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time) *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel {
 	this := BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel{}
 	this.Id = id
 	this.TgwAttachmentId = tgwAttachmentId
@@ -61,7 +61,7 @@ func NewBnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel(id string
 	this.ProvisioningStatus = provisioningStatus
 	this.TgwProjectId = tgwProjectId
 	this.VpcName = vpcName
-	this.VpcCidrBlock = vpcCidrBlock
+	this.CidrBlock = cidrBlock
 	this.ProjectId = projectId
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
@@ -244,28 +244,28 @@ func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) SetVpcN
 	o.VpcName = v
 }
 
-// GetVpcCidrBlock returns the VpcCidrBlock field value
-func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetVpcCidrBlock() string {
+// GetCidrBlock returns the CidrBlock field value
+func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetCidrBlock() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.VpcCidrBlock
+	return o.CidrBlock
 }
 
-// GetVpcCidrBlockOk returns a tuple with the VpcCidrBlock field value
+// GetCidrBlockOk returns a tuple with the CidrBlock field value
 // and a boolean to check if the value has been set.
-func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetVpcCidrBlockOk() (*string, bool) {
+func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) GetCidrBlockOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.VpcCidrBlock, true
+	return &o.CidrBlock, true
 }
 
-// SetVpcCidrBlock sets field value
-func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) SetVpcCidrBlock(v string) {
-	o.VpcCidrBlock = v
+// SetCidrBlock sets field value
+func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) SetCidrBlock(v string) {
+	o.CidrBlock = v
 }
 
 // GetProjectId returns the ProjectId field value
@@ -357,7 +357,7 @@ func (o BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) ToMap() 
 	toSerialize["provisioning_status"] = o.ProvisioningStatus
 	toSerialize["tgw_project_id"] = o.TgwProjectId
 	toSerialize["vpc_name"] = o.VpcName
-	toSerialize["vpc_cidr_block"] = o.VpcCidrBlock
+	toSerialize["cidr_block"] = o.CidrBlock
 	toSerialize["project_id"] = o.ProjectId
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["updated_at"] = o.UpdatedAt
@@ -381,7 +381,7 @@ func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) Unmarsh
 		"provisioning_status",
 		"tgw_project_id",
 		"vpc_name",
-		"vpc_cidr_block",
+		"cidr_block",
 		"project_id",
 		"created_at",
 		"updated_at",
@@ -421,7 +421,7 @@ func (o *BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel) Unmarsh
 		delete(additionalProperties, "provisioning_status")
 		delete(additionalProperties, "tgw_project_id")
 		delete(additionalProperties, "vpc_name")
-		delete(additionalProperties, "vpc_cidr_block")
+		delete(additionalProperties, "cidr_block")
 		delete(additionalProperties, "project_id")
 		delete(additionalProperties, "created_at")
 		delete(additionalProperties, "updated_at")
