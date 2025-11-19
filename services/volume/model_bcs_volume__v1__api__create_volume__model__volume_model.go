@@ -36,8 +36,8 @@ type BcsVolumeV1ApiCreateVolumeModelVolumeModel struct {
 	VolumeType  NullableString `json:"volume_type,omitempty"`
 	SnapshotId  NullableString `json:"snapshot_id,omitempty"`
 	// 추가 메타데이터 정보
-	Metadata map[string]AnyOf `json:"metadata"`
-	UserId   NullableString   `json:"user_id,omitempty"`
+	Metadata map[string]string `json:"metadata"`
+	UserId   NullableString    `json:"user_id,omitempty"`
 	// 부팅 가능 여부
 	IsBootable  bool         `json:"is_bootable"`
 	IsEncrypted NullableBool `json:"is_encrypted,omitempty"`
@@ -52,7 +52,7 @@ type _BcsVolumeV1ApiCreateVolumeModelVolumeModel BcsVolumeV1ApiCreateVolumeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]AnyOf, isBootable bool, attachments []*AnyOf) *BcsVolumeV1ApiCreateVolumeModelVolumeModel {
+func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []*AnyOf) *BcsVolumeV1ApiCreateVolumeModelVolumeModel {
 	this := BcsVolumeV1ApiCreateVolumeModelVolumeModel{}
 	this.Id = id
 	this.Status = status
@@ -427,9 +427,9 @@ func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) UnsetSnapshotId() {
 }
 
 // GetMetadata returns the Metadata field value
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadata() map[string]AnyOf {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadata() map[string]string {
 	if o == nil {
-		var ret map[string]AnyOf
+		var ret map[string]string
 		return ret
 	}
 
@@ -438,15 +438,15 @@ func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadata() map[string]An
 
 // GetMetadataOk returns a tuple with the Metadata field value
 // and a boolean to check if the value has been set.
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadataOk() (map[string]AnyOf, bool) {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadataOk() (map[string]string, bool) {
 	if o == nil {
-		return map[string]AnyOf{}, false
+		return map[string]string{}, false
 	}
 	return o.Metadata, true
 }
 
 // SetMetadata sets field value
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetMetadata(v map[string]AnyOf) {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetMetadata(v map[string]string) {
 	o.Metadata = v
 }
 

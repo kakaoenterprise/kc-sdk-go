@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Attachment](docs/Attachment.md)
  - [AvailabilityZone](docs/AvailabilityZone.md)
  - [BcsVolumeV1ApiCreateVolumeModelResponseVolumeModel](docs/BcsVolumeV1ApiCreateVolumeModelResponseVolumeModel.md)
  - [BcsVolumeV1ApiCreateVolumeModelVolumeModel](docs/BcsVolumeV1ApiCreateVolumeModelVolumeModel.md)

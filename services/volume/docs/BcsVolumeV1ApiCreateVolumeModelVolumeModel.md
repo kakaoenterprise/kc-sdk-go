@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **SnapshotId** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | [**map[string]AnyOf**](anyOf&lt;&gt;.md) | 추가 메타데이터 정보 | 
+**Metadata** | **map[string]string** | 추가 메타데이터 정보 | 
 **UserId** | Pointer to **NullableString** |  | [optional] 
 **IsBootable** | **bool** | 부팅 가능 여부 | 
 **IsEncrypted** | Pointer to **NullableBool** |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewBcsVolumeV1ApiCreateVolumeModelVolumeModel
 
-`func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]AnyOf, isBootable bool, attachments []*AnyOf, ) *BcsVolumeV1ApiCreateVolumeModelVolumeModel`
+`func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []*AnyOf, ) *BcsVolumeV1ApiCreateVolumeModelVolumeModel`
 
 NewBcsVolumeV1ApiCreateVolumeModelVolumeModel instantiates a new BcsVolumeV1ApiCreateVolumeModelVolumeModel object
 This constructor will assign default values to properties that have it defined,
@@ -331,20 +331,20 @@ HasSnapshotId returns a boolean if a field has been set.
 UnsetSnapshotId ensures that no value is present for SnapshotId, not even an explicit nil
 ### GetMetadata
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadata() map[string]AnyOf`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadata() map[string]string`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadataOk() (*map[string]AnyOf, bool)`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetMetadataOk() (*map[string]string, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetMetadata(v map[string]AnyOf)`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetMetadata(v map[string]string)`
 
 SetMetadata sets Metadata field to given value.
 

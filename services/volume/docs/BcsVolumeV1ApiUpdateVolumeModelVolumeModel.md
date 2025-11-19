@@ -14,17 +14,17 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **SnapshotId** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | [**map[string]AnyOf**](anyOf&lt;&gt;.md) | 키-값 쌍 형태의 메타데이터 | 
+**Metadata** | **map[string]string** | 키-값 쌍 형태의 메타데이터 | 
 **UserId** | Pointer to **NullableString** |  | [optional] 
 **IsBootable** | **bool** | 부팅 가능 여부 | 
 **IsEncrypted** | Pointer to **NullableBool** |  | [optional] 
-**Attachments** | [**[]AnyOf**](AnyOf.md) | 볼륨이 연결된 인스턴스 정보 등의 Attachment 정보 | 
+**Attachments** | [**[]Attachment**](Attachment.md) | 볼륨이 연결된 인스턴스 정보 등의 Attachment 정보 | 
 
 ## Methods
 
 ### NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel
 
-`func NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]AnyOf, isBootable bool, attachments []*AnyOf, ) *BcsVolumeV1ApiUpdateVolumeModelVolumeModel`
+`func NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []Attachment, ) *BcsVolumeV1ApiUpdateVolumeModelVolumeModel`
 
 NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel instantiates a new BcsVolumeV1ApiUpdateVolumeModelVolumeModel object
 This constructor will assign default values to properties that have it defined,
@@ -331,20 +331,20 @@ HasSnapshotId returns a boolean if a field has been set.
 UnsetSnapshotId ensures that no value is present for SnapshotId, not even an explicit nil
 ### GetMetadata
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadata() map[string]AnyOf`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadata() map[string]string`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadataOk() (*map[string]AnyOf, bool)`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadataOk() (*map[string]string, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetMetadata(v map[string]AnyOf)`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetMetadata(v map[string]string)`
 
 SetMetadata sets Metadata field to given value.
 
@@ -441,20 +441,20 @@ HasIsEncrypted returns a boolean if a field has been set.
 UnsetIsEncrypted ensures that no value is present for IsEncrypted, not even an explicit nil
 ### GetAttachments
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachments() []*AnyOf`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachments() []Attachment`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachmentsOk() (*[]*AnyOf, bool)`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachmentsOk() (*[]Attachment, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetAttachments(v []*AnyOf)`
+`func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetAttachments(v []Attachment)`
 
 SetAttachments sets Attachments field to given value.
 

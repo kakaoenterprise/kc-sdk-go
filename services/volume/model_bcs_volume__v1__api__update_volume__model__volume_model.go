@@ -36,13 +36,13 @@ type BcsVolumeV1ApiUpdateVolumeModelVolumeModel struct {
 	VolumeType  NullableString `json:"volume_type,omitempty"`
 	SnapshotId  NullableString `json:"snapshot_id,omitempty"`
 	// 키-값 쌍 형태의 메타데이터
-	Metadata map[string]AnyOf `json:"metadata"`
-	UserId   NullableString   `json:"user_id,omitempty"`
+	Metadata map[string]string `json:"metadata"`
+	UserId   NullableString    `json:"user_id,omitempty"`
 	// 부팅 가능 여부
 	IsBootable  bool         `json:"is_bootable"`
 	IsEncrypted NullableBool `json:"is_encrypted,omitempty"`
 	// 볼륨이 연결된 인스턴스 정보 등의 Attachment 정보
-	Attachments          []*AnyOf `json:"attachments"`
+	Attachments          []Attachment `json:"attachments"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -52,7 +52,7 @@ type _BcsVolumeV1ApiUpdateVolumeModelVolumeModel BcsVolumeV1ApiUpdateVolumeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]AnyOf, isBootable bool, attachments []*AnyOf) *BcsVolumeV1ApiUpdateVolumeModelVolumeModel {
+func NewBcsVolumeV1ApiUpdateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []Attachment) *BcsVolumeV1ApiUpdateVolumeModelVolumeModel {
 	this := BcsVolumeV1ApiUpdateVolumeModelVolumeModel{}
 	this.Id = id
 	this.Status = status
@@ -427,9 +427,9 @@ func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) UnsetSnapshotId() {
 }
 
 // GetMetadata returns the Metadata field value
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadata() map[string]AnyOf {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadata() map[string]string {
 	if o == nil {
-		var ret map[string]AnyOf
+		var ret map[string]string
 		return ret
 	}
 
@@ -438,15 +438,15 @@ func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadata() map[string]An
 
 // GetMetadataOk returns a tuple with the Metadata field value
 // and a boolean to check if the value has been set.
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadataOk() (map[string]AnyOf, bool) {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetMetadataOk() (map[string]string, bool) {
 	if o == nil {
-		return map[string]AnyOf{}, false
+		return map[string]string{}, false
 	}
 	return o.Metadata, true
 }
 
 // SetMetadata sets field value
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetMetadata(v map[string]AnyOf) {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetMetadata(v map[string]string) {
 	o.Metadata = v
 }
 
@@ -561,9 +561,9 @@ func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) UnsetIsEncrypted() {
 }
 
 // GetAttachments returns the Attachments field value
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachments() []*AnyOf {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachments() []Attachment {
 	if o == nil {
-		var ret []*AnyOf
+		var ret []Attachment
 		return ret
 	}
 
@@ -572,7 +572,7 @@ func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachments() []*AnyOf {
 
 // GetAttachmentsOk returns a tuple with the Attachments field value
 // and a boolean to check if the value has been set.
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachmentsOk() ([]*AnyOf, bool) {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachmentsOk() ([]Attachment, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -580,7 +580,7 @@ func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) GetAttachmentsOk() ([]*AnyO
 }
 
 // SetAttachments sets field value
-func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetAttachments(v []*AnyOf) {
+func (o *BcsVolumeV1ApiUpdateVolumeModelVolumeModel) SetAttachments(v []Attachment) {
 	o.Attachments = v
 }
 
