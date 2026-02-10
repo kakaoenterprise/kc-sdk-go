@@ -20,17 +20,17 @@ var _ MappedNullable = &BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel{
 
 // BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel struct for BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel
 type BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel struct {
-	Id                             NullableString                `json:"id,omitempty"`
-	Name                           NullableString                `json:"name,omitempty"`
-	ProjectId                      NullableString                `json:"project_id,omitempty"`
-	Region                         NullableRegion                `json:"region,omitempty"`
-	TgwId                          NullableString                `json:"tgw_id,omitempty"`
-	IsDefaultAssociationRouteTable NullableBool                  `json:"is_default_association_route_table,omitempty"`
-	IsDefaultPropagationRouteTable NullableBool                  `json:"is_default_propagation_route_table,omitempty"`
-	ProvisioningStatus             NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	CreatedAt                      NullableTime                  `json:"created_at,omitempty"`
-	UpdatedAt                      NullableTime                  `json:"updated_at,omitempty"`
-	AdditionalProperties           map[string]interface{}
+	Id NullableString `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	ProjectId NullableString `json:"project_id,omitempty"`
+	Region NullableRegion `json:"region,omitempty"`
+	TgwId NullableString `json:"tgw_id,omitempty"`
+	IsDefaultAssociationRouteTable NullableBool `json:"is_default_association_route_table,omitempty"`
+	IsDefaultPropagationRouteTable NullableBool `json:"is_default_propagation_route_table,omitempty"`
+	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	CreatedAt NullableTime `json:"created_at,omitempty"`
+	UpdatedAt NullableTime `json:"updated_at,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel
@@ -84,7 +84,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasId() bool {
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -127,7 +126,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasName() bool
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
-
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -170,7 +168,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasProjectId()
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
-
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -213,7 +210,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasRegion() bo
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetRegion(v Region) {
 	o.Region.Set(&v)
 }
-
 // SetRegionNil sets the value for Region to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetRegionNil() {
 	o.Region.Set(nil)
@@ -256,7 +252,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasTgwId() boo
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetTgwId(v string) {
 	o.TgwId.Set(&v)
 }
-
 // SetTgwIdNil sets the value for TgwId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetTgwIdNil() {
 	o.TgwId.Set(nil)
@@ -299,7 +294,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasIsDefaultAs
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetIsDefaultAssociationRouteTable(v bool) {
 	o.IsDefaultAssociationRouteTable.Set(&v)
 }
-
 // SetIsDefaultAssociationRouteTableNil sets the value for IsDefaultAssociationRouteTable to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetIsDefaultAssociationRouteTableNil() {
 	o.IsDefaultAssociationRouteTable.Set(nil)
@@ -342,7 +336,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasIsDefaultPr
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetIsDefaultPropagationRouteTable(v bool) {
 	o.IsDefaultPropagationRouteTable.Set(&v)
 }
-
 // SetIsDefaultPropagationRouteTableNil sets the value for IsDefaultPropagationRouteTable to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetIsDefaultPropagationRouteTableNil() {
 	o.IsDefaultPropagationRouteTable.Set(nil)
@@ -385,7 +378,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasProvisionin
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
-
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -428,7 +420,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasCreatedAt()
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
-
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -471,7 +462,6 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) HasUpdatedAt()
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
-
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -483,7 +473,7 @@ func (o *BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) UnsetUpdatedAt
 }
 
 func (o BnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -595,3 +585,5 @@ func (v *NullableBnsTgwV1ApiGetTgwAttachmentModelRouteTableResponseModel) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

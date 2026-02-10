@@ -23,7 +23,7 @@ type BnsTgwV1ApiCreateTgwRouteTableModelTgwRouteTableRequestModel struct {
 	// 라우팅 테이블을 생성할 Transit Gateway ID
 	TgwId string `json:"tgw_id"`
 	// 라우팅 테이블 이름
-	Name                 string `json:"name"`
+	Name string `json:"name"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,7 @@ func (o *BnsTgwV1ApiCreateTgwRouteTableModelTgwRouteTableRequestModel) SetName(v
 }
 
 func (o BnsTgwV1ApiCreateTgwRouteTableModelTgwRouteTableRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *BnsTgwV1ApiCreateTgwRouteTableModelTgwRouteTableRequestModel) Unmarshal
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,3 +195,5 @@ func (v *NullableBnsTgwV1ApiCreateTgwRouteTableModelTgwRouteTableRequestModel) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

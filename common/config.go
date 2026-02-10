@@ -21,4 +21,5 @@ type Config struct {
 	HTTPClient *http.Client
 	Token      string
 	UserAgent  string
+	Version    string
 }

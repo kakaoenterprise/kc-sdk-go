@@ -21,7 +21,7 @@ var _ MappedNullable = &BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentR
 // BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel struct for BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel
 type BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel struct {
 	// Attachment에 대한 정보
-	Attachment           BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel `json:"attachment"`
+	Attachment BnsTgwV1ApiApproveTgwAttachmentModelTgwAttachmentResponseModel `json:"attachment"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel) S
 }
 
 func (o BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel) U
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,3 +165,5 @@ func (v *NullableBnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponse
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

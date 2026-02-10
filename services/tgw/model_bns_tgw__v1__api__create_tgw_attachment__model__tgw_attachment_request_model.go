@@ -25,7 +25,7 @@ type BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentRequestModel struct {
 	// 연결할 VPC ID
 	VpcId string `json:"vpc_id"`
 	// 연결할 서브넷 ID 목록
-	SubnetIds            []string `json:"subnet_ids"`
+	SubnetIds []string `json:"subnet_ids"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -124,7 +124,7 @@ func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentRequestModel) SetSubnet
 }
 
 func (o BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,10 +159,10 @@ func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentRequestModel) Unmarshal
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -225,3 +225,5 @@ func (v *NullableBnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentRequestModel) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

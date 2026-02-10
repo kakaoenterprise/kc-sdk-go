@@ -19,11 +19,10 @@ var _ MappedNullable = &TrasitGatewayResponseModel{}
 
 // TrasitGatewayResponseModel struct for TrasitGatewayResponseModel
 type TrasitGatewayResponseModel struct {
-	Id                   NullableString `json:"id,omitempty"`
-	Name                 NullableString `json:"name,omitempty"`
-	AttachmentId         NullableString `json:"attachment_id,omitempty"`
-	ProjectId            NullableString `json:"project_id,omitempty"`
-	ProjectName          NullableString `json:"project_name,omitempty"`
+	Id NullableString `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	ProjectId NullableString `json:"project_id,omitempty"`
+	ProjectName NullableString `json:"project_name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +77,6 @@ func (o *TrasitGatewayResponseModel) HasId() bool {
 func (o *TrasitGatewayResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -121,7 +119,6 @@ func (o *TrasitGatewayResponseModel) HasName() bool {
 func (o *TrasitGatewayResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
-
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -130,49 +127,6 @@ func (o *TrasitGatewayResponseModel) SetNameNil() {
 // UnsetName ensures that no value is present for Name, not even an explicit nil
 func (o *TrasitGatewayResponseModel) UnsetName() {
 	o.Name.Unset()
-}
-
-// GetAttachmentId returns the AttachmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TrasitGatewayResponseModel) GetAttachmentId() string {
-	if o == nil || IsNil(o.AttachmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.AttachmentId.Get()
-}
-
-// GetAttachmentIdOk returns a tuple with the AttachmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TrasitGatewayResponseModel) GetAttachmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AttachmentId.Get(), o.AttachmentId.IsSet()
-}
-
-// HasAttachmentId returns a boolean if a field has been set.
-func (o *TrasitGatewayResponseModel) HasAttachmentId() bool {
-	if o != nil && o.AttachmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAttachmentId gets a reference to the given NullableString and assigns it to the AttachmentId field.
-func (o *TrasitGatewayResponseModel) SetAttachmentId(v string) {
-	o.AttachmentId.Set(&v)
-}
-
-// SetAttachmentIdNil sets the value for AttachmentId to be an explicit nil
-func (o *TrasitGatewayResponseModel) SetAttachmentIdNil() {
-	o.AttachmentId.Set(nil)
-}
-
-// UnsetAttachmentId ensures that no value is present for AttachmentId, not even an explicit nil
-func (o *TrasitGatewayResponseModel) UnsetAttachmentId() {
-	o.AttachmentId.Unset()
 }
 
 // GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -207,7 +161,6 @@ func (o *TrasitGatewayResponseModel) HasProjectId() bool {
 func (o *TrasitGatewayResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
-
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -250,7 +203,6 @@ func (o *TrasitGatewayResponseModel) HasProjectName() bool {
 func (o *TrasitGatewayResponseModel) SetProjectName(v string) {
 	o.ProjectName.Set(&v)
 }
-
 // SetProjectNameNil sets the value for ProjectName to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetProjectNameNil() {
 	o.ProjectName.Set(nil)
@@ -262,7 +214,7 @@ func (o *TrasitGatewayResponseModel) UnsetProjectName() {
 }
 
 func (o TrasitGatewayResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -276,9 +228,6 @@ func (o TrasitGatewayResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
-	}
-	if o.AttachmentId.IsSet() {
-		toSerialize["attachment_id"] = o.AttachmentId.Get()
 	}
 	if o.ProjectId.IsSet() {
 		toSerialize["project_id"] = o.ProjectId.Get()
@@ -310,7 +259,6 @@ func (o *TrasitGatewayResponseModel) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
-		delete(additionalProperties, "attachment_id")
 		delete(additionalProperties, "project_id")
 		delete(additionalProperties, "project_name")
 		o.AdditionalProperties = additionalProperties
@@ -354,3 +302,5 @@ func (v *NullableTrasitGatewayResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

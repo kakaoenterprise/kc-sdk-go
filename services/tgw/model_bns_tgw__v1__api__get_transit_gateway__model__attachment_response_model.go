@@ -20,14 +20,14 @@ var _ MappedNullable = &BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel
 
 // BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel struct for BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel
 type BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel struct {
-	Id                   NullableString                `json:"id,omitempty"`
-	ResourceType         NullableResourceType          `json:"resource_type,omitempty"`
-	ResourceId           NullableString                `json:"resource_id,omitempty"`
-	ResourceName         NullableString                `json:"resource_name,omitempty"`
-	TgwId                NullableString                `json:"tgw_id,omitempty"`
-	ProvisioningStatus   NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	CreatedAt            NullableTime                  `json:"created_at,omitempty"`
-	UpdatedAt            NullableTime                  `json:"updated_at,omitempty"`
+	Id NullableString `json:"id,omitempty"`
+	ResourceType NullableResourceType `json:"resource_type,omitempty"`
+	ResourceId NullableString `json:"resource_id,omitempty"`
+	ResourceName NullableString `json:"resource_name,omitempty"`
+	TgwId NullableString `json:"tgw_id,omitempty"`
+	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	CreatedAt NullableTime `json:"created_at,omitempty"`
+	UpdatedAt NullableTime `json:"updated_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -82,7 +82,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasId() bool 
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -125,7 +124,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasResourceTy
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceType(v ResourceType) {
 	o.ResourceType.Set(&v)
 }
-
 // SetResourceTypeNil sets the value for ResourceType to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceTypeNil() {
 	o.ResourceType.Set(nil)
@@ -168,7 +166,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasResourceId
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceId(v string) {
 	o.ResourceId.Set(&v)
 }
-
 // SetResourceIdNil sets the value for ResourceId to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceIdNil() {
 	o.ResourceId.Set(nil)
@@ -211,7 +208,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasResourceNa
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceName(v string) {
 	o.ResourceName.Set(&v)
 }
-
 // SetResourceNameNil sets the value for ResourceName to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetResourceNameNil() {
 	o.ResourceName.Set(nil)
@@ -254,7 +250,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasTgwId() bo
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetTgwId(v string) {
 	o.TgwId.Set(&v)
 }
-
 // SetTgwIdNil sets the value for TgwId to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetTgwIdNil() {
 	o.TgwId.Set(nil)
@@ -297,7 +292,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasProvisioni
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
-
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -340,7 +334,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasCreatedAt(
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
-
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -383,7 +376,6 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) HasUpdatedAt(
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
-
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -395,7 +387,7 @@ func (o *BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) UnsetUpdatedA
 }
 
 func (o BnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -499,3 +491,5 @@ func (v *NullableBnsTgwV1ApiGetTransitGatewayModelAttachmentResponseModel) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -12,8 +12,8 @@ package tgw
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
+	"fmt"
 )
 
 // checks if the BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel type satisfies the MappedNullable interface at compile time
@@ -23,8 +23,6 @@ var _ MappedNullable = &BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponse
 type BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel struct {
 	// Attachment ID
 	Id string `json:"id"`
-	// Transit Gateway와 연결된 Attachment의 연결 ID<br/>- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 `attachments.tgw.attachment_id` 확인
-	TgwAttachmentId string `json:"tgw_attachment_id"`
 	// Transit Gateway ID
 	TgwId string `json:"tgw_id"`
 	// 연결된 VPC ID
@@ -42,7 +40,7 @@ type BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel struct {
 	// 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준
 	CreatedAt time.Time `json:"created_at"`
 	// 리소스가 마지막으로 수정된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준
-	UpdatedAt            time.Time `json:"updated_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -52,10 +50,9 @@ type _BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel BnsTgwV1ApiU
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time) *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel {
+func NewBnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time) *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel {
 	this := BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel{}
 	this.Id = id
-	this.TgwAttachmentId = tgwAttachmentId
 	this.TgwId = tgwId
 	this.VpcId = vpcId
 	this.ProvisioningStatus = provisioningStatus
@@ -98,30 +95,6 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) GetIdOk(
 // SetId sets field value
 func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) SetId(v string) {
 	o.Id = v
-}
-
-// GetTgwAttachmentId returns the TgwAttachmentId field value
-func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) GetTgwAttachmentId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TgwAttachmentId
-}
-
-// GetTgwAttachmentIdOk returns a tuple with the TgwAttachmentId field value
-// and a boolean to check if the value has been set.
-func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) GetTgwAttachmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TgwAttachmentId, true
-}
-
-// SetTgwAttachmentId sets field value
-func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) SetTgwAttachmentId(v string) {
-	o.TgwAttachmentId = v
 }
 
 // GetTgwId returns the TgwId field value
@@ -341,7 +314,7 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) SetUpdat
 }
 
 func (o BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -351,7 +324,6 @@ func (o BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) MarshalJS
 func (o BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["tgw_attachment_id"] = o.TgwAttachmentId
 	toSerialize["tgw_id"] = o.TgwId
 	toSerialize["vpc_id"] = o.VpcId
 	toSerialize["provisioning_status"] = o.ProvisioningStatus
@@ -375,7 +347,6 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) Unmarsha
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"tgw_attachment_id",
 		"tgw_id",
 		"vpc_id",
 		"provisioning_status",
@@ -392,10 +363,10 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) Unmarsha
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -415,7 +386,6 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) Unmarsha
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "tgw_attachment_id")
 		delete(additionalProperties, "tgw_id")
 		delete(additionalProperties, "vpc_id")
 		delete(additionalProperties, "provisioning_status")
@@ -466,3 +436,5 @@ func (v *NullableBnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentResponseModel) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -23,7 +23,7 @@ type GetTgwAttachmentsResponseModel struct {
 	// 조회된 TGW Attachment 정보
 	Attachments []BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel `json:"attachments"`
 	// 페이지네이션 메타데이터
-	Pagination           PaginationModel `json:"pagination"`
+	Pagination PaginationModel `json:"pagination"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,7 @@ func (o *GetTgwAttachmentsResponseModel) SetPagination(v PaginationModel) {
 }
 
 func (o GetTgwAttachmentsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *GetTgwAttachmentsResponseModel) UnmarshalJSON(data []byte) (err error) 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,3 +195,5 @@ func (v *NullableGetTgwAttachmentsResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,12 +19,12 @@ var _ MappedNullable = &BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel{}
 
 // BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel struct for BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel
 type BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel struct {
-	Id                   NullableString                `json:"id,omitempty"`
-	Name                 NullableString                `json:"name,omitempty"`
-	CidrBlock            NullableString                `json:"cidr_block,omitempty"`
-	ProjectId            NullableString                `json:"project_id,omitempty"`
-	ProjectName          NullableString                `json:"project_name,omitempty"`
-	ProvisioningStatus   NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	Id NullableString `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	CidrBlock NullableString `json:"cidr_block,omitempty"`
+	ProjectId NullableString `json:"project_id,omitempty"`
+	ProjectName NullableString `json:"project_name,omitempty"`
+	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasId() bool {
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -122,7 +121,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasName() bool {
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
-
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -165,7 +163,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasCidrBlock() b
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetCidrBlock(v string) {
 	o.CidrBlock.Set(&v)
 }
-
 // SetCidrBlockNil sets the value for CidrBlock to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetCidrBlockNil() {
 	o.CidrBlock.Set(nil)
@@ -208,7 +205,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasProjectId() b
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
-
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -251,7 +247,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasProjectName()
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProjectName(v string) {
 	o.ProjectName.Set(&v)
 }
-
 // SetProjectNameNil sets the value for ProjectName to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProjectNameNil() {
 	o.ProjectName.Set(nil)
@@ -294,7 +289,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) HasProvisioningS
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
-
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -306,7 +300,7 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) UnsetProvisionin
 }
 
 func (o BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -402,3 +396,5 @@ func (v *NullableBnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

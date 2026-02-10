@@ -9,6 +9,7 @@ type xAuthTokenTransport struct {
 	base      http.RoundTripper
 	token     atomic.Value
 	userAgent atomic.Value
+	version   atomic.Value
 }
 
 func (t *xAuthTokenTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -19,10 +20,13 @@ func (t *xAuthTokenTransport) RoundTrip(req *http.Request) (*http.Response, erro
 	if ua, ok := t.userAgent.Load().(string); ok && ua != "" {
 		r.Header.Set("User-Agent", ua)
 	}
+	if version, ok := t.version.Load().(string); ok && version != "" {
+		r.Header.Set("X-Api-Version", version)
+	}
 	return t.base.RoundTrip(r)
 }
 
-func newAuthedHTTPClient(base *http.Client, token, ua string) (*http.Client, *xAuthTokenTransport) {
+func newAuthedHTTPClient(base *http.Client, token, ua string, version string) (*http.Client, *xAuthTokenTransport) {
 	if base == nil {
 		base = http.DefaultClient
 	}
@@ -33,6 +37,7 @@ func newAuthedHTTPClient(base *http.Client, token, ua string) (*http.Client, *xA
 	auth := &xAuthTokenTransport{base: rt}
 	auth.token.Store(token)
 	auth.userAgent.Store(ua)
+	auth.version.Store(version)
 
 	cli := &http.Client{
 		Transport: auth,

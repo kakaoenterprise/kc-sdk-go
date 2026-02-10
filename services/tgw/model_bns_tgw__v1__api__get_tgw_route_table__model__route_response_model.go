@@ -20,17 +20,17 @@ var _ MappedNullable = &BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel{}
 
 // BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel struct for BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel
 type BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel struct {
-	Id                   NullableString                `json:"id,omitempty"`
-	RouteType            NullableString                `json:"route_type,omitempty"`
-	DestinationCidrBlock NullableString                `json:"destination_cidr_block,omitempty"`
-	ResourceAttachmentId NullableString                `json:"resource_attachment_id,omitempty"`
-	ResourceId           NullableString                `json:"resource_id,omitempty"`
-	ResourceType         NullableResourceType          `json:"resource_type,omitempty"`
-	TgwAttachmentId      NullableString                `json:"tgw_attachment_id,omitempty"`
-	TgwRouteTableId      NullableString                `json:"tgw_route_table_id,omitempty"`
-	ProvisioningStatus   NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	Id NullableString `json:"id,omitempty"`
+	RouteType NullableString `json:"route_type,omitempty"`
+	DestinationCidrBlock NullableString `json:"destination_cidr_block,omitempty"`
+	ResourceAttachmentId NullableString `json:"resource_attachment_id,omitempty"`
+	ResourceId NullableString `json:"resource_id,omitempty"`
+	ResourceType NullableResourceType `json:"resource_type,omitempty"`
+	TgwAttachmentId NullableString `json:"tgw_attachment_id,omitempty"`
+	TgwRouteTableId NullableString `json:"tgw_route_table_id,omitempty"`
+	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
 	// 연결된 리소스 정보
-	Resource             BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel `json:"resource"`
+	Resource BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel `json:"resource"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasId() bool {
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -129,7 +128,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasRouteType() bool
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetRouteType(v string) {
 	o.RouteType.Set(&v)
 }
-
 // SetRouteTypeNil sets the value for RouteType to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetRouteTypeNil() {
 	o.RouteType.Set(nil)
@@ -172,7 +170,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasDestinationCidrB
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetDestinationCidrBlock(v string) {
 	o.DestinationCidrBlock.Set(&v)
 }
-
 // SetDestinationCidrBlockNil sets the value for DestinationCidrBlock to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetDestinationCidrBlockNil() {
 	o.DestinationCidrBlock.Set(nil)
@@ -215,7 +212,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasResourceAttachme
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceAttachmentId(v string) {
 	o.ResourceAttachmentId.Set(&v)
 }
-
 // SetResourceAttachmentIdNil sets the value for ResourceAttachmentId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceAttachmentIdNil() {
 	o.ResourceAttachmentId.Set(nil)
@@ -258,7 +254,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasResourceId() boo
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceId(v string) {
 	o.ResourceId.Set(&v)
 }
-
 // SetResourceIdNil sets the value for ResourceId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceIdNil() {
 	o.ResourceId.Set(nil)
@@ -301,7 +296,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasResourceType() b
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceType(v ResourceType) {
 	o.ResourceType.Set(&v)
 }
-
 // SetResourceTypeNil sets the value for ResourceType to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResourceTypeNil() {
 	o.ResourceType.Set(nil)
@@ -344,7 +338,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasTgwAttachmentId(
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentId(v string) {
 	o.TgwAttachmentId.Set(&v)
 }
-
 // SetTgwAttachmentIdNil sets the value for TgwAttachmentId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentIdNil() {
 	o.TgwAttachmentId.Set(nil)
@@ -387,7 +380,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasTgwRouteTableId(
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwRouteTableId(v string) {
 	o.TgwRouteTableId.Set(&v)
 }
-
 // SetTgwRouteTableIdNil sets the value for TgwRouteTableId to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwRouteTableIdNil() {
 	o.TgwRouteTableId.Set(nil)
@@ -430,7 +422,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasProvisioningStat
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
-
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -466,7 +457,7 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetResource(v BnsTg
 }
 
 func (o BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -524,10 +515,10 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnmarshalJSON(data 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -597,3 +588,5 @@ func (v *NullableBnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

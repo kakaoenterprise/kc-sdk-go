@@ -76,7 +76,7 @@ type APIClient struct {
 func NewAPIClient(cfg Config) *APIClient {
 	c := &APIClient{cfg: cfg}
 
-	authedClient, authRT := newAuthedHTTPClient(cfg.HTTPClient, cfg.Token, cfg.UserAgent)
+	authedClient, authRT := newAuthedHTTPClient(cfg.HTTPClient, cfg.Token, cfg.UserAgent, cfg.Version)
 	c.authRT = authRT
 
 	{
@@ -197,7 +197,6 @@ func NewAPIClient(cfg Config) *APIClient {
 		c.AttachmentsAPI = cli.AttachmentsAPI
 		c.RouteTablesAPI = cli.RouteTablesAPI
 	}
-
 	return c
 }
 

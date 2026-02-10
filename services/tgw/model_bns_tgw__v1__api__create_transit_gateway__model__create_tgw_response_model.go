@@ -21,7 +21,7 @@ var _ MappedNullable = &BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseMod
 // BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel struct for BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel
 type BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel struct {
 	// 생성된 Transit Gateway 정보
-	Tgw                  BnsTgwV1ApiCreateTransitGatewayModelTgwResponseModel `json:"tgw"`
+	Tgw BnsTgwV1ApiCreateTransitGatewayModelTgwResponseModel `json:"tgw"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel) SetTgw(v Bn
 }
 
 func (o BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel) UnmarshalJS
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,3 +165,5 @@ func (v *NullableBnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -19,15 +19,16 @@ import (
 	"strings"
 )
 
+
 type TgwsAPI interface {
 
 	/*
-		CreateTransitGateway Create transit gateway
+	CreateTransitGateway Create transit gateway
 
-		Transit Gateway를 생성합니다.
+	Transit Gateway를 생성합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateTransitGatewayRequest
 	*/
 	CreateTransitGateway(ctx context.Context) ApiCreateTransitGatewayRequest
 
@@ -36,14 +37,14 @@ type TgwsAPI interface {
 	CreateTransitGatewayExecute(r ApiCreateTransitGatewayRequest) (*BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel, *http.Response, error)
 
 	/*
-		DeleteTransitGateway Delete transit gateway
+	DeleteTransitGateway Delete transit gateway
 
-		지정한 Transit Gateway를 삭제합니다.<br/>
-	Transit Gateway 삭제 시 연결된 모든 Attachment, 라우팅 테이블, Association 등의 종속 리소스가 함께 해제되며, 삭제된 Transit Gateway는 복구할 수 없습니다.
+	지정한 Transit Gateway를 삭제합니다.<br/>
+Transit Gateway 삭제 시 연결된 모든 Attachment, 라우팅 테이블, Association 등의 종속 리소스가 함께 해제되며, 삭제된 Transit Gateway는 복구할 수 없습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 삭제할 Transit Gateway ID
-		@return ApiDeleteTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 삭제할 Transit Gateway ID 
+	@return ApiDeleteTransitGatewayRequest
 	*/
 	DeleteTransitGateway(ctx context.Context, tgwId string) ApiDeleteTransitGatewayRequest
 
@@ -51,13 +52,13 @@ type TgwsAPI interface {
 	DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRequest) (*http.Response, error)
 
 	/*
-		GetTransitGateway Get transit gateway
+	GetTransitGateway Get transit gateway
 
-		Transit Gateway 상세 정보를 조회합니다.
+	Transit Gateway 상세 정보를 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 조회할 Transit Gateway ID
-		@return ApiGetTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 조회할 Transit Gateway ID 
+	@return ApiGetTransitGatewayRequest
 	*/
 	GetTransitGateway(ctx context.Context, tgwId string) ApiGetTransitGatewayRequest
 
@@ -66,13 +67,13 @@ type TgwsAPI interface {
 	GetTransitGatewayExecute(r ApiGetTransitGatewayRequest) (*GetTgwResponseModel, *http.Response, error)
 
 	/*
-		ListTgwSharedProjects List TGW shared projects
+	ListTgwSharedProjects List TGW shared projects
 
-		지정한 Transit Gateway ID에 대해 공유된 프로젝트 목록을 조회합니다.
+	지정한 Transit Gateway ID에 대해 공유된 프로젝트 목록을 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 조회할 Transit Gateway ID
-		@return ApiListTgwSharedProjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 조회할 Transit Gateway ID 
+	@return ApiListTgwSharedProjectsRequest
 	*/
 	ListTgwSharedProjects(ctx context.Context, tgwId string) ApiListTgwSharedProjectsRequest
 
@@ -81,12 +82,12 @@ type TgwsAPI interface {
 	ListTgwSharedProjectsExecute(r ApiListTgwSharedProjectsRequest) (*GetTgwProjectsResponseModel, *http.Response, error)
 
 	/*
-		ListTransitGateways List transit gateways
+	ListTransitGateways List transit gateways
 
-		Transit Gateway 목록을 조회합니다.
+	Transit Gateway 목록을 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTransitGatewaysRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListTransitGatewaysRequest
 	*/
 	ListTransitGateways(ctx context.Context) ApiListTransitGatewaysRequest
 
@@ -95,14 +96,14 @@ type TgwsAPI interface {
 	ListTransitGatewaysExecute(r ApiListTransitGatewaysRequest) (*GetTgwsResponseModel, *http.Response, error)
 
 	/*
-		ShareTransitGateway Share transit gateway
+	ShareTransitGateway Share transit gateway
 
-		지정한 Transit Gateway를 다른 프로젝트에 공유합니다.
+	지정한 Transit Gateway를 다른 프로젝트에 공유합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 공유할 Transit Gateway ID
-		@param targetProjectId 공유 대상 프로젝트 ID
-		@return ApiShareTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 공유할 Transit Gateway ID 
+	@param targetProjectId 공유 대상 프로젝트 ID
+	@return ApiShareTransitGatewayRequest
 	*/
 	ShareTransitGateway(ctx context.Context, tgwId string, targetProjectId string) ApiShareTransitGatewayRequest
 
@@ -111,14 +112,14 @@ type TgwsAPI interface {
 	ShareTransitGatewayExecute(r ApiShareTransitGatewayRequest) (interface{}, *http.Response, error)
 
 	/*
-		UnshareTransitGateway Unshare transit gateway
+	UnshareTransitGateway Unshare transit gateway
 
-		지정한 Transit Gateway의 공유를 해제하여, 해당 프로젝트에서 사용하지 않도록 합니다.
+	지정한 Transit Gateway의 공유를 해제하여, 해당 프로젝트에서 사용하지 않도록 합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 공유 해제할 Transit Gateway ID
-		@param targetProjectId 공유 해제 대상 프로젝트 ID
-		@return ApiUnshareTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 공유 해제할 Transit Gateway ID 
+	@param targetProjectId 공유 해제 대상 프로젝트 ID 
+	@return ApiUnshareTransitGatewayRequest
 	*/
 	UnshareTransitGateway(ctx context.Context, tgwId string, targetProjectId string) ApiUnshareTransitGatewayRequest
 
@@ -126,13 +127,13 @@ type TgwsAPI interface {
 	UnshareTransitGatewayExecute(r ApiUnshareTransitGatewayRequest) (*http.Response, error)
 
 	/*
-		UpdateTransitGateway Update transit gateway
+	UpdateTransitGateway Update transit gateway
 
-		Transit Gateway 설정을 수정합니다.
+	Transit Gateway 설정을 수정합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 수정할 Transit Gateway ID
-		@return ApiUpdateTransitGatewayRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tgwId 수정할 Transit Gateway ID  
+	@return ApiUpdateTransitGatewayRequest
 	*/
 	UpdateTransitGateway(ctx context.Context, tgwId string) ApiUpdateTransitGatewayRequest
 
@@ -145,9 +146,9 @@ type TgwsAPI interface {
 type TgwsAPIService service
 
 type ApiCreateTransitGatewayRequest struct {
-	ctx                   context.Context
-	ApiService            TgwsAPI
-	xAuthToken            *string
+	ctx context.Context
+	ApiService TgwsAPI
+	xAuthToken *string
 	createTgwRequestModel *CreateTgwRequestModel
 }
 
@@ -171,25 +172,24 @@ CreateTransitGateway Create transit gateway
 
 Transit Gateway를 생성합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateTransitGatewayRequest
 */
 func (a *TgwsAPIService) CreateTransitGateway(ctx context.Context) ApiCreateTransitGatewayRequest {
 	return ApiCreateTransitGatewayRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel
+//  @return BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel
 func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRequest) (*BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.CreateTransitGateway")
@@ -272,8 +272,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -283,8 +283,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -294,8 +294,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -305,8 +305,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -316,8 +316,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -327,8 +327,8 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -346,9 +346,9 @@ func (a *TgwsAPIService) CreateTransitGatewayExecute(r ApiCreateTransitGatewayRe
 }
 
 type ApiDeleteTransitGatewayRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TgwsAPI
-	tgwId      string
+	tgwId string
 	xAuthToken *string
 }
 
@@ -368,24 +368,24 @@ DeleteTransitGateway Delete transit gateway
 지정한 Transit Gateway를 삭제합니다.<br/>
 Transit Gateway 삭제 시 연결된 모든 Attachment, 라우팅 테이블, Association 등의 종속 리소스가 함께 해제되며, 삭제된 Transit Gateway는 복구할 수 없습니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 삭제할 Transit Gateway ID
-	@return ApiDeleteTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 삭제할 Transit Gateway ID 
+ @return ApiDeleteTransitGatewayRequest
 */
 func (a *TgwsAPIService) DeleteTransitGateway(ctx context.Context, tgwId string) ApiDeleteTransitGatewayRequest {
 	return ApiDeleteTransitGatewayRequest{
 		ApiService: a,
-		ctx:        ctx,
-		tgwId:      tgwId,
+		ctx: ctx,
+		tgwId: tgwId,
 	}
 }
 
 // Execute executes the request
 func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.DeleteTransitGateway")
@@ -464,8 +464,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -475,8 +475,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -486,8 +486,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -497,8 +497,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -508,8 +508,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -519,8 +519,8 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -529,9 +529,9 @@ func (a *TgwsAPIService) DeleteTransitGatewayExecute(r ApiDeleteTransitGatewayRe
 }
 
 type ApiGetTransitGatewayRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TgwsAPI
-	tgwId      string
+	tgwId string
 	xAuthToken *string
 }
 
@@ -550,27 +550,26 @@ GetTransitGateway Get transit gateway
 
 Transit Gateway 상세 정보를 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 조회할 Transit Gateway ID
-	@return ApiGetTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 조회할 Transit Gateway ID 
+ @return ApiGetTransitGatewayRequest
 */
 func (a *TgwsAPIService) GetTransitGateway(ctx context.Context, tgwId string) ApiGetTransitGatewayRequest {
 	return ApiGetTransitGatewayRequest{
 		ApiService: a,
-		ctx:        ctx,
-		tgwId:      tgwId,
+		ctx: ctx,
+		tgwId: tgwId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwResponseModel
+//  @return GetTgwResponseModel
 func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest) (*GetTgwResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.GetTransitGateway")
@@ -649,8 +648,8 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -660,8 +659,8 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -671,8 +670,8 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -682,8 +681,8 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -693,8 +692,8 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -712,9 +711,9 @@ func (a *TgwsAPIService) GetTransitGatewayExecute(r ApiGetTransitGatewayRequest)
 }
 
 type ApiListTgwSharedProjectsRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService TgwsAPI
-	tgwId      string
+	tgwId string
 	xAuthToken *string
 }
 
@@ -733,27 +732,26 @@ ListTgwSharedProjects List TGW shared projects
 
 지정한 Transit Gateway ID에 대해 공유된 프로젝트 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 조회할 Transit Gateway ID
-	@return ApiListTgwSharedProjectsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 조회할 Transit Gateway ID 
+ @return ApiListTgwSharedProjectsRequest
 */
 func (a *TgwsAPIService) ListTgwSharedProjects(ctx context.Context, tgwId string) ApiListTgwSharedProjectsRequest {
 	return ApiListTgwSharedProjectsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		tgwId:      tgwId,
+		ctx: ctx,
+		tgwId: tgwId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwProjectsResponseModel
+//  @return GetTgwProjectsResponseModel
 func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjectsRequest) (*GetTgwProjectsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwProjectsResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwProjectsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.ListTgwSharedProjects")
@@ -832,8 +830,8 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -843,8 +841,8 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -854,8 +852,8 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -865,8 +863,8 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -876,8 +874,8 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -895,20 +893,20 @@ func (a *TgwsAPIService) ListTgwSharedProjectsExecute(r ApiListTgwSharedProjects
 }
 
 type ApiListTransitGatewaysRequest struct {
-	ctx                context.Context
-	ApiService         TgwsAPI
-	xAuthToken         *string
-	id                 *string
-	name               *string
-	region             *Region
-	isShared           *bool
+	ctx context.Context
+	ApiService TgwsAPI
+	xAuthToken *string
+	id *string
+	name *string
+	region *Region
+	isShared *bool
 	provisioningStatus *ProvisioningStatus
-	createdAt          *string
-	updatedAt          *string
-	offset             *int32
-	limit              *int32
-	sortKeys           *string
-	sortDirs           *string
+	createdAt *string
+	updatedAt *string
+	offset *int32
+	limit *int32
+	sortKeys *string
+	sortDirs *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -917,31 +915,31 @@ func (r ApiListTransitGatewaysRequest) XAuthToken(xAuthToken string) ApiListTran
 	return r
 }
 
-// Transit Gateway ID
+// Transit Gateway ID 
 func (r ApiListTransitGatewaysRequest) Id(id string) ApiListTransitGatewaysRequest {
 	r.id = &id
 	return r
 }
 
-// Transit Gateway 이름
+// Transit Gateway 이름 
 func (r ApiListTransitGatewaysRequest) Name(name string) ApiListTransitGatewaysRequest {
 	r.name = &name
 	return r
 }
 
-// Transit Gateway가 위치한 리전 (예: &#x60;kr-central-2&#x60;)
+// Transit Gateway가 위치한 리전 (예: &#x60;kr-central-2&#x60;) 
 func (r ApiListTransitGatewaysRequest) Region(region Region) ApiListTransitGatewaysRequest {
 	r.region = &region
 	return r
 }
 
-// 공유된 Transit Gateway 여부 (예: &#x60;true&#x60;)
+// 공유된 Transit Gateway 여부 (예: &#x60;true&#x60;) 
 func (r ApiListTransitGatewaysRequest) IsShared(isShared bool) ApiListTransitGatewaysRequest {
 	r.isShared = &isShared
 	return r
 }
 
-// Transit Gateway 프로비저닝 상태
+// Transit Gateway 프로비저닝 상태 
 func (r ApiListTransitGatewaysRequest) ProvisioningStatus(provisioningStatus ProvisioningStatus) ApiListTransitGatewaysRequest {
 	r.provisioningStatus = &provisioningStatus
 	return r
@@ -977,7 +975,7 @@ func (r ApiListTransitGatewaysRequest) SortKeys(sortKeys string) ApiListTransitG
 	return r
 }
 
-// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)
+// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;) 
 func (r ApiListTransitGatewaysRequest) SortDirs(sortDirs string) ApiListTransitGatewaysRequest {
 	r.sortDirs = &sortDirs
 	return r
@@ -992,25 +990,24 @@ ListTransitGateways List transit gateways
 
 Transit Gateway 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTransitGatewaysRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiListTransitGatewaysRequest
 */
 func (a *TgwsAPIService) ListTransitGateways(ctx context.Context) ApiListTransitGatewaysRequest {
 	return ApiListTransitGatewaysRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwsResponseModel
+//  @return GetTgwsResponseModel
 func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequest) (*GetTgwsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwsResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.ListTransitGateways")
@@ -1133,8 +1130,8 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1144,8 +1141,8 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1155,8 +1152,8 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1166,8 +1163,8 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1177,8 +1174,8 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1196,11 +1193,11 @@ func (a *TgwsAPIService) ListTransitGatewaysExecute(r ApiListTransitGatewaysRequ
 }
 
 type ApiShareTransitGatewayRequest struct {
-	ctx             context.Context
-	ApiService      TgwsAPI
-	tgwId           string
+	ctx context.Context
+	ApiService TgwsAPI
+	tgwId string
 	targetProjectId string
-	xAuthToken      *string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1218,29 +1215,28 @@ ShareTransitGateway Share transit gateway
 
 지정한 Transit Gateway를 다른 프로젝트에 공유합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 공유할 Transit Gateway ID
-	@param targetProjectId 공유 대상 프로젝트 ID
-	@return ApiShareTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 공유할 Transit Gateway ID 
+ @param targetProjectId 공유 대상 프로젝트 ID
+ @return ApiShareTransitGatewayRequest
 */
 func (a *TgwsAPIService) ShareTransitGateway(ctx context.Context, tgwId string, targetProjectId string) ApiShareTransitGatewayRequest {
 	return ApiShareTransitGatewayRequest{
-		ApiService:      a,
-		ctx:             ctx,
-		tgwId:           tgwId,
+		ApiService: a,
+		ctx: ctx,
+		tgwId: tgwId,
 		targetProjectId: targetProjectId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return interface{}
+//  @return interface{}
 func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequest) (interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue interface{}
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.ShareTransitGateway")
@@ -1320,8 +1316,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1331,8 +1327,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1342,8 +1338,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1353,8 +1349,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1364,8 +1360,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1375,8 +1371,8 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1394,11 +1390,11 @@ func (a *TgwsAPIService) ShareTransitGatewayExecute(r ApiShareTransitGatewayRequ
 }
 
 type ApiUnshareTransitGatewayRequest struct {
-	ctx             context.Context
-	ApiService      TgwsAPI
-	tgwId           string
+	ctx context.Context
+	ApiService TgwsAPI
+	tgwId string
 	targetProjectId string
-	xAuthToken      *string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1416,16 +1412,16 @@ UnshareTransitGateway Unshare transit gateway
 
 지정한 Transit Gateway의 공유를 해제하여, 해당 프로젝트에서 사용하지 않도록 합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 공유 해제할 Transit Gateway ID
-	@param targetProjectId 공유 해제 대상 프로젝트 ID
-	@return ApiUnshareTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 공유 해제할 Transit Gateway ID 
+ @param targetProjectId 공유 해제 대상 프로젝트 ID 
+ @return ApiUnshareTransitGatewayRequest
 */
 func (a *TgwsAPIService) UnshareTransitGateway(ctx context.Context, tgwId string, targetProjectId string) ApiUnshareTransitGatewayRequest {
 	return ApiUnshareTransitGatewayRequest{
-		ApiService:      a,
-		ctx:             ctx,
-		tgwId:           tgwId,
+		ApiService: a,
+		ctx: ctx,
+		tgwId: tgwId,
 		targetProjectId: targetProjectId,
 	}
 }
@@ -1433,9 +1429,9 @@ func (a *TgwsAPIService) UnshareTransitGateway(ctx context.Context, tgwId string
 // Execute executes the request
 func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGatewayRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.UnshareTransitGateway")
@@ -1515,8 +1511,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1526,8 +1522,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1537,8 +1533,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1548,8 +1544,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1559,8 +1555,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1570,8 +1566,8 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1580,10 +1576,10 @@ func (a *TgwsAPIService) UnshareTransitGatewayExecute(r ApiUnshareTransitGateway
 }
 
 type ApiUpdateTransitGatewayRequest struct {
-	ctx                   context.Context
-	ApiService            TgwsAPI
-	tgwId                 string
-	xAuthToken            *string
+	ctx context.Context
+	ApiService TgwsAPI
+	tgwId string
+	xAuthToken *string
 	updateTgwRequestModel *UpdateTgwRequestModel
 }
 
@@ -1607,27 +1603,26 @@ UpdateTransitGateway Update transit gateway
 
 Transit Gateway 설정을 수정합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param tgwId 수정할 Transit Gateway ID
-	@return ApiUpdateTransitGatewayRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tgwId 수정할 Transit Gateway ID  
+ @return ApiUpdateTransitGatewayRequest
 */
 func (a *TgwsAPIService) UpdateTransitGateway(ctx context.Context, tgwId string) ApiUpdateTransitGatewayRequest {
 	return ApiUpdateTransitGatewayRequest{
 		ApiService: a,
-		ctx:        ctx,
-		tgwId:      tgwId,
+		ctx: ctx,
+		tgwId: tgwId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiUpdateTransitGatewayModelCreateTgwResponseModel
+//  @return BnsTgwV1ApiUpdateTransitGatewayModelCreateTgwResponseModel
 func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRequest) (*BnsTgwV1ApiUpdateTransitGatewayModelCreateTgwResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiUpdateTransitGatewayModelCreateTgwResponseModel
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiUpdateTransitGatewayModelCreateTgwResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TgwsAPIService.UpdateTransitGateway")
@@ -1711,8 +1706,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1722,8 +1717,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1733,8 +1728,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1744,8 +1739,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1755,8 +1750,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1766,8 +1761,8 @@ func (a *TgwsAPIService) UpdateTransitGatewayExecute(r ApiUpdateTransitGatewayRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

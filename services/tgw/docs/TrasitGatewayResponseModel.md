@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**AttachmentId** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 
@@ -99,41 +98,6 @@ HasName returns a boolean if a field has been set.
 `func (o *TrasitGatewayResponseModel) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetAttachmentId
-
-`func (o *TrasitGatewayResponseModel) GetAttachmentId() string`
-
-GetAttachmentId returns the AttachmentId field if non-nil, zero value otherwise.
-
-### GetAttachmentIdOk
-
-`func (o *TrasitGatewayResponseModel) GetAttachmentIdOk() (*string, bool)`
-
-GetAttachmentIdOk returns a tuple with the AttachmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAttachmentId
-
-`func (o *TrasitGatewayResponseModel) SetAttachmentId(v string)`
-
-SetAttachmentId sets AttachmentId field to given value.
-
-### HasAttachmentId
-
-`func (o *TrasitGatewayResponseModel) HasAttachmentId() bool`
-
-HasAttachmentId returns a boolean if a field has been set.
-
-### SetAttachmentIdNil
-
-`func (o *TrasitGatewayResponseModel) SetAttachmentIdNil(b bool)`
-
- SetAttachmentIdNil sets the value for AttachmentId to be an explicit nil
-
-### UnsetAttachmentId
-`func (o *TrasitGatewayResponseModel) UnsetAttachmentId()`
-
-UnsetAttachmentId ensures that no value is present for AttachmentId, not even an explicit nil
 ### GetProjectId
 
 `func (o *TrasitGatewayResponseModel) GetProjectId() string`

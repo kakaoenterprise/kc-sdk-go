@@ -23,7 +23,7 @@ type GetTgwRouteTableAssociationsResponseModel struct {
 	// 조회된 Association 목록
 	Associations []BnsTgwV1ApiListTgwRouteTableAssociationsModelAssociationResponseModel `json:"associations"`
 	// 페이지네이션 메타데이터
-	Pagination           PaginationModel `json:"pagination"`
+	Pagination PaginationModel `json:"pagination"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,7 @@ func (o *GetTgwRouteTableAssociationsResponseModel) SetPagination(v PaginationMo
 }
 
 func (o GetTgwRouteTableAssociationsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *GetTgwRouteTableAssociationsResponseModel) UnmarshalJSON(data []byte) (
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,3 +195,5 @@ func (v *NullableGetTgwRouteTableAssociationsResponseModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

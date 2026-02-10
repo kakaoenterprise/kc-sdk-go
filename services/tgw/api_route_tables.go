@@ -19,16 +19,17 @@ import (
 	"strings"
 )
 
+
 type RouteTablesAPI interface {
 
 	/*
-		CreateTgwRoute Create TGW route
+	CreateTgwRoute Create TGW route
 
-		Transit Gateway 라우팅 테이블에 Route를 추가합니다.
+	Transit Gateway 라우팅 테이블에 Route를 추가합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId Route가 속한 Transit Gateway 라우팅 테이블 ID
-		@return ApiCreateTgwRouteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId Route가 속한 Transit Gateway 라우팅 테이블 ID 
+	@return ApiCreateTgwRouteRequest
 	*/
 	CreateTgwRoute(ctx context.Context, routeTableId string) ApiCreateTgwRouteRequest
 
@@ -37,12 +38,12 @@ type RouteTablesAPI interface {
 	CreateTgwRouteExecute(r ApiCreateTgwRouteRequest) (*BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel, *http.Response, error)
 
 	/*
-		CreateTgwRouteTable Create TGW route table
+	CreateTgwRouteTable Create TGW route table
 
-		Transit Gateway 라우팅 테이블을 생성합니다.
+	Transit Gateway 라우팅 테이블을 생성합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTgwRouteTableRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateTgwRouteTableRequest
 	*/
 	CreateTgwRouteTable(ctx context.Context) ApiCreateTgwRouteTableRequest
 
@@ -51,13 +52,13 @@ type RouteTablesAPI interface {
 	CreateTgwRouteTableExecute(r ApiCreateTgwRouteTableRequest) (*BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel, *http.Response, error)
 
 	/*
-		CreateTgwRouteTableAssociation Create TGW route table association
+	CreateTgwRouteTableAssociation Create TGW route table association
 
-		Transit Gateway Attachment를 Transit Gateway 라우팅 테이블에 연결합니다.
+	Transit Gateway Attachment를 Transit Gateway 라우팅 테이블에 연결합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 연결할 Transit Gateway 라우팅 테이블 ID
-		@return ApiCreateTgwRouteTableAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 연결할 Transit Gateway 라우팅 테이블 ID 
+	@return ApiCreateTgwRouteTableAssociationRequest
 	*/
 	CreateTgwRouteTableAssociation(ctx context.Context, routeTableId string) ApiCreateTgwRouteTableAssociationRequest
 
@@ -66,14 +67,14 @@ type RouteTablesAPI interface {
 	CreateTgwRouteTableAssociationExecute(r ApiCreateTgwRouteTableAssociationRequest) (*CreateTgwRouteTableAssociationResponseModel, *http.Response, error)
 
 	/*
-		DeleteTgwRoute Delete TGW route
+	DeleteTgwRoute Delete TGW route
 
-		Transit Gateway 라우팅 테이블에서 Route를 삭제합니다.
+	Transit Gateway 라우팅 테이블에서 Route를 삭제합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId Route를 삭제할 Transit Gateway 라우팅 테이블 ID
-		@param routeId 삭제할 Route ID
-		@return ApiDeleteTgwRouteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId Route를 삭제할 Transit Gateway 라우팅 테이블 ID 
+	@param routeId 삭제할 Route ID 
+	@return ApiDeleteTgwRouteRequest
 	*/
 	DeleteTgwRoute(ctx context.Context, routeTableId string, routeId string) ApiDeleteTgwRouteRequest
 
@@ -81,13 +82,13 @@ type RouteTablesAPI interface {
 	DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest) (*http.Response, error)
 
 	/*
-		DeleteTgwRouteTable Delete TGW route table
+	DeleteTgwRouteTable Delete TGW route table
 
-		Transit Gateway 라우팅 테이블을 삭제합니다.
+	Transit Gateway 라우팅 테이블을 삭제합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 삭제할 라우팅 테이블 ID
-		@return ApiDeleteTgwRouteTableRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 삭제할 라우팅 테이블 ID
+	@return ApiDeleteTgwRouteTableRequest
 	*/
 	DeleteTgwRouteTable(ctx context.Context, routeTableId string) ApiDeleteTgwRouteTableRequest
 
@@ -95,14 +96,14 @@ type RouteTablesAPI interface {
 	DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTableRequest) (*http.Response, error)
 
 	/*
-		DeleteTgwRouteTableAssociation Delete TGW route table association
+	DeleteTgwRouteTableAssociation Delete TGW route table association
 
-		Transit Gateway 라우팅 테이블 Association을 해제합니다.
+	Transit Gateway 라우팅 테이블 Association을 해제합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId Association을 해제할 Transit Gateway 라우팅 테이블 ID
-		@param associationId 해제할 Association ID
-		@return ApiDeleteTgwRouteTableAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId Association을 해제할 Transit Gateway 라우팅 테이블 ID 
+	@param associationId 해제할 Association ID 
+	@return ApiDeleteTgwRouteTableAssociationRequest
 	*/
 	DeleteTgwRouteTableAssociation(ctx context.Context, routeTableId string, associationId string) ApiDeleteTgwRouteTableAssociationRequest
 
@@ -110,13 +111,13 @@ type RouteTablesAPI interface {
 	DeleteTgwRouteTableAssociationExecute(r ApiDeleteTgwRouteTableAssociationRequest) (*http.Response, error)
 
 	/*
-		GetTgwRouteTable Get TGW route table
+	GetTgwRouteTable Get TGW route table
 
-		Transit Gateway 라우팅 테이블 상세 정보를 조회합니다.
+	Transit Gateway 라우팅 테이블 상세 정보를 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-		@return ApiGetTgwRouteTableRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+	@return ApiGetTgwRouteTableRequest
 	*/
 	GetTgwRouteTable(ctx context.Context, routeTableId string) ApiGetTgwRouteTableRequest
 
@@ -125,13 +126,13 @@ type RouteTablesAPI interface {
 	GetTgwRouteTableExecute(r ApiGetTgwRouteTableRequest) (*GetTgwRouteTableResponseModel, *http.Response, error)
 
 	/*
-		ListTgwRouteTableAssociations List TGW route table associations
+	ListTgwRouteTableAssociations List TGW route table associations
 
-		Transit Gateway 라우팅 테이블 Association 목록을 조회합니다.
+	Transit Gateway 라우팅 테이블 Association 목록을 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-		@return ApiListTgwRouteTableAssociationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+	@return ApiListTgwRouteTableAssociationsRequest
 	*/
 	ListTgwRouteTableAssociations(ctx context.Context, routeTableId string) ApiListTgwRouteTableAssociationsRequest
 
@@ -140,12 +141,12 @@ type RouteTablesAPI interface {
 	ListTgwRouteTableAssociationsExecute(r ApiListTgwRouteTableAssociationsRequest) (*GetTgwRouteTableAssociationsResponseModel, *http.Response, error)
 
 	/*
-		ListTgwRouteTables List TGW route tables
+	ListTgwRouteTables List TGW route tables
 
-		Transit Gateway 라우팅 테이블 목록을 조회합니다.
+	Transit Gateway 라우팅 테이블 목록을 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTgwRouteTablesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListTgwRouteTablesRequest
 	*/
 	ListTgwRouteTables(ctx context.Context) ApiListTgwRouteTablesRequest
 
@@ -154,13 +155,13 @@ type RouteTablesAPI interface {
 	ListTgwRouteTablesExecute(r ApiListTgwRouteTablesRequest) (*GetTgwRouteTablesResponseModel, *http.Response, error)
 
 	/*
-		ListTgwRoutes List TGW routes
+	ListTgwRoutes List TGW routes
 
-		Transit Gateway 라우팅 테이블의 Route 목록을 조회합니다.
+	Transit Gateway 라우팅 테이블의 Route 목록을 조회합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-		@return ApiListTgwRoutesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+	@return ApiListTgwRoutesRequest
 	*/
 	ListTgwRoutes(ctx context.Context, routeTableId string) ApiListTgwRoutesRequest
 
@@ -169,13 +170,13 @@ type RouteTablesAPI interface {
 	ListTgwRoutesExecute(r ApiListTgwRoutesRequest) (*GetTgwRouteTableRoutesResponseModel, *http.Response, error)
 
 	/*
-		UpdateTgwRouteTable Update TGW route table
+	UpdateTgwRouteTable Update TGW route table
 
-		Transit Gateway 라우팅 테이블 이름을 수정합니다.
+	Transit Gateway 라우팅 테이블 이름을 수정합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID
-		@return ApiUpdateTgwRouteTableRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID  
+	@return ApiUpdateTgwRouteTableRequest
 	*/
 	UpdateTgwRouteTable(ctx context.Context, routeTableId string) ApiUpdateTgwRouteTableRequest
 
@@ -184,14 +185,14 @@ type RouteTablesAPI interface {
 	UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTableRequest) (*BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel, *http.Response, error)
 
 	/*
-		UpdateTgwRouteTableRoute Update TGW route
+	UpdateTgwRouteTableRoute Update TGW route
 
-		Transit Gateway 라우팅 테이블의 Route를 수정합니다.
+	Transit Gateway 라우팅 테이블의 Route를 수정합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID
-		@param routeId 수정할 Route ID
-		@return ApiUpdateTgwRouteTableRouteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID 
+	@param routeId 수정할 Route ID  
+	@return ApiUpdateTgwRouteTableRouteRequest
 	*/
 	UpdateTgwRouteTableRoute(ctx context.Context, routeTableId string, routeId string) ApiUpdateTgwRouteTableRouteRequest
 
@@ -204,10 +205,10 @@ type RouteTablesAPI interface {
 type RouteTablesAPIService service
 
 type ApiCreateTgwRouteRequest struct {
-	ctx                                  context.Context
-	ApiService                           RouteTablesAPI
-	routeTableId                         string
-	xAuthToken                           *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	xAuthToken *string
 	createTgwRouteTableRouteRequestModel *CreateTgwRouteTableRouteRequestModel
 }
 
@@ -231,27 +232,26 @@ CreateTgwRoute Create TGW route
 
 Transit Gateway 라우팅 테이블에 Route를 추가합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId Route가 속한 Transit Gateway 라우팅 테이블 ID
-	@return ApiCreateTgwRouteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId Route가 속한 Transit Gateway 라우팅 테이블 ID 
+ @return ApiCreateTgwRouteRequest
 */
 func (a *RouteTablesAPIService) CreateTgwRoute(ctx context.Context, routeTableId string) ApiCreateTgwRouteRequest {
 	return ApiCreateTgwRouteRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel
+//  @return BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel
 func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest) (*BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiCreateTgwRouteModelCreateTgwRouteTableRouteResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.CreateTgwRoute")
@@ -335,8 +335,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -346,8 +346,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -357,8 +357,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -368,8 +368,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -379,8 +379,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -390,8 +390,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -409,9 +409,9 @@ func (a *RouteTablesAPIService) CreateTgwRouteExecute(r ApiCreateTgwRouteRequest
 }
 
 type ApiCreateTgwRouteTableRequest struct {
-	ctx                             context.Context
-	ApiService                      RouteTablesAPI
-	xAuthToken                      *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	xAuthToken *string
 	createTgwRouteTableRequestModel *CreateTgwRouteTableRequestModel
 }
 
@@ -435,25 +435,24 @@ CreateTgwRouteTable Create TGW route table
 
 Transit Gateway 라우팅 테이블을 생성합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTgwRouteTableRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateTgwRouteTableRequest
 */
 func (a *RouteTablesAPIService) CreateTgwRouteTable(ctx context.Context) ApiCreateTgwRouteTableRequest {
 	return ApiCreateTgwRouteTableRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel
+//  @return BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel
 func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTableRequest) (*BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiCreateTgwRouteTableModelCreateTgwRouteTableResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.CreateTgwRouteTable")
@@ -536,8 +535,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -547,8 +546,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -558,8 +557,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -569,8 +568,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -580,8 +579,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -591,8 +590,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -610,10 +609,10 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableExecute(r ApiCreateTgwRouteTa
 }
 
 type ApiCreateTgwRouteTableAssociationRequest struct {
-	ctx                                        context.Context
-	ApiService                                 RouteTablesAPI
-	routeTableId                               string
-	xAuthToken                                 *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	xAuthToken *string
 	createTgwRouteTableAssociationRequestModel *CreateTgwRouteTableAssociationRequestModel
 }
 
@@ -637,27 +636,26 @@ CreateTgwRouteTableAssociation Create TGW route table association
 
 Transit Gateway Attachment를 Transit Gateway 라우팅 테이블에 연결합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 연결할 Transit Gateway 라우팅 테이블 ID
-	@return ApiCreateTgwRouteTableAssociationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 연결할 Transit Gateway 라우팅 테이블 ID 
+ @return ApiCreateTgwRouteTableAssociationRequest
 */
 func (a *RouteTablesAPIService) CreateTgwRouteTableAssociation(ctx context.Context, routeTableId string) ApiCreateTgwRouteTableAssociationRequest {
 	return ApiCreateTgwRouteTableAssociationRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return CreateTgwRouteTableAssociationResponseModel
+//  @return CreateTgwRouteTableAssociationResponseModel
 func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreateTgwRouteTableAssociationRequest) (*CreateTgwRouteTableAssociationResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *CreateTgwRouteTableAssociationResponseModel
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateTgwRouteTableAssociationResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.CreateTgwRouteTableAssociation")
@@ -741,8 +739,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -752,8 +750,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -763,8 +761,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -774,8 +772,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -785,8 +783,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -796,8 +794,8 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -815,11 +813,11 @@ func (a *RouteTablesAPIService) CreateTgwRouteTableAssociationExecute(r ApiCreat
 }
 
 type ApiDeleteTgwRouteRequest struct {
-	ctx          context.Context
-	ApiService   RouteTablesAPI
+	ctx context.Context
+	ApiService RouteTablesAPI
 	routeTableId string
-	routeId      string
-	xAuthToken   *string
+	routeId string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -837,26 +835,26 @@ DeleteTgwRoute Delete TGW route
 
 Transit Gateway 라우팅 테이블에서 Route를 삭제합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId Route를 삭제할 Transit Gateway 라우팅 테이블 ID
-	@param routeId 삭제할 Route ID
-	@return ApiDeleteTgwRouteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId Route를 삭제할 Transit Gateway 라우팅 테이블 ID 
+ @param routeId 삭제할 Route ID 
+ @return ApiDeleteTgwRouteRequest
 */
 func (a *RouteTablesAPIService) DeleteTgwRoute(ctx context.Context, routeTableId string, routeId string) ApiDeleteTgwRouteRequest {
 	return ApiDeleteTgwRouteRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
-		routeId:      routeId,
+		routeId: routeId,
 	}
 }
 
 // Execute executes the request
 func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.DeleteTgwRoute")
@@ -936,8 +934,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -947,8 +945,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -958,8 +956,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -969,8 +967,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -980,8 +978,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -991,8 +989,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1001,10 +999,10 @@ func (a *RouteTablesAPIService) DeleteTgwRouteExecute(r ApiDeleteTgwRouteRequest
 }
 
 type ApiDeleteTgwRouteTableRequest struct {
-	ctx          context.Context
-	ApiService   RouteTablesAPI
+	ctx context.Context
+	ApiService RouteTablesAPI
 	routeTableId string
-	xAuthToken   *string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1022,14 +1020,14 @@ DeleteTgwRouteTable Delete TGW route table
 
 Transit Gateway 라우팅 테이블을 삭제합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 삭제할 라우팅 테이블 ID
-	@return ApiDeleteTgwRouteTableRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 삭제할 라우팅 테이블 ID
+ @return ApiDeleteTgwRouteTableRequest
 */
 func (a *RouteTablesAPIService) DeleteTgwRouteTable(ctx context.Context, routeTableId string) ApiDeleteTgwRouteTableRequest {
 	return ApiDeleteTgwRouteTableRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
@@ -1037,9 +1035,9 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTable(ctx context.Context, routeTa
 // Execute executes the request
 func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTableRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.DeleteTgwRouteTable")
@@ -1118,8 +1116,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1129,8 +1127,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1140,8 +1138,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1151,8 +1149,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1162,8 +1160,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1173,8 +1171,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1183,11 +1181,11 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableExecute(r ApiDeleteTgwRouteTa
 }
 
 type ApiDeleteTgwRouteTableAssociationRequest struct {
-	ctx           context.Context
-	ApiService    RouteTablesAPI
-	routeTableId  string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
 	associationId string
-	xAuthToken    *string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1205,16 +1203,16 @@ DeleteTgwRouteTableAssociation Delete TGW route table association
 
 Transit Gateway 라우팅 테이블 Association을 해제합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId Association을 해제할 Transit Gateway 라우팅 테이블 ID
-	@param associationId 해제할 Association ID
-	@return ApiDeleteTgwRouteTableAssociationRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId Association을 해제할 Transit Gateway 라우팅 테이블 ID 
+ @param associationId 해제할 Association ID 
+ @return ApiDeleteTgwRouteTableAssociationRequest
 */
 func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociation(ctx context.Context, routeTableId string, associationId string) ApiDeleteTgwRouteTableAssociationRequest {
 	return ApiDeleteTgwRouteTableAssociationRequest{
-		ApiService:    a,
-		ctx:           ctx,
-		routeTableId:  routeTableId,
+		ApiService: a,
+		ctx: ctx,
+		routeTableId: routeTableId,
 		associationId: associationId,
 	}
 }
@@ -1222,9 +1220,9 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociation(ctx context.Conte
 // Execute executes the request
 func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDeleteTgwRouteTableAssociationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod = http.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.DeleteTgwRouteTableAssociation")
@@ -1304,8 +1302,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1315,8 +1313,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1326,8 +1324,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1337,8 +1335,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1348,8 +1346,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1359,8 +1357,8 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1369,10 +1367,10 @@ func (a *RouteTablesAPIService) DeleteTgwRouteTableAssociationExecute(r ApiDelet
 }
 
 type ApiGetTgwRouteTableRequest struct {
-	ctx          context.Context
-	ApiService   RouteTablesAPI
+	ctx context.Context
+	ApiService RouteTablesAPI
 	routeTableId string
-	xAuthToken   *string
+	xAuthToken *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1390,27 +1388,26 @@ GetTgwRouteTable Get TGW route table
 
 Transit Gateway 라우팅 테이블 상세 정보를 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-	@return ApiGetTgwRouteTableRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+ @return ApiGetTgwRouteTableRequest
 */
 func (a *RouteTablesAPIService) GetTgwRouteTable(ctx context.Context, routeTableId string) ApiGetTgwRouteTableRequest {
 	return ApiGetTgwRouteTableRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwRouteTableResponseModel
+//  @return GetTgwRouteTableResponseModel
 func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableRequest) (*GetTgwRouteTableResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwRouteTableResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwRouteTableResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.GetTgwRouteTable")
@@ -1489,8 +1486,8 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1500,8 +1497,8 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1511,8 +1508,8 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1522,8 +1519,8 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1533,8 +1530,8 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1552,20 +1549,20 @@ func (a *RouteTablesAPIService) GetTgwRouteTableExecute(r ApiGetTgwRouteTableReq
 }
 
 type ApiListTgwRouteTableAssociationsRequest struct {
-	ctx                        context.Context
-	ApiService                 RouteTablesAPI
-	routeTableId               string
-	xAuthToken                 *string
-	resourceName               *string
-	resourceId                 *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	xAuthToken *string
+	resourceName *string
+	resourceId *string
 	resourceProvisioningStatus *string
-	resourceType               *ResourceType
-	provisioningStatus         *ProvisioningStatus
-	resourceAttachmentId       *string
-	offset                     *int32
-	limit                      *int32
-	sortKeys                   *string
-	sortDirs                   *string
+	resourceType *ResourceType
+	provisioningStatus *ProvisioningStatus
+	resourceAttachmentId *string
+	offset *int32
+	limit *int32
+	sortKeys *string
+	sortDirs *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1574,37 +1571,37 @@ func (r ApiListTgwRouteTableAssociationsRequest) XAuthToken(xAuthToken string) A
 	return r
 }
 
-// 연결된 리소스 이름
+// 연결된 리소스 이름 
 func (r ApiListTgwRouteTableAssociationsRequest) ResourceName(resourceName string) ApiListTgwRouteTableAssociationsRequest {
 	r.resourceName = &resourceName
 	return r
 }
 
-// 연결된 리소스 ID
+// 연결된 리소스 ID 
 func (r ApiListTgwRouteTableAssociationsRequest) ResourceId(resourceId string) ApiListTgwRouteTableAssociationsRequest {
 	r.resourceId = &resourceId
 	return r
 }
 
-// 리소스의 프로비저닝 상태
+// 리소스의 프로비저닝 상태  
 func (r ApiListTgwRouteTableAssociationsRequest) ResourceProvisioningStatus(resourceProvisioningStatus string) ApiListTgwRouteTableAssociationsRequest {
 	r.resourceProvisioningStatus = &resourceProvisioningStatus
 	return r
 }
 
-// 연결된 리소스 유형
+// 연결된 리소스 유형 
 func (r ApiListTgwRouteTableAssociationsRequest) ResourceType(resourceType ResourceType) ApiListTgwRouteTableAssociationsRequest {
 	r.resourceType = &resourceType
 	return r
 }
 
-// Association의 프로비저닝 상태
+// Association의 프로비저닝 상태  
 func (r ApiListTgwRouteTableAssociationsRequest) ProvisioningStatus(provisioningStatus ProvisioningStatus) ApiListTgwRouteTableAssociationsRequest {
 	r.provisioningStatus = &provisioningStatus
 	return r
 }
 
-// 연결된 Attachment ID
+// 연결된 Attachment ID 
 func (r ApiListTgwRouteTableAssociationsRequest) ResourceAttachmentId(resourceAttachmentId string) ApiListTgwRouteTableAssociationsRequest {
 	r.resourceAttachmentId = &resourceAttachmentId
 	return r
@@ -1622,13 +1619,13 @@ func (r ApiListTgwRouteTableAssociationsRequest) Limit(limit int32) ApiListTgwRo
 	return r
 }
 
-// 정렬할 필드
+// 정렬할 필드 
 func (r ApiListTgwRouteTableAssociationsRequest) SortKeys(sortKeys string) ApiListTgwRouteTableAssociationsRequest {
 	r.sortKeys = &sortKeys
 	return r
 }
 
-// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)
+// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   
 func (r ApiListTgwRouteTableAssociationsRequest) SortDirs(sortDirs string) ApiListTgwRouteTableAssociationsRequest {
 	r.sortDirs = &sortDirs
 	return r
@@ -1643,27 +1640,26 @@ ListTgwRouteTableAssociations List TGW route table associations
 
 Transit Gateway 라우팅 테이블 Association 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-	@return ApiListTgwRouteTableAssociationsRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+ @return ApiListTgwRouteTableAssociationsRequest
 */
 func (a *RouteTablesAPIService) ListTgwRouteTableAssociations(ctx context.Context, routeTableId string) ApiListTgwRouteTableAssociationsRequest {
 	return ApiListTgwRouteTableAssociationsRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwRouteTableAssociationsResponseModel
+//  @return GetTgwRouteTableAssociationsResponseModel
 func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTgwRouteTableAssociationsRequest) (*GetTgwRouteTableAssociationsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwRouteTableAssociationsResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwRouteTableAssociationsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.ListTgwRouteTableAssociations")
@@ -1784,8 +1780,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1795,8 +1791,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1806,8 +1802,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1817,8 +1813,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1828,8 +1824,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1847,20 +1843,20 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 }
 
 type ApiListTgwRouteTablesRequest struct {
-	ctx                context.Context
-	ApiService         RouteTablesAPI
-	xAuthToken         *string
-	id                 *string
-	name               *string
-	tgwId              *string
-	tgwName            *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	xAuthToken *string
+	id *string
+	name *string
+	tgwId *string
+	tgwName *string
 	provisioningStatus *ProvisioningStatus
-	createdAt          *string
-	updatedAt          *string
-	sortKeys           *string
-	sortDirs           *string
-	limit              *int32
-	offset             *int32
+	createdAt *string
+	updatedAt *string
+	sortKeys *string
+	sortDirs *string
+	limit *int32
+	offset *int32
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -1869,31 +1865,31 @@ func (r ApiListTgwRouteTablesRequest) XAuthToken(xAuthToken string) ApiListTgwRo
 	return r
 }
 
-// 라우팅 테이블 ID
+// 라우팅 테이블 ID 
 func (r ApiListTgwRouteTablesRequest) Id(id string) ApiListTgwRouteTablesRequest {
 	r.id = &id
 	return r
 }
 
-// 라우팅 테이블 이름
+// 라우팅 테이블 이름 
 func (r ApiListTgwRouteTablesRequest) Name(name string) ApiListTgwRouteTablesRequest {
 	r.name = &name
 	return r
 }
 
-// Transit Gateway ID
+// Transit Gateway ID 
 func (r ApiListTgwRouteTablesRequest) TgwId(tgwId string) ApiListTgwRouteTablesRequest {
 	r.tgwId = &tgwId
 	return r
 }
 
-// Transit Gateway 이름
+// Transit Gateway 이름 
 func (r ApiListTgwRouteTablesRequest) TgwName(tgwName string) ApiListTgwRouteTablesRequest {
 	r.tgwName = &tgwName
 	return r
 }
 
-// 라우팅 테이블의 프로비저닝 상태
+// 라우팅 테이블의 프로비저닝 상태  
 func (r ApiListTgwRouteTablesRequest) ProvisioningStatus(provisioningStatus ProvisioningStatus) ApiListTgwRouteTablesRequest {
 	r.provisioningStatus = &provisioningStatus
 	return r
@@ -1911,13 +1907,13 @@ func (r ApiListTgwRouteTablesRequest) UpdatedAt(updatedAt string) ApiListTgwRout
 	return r
 }
 
-// 정렬할 필드
+// 정렬할 필드 
 func (r ApiListTgwRouteTablesRequest) SortKeys(sortKeys string) ApiListTgwRouteTablesRequest {
 	r.sortKeys = &sortKeys
 	return r
 }
 
-// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)
+// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   
 func (r ApiListTgwRouteTablesRequest) SortDirs(sortDirs string) ApiListTgwRouteTablesRequest {
 	r.sortDirs = &sortDirs
 	return r
@@ -1944,25 +1940,24 @@ ListTgwRouteTables List TGW route tables
 
 Transit Gateway 라우팅 테이블 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTgwRouteTablesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiListTgwRouteTablesRequest
 */
 func (a *RouteTablesAPIService) ListTgwRouteTables(ctx context.Context) ApiListTgwRouteTablesRequest {
 	return ApiListTgwRouteTablesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwRouteTablesResponseModel
+//  @return GetTgwRouteTablesResponseModel
 func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTablesRequest) (*GetTgwRouteTablesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwRouteTablesResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwRouteTablesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.ListTgwRouteTables")
@@ -2085,8 +2080,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2096,8 +2091,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2107,8 +2102,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2118,8 +2113,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2129,8 +2124,8 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2148,22 +2143,22 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 }
 
 type ApiListTgwRoutesRequest struct {
-	ctx                        context.Context
-	ApiService                 RouteTablesAPI
-	routeTableId               string
-	xAuthToken                 *string
-	destinationCidrBlock       *string
-	routeType                  *string
-	provisioningStatus         *ProvisioningStatus
-	resourceType               *string
-	resourceId                 *string
-	resourceName               *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	xAuthToken *string
+	destinationCidrBlock *string
+	routeType *string
+	provisioningStatus *ProvisioningStatus
+	resourceType *string
+	resourceId *string
+	resourceName *string
 	resourceProvisioningStatus *string
-	resourceAttachmentId       *string
-	offset                     *int32
-	limit                      *int32
-	sortKeys                   *string
-	sortDirs                   *string
+	resourceAttachmentId *string
+	offset *int32
+	limit *int32
+	sortKeys *string
+	sortDirs *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -2172,49 +2167,49 @@ func (r ApiListTgwRoutesRequest) XAuthToken(xAuthToken string) ApiListTgwRoutesR
 	return r
 }
 
-// 목적지 CIDR 블록
+// 목적지 CIDR 블록 
 func (r ApiListTgwRoutesRequest) DestinationCidrBlock(destinationCidrBlock string) ApiListTgwRoutesRequest {
 	r.destinationCidrBlock = &destinationCidrBlock
 	return r
 }
 
-// Route 유형 (예: &#x60;static&#x60;, &#x60;propagated&#x60;)
+// Route 유형 (예: &#x60;static&#x60;, &#x60;propagated&#x60;) 
 func (r ApiListTgwRoutesRequest) RouteType(routeType string) ApiListTgwRoutesRequest {
 	r.routeType = &routeType
 	return r
 }
 
-// Route의 프로비저닝 상태
+// Route의 프로비저닝 상태  
 func (r ApiListTgwRoutesRequest) ProvisioningStatus(provisioningStatus ProvisioningStatus) ApiListTgwRoutesRequest {
 	r.provisioningStatus = &provisioningStatus
 	return r
 }
 
-// 연결된 리소스 유형
+// 연결된 리소스 유형 
 func (r ApiListTgwRoutesRequest) ResourceType(resourceType string) ApiListTgwRoutesRequest {
 	r.resourceType = &resourceType
 	return r
 }
 
-// 연결된 리소스 ID
+// 연결된 리소스 ID 
 func (r ApiListTgwRoutesRequest) ResourceId(resourceId string) ApiListTgwRoutesRequest {
 	r.resourceId = &resourceId
 	return r
 }
 
-// 연결된 리소스 이름
+// 연결된 리소스 이름 
 func (r ApiListTgwRoutesRequest) ResourceName(resourceName string) ApiListTgwRoutesRequest {
 	r.resourceName = &resourceName
 	return r
 }
 
-// 연결된 리소스의 프로비저닝 상태
+// 연결된 리소스의 프로비저닝 상태  
 func (r ApiListTgwRoutesRequest) ResourceProvisioningStatus(resourceProvisioningStatus string) ApiListTgwRoutesRequest {
 	r.resourceProvisioningStatus = &resourceProvisioningStatus
 	return r
 }
 
-// 연결된 Attachment ID
+// 연결된 Attachment ID 
 func (r ApiListTgwRoutesRequest) ResourceAttachmentId(resourceAttachmentId string) ApiListTgwRoutesRequest {
 	r.resourceAttachmentId = &resourceAttachmentId
 	return r
@@ -2232,13 +2227,13 @@ func (r ApiListTgwRoutesRequest) Limit(limit int32) ApiListTgwRoutesRequest {
 	return r
 }
 
-// 정렬할 필드
+// 정렬할 필드 
 func (r ApiListTgwRoutesRequest) SortKeys(sortKeys string) ApiListTgwRoutesRequest {
 	r.sortKeys = &sortKeys
 	return r
 }
 
-// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)
+// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   
 func (r ApiListTgwRoutesRequest) SortDirs(sortDirs string) ApiListTgwRoutesRequest {
 	r.sortDirs = &sortDirs
 	return r
@@ -2253,27 +2248,26 @@ ListTgwRoutes List TGW routes
 
 Transit Gateway 라우팅 테이블의 Route 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID
-	@return ApiListTgwRoutesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 조회할 Transit Gateway 라우팅 테이블 ID 
+ @return ApiListTgwRoutesRequest
 */
 func (a *RouteTablesAPIService) ListTgwRoutes(ctx context.Context, routeTableId string) ApiListTgwRoutesRequest {
 	return ApiListTgwRoutesRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return GetTgwRouteTableRoutesResponseModel
+//  @return GetTgwRouteTableRoutesResponseModel
 func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) (*GetTgwRouteTableRoutesResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *GetTgwRouteTableRoutesResponseModel
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetTgwRouteTableRoutesResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.ListTgwRoutes")
@@ -2400,8 +2394,8 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2411,8 +2405,8 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2422,8 +2416,8 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2433,8 +2427,8 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2444,8 +2438,8 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2463,10 +2457,10 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 }
 
 type ApiUpdateTgwRouteTableRequest struct {
-	ctx                             context.Context
-	ApiService                      RouteTablesAPI
-	routeTableId                    string
-	xAuthToken                      *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	xAuthToken *string
 	updateTgwRouteTableRequestModel *UpdateTgwRouteTableRequestModel
 }
 
@@ -2490,27 +2484,26 @@ UpdateTgwRouteTable Update TGW route table
 
 Transit Gateway 라우팅 테이블 이름을 수정합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID
-	@return ApiUpdateTgwRouteTableRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID  
+ @return ApiUpdateTgwRouteTableRequest
 */
 func (a *RouteTablesAPIService) UpdateTgwRouteTable(ctx context.Context, routeTableId string) ApiUpdateTgwRouteTableRequest {
 	return ApiUpdateTgwRouteTableRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel
+//  @return BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel
 func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTableRequest) (*BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiUpdateTgwRouteTableModelCreateTgwRouteTableResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.UpdateTgwRouteTable")
@@ -2594,8 +2587,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2605,8 +2598,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2616,8 +2609,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2627,8 +2620,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2638,8 +2631,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2649,8 +2642,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2668,11 +2661,11 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableExecute(r ApiUpdateTgwRouteTa
 }
 
 type ApiUpdateTgwRouteTableRouteRequest struct {
-	ctx                                  context.Context
-	ApiService                           RouteTablesAPI
-	routeTableId                         string
-	routeId                              string
-	xAuthToken                           *string
+	ctx context.Context
+	ApiService RouteTablesAPI
+	routeTableId string
+	routeId string
+	xAuthToken *string
 	updateTgwRouteTableRouteRequestModel *UpdateTgwRouteTableRouteRequestModel
 }
 
@@ -2696,29 +2689,28 @@ UpdateTgwRouteTableRoute Update TGW route
 
 Transit Gateway 라우팅 테이블의 Route를 수정합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID
-	@param routeId 수정할 Route ID
-	@return ApiUpdateTgwRouteTableRouteRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param routeTableId 수정할 Transit Gateway 라우팅 테이블 ID 
+ @param routeId 수정할 Route ID  
+ @return ApiUpdateTgwRouteTableRouteRequest
 */
 func (a *RouteTablesAPIService) UpdateTgwRouteTableRoute(ctx context.Context, routeTableId string, routeId string) ApiUpdateTgwRouteTableRouteRequest {
 	return ApiUpdateTgwRouteTableRouteRequest{
-		ApiService:   a,
-		ctx:          ctx,
+		ApiService: a,
+		ctx: ctx,
 		routeTableId: routeTableId,
-		routeId:      routeId,
+		routeId: routeId,
 	}
 }
 
 // Execute executes the request
-//
-//	@return BnsTgwV1ApiUpdateTgwRouteModelCreateTgwRouteTableRouteResponseModel
+//  @return BnsTgwV1ApiUpdateTgwRouteModelCreateTgwRouteTableRouteResponseModel
 func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRouteTableRouteRequest) (*BnsTgwV1ApiUpdateTgwRouteModelCreateTgwRouteTableRouteResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *BnsTgwV1ApiUpdateTgwRouteModelCreateTgwRouteTableRouteResponseModel
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BnsTgwV1ApiUpdateTgwRouteModelCreateTgwRouteTableRouteResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RouteTablesAPIService.UpdateTgwRouteTableRoute")
@@ -2803,8 +2795,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2814,8 +2806,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2825,8 +2817,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2836,8 +2828,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2847,8 +2839,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2858,8 +2850,8 @@ func (a *RouteTablesAPIService) UpdateTgwRouteTableRouteExecute(r ApiUpdateTgwRo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

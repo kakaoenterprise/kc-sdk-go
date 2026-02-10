@@ -20,16 +20,16 @@ var _ MappedNullable = &BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel{
 
 // BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel struct for BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel
 type BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel struct {
-	Id                   NullableString                `json:"id,omitempty"`
-	Name                 NullableString                `json:"name,omitempty"`
-	Description          NullableString                `json:"description,omitempty"`
-	AvailabilityZone     NullableAvailabilityZone      `json:"availability_zone,omitempty"`
-	CidrBlock            NullableString                `json:"cidr_block,omitempty"`
-	OperatingStatus      NullableString                `json:"operating_status,omitempty"`
-	ProvisioningStatus   NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	VpcId                NullableString                `json:"vpc_id,omitempty"`
-	CreatedAt            NullableTime                  `json:"created_at,omitempty"`
-	UpdatedAt            NullableTime                  `json:"updated_at,omitempty"`
+	Id NullableString `json:"id,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	AvailabilityZone NullableAvailabilityZone `json:"availability_zone,omitempty"`
+	CidrBlock NullableString `json:"cidr_block,omitempty"`
+	OperatingStatus NullableString `json:"operating_status,omitempty"`
+	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	VpcId NullableString `json:"vpc_id,omitempty"`
+	CreatedAt NullableTime `json:"created_at,omitempty"`
+	UpdatedAt NullableTime `json:"updated_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -84,7 +84,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasId() bool {
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
-
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -127,7 +126,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasName() bool
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
-
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -170,7 +168,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasDescription
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
-
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -213,7 +210,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasAvailabilit
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetAvailabilityZone(v AvailabilityZone) {
 	o.AvailabilityZone.Set(&v)
 }
-
 // SetAvailabilityZoneNil sets the value for AvailabilityZone to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetAvailabilityZoneNil() {
 	o.AvailabilityZone.Set(nil)
@@ -256,7 +252,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasCidrBlock()
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetCidrBlock(v string) {
 	o.CidrBlock.Set(&v)
 }
-
 // SetCidrBlockNil sets the value for CidrBlock to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetCidrBlockNil() {
 	o.CidrBlock.Set(nil)
@@ -299,7 +294,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasOperatingSt
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetOperatingStatus(v string) {
 	o.OperatingStatus.Set(&v)
 }
-
 // SetOperatingStatusNil sets the value for OperatingStatus to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetOperatingStatusNil() {
 	o.OperatingStatus.Set(nil)
@@ -342,7 +336,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasProvisionin
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
-
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -385,7 +378,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasVpcId() boo
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
-
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -428,7 +420,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasCreatedAt()
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
-
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -471,7 +462,6 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) HasUpdatedAt()
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
-
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -483,7 +473,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) UnsetUpdatedAt
 }
 
 func (o BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -595,3 +585,5 @@ func (v *NullableBnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

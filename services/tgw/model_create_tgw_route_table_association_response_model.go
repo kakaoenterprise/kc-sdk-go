@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateTgwRouteTableAssociationResponseModel{}
 // CreateTgwRouteTableAssociationResponseModel struct for CreateTgwRouteTableAssociationResponseModel
 type CreateTgwRouteTableAssociationResponseModel struct {
 	// 생성한 Association 정보
-	Association          TgwRouteTableAssociationResponseModel `json:"association"`
+	Association TgwRouteTableAssociationResponseModel `json:"association"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *CreateTgwRouteTableAssociationResponseModel) SetAssociation(v TgwRouteT
 }
 
 func (o CreateTgwRouteTableAssociationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *CreateTgwRouteTableAssociationResponseModel) UnmarshalJSON(data []byte)
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,3 +165,5 @@ func (v *NullableCreateTgwRouteTableAssociationResponseModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -21,7 +21,7 @@ var _ MappedNullable = &UpdateTgwRouteTableRequestModel{}
 // UpdateTgwRouteTableRequestModel struct for UpdateTgwRouteTableRequestModel
 type UpdateTgwRouteTableRequestModel struct {
 	// 수정할 라우팅 테이블 정보
-	RouteTable           BnsTgwV1ApiUpdateTgwRouteTableModelTgwRouteTableRequestModel `json:"route_table"`
+	RouteTable BnsTgwV1ApiUpdateTgwRouteTableModelTgwRouteTableRequestModel `json:"route_table"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *UpdateTgwRouteTableRequestModel) SetRouteTable(v BnsTgwV1ApiUpdateTgwRo
 }
 
 func (o UpdateTgwRouteTableRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *UpdateTgwRouteTableRequestModel) UnmarshalJSON(data []byte) (err error)
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,3 +165,5 @@ func (v *NullableUpdateTgwRouteTableRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -31,7 +31,7 @@ type BnsTgwV1ApiUpdateTgwRouteModelTgwRouteResponseModel struct {
 	// 프로비저닝 상태
 	ProvisioningStatus TGWProvisioningStatus `json:"provisioning_status"`
 	// Route가 속한 프로젝트 ID
-	ProjectId            string `json:"project_id"`
+	ProjectId string `json:"project_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -205,7 +205,7 @@ func (o *BnsTgwV1ApiUpdateTgwRouteModelTgwRouteResponseModel) SetProjectId(v str
 }
 
 func (o BnsTgwV1ApiUpdateTgwRouteModelTgwRouteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -246,10 +246,10 @@ func (o *BnsTgwV1ApiUpdateTgwRouteModelTgwRouteResponseModel) UnmarshalJSON(data
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -315,3 +315,5 @@ func (v *NullableBnsTgwV1ApiUpdateTgwRouteModelTgwRouteResponseModel) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

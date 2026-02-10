@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Attachment의 고유 ID | 
-**TgwAttachmentId** | **string** | Transit Gateway와 연결된 Attachment의 연결 ID&lt;br/&gt;- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 &#x60;attachments.tgw.attachment_id&#x60; 확인 | 
 **TgwId** | **string** | Transit Gateway ID | 
 **VpcId** | **string** | 연결된 VPC ID | 
 **ProvisioningStatus** | [**TGWProvisioningStatus**](TGWProvisioningStatus.md) | Attachment의 프로비저닝 상태 | 
@@ -20,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewBnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel
 
-`func NewBnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwAttachmentId string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time, ) *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel`
+`func NewBnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel(id string, tgwId string, vpcId string, provisioningStatus TGWProvisioningStatus, tgwProjectId string, vpcName string, cidrBlock string, projectId string, createdAt time.Time, updatedAt time.Time, ) *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel`
 
 NewBnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel instantiates a new BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,26 +52,6 @@ and a boolean to check if the value has been set.
 `func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel) SetId(v string)`
 
 SetId sets Id field to given value.
-
-
-### GetTgwAttachmentId
-
-`func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel) GetTgwAttachmentId() string`
-
-GetTgwAttachmentId returns the TgwAttachmentId field if non-nil, zero value otherwise.
-
-### GetTgwAttachmentIdOk
-
-`func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel) GetTgwAttachmentIdOk() (*string, bool)`
-
-GetTgwAttachmentIdOk returns a tuple with the TgwAttachmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTgwAttachmentId
-
-`func (o *BnsTgwV1ApiCreateTgwAttachmentModelTgwAttachmentResponseModel) SetTgwAttachmentId(v string)`
-
-SetTgwAttachmentId sets TgwAttachmentId field to given value.
 
 
 ### GetTgwId

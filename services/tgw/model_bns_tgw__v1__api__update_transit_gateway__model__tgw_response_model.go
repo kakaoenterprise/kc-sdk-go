@@ -12,8 +12,8 @@ package tgw
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
+	"fmt"
 )
 
 // checks if the BnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel type satisfies the MappedNullable interface at compile time
@@ -36,7 +36,7 @@ type BnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel struct {
 	// 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준
 	CreatedAt time.Time `json:"created_at"`
 	// 리소스가 마지막으로 수정된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준
-	UpdatedAt            time.Time `json:"updated_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -260,7 +260,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel) SetUpdatedAt(v ti
 }
 
 func (o BnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -305,10 +305,10 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel) UnmarshalJSON(dat
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -376,3 +376,5 @@ func (v *NullableBnsTgwV1ApiUpdateTransitGatewayModelTgwResponseModel) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
