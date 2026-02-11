@@ -36,14 +36,14 @@ type TgwsAPI interface {
 	CreateTransitGatewayExecute(r ApiCreateTransitGatewayRequest) (*BnsTgwV1ApiCreateTransitGatewayModelCreateTgwResponseModel, *http.Response, error)
 
 	/*
-		DeleteTransitGateway Delete transit gateway
+			DeleteTransitGateway Delete transit gateway
 
-		지정한 Transit Gateway를 삭제합니다.<br/>
-	Transit Gateway 삭제 시 연결된 모든 Attachment, 라우팅 테이블, Association 등의 종속 리소스가 함께 해제되며, 삭제된 Transit Gateway는 복구할 수 없습니다.
+			지정한 Transit Gateway를 삭제합니다.<br/>
+		Transit Gateway 삭제 시 연결된 모든 Attachment, 라우팅 테이블, Association 등의 종속 리소스가 함께 해제되며, 삭제된 Transit Gateway는 복구할 수 없습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param tgwId 삭제할 Transit Gateway ID
-		@return ApiDeleteTransitGatewayRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param tgwId 삭제할 Transit Gateway ID
+			@return ApiDeleteTransitGatewayRequest
 	*/
 	DeleteTransitGateway(ctx context.Context, tgwId string) ApiDeleteTransitGatewayRequest
 

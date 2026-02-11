@@ -22,7 +22,7 @@ var _ MappedNullable = &BnsTgwV1ApiCreateTgwRouteModelTgwRouteRequestModel{}
 type BnsTgwV1ApiCreateTgwRouteModelTgwRouteRequestModel struct {
 	// 대상 네트워크 CIDR 블록
 	DestinationCidrBlock string `json:"destination_cidr_block"`
-	// Transit Gateway와 연결된 Attachment의 연결 ID<br/>- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 `attachments.tgw.attachment_id` 확인
+	// Transit Gateway와 연결된 Attachment의 연결 ID
 	TgwAttachmentId      string `json:"tgw_attachment_id"`
 	AdditionalProperties map[string]interface{}
 }

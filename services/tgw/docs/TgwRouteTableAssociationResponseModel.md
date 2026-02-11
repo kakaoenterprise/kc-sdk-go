@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ResourceId** | **string** | 연결된 리소스의 ID | 
 **ResourceType** | [**ResourceType**](ResourceType.md) | 연결된 리소스 유형 | 
 **TgwRouteTableId** | **string** | 연결된 TGW 라우팅 테이블 ID | 
-**TgwAttachmentId** | **string** | Transit Gateway와 연결된 Attachment의 연결 ID&lt;br/&gt;- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 &#x60;attachments.tgw.attachment_id&#x60; 확인 | 
+**TgwAttachmentId** | **string** | Transit Gateway와 연결된 Attachment의 연결 ID | 
 **ProvisioningStatus** | [**TGWProvisioningStatus**](TGWProvisioningStatus.md) | Association 프로비저닝 상태 | 
 **ProjectId** | **string** | 프로젝트 ID | 
 

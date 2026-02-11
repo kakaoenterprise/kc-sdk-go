@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **ResourceAttachmentId** | Pointer to **NullableString** |  | [optional] 
 **ResourceId** | Pointer to **NullableString** |  | [optional] 
 **ResourceType** | Pointer to [**NullableResourceType**](ResourceType.md) |  | [optional] 
-**TgwAttachmentId** | Pointer to **NullableString** |  | [optional] 
 **TgwRouteTableId** | Pointer to **NullableString** |  | [optional] 
 **ProvisioningStatus** | Pointer to [**NullableTGWProvisioningStatus**](TGWProvisioningStatus.md) |  | [optional] 
 **Resource** | [**BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel**](BnsTgwV1ApiGetTgwRouteTableModelResourceResponseModel.md) | 연결된 리소스 정보 | 
@@ -244,41 +243,6 @@ HasResourceType returns a boolean if a field has been set.
 `func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnsetResourceType()`
 
 UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
-### GetTgwAttachmentId
-
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwAttachmentId() string`
-
-GetTgwAttachmentId returns the TgwAttachmentId field if non-nil, zero value otherwise.
-
-### GetTgwAttachmentIdOk
-
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwAttachmentIdOk() (*string, bool)`
-
-GetTgwAttachmentIdOk returns a tuple with the TgwAttachmentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTgwAttachmentId
-
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentId(v string)`
-
-SetTgwAttachmentId sets TgwAttachmentId field to given value.
-
-### HasTgwAttachmentId
-
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasTgwAttachmentId() bool`
-
-HasTgwAttachmentId returns a boolean if a field has been set.
-
-### SetTgwAttachmentIdNil
-
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentIdNil(b bool)`
-
- SetTgwAttachmentIdNil sets the value for TgwAttachmentId to be an explicit nil
-
-### UnsetTgwAttachmentId
-`func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnsetTgwAttachmentId()`
-
-UnsetTgwAttachmentId ensures that no value is present for TgwAttachmentId, not even an explicit nil
 ### GetTgwRouteTableId
 
 `func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwRouteTableId() string`

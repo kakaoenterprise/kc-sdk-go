@@ -26,7 +26,6 @@ type BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel struct {
 	ResourceAttachmentId NullableString                `json:"resource_attachment_id,omitempty"`
 	ResourceId           NullableString                `json:"resource_id,omitempty"`
 	ResourceType         NullableResourceType          `json:"resource_type,omitempty"`
-	TgwAttachmentId      NullableString                `json:"tgw_attachment_id,omitempty"`
 	TgwRouteTableId      NullableString                `json:"tgw_route_table_id,omitempty"`
 	ProvisioningStatus   NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
 	// 연결된 리소스 정보
@@ -312,49 +311,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnsetResourceType()
 	o.ResourceType.Unset()
 }
 
-// GetTgwAttachmentId returns the TgwAttachmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwAttachmentId() string {
-	if o == nil || IsNil(o.TgwAttachmentId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TgwAttachmentId.Get()
-}
-
-// GetTgwAttachmentIdOk returns a tuple with the TgwAttachmentId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwAttachmentIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TgwAttachmentId.Get(), o.TgwAttachmentId.IsSet()
-}
-
-// HasTgwAttachmentId returns a boolean if a field has been set.
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) HasTgwAttachmentId() bool {
-	if o != nil && o.TgwAttachmentId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTgwAttachmentId gets a reference to the given NullableString and assigns it to the TgwAttachmentId field.
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentId(v string) {
-	o.TgwAttachmentId.Set(&v)
-}
-
-// SetTgwAttachmentIdNil sets the value for TgwAttachmentId to be an explicit nil
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) SetTgwAttachmentIdNil() {
-	o.TgwAttachmentId.Set(nil)
-}
-
-// UnsetTgwAttachmentId ensures that no value is present for TgwAttachmentId, not even an explicit nil
-func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnsetTgwAttachmentId() {
-	o.TgwAttachmentId.Unset()
-}
-
 // GetTgwRouteTableId returns the TgwRouteTableId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) GetTgwRouteTableId() string {
 	if o == nil || IsNil(o.TgwRouteTableId.Get()) {
@@ -493,9 +449,6 @@ func (o BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) ToMap() (map[string]
 	if o.ResourceType.IsSet() {
 		toSerialize["resource_type"] = o.ResourceType.Get()
 	}
-	if o.TgwAttachmentId.IsSet() {
-		toSerialize["tgw_attachment_id"] = o.TgwAttachmentId.Get()
-	}
 	if o.TgwRouteTableId.IsSet() {
 		toSerialize["tgw_route_table_id"] = o.TgwRouteTableId.Get()
 	}
@@ -552,7 +505,6 @@ func (o *BnsTgwV1ApiGetTgwRouteTableModelRouteResponseModel) UnmarshalJSON(data 
 		delete(additionalProperties, "resource_attachment_id")
 		delete(additionalProperties, "resource_id")
 		delete(additionalProperties, "resource_type")
-		delete(additionalProperties, "tgw_attachment_id")
 		delete(additionalProperties, "tgw_route_table_id")
 		delete(additionalProperties, "provisioning_status")
 		delete(additionalProperties, "resource")

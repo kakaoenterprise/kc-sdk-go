@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DestinationCidrBlock** | **string** | 대상 네트워크 CIDR 블록 | 
-**TgwAttachmentId** | **string** | Transit Gateway와 연결된 Attachment의 연결 ID&lt;br/&gt;- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 &#x60;attachments.tgw.attachment_id&#x60; 확인 | 
+**TgwAttachmentId** | **string** | Transit Gateway와 연결된 Attachment의 연결 ID | 
 
 ## Methods
 

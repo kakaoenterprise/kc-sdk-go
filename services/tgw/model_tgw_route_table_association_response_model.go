@@ -28,7 +28,7 @@ type TgwRouteTableAssociationResponseModel struct {
 	ResourceType ResourceType `json:"resource_type"`
 	// 연결된 TGW 라우팅 테이블 ID
 	TgwRouteTableId string `json:"tgw_route_table_id"`
-	// Transit Gateway와 연결된 Attachment의 연결 ID<br/>- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 `attachments.tgw.attachment_id` 확인
+	// Transit Gateway와 연결된 Attachment의 연결 ID
 	TgwAttachmentId string `json:"tgw_attachment_id"`
 	// Association 프로비저닝 상태
 	ProvisioningStatus TGWProvisioningStatus `json:"provisioning_status"`
