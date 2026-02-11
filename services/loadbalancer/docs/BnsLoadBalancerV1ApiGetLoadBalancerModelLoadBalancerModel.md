@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **UpdatedAt** | Pointer to **NullableTime** |  | [optional] 
 **AvailabilityZone** | Pointer to [**NullableAvailabilityZone**](AvailabilityZone.md) |  | [optional] 
-**AccessLogs** | Pointer to **NullableString** |  | [optional] 
+**AccessLogs** | Pointer to [**NullableAccessLogsModel**](AccessLogsModel.md) |  | [optional] 
 **BeyondLoadBalancerId** | Pointer to **NullableString** |  | [optional] 
 **BeyondLoadBalancerName** | Pointer to **NullableString** |  | [optional] 
 **BeyondLoadBalancerDnsName** | Pointer to **NullableString** |  | [optional] 
@@ -420,20 +420,20 @@ HasAvailabilityZone returns a boolean if a field has been set.
 UnsetAvailabilityZone ensures that no value is present for AvailabilityZone, not even an explicit nil
 ### GetAccessLogs
 
-`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) GetAccessLogs() string`
+`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) GetAccessLogs() AccessLogsModel`
 
 GetAccessLogs returns the AccessLogs field if non-nil, zero value otherwise.
 
 ### GetAccessLogsOk
 
-`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) GetAccessLogsOk() (*string, bool)`
+`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) GetAccessLogsOk() (*AccessLogsModel, bool)`
 
 GetAccessLogsOk returns a tuple with the AccessLogs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccessLogs
 
-`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) SetAccessLogs(v string)`
+`func (o *BnsLoadBalancerV1ApiGetLoadBalancerModelLoadBalancerModel) SetAccessLogs(v AccessLogsModel)`
 
 SetAccessLogs sets AccessLogs field to given value.
 

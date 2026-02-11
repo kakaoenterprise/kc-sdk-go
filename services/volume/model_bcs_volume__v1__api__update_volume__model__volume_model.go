@@ -35,13 +35,13 @@ type BcsVolumeV1ApiUpdateVolumeModelVolumeModel struct {
 	Description NullableString `json:"description,omitempty"`
 	VolumeType  NullableString `json:"volume_type,omitempty"`
 	SnapshotId  NullableString `json:"snapshot_id,omitempty"`
-	// 키-값 쌍 형태의 메타데이터
+	// 볼륨에 설정된 사용자 정의 메타데이터(Key-Value 쌍)
 	Metadata map[string]string `json:"metadata"`
 	UserId   NullableString    `json:"user_id,omitempty"`
 	// 부팅 가능 여부
 	IsBootable  bool         `json:"is_bootable"`
 	IsEncrypted NullableBool `json:"is_encrypted,omitempty"`
-	// 볼륨이 연결된 인스턴스 정보 등의 Attachment 정보
+	// 볼륨의 인스턴스 연결 상태를 나타내는 Attachment 목록 <br/> - 새로 생성된 볼륨은 일반적으로 빈 배열
 	Attachments          []Attachment `json:"attachments"`
 	AdditionalProperties map[string]interface{}
 }

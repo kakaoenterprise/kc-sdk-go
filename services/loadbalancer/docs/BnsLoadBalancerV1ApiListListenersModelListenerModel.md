@@ -13,10 +13,8 @@ Name | Type | Description | Notes
 **L7Policies** | Pointer to [**[]BnsLoadBalancerV1ApiListListenersModelL7PolicyModel**](BnsLoadBalancerV1ApiListListenersModelL7PolicyModel.md) |  | [optional] 
 **TlsCiphers** | Pointer to **NullableString** |  | [optional] 
 **TlsVersions** | Pointer to [**[]TLSVersion**](TLSVersion.md) |  | [optional] 
-**AlpnProtocols** | Pointer to **[]string** |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **ProtocolPort** | Pointer to **NullableInt32** |  | [optional] 
-**ConnectionLimit** | Pointer to **NullableInt32** |  | [optional] 
 **LoadBalancerId** | Pointer to **NullableString** |  | [optional] 
 **TlsCertificateId** | Pointer to **NullableString** |  | [optional] 
 **ProvisioningStatus** | Pointer to [**NullableProvisioningStatus**](ProvisioningStatus.md) |  | [optional] 
@@ -348,41 +346,6 @@ HasTlsVersions returns a boolean if a field has been set.
 `func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetTlsVersions()`
 
 UnsetTlsVersions ensures that no value is present for TlsVersions, not even an explicit nil
-### GetAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetAlpnProtocols() []string`
-
-GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
-
-### GetAlpnProtocolsOk
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetAlpnProtocolsOk() (*[]string, bool)`
-
-GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetAlpnProtocols(v []string)`
-
-SetAlpnProtocols sets AlpnProtocols field to given value.
-
-### HasAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) HasAlpnProtocols() bool`
-
-HasAlpnProtocols returns a boolean if a field has been set.
-
-### SetAlpnProtocolsNil
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetAlpnProtocolsNil(b bool)`
-
- SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
-
-### UnsetAlpnProtocols
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetAlpnProtocols()`
-
-UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 ### GetProjectId
 
 `func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetProjectId() string`
@@ -453,41 +416,6 @@ HasProtocolPort returns a boolean if a field has been set.
 `func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetProtocolPort()`
 
 UnsetProtocolPort ensures that no value is present for ProtocolPort, not even an explicit nil
-### GetConnectionLimit
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetConnectionLimit() int32`
-
-GetConnectionLimit returns the ConnectionLimit field if non-nil, zero value otherwise.
-
-### GetConnectionLimitOk
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetConnectionLimitOk() (*int32, bool)`
-
-GetConnectionLimitOk returns a tuple with the ConnectionLimit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConnectionLimit
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetConnectionLimit(v int32)`
-
-SetConnectionLimit sets ConnectionLimit field to given value.
-
-### HasConnectionLimit
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) HasConnectionLimit() bool`
-
-HasConnectionLimit returns a boolean if a field has been set.
-
-### SetConnectionLimitNil
-
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetConnectionLimitNil(b bool)`
-
- SetConnectionLimitNil sets the value for ConnectionLimit to be an explicit nil
-
-### UnsetConnectionLimit
-`func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetConnectionLimit()`
-
-UnsetConnectionLimit ensures that no value is present for ConnectionLimit, not even an explicit nil
 ### GetLoadBalancerId
 
 `func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetLoadBalancerId() string`

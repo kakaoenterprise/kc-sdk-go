@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **LoadBalancerId** | **string** | 연결할 로드 밸런서 ID | 
 **Name** | **string** | 대상 그룹의 이름 | 
 **Protocol** | [**TargetGroupProtocol**](TargetGroupProtocol.md) | 대상 그룹의 백엔드 통신에 사용할 프로토콜 &lt;br/&gt; - &#x60;HTTP&#x60;: HTTP 프로토콜 &lt;br/&gt; - &#x60;HTTPS&#x60;: HTTPS 프로토콜 &lt;br/&gt; - &#x60;TCP&#x60;: TCP 프로토콜 &lt;br/&gt; - &#x60;UDP&#x60;: UDP 프로토콜 &lt;br/&gt; - &#x60;PROXY&#x60;: 프록시 프로토콜 | 
+**AlpnProtocols** | Pointer to [**NullableAlpnProtocol**](AlpnProtocol.md) |  | [optional] 
 **SessionPersistence** | Pointer to [**NullableSessionPersistenceModel**](SessionPersistenceModel.md) |  | [optional] 
 
 ## Methods
@@ -181,6 +182,41 @@ and a boolean to check if the value has been set.
 SetProtocol sets Protocol field to given value.
 
 
+### GetAlpnProtocols
+
+`func (o *CreateTargetGroup) GetAlpnProtocols() AlpnProtocol`
+
+GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
+
+### GetAlpnProtocolsOk
+
+`func (o *CreateTargetGroup) GetAlpnProtocolsOk() (*AlpnProtocol, bool)`
+
+GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlpnProtocols
+
+`func (o *CreateTargetGroup) SetAlpnProtocols(v AlpnProtocol)`
+
+SetAlpnProtocols sets AlpnProtocols field to given value.
+
+### HasAlpnProtocols
+
+`func (o *CreateTargetGroup) HasAlpnProtocols() bool`
+
+HasAlpnProtocols returns a boolean if a field has been set.
+
+### SetAlpnProtocolsNil
+
+`func (o *CreateTargetGroup) SetAlpnProtocolsNil(b bool)`
+
+ SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
+
+### UnsetAlpnProtocols
+`func (o *CreateTargetGroup) UnsetAlpnProtocols()`
+
+UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 ### GetSessionPersistence
 
 `func (o *CreateTargetGroup) GetSessionPersistence() SessionPersistenceModel`

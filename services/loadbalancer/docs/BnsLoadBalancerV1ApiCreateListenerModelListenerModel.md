@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **OperatingStatus** | [**LoadBalancerOperatingStatus**](LoadBalancerOperatingStatus.md) | 운영 상태 | 
 **Protocol** | [**Protocol**](Protocol.md) | 수신 프로토콜 | 
 **ProtocolPort** | **int32** | 수신 포트 번호 | 
-**ConnectionLimit** | **int32** | 최대 동시 연결 수 | 
 **DefaultTlsContainerRef** | Pointer to **NullableString** |  | [optional] 
 **SniContainerRefs** | **[]string** | SNI 인증서 참조 목록 | 
 **ProjectId** | **string** | 프로젝트 ID | 
@@ -22,16 +21,14 @@ Name | Type | Description | Notes
 **UpdatedAt** | Pointer to **NullableTime** |  | [optional] 
 **LoadBalancers** | [**[]BnsLoadBalancerV1ApiCreateListenerModelLoadBalancerModel**](BnsLoadBalancerV1ApiCreateListenerModelLoadBalancerModel.md) | 연결된 로드 밸런서 목록 | 
 **TimeoutClientData** | **int32** | 클라이언트 데이터 수신 타임아웃 (초) | 
-**AllowedCidrs** | Pointer to **[]string** |  | [optional] 
 **TlsCiphers** | Pointer to **NullableString** |  | [optional] 
 **TlsVersions** | Pointer to **[]string** |  | [optional] 
-**AlpnProtocols** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewBnsLoadBalancerV1ApiCreateListenerModelListenerModel
 
-`func NewBnsLoadBalancerV1ApiCreateListenerModelListenerModel(id string, name string, description string, provisioningStatus ProvisioningStatus, operatingStatus LoadBalancerOperatingStatus, protocol Protocol, protocolPort int32, connectionLimit int32, sniContainerRefs []string, projectId string, l7Policies []BnsLoadBalancerV1ApiCreateListenerModelL7PolicyModel, insertHeaders map[string]interface{}, createdAt time.Time, loadBalancers []BnsLoadBalancerV1ApiCreateListenerModelLoadBalancerModel, timeoutClientData int32, ) *BnsLoadBalancerV1ApiCreateListenerModelListenerModel`
+`func NewBnsLoadBalancerV1ApiCreateListenerModelListenerModel(id string, name string, description string, provisioningStatus ProvisioningStatus, operatingStatus LoadBalancerOperatingStatus, protocol Protocol, protocolPort int32, sniContainerRefs []string, projectId string, l7Policies []BnsLoadBalancerV1ApiCreateListenerModelL7PolicyModel, insertHeaders map[string]interface{}, createdAt time.Time, loadBalancers []BnsLoadBalancerV1ApiCreateListenerModelLoadBalancerModel, timeoutClientData int32, ) *BnsLoadBalancerV1ApiCreateListenerModelListenerModel`
 
 NewBnsLoadBalancerV1ApiCreateListenerModelListenerModel instantiates a new BnsLoadBalancerV1ApiCreateListenerModelListenerModel object
 This constructor will assign default values to properties that have it defined,
@@ -184,26 +181,6 @@ and a boolean to check if the value has been set.
 `func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetProtocolPort(v int32)`
 
 SetProtocolPort sets ProtocolPort field to given value.
-
-
-### GetConnectionLimit
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetConnectionLimit() int32`
-
-GetConnectionLimit returns the ConnectionLimit field if non-nil, zero value otherwise.
-
-### GetConnectionLimitOk
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetConnectionLimitOk() (*int32, bool)`
-
-GetConnectionLimitOk returns a tuple with the ConnectionLimit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConnectionLimit
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetConnectionLimit(v int32)`
-
-SetConnectionLimit sets ConnectionLimit field to given value.
 
 
 ### GetDefaultTlsContainerRef
@@ -451,41 +428,6 @@ and a boolean to check if the value has been set.
 SetTimeoutClientData sets TimeoutClientData field to given value.
 
 
-### GetAllowedCidrs
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetAllowedCidrs() []string`
-
-GetAllowedCidrs returns the AllowedCidrs field if non-nil, zero value otherwise.
-
-### GetAllowedCidrsOk
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetAllowedCidrsOk() (*[]string, bool)`
-
-GetAllowedCidrsOk returns a tuple with the AllowedCidrs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAllowedCidrs
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetAllowedCidrs(v []string)`
-
-SetAllowedCidrs sets AllowedCidrs field to given value.
-
-### HasAllowedCidrs
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) HasAllowedCidrs() bool`
-
-HasAllowedCidrs returns a boolean if a field has been set.
-
-### SetAllowedCidrsNil
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetAllowedCidrsNil(b bool)`
-
- SetAllowedCidrsNil sets the value for AllowedCidrs to be an explicit nil
-
-### UnsetAllowedCidrs
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) UnsetAllowedCidrs()`
-
-UnsetAllowedCidrs ensures that no value is present for AllowedCidrs, not even an explicit nil
 ### GetTlsCiphers
 
 `func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetTlsCiphers() string`
@@ -556,41 +498,6 @@ HasTlsVersions returns a boolean if a field has been set.
 `func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) UnsetTlsVersions()`
 
 UnsetTlsVersions ensures that no value is present for TlsVersions, not even an explicit nil
-### GetAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetAlpnProtocols() []string`
-
-GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
-
-### GetAlpnProtocolsOk
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) GetAlpnProtocolsOk() (*[]string, bool)`
-
-GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetAlpnProtocols(v []string)`
-
-SetAlpnProtocols sets AlpnProtocols field to given value.
-
-### HasAlpnProtocols
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) HasAlpnProtocols() bool`
-
-HasAlpnProtocols returns a boolean if a field has been set.
-
-### SetAlpnProtocolsNil
-
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) SetAlpnProtocolsNil(b bool)`
-
- SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
-
-### UnsetAlpnProtocols
-`func (o *BnsLoadBalancerV1ApiCreateListenerModelListenerModel) UnsetAlpnProtocols()`
-
-UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Id** | **string** | 인스턴스의 ID | 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | Pointer to **map[string]string** |  | [optional] 
 **Flavor** | Pointer to [**NullableBcsInstanceV1ApiListInstancesModelInstanceFlavorModel**](BcsInstanceV1ApiListInstancesModelInstanceFlavorModel.md) |  | [optional] 
 **Addresses** | Pointer to [**[]BcsInstanceV1ApiListInstancesModelInstanceAddressModel**](BcsInstanceV1ApiListInstancesModelInstanceAddressModel.md) |  | [optional] 
 **IsHyperThreading** | Pointer to **NullableBool** |  | [optional] 
@@ -140,41 +139,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetMetadata
-
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) GetMetadata() map[string]string`
-
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
-
-### GetMetadataOk
-
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) GetMetadataOk() (*map[string]string, bool)`
-
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetadata
-
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) SetMetadata(v map[string]string)`
-
-SetMetadata sets Metadata field to given value.
-
-### HasMetadata
-
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) HasMetadata() bool`
-
-HasMetadata returns a boolean if a field has been set.
-
-### SetMetadataNil
-
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetFlavor
 
 `func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) GetFlavor() BcsInstanceV1ApiListInstancesModelInstanceFlavorModel`

@@ -102,7 +102,6 @@ type LoadBalancerListenerAPI interface {
 
 		:::caution 주의
 		- 리스너가 연결된 로드 밸런서의 상태가 `ACTIVE`가 아닌 경우 수정이 제한될 수 있습니다.
-		- 연결 제한 수(`connection_limit`)를 `-1`로 설정하면 무제한 연결이 허용되지만, 실제 처리 성능은 인스턴스 스펙에 따라 달라질 수 있습니다.
 		:::
 
 			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -895,24 +894,28 @@ func (a *LoadBalancerListenerAPIService) ListListenersExecute(r ApiListListeners
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
 	} else {
 		var defaultValue string = "created_at"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
 		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")
 	} else {
 		var defaultValue string = "desc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", defaultValue, "form", "")
 		r.sortDirs = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
 		var defaultValue int32 = 20
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", defaultValue, "form", "")
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -1073,7 +1076,6 @@ UpdateListener Update listener
 
 :::caution 주의
 - 리스너가 연결된 로드 밸런서의 상태가 `ACTIVE`가 아닌 경우 수정이 제한될 수 있습니다.
-- 연결 제한 수(`connection_limit`)를 `-1`로 설정하면 무제한 연결이 허용되지만, 실제 처리 성능은 인스턴스 스펙에 따라 달라질 수 있습니다.
 :::
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

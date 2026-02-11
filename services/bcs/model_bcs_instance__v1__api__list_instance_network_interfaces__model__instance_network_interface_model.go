@@ -27,9 +27,11 @@ type BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceM
 	Status                            NullableNetworkInterfaceStatus  `json:"status,omitempty"`
 	Description                       NullableString                  `json:"description,omitempty"`
 	ProjectId                         NullableString                  `json:"project_id,omitempty"`
+	VpcId                             NullableString                  `json:"vpc_id,omitempty"`
 	SubnetId                          NullableString                  `json:"subnet_id,omitempty"`
 	MacAddress                        NullableString                  `json:"mac_address,omitempty"`
 	DeviceId                          NullableString                  `json:"device_id,omitempty"`
+	DeviceOwner                       NullableString                  `json:"device_owner,omitempty"`
 	ProjectName                       NullableString                  `json:"project_name,omitempty"`
 	SecondaryIps                      []string                        `json:"secondary_ips,omitempty"`
 	PublicIp                          NullableString                  `json:"public_ip,omitempty"`
@@ -258,6 +260,49 @@ func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterf
 	o.ProjectId.Unset()
 }
 
+// GetVpcId returns the VpcId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetVpcId() string {
+	if o == nil || IsNil(o.VpcId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VpcId.Get()
+}
+
+// GetVpcIdOk returns a tuple with the VpcId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetVpcIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VpcId.Get(), o.VpcId.IsSet()
+}
+
+// HasVpcId returns a boolean if a field has been set.
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) HasVpcId() bool {
+	if o != nil && o.VpcId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVpcId gets a reference to the given NullableString and assigns it to the VpcId field.
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetVpcId(v string) {
+	o.VpcId.Set(&v)
+}
+
+// SetVpcIdNil sets the value for VpcId to be an explicit nil
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetVpcIdNil() {
+	o.VpcId.Set(nil)
+}
+
+// UnsetVpcId ensures that no value is present for VpcId, not even an explicit nil
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetVpcId() {
+	o.VpcId.Unset()
+}
+
 // GetSubnetId returns the SubnetId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetSubnetId() string {
 	if o == nil || IsNil(o.SubnetId.Get()) {
@@ -385,6 +430,49 @@ func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterf
 // UnsetDeviceId ensures that no value is present for DeviceId, not even an explicit nil
 func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetDeviceId() {
 	o.DeviceId.Unset()
+}
+
+// GetDeviceOwner returns the DeviceOwner field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetDeviceOwner() string {
+	if o == nil || IsNil(o.DeviceOwner.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DeviceOwner.Get()
+}
+
+// GetDeviceOwnerOk returns a tuple with the DeviceOwner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetDeviceOwnerOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DeviceOwner.Get(), o.DeviceOwner.IsSet()
+}
+
+// HasDeviceOwner returns a boolean if a field has been set.
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) HasDeviceOwner() bool {
+	if o != nil && o.DeviceOwner.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeviceOwner gets a reference to the given NullableString and assigns it to the DeviceOwner field.
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetDeviceOwner(v string) {
+	o.DeviceOwner.Set(&v)
+}
+
+// SetDeviceOwnerNil sets the value for DeviceOwner to be an explicit nil
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetDeviceOwnerNil() {
+	o.DeviceOwner.Set(nil)
+}
+
+// UnsetDeviceOwner ensures that no value is present for DeviceOwner, not even an explicit nil
+func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetDeviceOwner() {
+	o.DeviceOwner.Unset()
 }
 
 // GetProjectName returns the ProjectName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -767,6 +855,9 @@ func (o BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfa
 	if o.ProjectId.IsSet() {
 		toSerialize["project_id"] = o.ProjectId.Get()
 	}
+	if o.VpcId.IsSet() {
+		toSerialize["vpc_id"] = o.VpcId.Get()
+	}
 	if o.SubnetId.IsSet() {
 		toSerialize["subnet_id"] = o.SubnetId.Get()
 	}
@@ -775,6 +866,9 @@ func (o BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfa
 	}
 	if o.DeviceId.IsSet() {
 		toSerialize["device_id"] = o.DeviceId.Get()
+	}
+	if o.DeviceOwner.IsSet() {
+		toSerialize["device_owner"] = o.DeviceOwner.Get()
 	}
 	if o.ProjectName.IsSet() {
 		toSerialize["project_name"] = o.ProjectName.Get()
@@ -851,9 +945,11 @@ func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterf
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "project_id")
+		delete(additionalProperties, "vpc_id")
 		delete(additionalProperties, "subnet_id")
 		delete(additionalProperties, "mac_address")
 		delete(additionalProperties, "device_id")
+		delete(additionalProperties, "device_owner")
 		delete(additionalProperties, "project_name")
 		delete(additionalProperties, "secondary_ips")
 		delete(additionalProperties, "public_ip")

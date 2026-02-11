@@ -21,11 +21,7 @@ var _ MappedNullable = &AccessLogsModel{}
 // AccessLogsModel struct for AccessLogsModel
 type AccessLogsModel struct {
 	// 로그를 저장하는 대상 버킷 이름
-	Bucket string `json:"bucket"`
-	// 버킷 접근에 사용하는 액세스 키
-	AccessKey string `json:"access_key"`
-	// 버킷 접근에 사용하는 인증서 키
-	SecretKey            string `json:"secret_key"`
+	Bucket               string `json:"bucket"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -35,11 +31,9 @@ type _AccessLogsModel AccessLogsModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccessLogsModel(bucket string, accessKey string, secretKey string) *AccessLogsModel {
+func NewAccessLogsModel(bucket string) *AccessLogsModel {
 	this := AccessLogsModel{}
 	this.Bucket = bucket
-	this.AccessKey = accessKey
-	this.SecretKey = secretKey
 	return &this
 }
 
@@ -75,54 +69,6 @@ func (o *AccessLogsModel) SetBucket(v string) {
 	o.Bucket = v
 }
 
-// GetAccessKey returns the AccessKey field value
-func (o *AccessLogsModel) GetAccessKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AccessKey
-}
-
-// GetAccessKeyOk returns a tuple with the AccessKey field value
-// and a boolean to check if the value has been set.
-func (o *AccessLogsModel) GetAccessKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AccessKey, true
-}
-
-// SetAccessKey sets field value
-func (o *AccessLogsModel) SetAccessKey(v string) {
-	o.AccessKey = v
-}
-
-// GetSecretKey returns the SecretKey field value
-func (o *AccessLogsModel) GetSecretKey() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SecretKey
-}
-
-// GetSecretKeyOk returns a tuple with the SecretKey field value
-// and a boolean to check if the value has been set.
-func (o *AccessLogsModel) GetSecretKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SecretKey, true
-}
-
-// SetSecretKey sets field value
-func (o *AccessLogsModel) SetSecretKey(v string) {
-	o.SecretKey = v
-}
-
 func (o AccessLogsModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -134,8 +80,6 @@ func (o AccessLogsModel) MarshalJSON() ([]byte, error) {
 func (o AccessLogsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bucket"] = o.Bucket
-	toSerialize["access_key"] = o.AccessKey
-	toSerialize["secret_key"] = o.SecretKey
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -150,8 +94,6 @@ func (o *AccessLogsModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"bucket",
-		"access_key",
-		"secret_key",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -182,8 +124,6 @@ func (o *AccessLogsModel) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "bucket")
-		delete(additionalProperties, "access_key")
-		delete(additionalProperties, "secret_key")
 		o.AdditionalProperties = additionalProperties
 	}
 

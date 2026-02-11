@@ -1703,24 +1703,28 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", defaultValue, "form", "")
 		r.offset = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
 		var defaultValue int32 = 20
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}
 	if r.sortKeys != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
 	} else {
 		var defaultValue string = "created_at"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
 		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")
 	} else {
 		var defaultValue string = "desc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", defaultValue, "form", "")
 		r.sortDirs = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -2004,24 +2008,28 @@ func (a *RouteTablesAPIService) ListTgwRouteTablesExecute(r ApiListTgwRouteTable
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
 	} else {
 		var defaultValue string = "created_at"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
 		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")
 	} else {
 		var defaultValue string = "desc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", defaultValue, "form", "")
 		r.sortDirs = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
 		var defaultValue int32 = 20
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", defaultValue, "form", "")
 		r.offset = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -2319,24 +2327,28 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", defaultValue, "form", "")
 		r.offset = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
 		var defaultValue int32 = 20
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}
 	if r.sortKeys != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
 	} else {
 		var defaultValue string = "created_at"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
 		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")
 	} else {
 		var defaultValue string = "desc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", defaultValue, "form", "")
 		r.sortDirs = &defaultValue
 	}
 	// to determine the Content-Type header

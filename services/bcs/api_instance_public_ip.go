@@ -561,6 +561,7 @@ func (a *InstancePublicIPAPIService) RemovePublicIpExecute(r ApiRemovePublicIpRe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "is_delete", r.isDelete, "form", "")
 	} else {
 		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "is_delete", defaultValue, "form", "")
 		r.isDelete = &defaultValue
 	}
 	// to determine the Content-Type header

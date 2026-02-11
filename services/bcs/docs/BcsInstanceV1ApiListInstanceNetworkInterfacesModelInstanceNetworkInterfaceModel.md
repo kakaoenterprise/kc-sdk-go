@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**NullableNetworkInterfaceStatus**](NetworkInterfaceStatus.md) |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
+**VpcId** | Pointer to **NullableString** |  | [optional] 
 **SubnetId** | Pointer to **NullableString** |  | [optional] 
 **MacAddress** | Pointer to **NullableString** |  | [optional] 
 **DeviceId** | Pointer to **NullableString** |  | [optional] 
+**DeviceOwner** | Pointer to **NullableString** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **SecondaryIps** | Pointer to **[]string** |  | [optional] 
 **PublicIp** | Pointer to **NullableString** |  | [optional] 
@@ -201,6 +203,41 @@ HasProjectId returns a boolean if a field has been set.
 `func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetProjectId()`
 
 UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
+### GetVpcId
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetVpcId() string`
+
+GetVpcId returns the VpcId field if non-nil, zero value otherwise.
+
+### GetVpcIdOk
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetVpcIdOk() (*string, bool)`
+
+GetVpcIdOk returns a tuple with the VpcId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVpcId
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetVpcId(v string)`
+
+SetVpcId sets VpcId field to given value.
+
+### HasVpcId
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) HasVpcId() bool`
+
+HasVpcId returns a boolean if a field has been set.
+
+### SetVpcIdNil
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetVpcIdNil(b bool)`
+
+ SetVpcIdNil sets the value for VpcId to be an explicit nil
+
+### UnsetVpcId
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetVpcId()`
+
+UnsetVpcId ensures that no value is present for VpcId, not even an explicit nil
 ### GetSubnetId
 
 `func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetSubnetId() string`
@@ -306,6 +343,41 @@ HasDeviceId returns a boolean if a field has been set.
 `func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetDeviceId()`
 
 UnsetDeviceId ensures that no value is present for DeviceId, not even an explicit nil
+### GetDeviceOwner
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetDeviceOwner() string`
+
+GetDeviceOwner returns the DeviceOwner field if non-nil, zero value otherwise.
+
+### GetDeviceOwnerOk
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetDeviceOwnerOk() (*string, bool)`
+
+GetDeviceOwnerOk returns a tuple with the DeviceOwner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeviceOwner
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetDeviceOwner(v string)`
+
+SetDeviceOwner sets DeviceOwner field to given value.
+
+### HasDeviceOwner
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) HasDeviceOwner() bool`
+
+HasDeviceOwner returns a boolean if a field has been set.
+
+### SetDeviceOwnerNil
+
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) SetDeviceOwnerNil(b bool)`
+
+ SetDeviceOwnerNil sets the value for DeviceOwner to be an explicit nil
+
+### UnsetDeviceOwner
+`func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) UnsetDeviceOwner()`
+
+UnsetDeviceOwner ensures that no value is present for DeviceOwner, not even an explicit nil
 ### GetProjectName
 
 `func (o *BcsInstanceV1ApiListInstanceNetworkInterfacesModelInstanceNetworkInterfaceModel) GetProjectName() string`

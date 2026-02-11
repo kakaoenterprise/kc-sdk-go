@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | 변경할 인스턴스 유형 ID (예시: &#x60;m2a.xlarge&#x60;) &lt;br/&gt; - [List instance types](https://docs.kakaocloud.com/openapi/bcs/list-instance-types) API를 통해 확인 가능 &lt;br/&gt; - [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 참고 | 
+**Id** | **string** | 변경할 인스턴스 유형 ID &lt;br/&gt; - [List instance types](https://docs.kakaocloud.com/openapi/bcs/list-instance-types) API를 통해 확인 가능 &lt;br/&gt; - [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 참고 | 
 
 ## Methods
 

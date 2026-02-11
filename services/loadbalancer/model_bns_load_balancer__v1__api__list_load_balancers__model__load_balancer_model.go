@@ -33,7 +33,7 @@ type BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel struct {
 	CreatedAt                 NullableTime                        `json:"created_at,omitempty"`
 	UpdatedAt                 NullableTime                        `json:"updated_at,omitempty"`
 	AvailabilityZone          NullableAvailabilityZone            `json:"availability_zone,omitempty"`
-	AccessLogs                NullableString                      `json:"access_logs,omitempty"`
+	AccessLogs                NullableAccessLogsModel             `json:"access_logs,omitempty"`
 	BeyondLoadBalancerId      NullableString                      `json:"beyond_load_balancer_id,omitempty"`
 	BeyondLoadBalancerName    NullableString                      `json:"beyond_load_balancer_name,omitempty"`
 	BeyondLoadBalancerDnsName NullableString                      `json:"beyond_load_balancer_dns_name,omitempty"`
@@ -514,9 +514,9 @@ func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) UnsetAvail
 }
 
 // GetAccessLogs returns the AccessLogs field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) GetAccessLogs() string {
+func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) GetAccessLogs() AccessLogsModel {
 	if o == nil || IsNil(o.AccessLogs.Get()) {
-		var ret string
+		var ret AccessLogsModel
 		return ret
 	}
 	return *o.AccessLogs.Get()
@@ -525,7 +525,7 @@ func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) GetAccessL
 // GetAccessLogsOk returns a tuple with the AccessLogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) GetAccessLogsOk() (*string, bool) {
+func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) GetAccessLogsOk() (*AccessLogsModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -541,8 +541,8 @@ func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) HasAccessL
 	return false
 }
 
-// SetAccessLogs gets a reference to the given NullableString and assigns it to the AccessLogs field.
-func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) SetAccessLogs(v string) {
+// SetAccessLogs gets a reference to the given NullableAccessLogsModel and assigns it to the AccessLogs field.
+func (o *BnsLoadBalancerV1ApiListLoadBalancersModelLoadBalancerModel) SetAccessLogs(v AccessLogsModel) {
 	o.AccessLogs.Set(&v)
 }
 

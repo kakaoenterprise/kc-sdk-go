@@ -31,10 +31,8 @@ type BnsLoadBalancerV1ApiListListenersModelListenerModel struct {
 	L7Policies             []BnsLoadBalancerV1ApiListListenersModelL7PolicyModel                          `json:"l7_policies,omitempty"`
 	TlsCiphers             NullableString                                                                 `json:"tls_ciphers,omitempty"`
 	TlsVersions            []TLSVersion                                                                   `json:"tls_versions,omitempty"`
-	AlpnProtocols          []string                                                                       `json:"alpn_protocols,omitempty"`
 	ProjectId              NullableString                                                                 `json:"project_id,omitempty"`
 	ProtocolPort           NullableInt32                                                                  `json:"protocol_port,omitempty"`
-	ConnectionLimit        NullableInt32                                                                  `json:"connection_limit,omitempty"`
 	LoadBalancerId         NullableString                                                                 `json:"load_balancer_id,omitempty"`
 	TlsCertificateId       NullableString                                                                 `json:"tls_certificate_id,omitempty"`
 	ProvisioningStatus     NullableProvisioningStatus                                                     `json:"provisioning_status,omitempty"`
@@ -407,39 +405,6 @@ func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetTlsVersions(v [
 	o.TlsVersions = v
 }
 
-// GetAlpnProtocols returns the AlpnProtocols field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetAlpnProtocols() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.AlpnProtocols
-}
-
-// GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetAlpnProtocolsOk() ([]string, bool) {
-	if o == nil || IsNil(o.AlpnProtocols) {
-		return nil, false
-	}
-	return o.AlpnProtocols, true
-}
-
-// HasAlpnProtocols returns a boolean if a field has been set.
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) HasAlpnProtocols() bool {
-	if o != nil && !IsNil(o.AlpnProtocols) {
-		return true
-	}
-
-	return false
-}
-
-// SetAlpnProtocols gets a reference to the given []string and assigns it to the AlpnProtocols field.
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetAlpnProtocols(v []string) {
-	o.AlpnProtocols = v
-}
-
 // GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetProjectId() string {
 	if o == nil || IsNil(o.ProjectId.Get()) {
@@ -524,49 +489,6 @@ func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetProtocolPortNil
 // UnsetProtocolPort ensures that no value is present for ProtocolPort, not even an explicit nil
 func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetProtocolPort() {
 	o.ProtocolPort.Unset()
-}
-
-// GetConnectionLimit returns the ConnectionLimit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetConnectionLimit() int32 {
-	if o == nil || IsNil(o.ConnectionLimit.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.ConnectionLimit.Get()
-}
-
-// GetConnectionLimitOk returns a tuple with the ConnectionLimit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) GetConnectionLimitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ConnectionLimit.Get(), o.ConnectionLimit.IsSet()
-}
-
-// HasConnectionLimit returns a boolean if a field has been set.
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) HasConnectionLimit() bool {
-	if o != nil && o.ConnectionLimit.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetConnectionLimit gets a reference to the given NullableInt32 and assigns it to the ConnectionLimit field.
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetConnectionLimit(v int32) {
-	o.ConnectionLimit.Set(&v)
-}
-
-// SetConnectionLimitNil sets the value for ConnectionLimit to be an explicit nil
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) SetConnectionLimitNil() {
-	o.ConnectionLimit.Set(nil)
-}
-
-// UnsetConnectionLimit ensures that no value is present for ConnectionLimit, not even an explicit nil
-func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnsetConnectionLimit() {
-	o.ConnectionLimit.Unset()
 }
 
 // GetLoadBalancerId returns the LoadBalancerId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1067,17 +989,11 @@ func (o BnsLoadBalancerV1ApiListListenersModelListenerModel) ToMap() (map[string
 	if o.TlsVersions != nil {
 		toSerialize["tls_versions"] = o.TlsVersions
 	}
-	if o.AlpnProtocols != nil {
-		toSerialize["alpn_protocols"] = o.AlpnProtocols
-	}
 	if o.ProjectId.IsSet() {
 		toSerialize["project_id"] = o.ProjectId.Get()
 	}
 	if o.ProtocolPort.IsSet() {
 		toSerialize["protocol_port"] = o.ProtocolPort.Get()
-	}
-	if o.ConnectionLimit.IsSet() {
-		toSerialize["connection_limit"] = o.ConnectionLimit.Get()
 	}
 	if o.LoadBalancerId.IsSet() {
 		toSerialize["load_balancer_id"] = o.LoadBalancerId.Get()
@@ -1164,10 +1080,8 @@ func (o *BnsLoadBalancerV1ApiListListenersModelListenerModel) UnmarshalJSON(data
 		delete(additionalProperties, "l7_policies")
 		delete(additionalProperties, "tls_ciphers")
 		delete(additionalProperties, "tls_versions")
-		delete(additionalProperties, "alpn_protocols")
 		delete(additionalProperties, "project_id")
 		delete(additionalProperties, "protocol_port")
-		delete(additionalProperties, "connection_limit")
 		delete(additionalProperties, "load_balancer_id")
 		delete(additionalProperties, "tls_certificate_id")
 		delete(additionalProperties, "provisioning_status")

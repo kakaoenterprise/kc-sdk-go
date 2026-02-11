@@ -25,7 +25,6 @@ type BcsInstanceV1ApiListInstancesModelInstanceModel struct {
 	Id                   string                                                          `json:"id"`
 	Name                 NullableString                                                  `json:"name,omitempty"`
 	Description          NullableString                                                  `json:"description,omitempty"`
-	Metadata             map[string]string                                               `json:"metadata,omitempty"`
 	Flavor               NullableBcsInstanceV1ApiListInstancesModelInstanceFlavorModel   `json:"flavor,omitempty"`
 	Addresses            []BcsInstanceV1ApiListInstancesModelInstanceAddressModel        `json:"addresses,omitempty"`
 	IsHyperThreading     NullableBool                                                    `json:"is_hyper_threading,omitempty"`
@@ -179,39 +178,6 @@ func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) SetDescriptionNil() {
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
 func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) UnsetDescription() {
 	o.Description.Unset()
-}
-
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) GetMetadata() map[string]string {
-	if o == nil {
-		var ret map[string]string
-		return ret
-	}
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) GetMetadataOk() (map[string]string, bool) {
-	if o == nil || IsNil(o.Metadata) {
-		return map[string]string{}, false
-	}
-	return o.Metadata, true
-}
-
-// HasMetadata returns a boolean if a field has been set.
-func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) HasMetadata() bool {
-	if o != nil && !IsNil(o.Metadata) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetadata gets a reference to the given map[string]string and assigns it to the Metadata field.
-func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) SetMetadata(v map[string]string) {
-	o.Metadata = v
 }
 
 // GetFlavor returns the Flavor field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1147,9 +1113,6 @@ func (o BcsInstanceV1ApiListInstancesModelInstanceModel) ToMap() (map[string]int
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.Metadata != nil {
-		toSerialize["metadata"] = o.Metadata
-	}
 	if o.Flavor.IsSet() {
 		toSerialize["flavor"] = o.Flavor.Get()
 	}
@@ -1262,7 +1225,6 @@ func (o *BcsInstanceV1ApiListInstancesModelInstanceModel) UnmarshalJSON(data []b
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "description")
-		delete(additionalProperties, "metadata")
 		delete(additionalProperties, "flavor")
 		delete(additionalProperties, "addresses")
 		delete(additionalProperties, "is_hyper_threading")

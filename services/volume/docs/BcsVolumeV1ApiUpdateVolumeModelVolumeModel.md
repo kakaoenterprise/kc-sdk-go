@@ -14,11 +14,11 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **SnapshotId** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | **map[string]string** | 키-값 쌍 형태의 메타데이터 | 
+**Metadata** | **map[string]string** | 볼륨에 설정된 사용자 정의 메타데이터(Key-Value 쌍) | 
 **UserId** | Pointer to **NullableString** |  | [optional] 
 **IsBootable** | **bool** | 부팅 가능 여부 | 
 **IsEncrypted** | Pointer to **NullableBool** |  | [optional] 
-**Attachments** | [**[]Attachment**](Attachment.md) | 볼륨이 연결된 인스턴스 정보 등의 Attachment 정보 | 
+**Attachments** | [**[]Attachment**](Attachment.md) | 볼륨의 인스턴스 연결 상태를 나타내는 Attachment 목록 &lt;br/&gt; - 새로 생성된 볼륨은 일반적으로 빈 배열 | 
 
 ## Methods
 

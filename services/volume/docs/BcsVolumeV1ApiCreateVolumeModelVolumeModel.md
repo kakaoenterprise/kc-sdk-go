@@ -14,17 +14,17 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **VolumeType** | Pointer to **NullableString** |  | [optional] 
 **SnapshotId** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | **map[string]string** | 추가 메타데이터 정보 | 
+**Metadata** | **map[string]string** | 볼륨에 설정된 사용자 정의 메타데이터(Key-Value 쌍) | 
 **UserId** | Pointer to **NullableString** |  | [optional] 
 **IsBootable** | **bool** | 부팅 가능 여부 | 
 **IsEncrypted** | Pointer to **NullableBool** |  | [optional] 
-**Attachments** | [**[]AnyOf**](AnyOf.md) | 볼륨이 연결된 인스턴스 정보 목록 &lt;br/&gt; - 새로 생성된 볼륨은 일반적으로 빈 배열 | 
+**Attachments** | [**[]Attachment**](Attachment.md) | 볼륨의 인스턴스 연결 상태를 나타내는 Attachment 목록 &lt;br/&gt; - 새로 생성된 볼륨은 일반적으로 빈 배열 | 
 
 ## Methods
 
 ### NewBcsVolumeV1ApiCreateVolumeModelVolumeModel
 
-`func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []*AnyOf, ) *BcsVolumeV1ApiCreateVolumeModelVolumeModel`
+`func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []Attachment, ) *BcsVolumeV1ApiCreateVolumeModelVolumeModel`
 
 NewBcsVolumeV1ApiCreateVolumeModelVolumeModel instantiates a new BcsVolumeV1ApiCreateVolumeModelVolumeModel object
 This constructor will assign default values to properties that have it defined,
@@ -441,20 +441,20 @@ HasIsEncrypted returns a boolean if a field has been set.
 UnsetIsEncrypted ensures that no value is present for IsEncrypted, not even an explicit nil
 ### GetAttachments
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachments() []*AnyOf`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachments() []Attachment`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachmentsOk() (*[]*AnyOf, bool)`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachmentsOk() (*[]Attachment, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetAttachments(v []*AnyOf)`
+`func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetAttachments(v []Attachment)`
 
 SetAttachments sets Attachments field to given value.
 

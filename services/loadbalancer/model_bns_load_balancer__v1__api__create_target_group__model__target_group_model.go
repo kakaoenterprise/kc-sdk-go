@@ -37,6 +37,7 @@ type BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel struct {
 	UpdatedAt             NullableTime                                                  `json:"updated_at,omitempty"`
 	// 연결된 대상 인스턴스 목록
 	Members              []*BnsLoadBalancerV1ApiCreateTargetGroupModelMemberModel `json:"members,omitempty"`
+	AlpnProtocols        []AlpnProtocol                                           `json:"alpn_protocols,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -612,6 +613,39 @@ func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) SetMembers(
 	o.Members = v
 }
 
+// GetAlpnProtocols returns the AlpnProtocols field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) GetAlpnProtocols() []AlpnProtocol {
+	if o == nil {
+		var ret []AlpnProtocol
+		return ret
+	}
+	return o.AlpnProtocols
+}
+
+// GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) GetAlpnProtocolsOk() ([]AlpnProtocol, bool) {
+	if o == nil || IsNil(o.AlpnProtocols) {
+		return nil, false
+	}
+	return o.AlpnProtocols, true
+}
+
+// HasAlpnProtocols returns a boolean if a field has been set.
+func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) HasAlpnProtocols() bool {
+	if o != nil && !IsNil(o.AlpnProtocols) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlpnProtocols gets a reference to the given []AlpnProtocol and assigns it to the AlpnProtocols field.
+func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) SetAlpnProtocols(v []AlpnProtocol) {
+	o.AlpnProtocols = v
+}
+
 func (o BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -661,6 +695,9 @@ func (o BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) ToMap() (map
 	}
 	if !IsNil(o.Members) {
 		toSerialize["members"] = o.Members
+	}
+	if o.AlpnProtocols != nil {
+		toSerialize["alpn_protocols"] = o.AlpnProtocols
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -719,6 +756,7 @@ func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) UnmarshalJS
 		delete(additionalProperties, "created_at")
 		delete(additionalProperties, "updated_at")
 		delete(additionalProperties, "members")
+		delete(additionalProperties, "alpn_protocols")
 		o.AdditionalProperties = additionalProperties
 	}
 

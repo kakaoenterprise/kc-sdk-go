@@ -35,14 +35,14 @@ type BcsVolumeV1ApiCreateVolumeModelVolumeModel struct {
 	Description NullableString `json:"description,omitempty"`
 	VolumeType  NullableString `json:"volume_type,omitempty"`
 	SnapshotId  NullableString `json:"snapshot_id,omitempty"`
-	// 추가 메타데이터 정보
+	// 볼륨에 설정된 사용자 정의 메타데이터(Key-Value 쌍)
 	Metadata map[string]string `json:"metadata"`
 	UserId   NullableString    `json:"user_id,omitempty"`
 	// 부팅 가능 여부
 	IsBootable  bool         `json:"is_bootable"`
 	IsEncrypted NullableBool `json:"is_encrypted,omitempty"`
-	// 볼륨이 연결된 인스턴스 정보 목록 <br/> - 새로 생성된 볼륨은 일반적으로 빈 배열
-	Attachments          []*AnyOf `json:"attachments"`
+	// 볼륨의 인스턴스 연결 상태를 나타내는 Attachment 목록 <br/> - 새로 생성된 볼륨은 일반적으로 빈 배열
+	Attachments          []Attachment `json:"attachments"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -52,7 +52,7 @@ type _BcsVolumeV1ApiCreateVolumeModelVolumeModel BcsVolumeV1ApiCreateVolumeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []*AnyOf) *BcsVolumeV1ApiCreateVolumeModelVolumeModel {
+func NewBcsVolumeV1ApiCreateVolumeModelVolumeModel(id string, status string, size int32, name string, metadata map[string]string, isBootable bool, attachments []Attachment) *BcsVolumeV1ApiCreateVolumeModelVolumeModel {
 	this := BcsVolumeV1ApiCreateVolumeModelVolumeModel{}
 	this.Id = id
 	this.Status = status
@@ -561,9 +561,9 @@ func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) UnsetIsEncrypted() {
 }
 
 // GetAttachments returns the Attachments field value
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachments() []*AnyOf {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachments() []Attachment {
 	if o == nil {
-		var ret []*AnyOf
+		var ret []Attachment
 		return ret
 	}
 
@@ -572,7 +572,7 @@ func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachments() []*AnyOf {
 
 // GetAttachmentsOk returns a tuple with the Attachments field value
 // and a boolean to check if the value has been set.
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachmentsOk() ([]*AnyOf, bool) {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachmentsOk() ([]Attachment, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -580,7 +580,7 @@ func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) GetAttachmentsOk() ([]*AnyO
 }
 
 // SetAttachments sets field value
-func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetAttachments(v []*AnyOf) {
+func (o *BcsVolumeV1ApiCreateVolumeModelVolumeModel) SetAttachments(v []Attachment) {
 	o.Attachments = v
 }
 

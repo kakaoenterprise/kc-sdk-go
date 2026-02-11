@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **NullableTime** |  | [optional] 
 **UpdatedAt** | Pointer to **NullableTime** |  | [optional] 
 **Members** | Pointer to [**[]BnsLoadBalancerV1ApiCreateTargetGroupModelMemberModel**](BnsLoadBalancerV1ApiCreateTargetGroupModelMemberModel.md) | 연결된 대상 인스턴스 목록 | [optional] 
+**AlpnProtocols** | Pointer to [**[]AlpnProtocol**](AlpnProtocol.md) |  | [optional] 
 
 ## Methods
 
@@ -503,6 +504,41 @@ SetMembers sets Members field to given value.
 
 HasMembers returns a boolean if a field has been set.
 
+### GetAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) GetAlpnProtocols() []AlpnProtocol`
+
+GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
+
+### GetAlpnProtocolsOk
+
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) GetAlpnProtocolsOk() (*[]AlpnProtocol, bool)`
+
+GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) SetAlpnProtocols(v []AlpnProtocol)`
+
+SetAlpnProtocols sets AlpnProtocols field to given value.
+
+### HasAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) HasAlpnProtocols() bool`
+
+HasAlpnProtocols returns a boolean if a field has been set.
+
+### SetAlpnProtocolsNil
+
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) SetAlpnProtocolsNil(b bool)`
+
+ SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
+
+### UnsetAlpnProtocols
+`func (o *BnsLoadBalancerV1ApiCreateTargetGroupModelTargetGroupModel) UnsetAlpnProtocols()`
+
+UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

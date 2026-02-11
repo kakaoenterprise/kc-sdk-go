@@ -34,9 +34,7 @@ type BnsLoadBalancerV1ApiUpdateListenerModelListenerModel struct {
 	// 리스너가 사용하는 프로토콜
 	Protocol Protocol `json:"protocol"`
 	// 리스너가 사용하는 포트
-	ProtocolPort int32 `json:"protocol_port"`
-	// 최대 동시 연결 수<br/> - `-1`로 설정 시 무제한
-	ConnectionLimit        int64          `json:"connection_limit"`
+	ProtocolPort           int32          `json:"protocol_port"`
 	DefaultTlsContainerRef NullableString `json:"default_tls_container_ref,omitempty"`
 	// SNI(Server Name Indication)를 위한 추가 인증서 목록
 	SniContainerRefs []string `json:"sni_container_refs"`
@@ -54,10 +52,8 @@ type BnsLoadBalancerV1ApiUpdateListenerModelListenerModel struct {
 	LoadBalancers []BnsLoadBalancerV1ApiUpdateListenerModelLoadBalancerModel `json:"load_balancers"`
 	// 클라이언트에서 수신 데이터 대기 시간 (ms)
 	TimeoutClientData    int32          `json:"timeout_client_data"`
-	AllowedCidrs         []string       `json:"allowed_cidrs,omitempty"`
 	TlsCiphers           NullableString `json:"tls_ciphers,omitempty"`
 	TlsVersions          []string       `json:"tls_versions,omitempty"`
-	AlpnProtocols        []string       `json:"alpn_protocols,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -67,7 +63,7 @@ type _BnsLoadBalancerV1ApiUpdateListenerModelListenerModel BnsLoadBalancerV1ApiU
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBnsLoadBalancerV1ApiUpdateListenerModelListenerModel(id string, name string, description string, provisioningStatus ProvisioningStatus, operatingStatus LoadBalancerOperatingStatus, protocol Protocol, protocolPort int32, connectionLimit int64, sniContainerRefs []string, projectId string, l7Policies []BnsLoadBalancerV1ApiUpdateListenerModelL7PolicyModel, insertHeaders map[string]interface{}, createdAt time.Time, loadBalancers []BnsLoadBalancerV1ApiUpdateListenerModelLoadBalancerModel, timeoutClientData int32) *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel {
+func NewBnsLoadBalancerV1ApiUpdateListenerModelListenerModel(id string, name string, description string, provisioningStatus ProvisioningStatus, operatingStatus LoadBalancerOperatingStatus, protocol Protocol, protocolPort int32, sniContainerRefs []string, projectId string, l7Policies []BnsLoadBalancerV1ApiUpdateListenerModelL7PolicyModel, insertHeaders map[string]interface{}, createdAt time.Time, loadBalancers []BnsLoadBalancerV1ApiUpdateListenerModelLoadBalancerModel, timeoutClientData int32) *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel {
 	this := BnsLoadBalancerV1ApiUpdateListenerModelListenerModel{}
 	this.Id = id
 	this.Name = name
@@ -76,7 +72,6 @@ func NewBnsLoadBalancerV1ApiUpdateListenerModelListenerModel(id string, name str
 	this.OperatingStatus = operatingStatus
 	this.Protocol = protocol
 	this.ProtocolPort = protocolPort
-	this.ConnectionLimit = connectionLimit
 	this.SniContainerRefs = sniContainerRefs
 	this.ProjectId = projectId
 	this.L7Policies = l7Policies
@@ -261,30 +256,6 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetProtocolPortOk
 // SetProtocolPort sets field value
 func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetProtocolPort(v int32) {
 	o.ProtocolPort = v
-}
-
-// GetConnectionLimit returns the ConnectionLimit field value
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetConnectionLimit() int64 {
-	if o == nil {
-		var ret int64
-		return ret
-	}
-
-	return o.ConnectionLimit
-}
-
-// GetConnectionLimitOk returns a tuple with the ConnectionLimit field value
-// and a boolean to check if the value has been set.
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetConnectionLimitOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ConnectionLimit, true
-}
-
-// SetConnectionLimit sets field value
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetConnectionLimit(v int64) {
-	o.ConnectionLimit = v
 }
 
 // GetDefaultTlsContainerRef returns the DefaultTlsContainerRef field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -584,39 +555,6 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetTimeoutClientD
 	o.TimeoutClientData = v
 }
 
-// GetAllowedCidrs returns the AllowedCidrs field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetAllowedCidrs() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.AllowedCidrs
-}
-
-// GetAllowedCidrsOk returns a tuple with the AllowedCidrs field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetAllowedCidrsOk() ([]string, bool) {
-	if o == nil || IsNil(o.AllowedCidrs) {
-		return nil, false
-	}
-	return o.AllowedCidrs, true
-}
-
-// HasAllowedCidrs returns a boolean if a field has been set.
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) HasAllowedCidrs() bool {
-	if o != nil && !IsNil(o.AllowedCidrs) {
-		return true
-	}
-
-	return false
-}
-
-// SetAllowedCidrs gets a reference to the given []string and assigns it to the AllowedCidrs field.
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetAllowedCidrs(v []string) {
-	o.AllowedCidrs = v
-}
-
 // GetTlsCiphers returns the TlsCiphers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetTlsCiphers() string {
 	if o == nil || IsNil(o.TlsCiphers.Get()) {
@@ -693,39 +631,6 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetTlsVersions(v 
 	o.TlsVersions = v
 }
 
-// GetAlpnProtocols returns the AlpnProtocols field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetAlpnProtocols() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.AlpnProtocols
-}
-
-// GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) GetAlpnProtocolsOk() ([]string, bool) {
-	if o == nil || IsNil(o.AlpnProtocols) {
-		return nil, false
-	}
-	return o.AlpnProtocols, true
-}
-
-// HasAlpnProtocols returns a boolean if a field has been set.
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) HasAlpnProtocols() bool {
-	if o != nil && !IsNil(o.AlpnProtocols) {
-		return true
-	}
-
-	return false
-}
-
-// SetAlpnProtocols gets a reference to the given []string and assigns it to the AlpnProtocols field.
-func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) SetAlpnProtocols(v []string) {
-	o.AlpnProtocols = v
-}
-
 func (o BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -743,7 +648,6 @@ func (o BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) ToMap() (map[strin
 	toSerialize["operating_status"] = o.OperatingStatus
 	toSerialize["protocol"] = o.Protocol
 	toSerialize["protocol_port"] = o.ProtocolPort
-	toSerialize["connection_limit"] = o.ConnectionLimit
 	if o.DefaultTlsContainerRef.IsSet() {
 		toSerialize["default_tls_container_ref"] = o.DefaultTlsContainerRef.Get()
 	}
@@ -760,17 +664,11 @@ func (o BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) ToMap() (map[strin
 	}
 	toSerialize["load_balancers"] = o.LoadBalancers
 	toSerialize["timeout_client_data"] = o.TimeoutClientData
-	if o.AllowedCidrs != nil {
-		toSerialize["allowed_cidrs"] = o.AllowedCidrs
-	}
 	if o.TlsCiphers.IsSet() {
 		toSerialize["tls_ciphers"] = o.TlsCiphers.Get()
 	}
 	if o.TlsVersions != nil {
 		toSerialize["tls_versions"] = o.TlsVersions
-	}
-	if o.AlpnProtocols != nil {
-		toSerialize["alpn_protocols"] = o.AlpnProtocols
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -792,7 +690,6 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) UnmarshalJSON(dat
 		"operating_status",
 		"protocol",
 		"protocol_port",
-		"connection_limit",
 		"sni_container_refs",
 		"project_id",
 		"l7_policies",
@@ -836,7 +733,6 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) UnmarshalJSON(dat
 		delete(additionalProperties, "operating_status")
 		delete(additionalProperties, "protocol")
 		delete(additionalProperties, "protocol_port")
-		delete(additionalProperties, "connection_limit")
 		delete(additionalProperties, "default_tls_container_ref")
 		delete(additionalProperties, "sni_container_refs")
 		delete(additionalProperties, "project_id")
@@ -847,10 +743,8 @@ func (o *BnsLoadBalancerV1ApiUpdateListenerModelListenerModel) UnmarshalJSON(dat
 		delete(additionalProperties, "updated_at")
 		delete(additionalProperties, "load_balancers")
 		delete(additionalProperties, "timeout_client_data")
-		delete(additionalProperties, "allowed_cidrs")
 		delete(additionalProperties, "tls_ciphers")
 		delete(additionalProperties, "tls_versions")
-		delete(additionalProperties, "alpn_protocols")
 		o.AdditionalProperties = additionalProperties
 	}
 

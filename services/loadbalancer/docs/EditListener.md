@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultTlsContainerRef** | Pointer to **NullableString** |  | [optional] 
 **SniContainerRefs** | Pointer to **[]string** |  | [optional] 
-**ConnectionLimit** | Pointer to **NullableInt32** |  | [optional] 
 **TargetGroupId** | Pointer to **NullableString** |  | [optional] 
 **TlsMinVersion** | Pointer to [**NullableTLSVersion**](TLSVersion.md) |  | [optional] 
 **TimeoutClientData** | Pointer to **NullableInt32** |  | [optional] 
@@ -101,41 +100,6 @@ HasSniContainerRefs returns a boolean if a field has been set.
 `func (o *EditListener) UnsetSniContainerRefs()`
 
 UnsetSniContainerRefs ensures that no value is present for SniContainerRefs, not even an explicit nil
-### GetConnectionLimit
-
-`func (o *EditListener) GetConnectionLimit() int32`
-
-GetConnectionLimit returns the ConnectionLimit field if non-nil, zero value otherwise.
-
-### GetConnectionLimitOk
-
-`func (o *EditListener) GetConnectionLimitOk() (*int32, bool)`
-
-GetConnectionLimitOk returns a tuple with the ConnectionLimit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConnectionLimit
-
-`func (o *EditListener) SetConnectionLimit(v int32)`
-
-SetConnectionLimit sets ConnectionLimit field to given value.
-
-### HasConnectionLimit
-
-`func (o *EditListener) HasConnectionLimit() bool`
-
-HasConnectionLimit returns a boolean if a field has been set.
-
-### SetConnectionLimitNil
-
-`func (o *EditListener) SetConnectionLimitNil(b bool)`
-
- SetConnectionLimitNil sets the value for ConnectionLimit to be an explicit nil
-
-### UnsetConnectionLimit
-`func (o *EditListener) UnsetConnectionLimit()`
-
-UnsetConnectionLimit ensures that no value is present for ConnectionLimit, not even an explicit nil
 ### GetTargetGroupId
 
 `func (o *EditListener) GetTargetGroupId() string`

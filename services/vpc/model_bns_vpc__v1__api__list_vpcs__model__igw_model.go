@@ -26,6 +26,7 @@ type BnsVpcV1ApiListVpcsModelIgwModel struct {
 	Name                 NullableString             `json:"name,omitempty"`
 	Description          NullableString             `json:"description,omitempty"`
 	Region               NullableRegion             `json:"region,omitempty"`
+	NatIp                NullableString             `json:"nat_ip,omitempty"`
 	ProjectId            NullableString             `json:"project_id,omitempty"`
 	OperatingStatus      NullableVPCOperatingStatus `json:"operating_status,omitempty"`
 	ProvisioningStatus   NullableProvisioningStatus `json:"provisioning_status,omitempty"`
@@ -205,6 +206,49 @@ func (o *BnsVpcV1ApiListVpcsModelIgwModel) SetRegionNil() {
 // UnsetRegion ensures that no value is present for Region, not even an explicit nil
 func (o *BnsVpcV1ApiListVpcsModelIgwModel) UnsetRegion() {
 	o.Region.Unset()
+}
+
+// GetNatIp returns the NatIp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) GetNatIp() string {
+	if o == nil || IsNil(o.NatIp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NatIp.Get()
+}
+
+// GetNatIpOk returns a tuple with the NatIp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) GetNatIpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NatIp.Get(), o.NatIp.IsSet()
+}
+
+// HasNatIp returns a boolean if a field has been set.
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) HasNatIp() bool {
+	if o != nil && o.NatIp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNatIp gets a reference to the given NullableString and assigns it to the NatIp field.
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) SetNatIp(v string) {
+	o.NatIp.Set(&v)
+}
+
+// SetNatIpNil sets the value for NatIp to be an explicit nil
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) SetNatIpNil() {
+	o.NatIp.Set(nil)
+}
+
+// UnsetNatIp ensures that no value is present for NatIp, not even an explicit nil
+func (o *BnsVpcV1ApiListVpcsModelIgwModel) UnsetNatIp() {
+	o.NatIp.Unset()
 }
 
 // GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -442,6 +486,9 @@ func (o BnsVpcV1ApiListVpcsModelIgwModel) ToMap() (map[string]interface{}, error
 	if o.Region.IsSet() {
 		toSerialize["region"] = o.Region.Get()
 	}
+	if o.NatIp.IsSet() {
+		toSerialize["nat_ip"] = o.NatIp.Get()
+	}
 	if o.ProjectId.IsSet() {
 		toSerialize["project_id"] = o.ProjectId.Get()
 	}
@@ -504,6 +551,7 @@ func (o *BnsVpcV1ApiListVpcsModelIgwModel) UnmarshalJSON(data []byte) (err error
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "region")
+		delete(additionalProperties, "nat_ip")
 		delete(additionalProperties, "project_id")
 		delete(additionalProperties, "operating_status")
 		delete(additionalProperties, "provisioning_status")

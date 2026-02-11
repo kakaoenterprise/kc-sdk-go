@@ -20,7 +20,7 @@ var _ MappedNullable = &ResizeInstanceModel{}
 
 // ResizeInstanceModel struct for ResizeInstanceModel
 type ResizeInstanceModel struct {
-	// 변경할 인스턴스 유형 ID (예시: `m2a.xlarge`) <br/> - [List instance types](https://docs.kakaocloud.com/openapi/bcs/list-instance-types) API를 통해 확인 가능 <br/> - [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 참고
+	// 변경할 인스턴스 유형 ID <br/> - [List instance types](https://docs.kakaocloud.com/openapi/bcs/list-instance-types) API를 통해 확인 가능 <br/> - [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 참고
 	Id                   string `json:"id"`
 	AdditionalProperties map[string]interface{}
 }

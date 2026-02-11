@@ -30,6 +30,7 @@ type CreateTargetGroup struct {
 	Name string `json:"name"`
 	// 대상 그룹의 백엔드 통신에 사용할 프로토콜 <br/> - `HTTP`: HTTP 프로토콜 <br/> - `HTTPS`: HTTPS 프로토콜 <br/> - `TCP`: TCP 프로토콜 <br/> - `UDP`: UDP 프로토콜 <br/> - `PROXY`: 프록시 프로토콜
 	Protocol             TargetGroupProtocol             `json:"protocol"`
+	AlpnProtocols        NullableAlpnProtocol            `json:"alpn_protocols,omitempty"`
 	SessionPersistence   NullableSessionPersistenceModel `json:"session_persistence,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -239,6 +240,49 @@ func (o *CreateTargetGroup) SetProtocol(v TargetGroupProtocol) {
 	o.Protocol = v
 }
 
+// GetAlpnProtocols returns the AlpnProtocols field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTargetGroup) GetAlpnProtocols() AlpnProtocol {
+	if o == nil || IsNil(o.AlpnProtocols.Get()) {
+		var ret AlpnProtocol
+		return ret
+	}
+	return *o.AlpnProtocols.Get()
+}
+
+// GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTargetGroup) GetAlpnProtocolsOk() (*AlpnProtocol, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AlpnProtocols.Get(), o.AlpnProtocols.IsSet()
+}
+
+// HasAlpnProtocols returns a boolean if a field has been set.
+func (o *CreateTargetGroup) HasAlpnProtocols() bool {
+	if o != nil && o.AlpnProtocols.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAlpnProtocols gets a reference to the given NullableAlpnProtocol and assigns it to the AlpnProtocols field.
+func (o *CreateTargetGroup) SetAlpnProtocols(v AlpnProtocol) {
+	o.AlpnProtocols.Set(&v)
+}
+
+// SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
+func (o *CreateTargetGroup) SetAlpnProtocolsNil() {
+	o.AlpnProtocols.Set(nil)
+}
+
+// UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
+func (o *CreateTargetGroup) UnsetAlpnProtocols() {
+	o.AlpnProtocols.Unset()
+}
+
 // GetSessionPersistence returns the SessionPersistence field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateTargetGroup) GetSessionPersistence() SessionPersistenceModel {
 	if o == nil || IsNil(o.SessionPersistence.Get()) {
@@ -302,6 +346,9 @@ func (o CreateTargetGroup) ToMap() (map[string]interface{}, error) {
 	toSerialize["load_balancer_id"] = o.LoadBalancerId
 	toSerialize["name"] = o.Name
 	toSerialize["protocol"] = o.Protocol
+	if o.AlpnProtocols.IsSet() {
+		toSerialize["alpn_protocols"] = o.AlpnProtocols.Get()
+	}
 	if o.SessionPersistence.IsSet() {
 		toSerialize["session_persistence"] = o.SessionPersistence.Get()
 	}
@@ -357,6 +404,7 @@ func (o *CreateTargetGroup) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "load_balancer_id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "protocol")
+		delete(additionalProperties, "alpn_protocols")
 		delete(additionalProperties, "session_persistence")
 		o.AdditionalProperties = additionalProperties
 	}

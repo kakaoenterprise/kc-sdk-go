@@ -5,14 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bucket** | **string** | 대상 버킷 이름 | 
-**AccessKey** | **string** | 액세스 키 | 
-**SecretKey** | **string** | 보안 액세스 키 | 
 
 ## Methods
 
 ### NewAccessLogs
 
-`func NewAccessLogs(bucket string, accessKey string, secretKey string, ) *AccessLogs`
+`func NewAccessLogs(bucket string, ) *AccessLogs`
 
 NewAccessLogs instantiates a new AccessLogs object
 This constructor will assign default values to properties that have it defined,
@@ -45,46 +43,6 @@ and a boolean to check if the value has been set.
 `func (o *AccessLogs) SetBucket(v string)`
 
 SetBucket sets Bucket field to given value.
-
-
-### GetAccessKey
-
-`func (o *AccessLogs) GetAccessKey() string`
-
-GetAccessKey returns the AccessKey field if non-nil, zero value otherwise.
-
-### GetAccessKeyOk
-
-`func (o *AccessLogs) GetAccessKeyOk() (*string, bool)`
-
-GetAccessKeyOk returns a tuple with the AccessKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessKey
-
-`func (o *AccessLogs) SetAccessKey(v string)`
-
-SetAccessKey sets AccessKey field to given value.
-
-
-### GetSecretKey
-
-`func (o *AccessLogs) GetSecretKey() string`
-
-GetSecretKey returns the SecretKey field if non-nil, zero value otherwise.
-
-### GetSecretKeyOk
-
-`func (o *AccessLogs) GetSecretKeyOk() (*string, bool)`
-
-GetSecretKeyOk returns a tuple with the SecretKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSecretKey
-
-`func (o *AccessLogs) SetSecretKey(v string)`
-
-SetSecretKey sets SecretKey field to given value.
 
 
 

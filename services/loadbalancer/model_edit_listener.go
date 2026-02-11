@@ -21,7 +21,6 @@ var _ MappedNullable = &EditListener{}
 type EditListener struct {
 	DefaultTlsContainerRef NullableString            `json:"default_tls_container_ref,omitempty"`
 	SniContainerRefs       []string                  `json:"sni_container_refs,omitempty"`
-	ConnectionLimit        NullableInt32             `json:"connection_limit,omitempty"`
 	TargetGroupId          NullableString            `json:"target_group_id,omitempty"`
 	TlsMinVersion          NullableTLSVersion        `json:"tls_min_version,omitempty"`
 	TimeoutClientData      NullableInt32             `json:"timeout_client_data,omitempty"`
@@ -122,49 +121,6 @@ func (o *EditListener) HasSniContainerRefs() bool {
 // SetSniContainerRefs gets a reference to the given []string and assigns it to the SniContainerRefs field.
 func (o *EditListener) SetSniContainerRefs(v []string) {
 	o.SniContainerRefs = v
-}
-
-// GetConnectionLimit returns the ConnectionLimit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EditListener) GetConnectionLimit() int32 {
-	if o == nil || IsNil(o.ConnectionLimit.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.ConnectionLimit.Get()
-}
-
-// GetConnectionLimitOk returns a tuple with the ConnectionLimit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EditListener) GetConnectionLimitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ConnectionLimit.Get(), o.ConnectionLimit.IsSet()
-}
-
-// HasConnectionLimit returns a boolean if a field has been set.
-func (o *EditListener) HasConnectionLimit() bool {
-	if o != nil && o.ConnectionLimit.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetConnectionLimit gets a reference to the given NullableInt32 and assigns it to the ConnectionLimit field.
-func (o *EditListener) SetConnectionLimit(v int32) {
-	o.ConnectionLimit.Set(&v)
-}
-
-// SetConnectionLimitNil sets the value for ConnectionLimit to be an explicit nil
-func (o *EditListener) SetConnectionLimitNil() {
-	o.ConnectionLimit.Set(nil)
-}
-
-// UnsetConnectionLimit ensures that no value is present for ConnectionLimit, not even an explicit nil
-func (o *EditListener) UnsetConnectionLimit() {
-	o.ConnectionLimit.Unset()
 }
 
 // GetTargetGroupId returns the TargetGroupId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -355,9 +311,6 @@ func (o EditListener) ToMap() (map[string]interface{}, error) {
 	if o.SniContainerRefs != nil {
 		toSerialize["sni_container_refs"] = o.SniContainerRefs
 	}
-	if o.ConnectionLimit.IsSet() {
-		toSerialize["connection_limit"] = o.ConnectionLimit.Get()
-	}
 	if o.TargetGroupId.IsSet() {
 		toSerialize["target_group_id"] = o.TargetGroupId.Get()
 	}
@@ -394,7 +347,6 @@ func (o *EditListener) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "default_tls_container_ref")
 		delete(additionalProperties, "sni_container_refs")
-		delete(additionalProperties, "connection_limit")
 		delete(additionalProperties, "target_group_id")
 		delete(additionalProperties, "tls_min_version")
 		delete(additionalProperties, "timeout_client_data")

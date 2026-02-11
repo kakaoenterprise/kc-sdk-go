@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **HealthMonitor** | Pointer to [**NullableBnsLoadBalancerV1ApiGetTargetGroupModelHealthMonitorModel**](BnsLoadBalancerV1ApiGetTargetGroupModelHealthMonitorModel.md) |  | [optional] 
 **SessionPersistence** | Pointer to [**NullableSessionPersistenceModel**](SessionPersistenceModel.md) |  | [optional] 
 **MemberCount** | Pointer to **NullableInt32** |  | [optional] 
+**AlpnProtocols** | Pointer to [**[]AlpnProtocol**](AlpnProtocol.md) |  | [optional] 
 
 ## Methods
 
@@ -837,6 +838,41 @@ HasMemberCount returns a boolean if a field has been set.
 `func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) UnsetMemberCount()`
 
 UnsetMemberCount ensures that no value is present for MemberCount, not even an explicit nil
+### GetAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) GetAlpnProtocols() []AlpnProtocol`
+
+GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
+
+### GetAlpnProtocolsOk
+
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) GetAlpnProtocolsOk() (*[]AlpnProtocol, bool)`
+
+GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) SetAlpnProtocols(v []AlpnProtocol)`
+
+SetAlpnProtocols sets AlpnProtocols field to given value.
+
+### HasAlpnProtocols
+
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) HasAlpnProtocols() bool`
+
+HasAlpnProtocols returns a boolean if a field has been set.
+
+### SetAlpnProtocolsNil
+
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) SetAlpnProtocolsNil(b bool)`
+
+ SetAlpnProtocolsNil sets the value for AlpnProtocols to be an explicit nil
+
+### UnsetAlpnProtocols
+`func (o *BnsLoadBalancerV1ApiGetTargetGroupModelTargetGroupModel) UnsetAlpnProtocols()`
+
+UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

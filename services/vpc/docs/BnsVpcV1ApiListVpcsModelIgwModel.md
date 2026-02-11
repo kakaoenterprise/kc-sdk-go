@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Region** | Pointer to [**NullableRegion**](Region.md) |  | [optional] 
+**NatIp** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **OperatingStatus** | Pointer to [**NullableVPCOperatingStatus**](VPCOperatingStatus.md) |  | [optional] 
 **ProvisioningStatus** | Pointer to [**NullableProvisioningStatus**](ProvisioningStatus.md) |  | [optional] 
@@ -158,6 +159,41 @@ HasRegion returns a boolean if a field has been set.
 `func (o *BnsVpcV1ApiListVpcsModelIgwModel) UnsetRegion()`
 
 UnsetRegion ensures that no value is present for Region, not even an explicit nil
+### GetNatIp
+
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) GetNatIp() string`
+
+GetNatIp returns the NatIp field if non-nil, zero value otherwise.
+
+### GetNatIpOk
+
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) GetNatIpOk() (*string, bool)`
+
+GetNatIpOk returns a tuple with the NatIp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNatIp
+
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) SetNatIp(v string)`
+
+SetNatIp sets NatIp field to given value.
+
+### HasNatIp
+
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) HasNatIp() bool`
+
+HasNatIp returns a boolean if a field has been set.
+
+### SetNatIpNil
+
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) SetNatIpNil(b bool)`
+
+ SetNatIpNil sets the value for NatIp to be an explicit nil
+
+### UnsetNatIp
+`func (o *BnsVpcV1ApiListVpcsModelIgwModel) UnsetNatIp()`
+
+UnsetNatIp ensures that no value is present for NatIp, not even an explicit nil
 ### GetProjectId
 
 `func (o *BnsVpcV1ApiListVpcsModelIgwModel) GetProjectId() string`
