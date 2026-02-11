@@ -22,19 +22,19 @@ import (
 type VolumeSnapshotAPI interface {
 
 	/*
-		DeleteSnapshot Delete snapshot
+			DeleteSnapshot Delete snapshot
 
-		스냅샷을 삭제합니다. <br/>
-	하나의 볼륨에 대해 여러 개의 증분(Incremental) 스냅샷이 있는 경우, 마지막으로 생성된 증분 스냅샷만 삭제할 수 있습니다.<br/>
-	하나 이상의 증분 스냅샷이 있다면 해당 볼륨의 전체(Full) 스냅샷은 삭제할 수 없습니다.
+			스냅샷을 삭제합니다. <br/>
+		하나의 볼륨에 대해 여러 개의 증분(Incremental) 스냅샷이 있는 경우, 마지막으로 생성된 증분 스냅샷만 삭제할 수 있습니다.<br/>
+		하나 이상의 증분 스냅샷이 있다면 해당 볼륨의 전체(Full) 스냅샷은 삭제할 수 없습니다.
 
-	:::info 안내
-	삭제한 스냅샷은 복구할 수 없습니다.
-	:::
+		:::info 안내
+		삭제한 스냅샷은 복구할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param snapshotId 스냅샷의 고유 ID
-		@return ApiDeleteSnapshotRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param snapshotId 스냅샷의 고유 ID
+			@return ApiDeleteSnapshotRequest
 	*/
 	DeleteSnapshot(ctx context.Context, snapshotId string) ApiDeleteSnapshotRequest
 
@@ -72,21 +72,21 @@ type VolumeSnapshotAPI interface {
 	ListSnapshotsExecute(r ApiListSnapshotsRequest) (*VolumeSnapshotListModel, *http.Response, error)
 
 	/*
-		RestoreSnapshot Restore snapshot
+			RestoreSnapshot Restore snapshot
 
-		스냅샷을 복원하여 신규 볼륨을 생성합니다.
-	스냅샷을 복원하면 해당 시점의 데이터를 복구할 수 있으며, 이를 통해 시스템의 이전 상태로 되돌릴 수 있습니다.
+			스냅샷을 복원하여 신규 볼륨을 생성합니다.
+		스냅샷을 복원하면 해당 시점의 데이터를 복구할 수 있으며, 이를 통해 시스템의 이전 상태로 되돌릴 수 있습니다.
 
 
-	:::info 안내
-	- 스냅샷을 복원하면 새 볼륨이 생성되며, 기존 볼륨에는 영향을 주지 않습니다.
-	- 복원된 볼륨이 생성된 후에는 해당 볼륨을 인스턴스에 연결해야 사용할 수 있습니다.
-	- 스냅샷의 데이터는 복원 시점의 정확한 상태를 반영하므로, 중요한 데이터가 포함된 스냅샷을 복원할 때는 주의가 필요합니다.
-	:::
+		:::info 안내
+		- 스냅샷을 복원하면 새 볼륨이 생성되며, 기존 볼륨에는 영향을 주지 않습니다.
+		- 복원된 볼륨이 생성된 후에는 해당 볼륨을 인스턴스에 연결해야 사용할 수 있습니다.
+		- 스냅샷의 데이터는 복원 시점의 정확한 상태를 반영하므로, 중요한 데이터가 포함된 스냅샷을 복원할 때는 주의가 필요합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param snapshotId 스냅샷의 고유 ID
-		@return ApiRestoreSnapshotRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param snapshotId 스냅샷의 고유 ID
+			@return ApiRestoreSnapshotRequest
 	*/
 	RestoreSnapshot(ctx context.Context, snapshotId string) ApiRestoreSnapshotRequest
 

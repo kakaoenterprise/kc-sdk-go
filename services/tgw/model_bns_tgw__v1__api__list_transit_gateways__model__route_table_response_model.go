@@ -20,17 +20,17 @@ var _ MappedNullable = &BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseMod
 
 // BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel struct for BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel
 type BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel struct {
-	Id NullableString `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Region NullableRegion `json:"region,omitempty"`
-	ProjectId NullableString `json:"project_id,omitempty"`
-	TgwId NullableString `json:"tgw_id,omitempty"`
-	IsDefaultAssociationRouteTable NullableBool `json:"is_default_association_route_table,omitempty"`
-	IsDefaultPropagationRouteTable NullableBool `json:"is_default_propagation_route_table,omitempty"`
-	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
-	UpdatedAt NullableTime `json:"updated_at,omitempty"`
-	AdditionalProperties map[string]interface{}
+	Id                             NullableString                `json:"id,omitempty"`
+	Name                           NullableString                `json:"name,omitempty"`
+	Region                         NullableRegion                `json:"region,omitempty"`
+	ProjectId                      NullableString                `json:"project_id,omitempty"`
+	TgwId                          NullableString                `json:"tgw_id,omitempty"`
+	IsDefaultAssociationRouteTable NullableBool                  `json:"is_default_association_route_table,omitempty"`
+	IsDefaultPropagationRouteTable NullableBool                  `json:"is_default_propagation_route_table,omitempty"`
+	ProvisioningStatus             NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
+	CreatedAt                      NullableTime                  `json:"created_at,omitempty"`
+	UpdatedAt                      NullableTime                  `json:"updated_at,omitempty"`
+	AdditionalProperties           map[string]interface{}
 }
 
 type _BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel
@@ -84,6 +84,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasId() boo
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -126,6 +127,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasName() b
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -168,6 +170,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasRegion()
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetRegion(v Region) {
 	o.Region.Set(&v)
 }
+
 // SetRegionNil sets the value for Region to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetRegionNil() {
 	o.Region.Set(nil)
@@ -210,6 +213,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasProjectI
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
+
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -252,6 +256,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasTgwId() 
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetTgwId(v string) {
 	o.TgwId.Set(&v)
 }
+
 // SetTgwIdNil sets the value for TgwId to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetTgwIdNil() {
 	o.TgwId.Set(nil)
@@ -294,6 +299,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasIsDefaul
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetIsDefaultAssociationRouteTable(v bool) {
 	o.IsDefaultAssociationRouteTable.Set(&v)
 }
+
 // SetIsDefaultAssociationRouteTableNil sets the value for IsDefaultAssociationRouteTable to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetIsDefaultAssociationRouteTableNil() {
 	o.IsDefaultAssociationRouteTable.Set(nil)
@@ -336,6 +342,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasIsDefaul
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetIsDefaultPropagationRouteTable(v bool) {
 	o.IsDefaultPropagationRouteTable.Set(&v)
 }
+
 // SetIsDefaultPropagationRouteTableNil sets the value for IsDefaultPropagationRouteTable to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetIsDefaultPropagationRouteTableNil() {
 	o.IsDefaultPropagationRouteTable.Set(nil)
@@ -378,6 +385,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasProvisio
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
+
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -420,6 +428,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasCreatedA
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
+
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -462,6 +471,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) HasUpdatedA
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -473,7 +483,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) UnsetUpdate
 }
 
 func (o BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -585,5 +595,3 @@ func (v *NullableBnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

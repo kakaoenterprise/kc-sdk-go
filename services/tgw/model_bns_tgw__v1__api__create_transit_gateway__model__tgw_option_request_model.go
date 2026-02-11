@@ -24,7 +24,7 @@ type BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel struct {
 	IsAutoAcceptSharedAttachments bool `json:"is_auto_accept_shared_attachments"`
 	// 기본 라우팅 테이블 자동 연결 여부
 	IsDefaultRouteTableAssociation bool `json:"is_default_route_table_association"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties           map[string]interface{}
 }
 
 type _BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel
@@ -97,7 +97,7 @@ func (o *BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel) SetIsDefault
 }
 
 func (o BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *BnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel) UnmarshalJSO
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,5 +195,3 @@ func (v *NullableBnsTgwV1ApiCreateTransitGatewayModelTgwOptionRequestModel) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

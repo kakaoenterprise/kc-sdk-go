@@ -22,20 +22,20 @@ import (
 type InstanceNetworkInterfaceAPI interface {
 
 	/*
-		AttachNetworkInterface Attach network interface
+			AttachNetworkInterface Attach network interface
 
-		인스턴스에 [네트워크 인터페이스](https://docs.kakaocloud.com/service/bns/vpc/main/vpc-network-interface)를 연결합니다.
-	네트워크 인터페이스는 가상 네트워크 카드로, VPC에서 리소스가 논리적으로 연결되어 통신할 수 있게 하는 구성 요소입니다. 연결 가능한 최대 개수는 인스턴스 유형(flavor) 및 네트워크 구성에 따라 달라집니다.
+			인스턴스에 [네트워크 인터페이스](https://docs.kakaocloud.com/service/bns/vpc/main/vpc-network-interface)를 연결합니다.
+		네트워크 인터페이스는 가상 네트워크 카드로, VPC에서 리소스가 논리적으로 연결되어 통신할 수 있게 하는 구성 요소입니다. 연결 가능한 최대 개수는 인스턴스 유형(flavor) 및 네트워크 구성에 따라 달라집니다.
 
-	:::info 안내
-	인스턴스는 `Active`(실행 중) 또는 `Stopped`(정지) 상태에서만 네트워크 인터페이스를 추가 연결할 수 있습니다.
-	인스턴스의 상태는 [Get instance API](https://docs.kakaocloud.com/openapi/bcs/get-instance)를 통해 확인할 수 있습니다.
-	:::
+		:::info 안내
+		인스턴스는 `Active`(실행 중) 또는 `Stopped`(정지) 상태에서만 네트워크 인터페이스를 추가 연결할 수 있습니다.
+		인스턴스의 상태는 [Get instance API](https://docs.kakaocloud.com/openapi/bcs/get-instance)를 통해 확인할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 인스턴스에 연결할 네트워크 인터페이스 ID
-		@return ApiAttachNetworkInterfaceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 인스턴스에 연결할 네트워크 인터페이스 ID
+			@return ApiAttachNetworkInterfaceRequest
 	*/
 	AttachNetworkInterface(ctx context.Context, instanceId string, networkInterfaceId string) ApiAttachNetworkInterfaceRequest
 
@@ -44,22 +44,22 @@ type InstanceNetworkInterfaceAPI interface {
 	AttachNetworkInterfaceExecute(r ApiAttachNetworkInterfaceRequest) (*BcsInstanceV1ApiAttachNetworkInterfaceModelResponseInstanceNetworkInterfaceModel, *http.Response, error)
 
 	/*
-		DetachNetworkInterface Detach network interface
+			DetachNetworkInterface Detach network interface
 
-		인스턴스에서 연결된 네트워크 인터페이스(Network Interface)를 분리합니다. 인스턴스에 연결된 기본(Primary) 네트워크 인터페이스는 분리할 수 없으며, 보조(Secondary) 네트워크 인터페이스만 분리가 가능합니다.
+			인스턴스에서 연결된 네트워크 인터페이스(Network Interface)를 분리합니다. 인스턴스에 연결된 기본(Primary) 네트워크 인터페이스는 분리할 수 없으며, 보조(Secondary) 네트워크 인터페이스만 분리가 가능합니다.
 
-	:::info 안내
-	인스턴스가 `Stopped`(정지) 상태일 때 분리 작업을 수행하는 것을 권장합니다.
-	:::
+		:::info 안내
+		인스턴스가 `Stopped`(정지) 상태일 때 분리 작업을 수행하는 것을 권장합니다.
+		:::
 
-	:::caution 주의
-	- 이 작업은 인스턴스의 설정 및 네트워크 구성에 따라 정상적인 동작에 영향을 줄 수 있으므로, 네트워크 인터페이스를 분리하기 전에 충분한 영향도 검토가 필요합니다.
-	:::
+		:::caution 주의
+		- 이 작업은 인스턴스의 설정 및 네트워크 구성에 따라 정상적인 동작에 영향을 줄 수 있으므로, 네트워크 인터페이스를 분리하기 전에 충분한 영향도 검토가 필요합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 인스턴스에서 분리할 네트워크 인터페이스 ID
-		@return ApiDetachNetworkInterfaceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 인스턴스에서 분리할 네트워크 인터페이스 ID
+			@return ApiDetachNetworkInterfaceRequest
 	*/
 	DetachNetworkInterface(ctx context.Context, instanceId string, networkInterfaceId string) ApiDetachNetworkInterfaceRequest
 

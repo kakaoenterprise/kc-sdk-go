@@ -24,7 +24,7 @@ type PaginationModel struct {
 	// 조회 시작 위치
 	Offset *int32 `json:"offset,omitempty"`
 	// 페이지당 최대 반환 항목 수
-	Limit *int32 `json:"limit,omitempty"`
+	Limit                *int32 `json:"limit,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -156,7 +156,7 @@ func (o *PaginationModel) SetLimit(v int32) {
 }
 
 func (o PaginationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -240,5 +240,3 @@ func (v *NullablePaginationModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

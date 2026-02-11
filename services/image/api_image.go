@@ -22,18 +22,18 @@ import (
 type ImageAPI interface {
 
 	/*
-		AddImageShare Add image share
+			AddImageShare Add image share
 
-		이미지를 지정한 다른 프로젝트(member)로 공유합니다.
+			이미지를 지정한 다른 프로젝트(member)로 공유합니다.
 
-	:::info 안내
-	해당 프로젝트의 관리자(Admin) 또는 프로젝트 멤버(Member) 권한을 가진 사용자가 공유 및 공유 해제를 수행할 수 있습니다.
-	:::
+		:::info 안내
+		해당 프로젝트의 관리자(Admin) 또는 프로젝트 멤버(Member) 권한을 가진 사용자가 공유 및 공유 해제를 수행할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param imageId 이미지의 고유 ID
-		@param memberId 이미지를 공유할 다른 프로젝트의 ID
-		@return ApiAddImageShareRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param imageId 이미지의 고유 ID
+			@param memberId 이미지를 공유할 다른 프로젝트의 ID
+			@return ApiAddImageShareRequest
 	*/
 	AddImageShare(ctx context.Context, imageId string, memberId string) ApiAddImageShareRequest
 
@@ -42,18 +42,18 @@ type ImageAPI interface {
 	AddImageShareExecute(r ApiAddImageShareRequest) (*ResponseImageMemberModel, *http.Response, error)
 
 	/*
-		DeleteImage Delete image
+			DeleteImage Delete image
 
-		이미지를 삭제합니다. 삭제된 이미지는 시스템에서 완전히 제거되어 복구할 수 없으며, 이 이미지에 대한 모든 참조도 함께 삭제됩니다.
+			이미지를 삭제합니다. 삭제된 이미지는 시스템에서 완전히 제거되어 복구할 수 없으며, 이 이미지에 대한 모든 참조도 함께 삭제됩니다.
 
-	:::caution 주의
-	- 삭제된 이미지는 복구할 수 없습니다.
-	- 사용 중인 이미지도 삭제할 수 있으며, 삭제 이후에도 해당 이미지를 기반으로 생성된 인스턴스는 정상 동작합니다.
-	:::
+		:::caution 주의
+		- 삭제된 이미지는 복구할 수 없습니다.
+		- 사용 중인 이미지도 삭제할 수 있으며, 삭제 이후에도 해당 이미지를 기반으로 생성된 인스턴스는 정상 동작합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param imageId 이미지의 고유 ID
-		@return ApiDeleteImageRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param imageId 이미지의 고유 ID
+			@return ApiDeleteImageRequest
 	*/
 	DeleteImage(ctx context.Context, imageId string) ApiDeleteImageRequest
 
@@ -76,19 +76,19 @@ type ImageAPI interface {
 	GetImageExecute(r ApiGetImageRequest) (*BcsImageV1ApiGetImageModelResponseImageModel, *http.Response, error)
 
 	/*
-		ListImageSharedProjects List image shared projects
+			ListImageSharedProjects List image shared projects
 
-		특정 이미지를 공유하고 있는 프로젝트 목록을 조회합니다.
+			특정 이미지를 공유하고 있는 프로젝트 목록을 조회합니다.
 
 
-	:::info 안내
-	이미지의 공유 대상 정보는 해당 이미지에 접근 권한이 있는 사용자만 조회할 수 있습니다.
-	조회 권한이 있는 역할은 프로젝트 멤버(Member), 프로젝트 관리자(Admin), 프로젝트 리더(Reader)입니다.
-	:::
+		:::info 안내
+		이미지의 공유 대상 정보는 해당 이미지에 접근 권한이 있는 사용자만 조회할 수 있습니다.
+		조회 권한이 있는 역할은 프로젝트 멤버(Member), 프로젝트 관리자(Admin), 프로젝트 리더(Reader)입니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param imageId 이미지의 고유 ID
-		@return ApiListImageSharedProjectsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param imageId 이미지의 고유 ID
+			@return ApiListImageSharedProjectsRequest
 	*/
 	ListImageSharedProjects(ctx context.Context, imageId string) ApiListImageSharedProjectsRequest
 
@@ -97,13 +97,13 @@ type ImageAPI interface {
 	ListImageSharedProjectsExecute(r ApiListImageSharedProjectsRequest) (*ImageMemberListModel, *http.Response, error)
 
 	/*
-		ListImages List images
+			ListImages List images
 
-		사용자가 클라우드 환경에서 사용 가능한 운영체제(OS)의 이미지 목록을 조회합니다. <br/>
-	요청 시 필터링 옵션을 사용하여 특정 유형의 이미지(Bare Metal Server 또는 VM 인스턴스 유형, 카카오클라우드에서 제공하거나 직접 생성한 커스텀 이미지 유형 등)를 조회할 수 있습니다.
+			사용자가 클라우드 환경에서 사용 가능한 운영체제(OS)의 이미지 목록을 조회합니다. <br/>
+		요청 시 필터링 옵션을 사용하여 특정 유형의 이미지(Bare Metal Server 또는 VM 인스턴스 유형, 카카오클라우드에서 제공하거나 직접 생성한 커스텀 이미지 유형 등)를 조회할 수 있습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListImagesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListImagesRequest
 	*/
 	ListImages(ctx context.Context) ApiListImagesRequest
 
@@ -112,18 +112,18 @@ type ImageAPI interface {
 	ListImagesExecute(r ApiListImagesRequest) (*ImageListModel, *http.Response, error)
 
 	/*
-		RemoveImageShare Remove image share
+			RemoveImageShare Remove image share
 
-		이미지 공유 대상에서 특정 프로젝트(member)를 제거하여 공유를 해제합니다.
+			이미지 공유 대상에서 특정 프로젝트(member)를 제거하여 공유를 해제합니다.
 
-	:::info 안내
-	해당 프로젝트의 관리자(Admin) 또는 프로젝트 멤버(Member) 권한을 가진 사용자가 공유 및 공유 해제를 수행할 수 있습니다.
-	:::
+		:::info 안내
+		해당 프로젝트의 관리자(Admin) 또는 프로젝트 멤버(Member) 권한을 가진 사용자가 공유 및 공유 해제를 수행할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param imageId 이미지의 고유 ID
-		@param memberId 이미지 공유를 해제할 멤버(프로젝트) ID
-		@return ApiRemoveImageShareRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param imageId 이미지의 고유 ID
+			@param memberId 이미지 공유를 해제할 멤버(프로젝트) ID
+			@return ApiRemoveImageShareRequest
 	*/
 	RemoveImageShare(ctx context.Context, imageId string, memberId string) ApiRemoveImageShareRequest
 

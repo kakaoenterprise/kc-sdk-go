@@ -52,20 +52,20 @@ type PublicIPAPI interface {
 	CreatePublicIpExecute(r ApiCreatePublicIpRequest) (*BnsNetworkV1ApiCreatePublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		DeletePublicIp Delete public IP
+			DeletePublicIp Delete public IP
 
-		지정한 퍼블릭 IP를 삭제합니다.
-	퍼블릭 IP는 할당 해제된 상태(available)에서만 삭제할 수 있습니다.
+			지정한 퍼블릭 IP를 삭제합니다.
+		퍼블릭 IP는 할당 해제된 상태(available)에서만 삭제할 수 있습니다.
 
 
-	:::caution 주의
-	- 삭제한 퍼블릭 IP는 복구할 수 없습니다.
-	- 현재 인스턴스 또는 네트워크 인터페이스에 연결된 IP는 삭제할 수 없습니다.
-	:::
+		:::caution 주의
+		- 삭제한 퍼블릭 IP는 복구할 수 없습니다.
+		- 현재 인스턴스 또는 네트워크 인터페이스에 연결된 IP는 삭제할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param publicIpId 삭제할 퍼블릭 IP ID
-		@return ApiDeletePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param publicIpId 삭제할 퍼블릭 IP ID
+			@return ApiDeletePublicIpRequest
 	*/
 	DeletePublicIp(ctx context.Context, publicIpId string) ApiDeletePublicIpRequest
 
@@ -73,20 +73,20 @@ type PublicIPAPI interface {
 	DeletePublicIpExecute(r ApiDeletePublicIpRequest) (*http.Response, error)
 
 	/*
-		DisassociatePublicIp Disassociate public IP
+			DisassociatePublicIp Disassociate public IP
 
-		지정된 퍼블릭 IP와 네트워크 인터페이스 간의 연결을 해제합니다.
+			지정된 퍼블릭 IP와 네트워크 인터페이스 간의 연결을 해제합니다.
 
 
-	:::caution 주의
-	이 작업은 서비스의 외부 통신 경로를 제거하므로, 해당 IP를 사용하는 인프라나 서비스에 영향을 줄 수 있습니다. <br/>
-	작업 전 네트워크 구성과 외부 의존성 여부를 반드시 확인하시기 바랍니다.
-	:::
+		:::caution 주의
+		이 작업은 서비스의 외부 통신 경로를 제거하므로, 해당 IP를 사용하는 인프라나 서비스에 영향을 줄 수 있습니다. <br/>
+		작업 전 네트워크 구성과 외부 의존성 여부를 반드시 확인하시기 바랍니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param publicIpId 연결 해제할 퍼블릭 IP의 ID
-		@param networkInterfaceId 연결 해제 대상 네트워크 인터페이스의 ID
-		@return ApiDisassociatePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param publicIpId 연결 해제할 퍼블릭 IP의 ID
+			@param networkInterfaceId 연결 해제 대상 네트워크 인터페이스의 ID
+			@return ApiDisassociatePublicIpRequest
 	*/
 	DisassociatePublicIp(ctx context.Context, publicIpId string, networkInterfaceId string) ApiDisassociatePublicIpRequest
 
@@ -95,14 +95,14 @@ type PublicIPAPI interface {
 	DisassociatePublicIpExecute(r ApiDisassociatePublicIpRequest) (*BnsNetworkV1ApiDisassociatePublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		GetPublicIp Get public IP
+			GetPublicIp Get public IP
 
-		지정된 퍼블릭 IP의 상세 정보를 조회합니다.
-	조회 결과에는 IP 상태, 설명, 연결된 네트워크 인터페이스 등의 정보가 포함됩니다.
+			지정된 퍼블릭 IP의 상세 정보를 조회합니다.
+		조회 결과에는 IP 상태, 설명, 연결된 네트워크 인터페이스 등의 정보가 포함됩니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param publicIpId 조회할 퍼블릭 IP ID
-		@return ApiGetPublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param publicIpId 조회할 퍼블릭 IP ID
+			@return ApiGetPublicIpRequest
 	*/
 	GetPublicIp(ctx context.Context, publicIpId string) ApiGetPublicIpRequest
 

@@ -22,18 +22,18 @@ import (
 type KeypairAPI interface {
 
 	/*
-		CreateKeypair Create keypair
+			CreateKeypair Create keypair
 
-		새로운 키 페어를 생성합니다. 키 페어는 VM 인스턴스에 접속할 때 사용되는 자격 증명으로, 인스턴스의 접근 보안을 강화하는 데 중요한 역할을 합니다.
-	키 페어는 퍼블릭 키(Public key)와 프라이빗 키(Private key)로 구성되어 있습니다.
+			새로운 키 페어를 생성합니다. 키 페어는 VM 인스턴스에 접속할 때 사용되는 자격 증명으로, 인스턴스의 접근 보안을 강화하는 데 중요한 역할을 합니다.
+		키 페어는 퍼블릭 키(Public key)와 프라이빗 키(Private key)로 구성되어 있습니다.
 
-	:::caution 주의
-	- 키 페어 생성 시 반환되는 프라이빗 키(`private_key`)는 한 번만 제공되며, 이후 다시 조회할 수 없습니다. 반드시 안전한 위치에 저장해 주세요.
-	- 프라이빗 키를 분실하거나 유출된 경우, 해당 키로는 인스턴스에 접근할 수 없습니다. 이 경우, 새로운 키 페어를 생성한 뒤 인스턴스에 재등록해야 합니다.
-	:::
+		:::caution 주의
+		- 키 페어 생성 시 반환되는 프라이빗 키(`private_key`)는 한 번만 제공되며, 이후 다시 조회할 수 없습니다. 반드시 안전한 위치에 저장해 주세요.
+		- 프라이빗 키를 분실하거나 유출된 경우, 해당 키로는 인스턴스에 접근할 수 없습니다. 이 경우, 새로운 키 페어를 생성한 뒤 인스턴스에 재등록해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateKeypairRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateKeypairRequest
 	*/
 	CreateKeypair(ctx context.Context) ApiCreateKeypairRequest
 
@@ -42,18 +42,18 @@ type KeypairAPI interface {
 	CreateKeypairExecute(r ApiCreateKeypairRequest) (*BcsInstanceV1ApiCreateKeypairModelResponseKeypairModel, *http.Response, error)
 
 	/*
-		DeleteKeypair Delete keypair
+			DeleteKeypair Delete keypair
 
-		키 페어를 삭제합니다. 삭제된 키 페어는 더 이상 해당 인스턴스나 시스템에 사용될 수 없습니다.
+			키 페어를 삭제합니다. 삭제된 키 페어는 더 이상 해당 인스턴스나 시스템에 사용될 수 없습니다.
 
-	:::caution 주의
-	- 삭제된 키 페어는 복구할 수 없으며, 삭제 후에는 다시 생성해야 합니다.
-	- 삭제된 키 페어가 등록된 인스턴스는 계속 동작하지만, 삭제된 키 페어로는 인스턴스에 접속할 수 없습니다.
-	:::
+		:::caution 주의
+		- 삭제된 키 페어는 복구할 수 없으며, 삭제 후에는 다시 생성해야 합니다.
+		- 삭제된 키 페어가 등록된 인스턴스는 계속 동작하지만, 삭제된 키 페어로는 인스턴스에 접속할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param keypairName 삭제할 키 페어의 이름
-		@return ApiDeleteKeypairRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param keypairName 삭제할 키 페어의 이름
+			@return ApiDeleteKeypairRequest
 	*/
 	DeleteKeypair(ctx context.Context, keypairName string) ApiDeleteKeypairRequest
 
@@ -61,18 +61,18 @@ type KeypairAPI interface {
 	DeleteKeypairExecute(r ApiDeleteKeypairRequest) (*http.Response, error)
 
 	/*
-		GetKeypair Get keypair
+			GetKeypair Get keypair
 
-		키 페어의 상세 정보를 조회합니다. 조회 항목에는 키 페어 이름, 사용자 ID, 생성/수정 시간, 퍼블릭 키, 핑거프린트, 키 유형 등이 포함됩니다.
+			키 페어의 상세 정보를 조회합니다. 조회 항목에는 키 페어 이름, 사용자 ID, 생성/수정 시간, 퍼블릭 키, 핑거프린트, 키 유형 등이 포함됩니다.
 
-	:::info 안내
-	- 보안상의 이유로 프라이빗 키는 반환되지 않으며, 퍼블릭 키(`public_key`)만 제공됩니다.
-	- 프라이빗 키를 분실하거나 유출한 경우, 해당 키로는 인스턴스에 접근할 수 없으므로 새로운 키 페어를 생성한 뒤 인스턴스에 다시 등록해야 합니다.
-	:::
+		:::info 안내
+		- 보안상의 이유로 프라이빗 키는 반환되지 않으며, 퍼블릭 키(`public_key`)만 제공됩니다.
+		- 프라이빗 키를 분실하거나 유출한 경우, 해당 키로는 인스턴스에 접근할 수 없으므로 새로운 키 페어를 생성한 뒤 인스턴스에 다시 등록해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param keypairName 조회할 키 페어의 이름
-		@return ApiGetKeypairRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param keypairName 조회할 키 페어의 이름
+			@return ApiGetKeypairRequest
 	*/
 	GetKeypair(ctx context.Context, keypairName string) ApiGetKeypairRequest
 
@@ -81,13 +81,13 @@ type KeypairAPI interface {
 	GetKeypairExecute(r ApiGetKeypairRequest) (*BcsInstanceV1ApiGetKeypairModelResponseKeypairModel, *http.Response, error)
 
 	/*
-		ListKeypairs List keypairs
+			ListKeypairs List keypairs
 
-		사용자가 카카오클라우드에서 생성한 키 페어 목록과 각 키 페어의 상세 정보를 조회합니다. <br/>
-	키 페어는 퍼블릭 키와 프라이빗 키로 구성된 보안 자격 증명으로, 인스턴스에 SSH 또는 RDP로 안전하게 접속할 때 사용됩니다. 자세한 설명은 [키 페어](https://docs.kakaocloud.com/service/bcs/vm/vm-main#key-pair)를 참고해 주세요.
+			사용자가 카카오클라우드에서 생성한 키 페어 목록과 각 키 페어의 상세 정보를 조회합니다. <br/>
+		키 페어는 퍼블릭 키와 프라이빗 키로 구성된 보안 자격 증명으로, 인스턴스에 SSH 또는 RDP로 안전하게 접속할 때 사용됩니다. 자세한 설명은 [키 페어](https://docs.kakaocloud.com/service/bcs/vm/vm-main#key-pair)를 참고해 주세요.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListKeypairsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListKeypairsRequest
 	*/
 	ListKeypairs(ctx context.Context) ApiListKeypairsRequest
 

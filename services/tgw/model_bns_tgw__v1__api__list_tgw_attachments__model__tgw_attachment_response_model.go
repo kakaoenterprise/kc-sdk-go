@@ -12,8 +12,8 @@ package tgw
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel type satisfies the MappedNullable interface at compile time
@@ -22,20 +22,20 @@ var _ MappedNullable = &BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseM
 // BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel struct for BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel
 type BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel struct {
 	// 연결된 리소스 ID
-	Id string `json:"id"`
+	Id                 string                        `json:"id"`
 	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	ProjectId NullableString `json:"project_id,omitempty"`
-	ProjectName NullableString `json:"project_name,omitempty"`
-	ResourceType NullableResourceType `json:"resource_type,omitempty"`
-	ResourceId NullableString `json:"resource_id,omitempty"`
-	ResourceName NullableString `json:"resource_name,omitempty"`
-	ResourceCidrBlock NullableString `json:"resource_cidr_block,omitempty"`
+	ProjectId          NullableString                `json:"project_id,omitempty"`
+	ProjectName        NullableString                `json:"project_name,omitempty"`
+	ResourceType       NullableResourceType          `json:"resource_type,omitempty"`
+	ResourceId         NullableString                `json:"resource_id,omitempty"`
+	ResourceName       NullableString                `json:"resource_name,omitempty"`
+	ResourceCidrBlock  NullableString                `json:"resource_cidr_block,omitempty"`
 	// Transit Gateway 정보
-	Tgw TrasitGatewayResponseModel `json:"tgw"`
-	Resources []BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel `json:"resources,omitempty"`
-	RouteTable NullableBnsTgwV1ApiListTgwAttachmentsModelRouteTableResponseModel `json:"route_table,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
-	UpdatedAt NullableTime `json:"updated_at,omitempty"`
+	Tgw                  TrasitGatewayResponseModel                                        `json:"tgw"`
+	Resources            []BnsTgwV1ApiListTgwAttachmentsModelResourceResponseModel         `json:"resources,omitempty"`
+	RouteTable           NullableBnsTgwV1ApiListTgwAttachmentsModelRouteTableResponseModel `json:"route_table,omitempty"`
+	CreatedAt            NullableTime                                                      `json:"created_at,omitempty"`
+	UpdatedAt            NullableTime                                                      `json:"updated_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -116,6 +116,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasProvis
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
+
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -158,6 +159,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasProjec
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
+
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -200,6 +202,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasProjec
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProjectName(v string) {
 	o.ProjectName.Set(&v)
 }
+
 // SetProjectNameNil sets the value for ProjectName to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetProjectNameNil() {
 	o.ProjectName.Set(nil)
@@ -242,6 +245,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasResour
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceType(v ResourceType) {
 	o.ResourceType.Set(&v)
 }
+
 // SetResourceTypeNil sets the value for ResourceType to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceTypeNil() {
 	o.ResourceType.Set(nil)
@@ -284,6 +288,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasResour
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceId(v string) {
 	o.ResourceId.Set(&v)
 }
+
 // SetResourceIdNil sets the value for ResourceId to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceIdNil() {
 	o.ResourceId.Set(nil)
@@ -326,6 +331,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasResour
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceName(v string) {
 	o.ResourceName.Set(&v)
 }
+
 // SetResourceNameNil sets the value for ResourceName to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceNameNil() {
 	o.ResourceName.Set(nil)
@@ -368,6 +374,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasResour
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceCidrBlock(v string) {
 	o.ResourceCidrBlock.Set(&v)
 }
+
 // SetResourceCidrBlockNil sets the value for ResourceCidrBlock to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetResourceCidrBlockNil() {
 	o.ResourceCidrBlock.Set(nil)
@@ -467,6 +474,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasRouteT
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetRouteTable(v BnsTgwV1ApiListTgwAttachmentsModelRouteTableResponseModel) {
 	o.RouteTable.Set(&v)
 }
+
 // SetRouteTableNil sets the value for RouteTable to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetRouteTableNil() {
 	o.RouteTable.Set(nil)
@@ -509,6 +517,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasCreate
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
+
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -551,6 +560,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) HasUpdate
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -562,7 +572,7 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) UnsetUpda
 }
 
 func (o BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -628,10 +638,10 @@ func (o *BnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) Unmarshal
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -704,5 +714,3 @@ func (v *NullableBnsTgwV1ApiListTgwAttachmentsModelTgwAttachmentResponseModel) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,8 +19,8 @@ var _ MappedNullable = &BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel{}
 
 // BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel struct for BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel
 type BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel struct {
-	Name NullableString `json:"name,omitempty"`
-	Options NullableBnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel `json:"options,omitempty"`
+	Name                 NullableString                                                    `json:"name,omitempty"`
+	Options              NullableBnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel `json:"options,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,6 +75,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) HasName() bool {
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -117,6 +118,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) HasOptions() bool 
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) SetOptions(v BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) {
 	o.Options.Set(&v)
 }
+
 // SetOptionsNil sets the value for Options to be an explicit nil
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) SetOptionsNil() {
 	o.Options.Set(nil)
@@ -128,7 +130,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) UnsetOptions() {
 }
 
 func (o BnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableBnsTgwV1ApiUpdateTransitGatewayModelTgwRequestModel) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

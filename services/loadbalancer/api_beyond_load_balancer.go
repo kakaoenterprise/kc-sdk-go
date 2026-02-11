@@ -22,17 +22,17 @@ import (
 type BeyondLoadBalancerAPI interface {
 
 	/*
-		CreateHaGroup Create HA group
+			CreateHaGroup Create HA group
 
-		[고가용성 그룹(High Availability Group)](https://docs.kakaocloud.com/service/bns/lb/main/lb-high-availability-group)을 생성합니다.
-	하나의 HA 그룹은 다중 가용 영역에 로드 밸런서를 배치해 장애 대응력을 높이기 위한 상위 논리 구조로, 생성 시 기본 서브넷 및 로드 밸런서 정보를 함께 지정합니다.
+			[고가용성 그룹(High Availability Group)](https://docs.kakaocloud.com/service/bns/lb/main/lb-high-availability-group)을 생성합니다.
+		하나의 HA 그룹은 다중 가용 영역에 로드 밸런서를 배치해 장애 대응력을 높이기 위한 상위 논리 구조로, 생성 시 기본 서브넷 및 로드 밸런서 정보를 함께 지정합니다.
 
-	:::info 안내
-	고가용성 그룹 생성 후, 리스너 및 대상 그룹은 별도의 API를 통해 개별 로드 밸런서 단위로 설정해야 합니다.
-	:::
+		:::info 안내
+		고가용성 그룹 생성 후, 리스너 및 대상 그룹은 별도의 API를 통해 개별 로드 밸런서 단위로 설정해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateHaGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateHaGroupRequest
 	*/
 	CreateHaGroup(ctx context.Context) ApiCreateHaGroupRequest
 
@@ -41,19 +41,19 @@ type BeyondLoadBalancerAPI interface {
 	CreateHaGroupExecute(r ApiCreateHaGroupRequest) (*BnsLoadBalancerV1ApiCreateHaGroupModelResponseBeyondLoadBalancerModel, *http.Response, error)
 
 	/*
-		DeleteHaGroup Delete HA group
+			DeleteHaGroup Delete HA group
 
-		특정 고가용성 그룹(High Availability Group)을 삭제합니다.
-	해당 그룹에 연결된 로드 밸런서, 리스너, 대상 그룹 등 모든 관련 리소스는 함께 삭제되지 않습니다.
+			특정 고가용성 그룹(High Availability Group)을 삭제합니다.
+		해당 그룹에 연결된 로드 밸런서, 리스너, 대상 그룹 등 모든 관련 리소스는 함께 삭제되지 않습니다.
 
-	:::caution 주의
-	- 로드 밸런서를 삭제하면 연결된 네트워크 리소스도 함께 삭제되므로, 삭제 전에 구성을 반드시 확인해야 합니다.
-	- 삭제된 리소스는 복구할 수 없습니다.
-	:::
+		:::caution 주의
+		- 로드 밸런서를 삭제하면 연결된 네트워크 리소스도 함께 삭제되므로, 삭제 전에 구성을 반드시 확인해야 합니다.
+		- 삭제된 리소스는 복구할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param beyondLoadBalancerId 삭제할 고가용성 그룹의 ID
-		@return ApiDeleteHaGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param beyondLoadBalancerId 삭제할 고가용성 그룹의 ID
+			@return ApiDeleteHaGroupRequest
 	*/
 	DeleteHaGroup(ctx context.Context, beyondLoadBalancerId string) ApiDeleteHaGroupRequest
 
@@ -61,19 +61,19 @@ type BeyondLoadBalancerAPI interface {
 	DeleteHaGroupExecute(r ApiDeleteHaGroupRequest) (*http.Response, error)
 
 	/*
-		DetachHaGroupLoadBalancer Detach HA group load balancer
+			DetachHaGroupLoadBalancer Detach HA group load balancer
 
-		지정한 고가용성 그룹(High Availability Group)에서 로드 밸런서를 연결 해제합니다.
+			지정한 고가용성 그룹(High Availability Group)에서 로드 밸런서를 연결 해제합니다.
 
-	:::caution 주의
-	- 해당 로드 밸런서가 고가용성 그룹에서 마지막으로 연결된 인스턴스인 경우, 전체 트래픽 분산 기능이 중단될 수 있습니다.
-	- 삭제 전 반드시 가용 영역 구성 및 연결 상태를 확인해야 합니다.
-	:::
+		:::caution 주의
+		- 해당 로드 밸런서가 고가용성 그룹에서 마지막으로 연결된 인스턴스인 경우, 전체 트래픽 분산 기능이 중단될 수 있습니다.
+		- 삭제 전 반드시 가용 영역 구성 및 연결 상태를 확인해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param beyondLoadBalancerId 고가용성 그룹의 ID
-		@param loadBalancerId 연결 해제할 로드 밸런서의 ID
-		@return ApiDetachHaGroupLoadBalancerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param beyondLoadBalancerId 고가용성 그룹의 ID
+			@param loadBalancerId 연결 해제할 로드 밸런서의 ID
+			@return ApiDetachHaGroupLoadBalancerRequest
 	*/
 	DetachHaGroupLoadBalancer(ctx context.Context, beyondLoadBalancerId string, loadBalancerId string) ApiDetachHaGroupLoadBalancerRequest
 
@@ -81,17 +81,17 @@ type BeyondLoadBalancerAPI interface {
 	DetachHaGroupLoadBalancerExecute(r ApiDetachHaGroupLoadBalancerRequest) (*http.Response, error)
 
 	/*
-		GetHaGroup Get HA group
+			GetHaGroup Get HA group
 
-		지정한 고가용성 그룹(High Availability Group)의 상세 정보를 조회합니다.
+			지정한 고가용성 그룹(High Availability Group)의 상세 정보를 조회합니다.
 
-	:::info 안내
-	고가용성 그룹은 여러 로드 밸런서를 묶어 고가용성을 제공하는 논리적 그룹으로, 해당 API를 통해 고가용성 그룹에 대한 메타데이터와 연결된 네트워크 구성을 확인할 수 있습니다.
-	:::
+		:::info 안내
+		고가용성 그룹은 여러 로드 밸런서를 묶어 고가용성을 제공하는 논리적 그룹으로, 해당 API를 통해 고가용성 그룹에 대한 메타데이터와 연결된 네트워크 구성을 확인할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param beyondLoadBalancerId 조회할 고가용성 그룹의 ID
-		@return ApiGetHaGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param beyondLoadBalancerId 조회할 고가용성 그룹의 ID
+			@return ApiGetHaGroupRequest
 	*/
 	GetHaGroup(ctx context.Context, beyondLoadBalancerId string) ApiGetHaGroupRequest
 
@@ -129,19 +129,19 @@ type BeyondLoadBalancerAPI interface {
 	UpdateHaGroupExecute(r ApiUpdateHaGroupRequest) (*BnsLoadBalancerV1ApiUpdateHaGroupModelResponseBeyondLoadBalancerModel, *http.Response, error)
 
 	/*
-		UpdateHaGroupLoadBalancer Update HA group load balancer
+			UpdateHaGroupLoadBalancer Update HA group load balancer
 
-		고가용성 로드 밸런서에 새로운 가용 영역의 로드 밸런서를 추가합니다.
+			고가용성 로드 밸런서에 새로운 가용 영역의 로드 밸런서를 추가합니다.
 
-	:::info 안내
-	- 기존에 연결되어 있던 로드 밸런서를 포함하여 새로운 가용 영역의 로드 밸런서를 추가해야 합니다.
-	- 이미 연결된 가용 영역에 대해 중복 연결을 시도하면 오류가 발생할 수 있습니다.
-	- 최소 하나 이상의 로드 밸런서 연결이 필요하며, 연결된 로드 밸런서는 [Detach HA group load balancer](https://docs.kakaocloud.com/openapi/bns/lb/detach-ha-group-load-balancer) API를 통해 연결 해제할 수 있습니다.
-	:::
+		:::info 안내
+		- 기존에 연결되어 있던 로드 밸런서를 포함하여 새로운 가용 영역의 로드 밸런서를 추가해야 합니다.
+		- 이미 연결된 가용 영역에 대해 중복 연결을 시도하면 오류가 발생할 수 있습니다.
+		- 최소 하나 이상의 로드 밸런서 연결이 필요하며, 연결된 로드 밸런서는 [Detach HA group load balancer](https://docs.kakaocloud.com/openapi/bns/lb/detach-ha-group-load-balancer) API를 통해 연결 해제할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param beyondLoadBalancerId 연결 대상 고가용성 로드 밸런서 ID
-		@return ApiUpdateHaGroupLoadBalancerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param beyondLoadBalancerId 연결 대상 고가용성 로드 밸런서 ID
+			@return ApiUpdateHaGroupLoadBalancerRequest
 	*/
 	UpdateHaGroupLoadBalancer(ctx context.Context, beyondLoadBalancerId string) ApiUpdateHaGroupLoadBalancerRequest
 

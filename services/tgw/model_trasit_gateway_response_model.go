@@ -19,10 +19,10 @@ var _ MappedNullable = &TrasitGatewayResponseModel{}
 
 // TrasitGatewayResponseModel struct for TrasitGatewayResponseModel
 type TrasitGatewayResponseModel struct {
-	Id NullableString `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	ProjectId NullableString `json:"project_id,omitempty"`
-	ProjectName NullableString `json:"project_name,omitempty"`
+	Id                   NullableString `json:"id,omitempty"`
+	Name                 NullableString `json:"name,omitempty"`
+	ProjectId            NullableString `json:"project_id,omitempty"`
+	ProjectName          NullableString `json:"project_name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,6 +77,7 @@ func (o *TrasitGatewayResponseModel) HasId() bool {
 func (o *TrasitGatewayResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -119,6 +120,7 @@ func (o *TrasitGatewayResponseModel) HasName() bool {
 func (o *TrasitGatewayResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -161,6 +163,7 @@ func (o *TrasitGatewayResponseModel) HasProjectId() bool {
 func (o *TrasitGatewayResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
+
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -203,6 +206,7 @@ func (o *TrasitGatewayResponseModel) HasProjectName() bool {
 func (o *TrasitGatewayResponseModel) SetProjectName(v string) {
 	o.ProjectName.Set(&v)
 }
+
 // SetProjectNameNil sets the value for ProjectName to be an explicit nil
 func (o *TrasitGatewayResponseModel) SetProjectNameNil() {
 	o.ProjectName.Set(nil)
@@ -214,7 +218,7 @@ func (o *TrasitGatewayResponseModel) UnsetProjectName() {
 }
 
 func (o TrasitGatewayResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,5 +306,3 @@ func (v *NullableTrasitGatewayResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

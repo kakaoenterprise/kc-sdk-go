@@ -37,19 +37,19 @@ type VPCRouteTableAssociationAPI interface {
 	ListRouteTableAssociationsExecute(r ApiListRouteTableAssociationsRequest) (*RouteTableAssociationListModel, *http.Response, error)
 
 	/*
-		UpdateRouteTableAssociation Update route table association
+			UpdateRouteTableAssociation Update route table association
 
-		라우팅 테이블과 서브넷 간 연결 정보를 수정합니다. 라우팅 테이블에 연결되어있는 서브넷을 다른 대상 라우팅 테이블에 연결할 수 있습니다.
+			라우팅 테이블과 서브넷 간 연결 정보를 수정합니다. 라우팅 테이블에 연결되어있는 서브넷을 다른 대상 라우팅 테이블에 연결할 수 있습니다.
 
 
-	:::caution 주의
-	라우팅 테이블과 서브넷 간 연결 정보 수정 시 서브넷이 다른 라우팅 테이블에 연결되어 통신 경로가 변경될 수 있습니다. <br/>변경 전 연결된 서브넷 현황을 확인하는 것을 권장합니다.
-	:::
+		:::caution 주의
+		라우팅 테이블과 서브넷 간 연결 정보 수정 시 서브넷이 다른 라우팅 테이블에 연결되어 통신 경로가 변경될 수 있습니다. <br/>변경 전 연결된 서브넷 현황을 확인하는 것을 권장합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 현재 연결에 매핑된 라우팅 테이블 ID
-		@param associationId 수정할 라우팅 테이블과 서브넷 연결 정보를 식별하는 ID
-		@return ApiUpdateRouteTableAssociationRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param routeTableId 현재 연결에 매핑된 라우팅 테이블 ID
+			@param associationId 수정할 라우팅 테이블과 서브넷 연결 정보를 식별하는 ID
+			@return ApiUpdateRouteTableAssociationRequest
 	*/
 	UpdateRouteTableAssociation(ctx context.Context, routeTableId string, associationId string) ApiUpdateRouteTableAssociationRequest
 

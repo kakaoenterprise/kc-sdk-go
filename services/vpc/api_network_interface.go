@@ -65,13 +65,13 @@ type NetworkInterfaceAPI interface {
 	GetNetworkInterfaceExecute(r ApiGetNetworkInterfaceRequest) (*BnsVpcV1ApiGetNetworkInterfaceModelResponseNetworkInterfaceModel, *http.Response, error)
 
 	/*
-		ListNetworkInterfaces List network interfaces
+			ListNetworkInterfaces List network interfaces
 
-		현재 프로젝트 내에서 생성된 네트워크 인터페이스 목록을 조회합니다.
-	필터 조건을 설정하여 특정 조건에 맞는 인터페이스만 조회할 수 있으며, 정렬 및 페이지네이션도 지원합니다.
+			현재 프로젝트 내에서 생성된 네트워크 인터페이스 목록을 조회합니다.
+		필터 조건을 설정하여 특정 조건에 맞는 인터페이스만 조회할 수 있으며, 정렬 및 페이지네이션도 지원합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListNetworkInterfacesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListNetworkInterfacesRequest
 	*/
 	ListNetworkInterfaces(ctx context.Context) ApiListNetworkInterfacesRequest
 
@@ -80,17 +80,17 @@ type NetworkInterfaceAPI interface {
 	ListNetworkInterfacesExecute(r ApiListNetworkInterfacesRequest) (*NetworkInterfaceListModel, *http.Response, error)
 
 	/*
-		UpdateNetworkInterface Update network interface
+			UpdateNetworkInterface Update network interface
 
-		네트워크 인터페이스의 이름, 설명, 보안 그룹 정보를 수정합니다.
+			네트워크 인터페이스의 이름, 설명, 보안 그룹 정보를 수정합니다.
 
-	:::caution 주의
-	보안 그룹 변경은 연결된 인스턴스의 트래픽 흐름에 영향을 줄 수 있으므로 주의가 필요합니다.
-	:::
+		:::caution 주의
+		보안 그룹 변경은 연결된 인스턴스의 트래픽 흐름에 영향을 줄 수 있으므로 주의가 필요합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param networkInterfaceId 수정할 네트워크 인터페이스 ID
-		@return ApiUpdateNetworkInterfaceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param networkInterfaceId 수정할 네트워크 인터페이스 ID
+			@return ApiUpdateNetworkInterfaceRequest
 	*/
 	UpdateNetworkInterface(ctx context.Context, networkInterfaceId string) ApiUpdateNetworkInterfaceRequest
 
@@ -99,17 +99,17 @@ type NetworkInterfaceAPI interface {
 	UpdateNetworkInterfaceExecute(r ApiUpdateNetworkInterfaceRequest) (*BnsVpcV1ApiUpdateNetworkInterfaceModelResponseNetworkInterfaceModel, *http.Response, error)
 
 	/*
-		UpdateNetworkInterfaceAllowedAddresses Update network interface allowed addresses
+			UpdateNetworkInterfaceAllowedAddresses Update network interface allowed addresses
 
-		네트워크 인터페이스에 대해 송신이 허용된 IP 목록을 설정하거나 갱신합니다.
+			네트워크 인터페이스에 대해 송신이 허용된 IP 목록을 설정하거나 갱신합니다.
 
-	:::info 안내
-	`allowed_address_pairs`를 설정하면, 해당 IP 및 MAC 주소로 송신되는 패킷이 허용됩니다. 주로 L2 보안이 필요한 네트워크 환경에서 사용됩니다.
-	:::
+		:::info 안내
+		`allowed_address_pairs`를 설정하면, 해당 IP 및 MAC 주소로 송신되는 패킷이 허용됩니다. 주로 L2 보안이 필요한 네트워크 환경에서 사용됩니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param networkInterfaceId 설정할 대상 네트워크 인터페이스 ID
-		@return ApiUpdateNetworkInterfaceAllowedAddressesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param networkInterfaceId 설정할 대상 네트워크 인터페이스 ID
+			@return ApiUpdateNetworkInterfaceAllowedAddressesRequest
 	*/
 	UpdateNetworkInterfaceAllowedAddresses(ctx context.Context, networkInterfaceId string) ApiUpdateNetworkInterfaceAllowedAddressesRequest
 

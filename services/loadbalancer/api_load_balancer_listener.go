@@ -22,17 +22,17 @@ import (
 type LoadBalancerListenerAPI interface {
 
 	/*
-		CreateListener Create listener
+			CreateListener Create listener
 
-		지정한 로드 밸런서에 리스너를 생성합니다.
+			지정한 로드 밸런서에 리스너를 생성합니다.
 
-	:::info 안내
-	- 리스너는 기존에 생성된 로드 밸런서 및 대상 그룹을 참조하여 구성해야 합니다.
-	- HTTPS 리스너 설정 시에는 TLS 인증서 정보(`default_tls_container_ref`)가 필요합니다.
-	:::
+		:::info 안내
+		- 리스너는 기존에 생성된 로드 밸런서 및 대상 그룹을 참조하여 구성해야 합니다.
+		- HTTPS 리스너 설정 시에는 TLS 인증서 정보(`default_tls_container_ref`)가 필요합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateListenerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateListenerRequest
 	*/
 	CreateListener(ctx context.Context) ApiCreateListenerRequest
 
@@ -41,19 +41,19 @@ type LoadBalancerListenerAPI interface {
 	CreateListenerExecute(r ApiCreateListenerRequest) (*BnsLoadBalancerV1ApiCreateListenerModelResponseListenerModel, *http.Response, error)
 
 	/*
-		DeleteListener Delete listener
+			DeleteListener Delete listener
 
-		특정 로드 밸런서의 리스너를 삭제합니다.
-	리스너는 클라이언트 요청을 수신하는 역할을 하므로, 삭제 시 연결된 정책 및 대상 그룹에 영향을 줄 수 있습니다.
+			특정 로드 밸런서의 리스너를 삭제합니다.
+		리스너는 클라이언트 요청을 수신하는 역할을 하므로, 삭제 시 연결된 정책 및 대상 그룹에 영향을 줄 수 있습니다.
 
-	:::caution 주의
-	- 삭제된 리스너는 복구할 수 없습니다.
-	- 리스너에 연결된 정책, 대상 그룹, 인증서 설정 등을 함께 검토한 후 삭제를 진행하세요.
-	:::
+		:::caution 주의
+		- 삭제된 리스너는 복구할 수 없습니다.
+		- 리스너에 연결된 정책, 대상 그룹, 인증서 설정 등을 함께 검토한 후 삭제를 진행하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param listenerId 삭제할 리스너의 고유 ID
-		@return ApiDeleteListenerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param listenerId 삭제할 리스너의 고유 ID
+			@return ApiDeleteListenerRequest
 	*/
 	DeleteListener(ctx context.Context, listenerId string) ApiDeleteListenerRequest
 
@@ -76,13 +76,13 @@ type LoadBalancerListenerAPI interface {
 	GetListenerExecute(r ApiGetListenerRequest) (*BnsLoadBalancerV1ApiGetListenerModelResponseListenerModel, *http.Response, error)
 
 	/*
-		ListListeners List listeners
+			ListListeners List listeners
 
-		프로젝트 내 전체 리스너 목록을 조회합니다.<br/>
-	특정 로드 밸런서에 설정된 리스너를 확인하려면 [Get load balancer](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
+			프로젝트 내 전체 리스너 목록을 조회합니다.<br/>
+		특정 로드 밸런서에 설정된 리스너를 확인하려면 [Get load balancer](https://docs.kakaocloud.com/openapi/bns/lb/get-load-balancer)를 사용하세요.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListListenersRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListListenersRequest
 	*/
 	ListListeners(ctx context.Context) ApiListListenersRequest
 
@@ -91,23 +91,23 @@ type LoadBalancerListenerAPI interface {
 	ListListenersExecute(r ApiListListenersRequest) (*ListenerListModel, *http.Response, error)
 
 	/*
-		UpdateListener Update listener
+			UpdateListener Update listener
 
-		로드 밸런서의 특정 리스너 설정을 수정합니다.
+			로드 밸런서의 특정 리스너 설정을 수정합니다.
 
-	:::info 안내
-	- HTTPS 리스너일 경우, `default_tls_container_ref`를 반드시 설정해야 하며, 필요에 따라 SNI 인증서를 함께 설정할 수 있습니다.
-	- TCP/UDP 리스너는 L7 정책을 사용할 수 없으며, L7 관련 속성은 무시됩니다.
-	:::
+		:::info 안내
+		- HTTPS 리스너일 경우, `default_tls_container_ref`를 반드시 설정해야 하며, 필요에 따라 SNI 인증서를 함께 설정할 수 있습니다.
+		- TCP/UDP 리스너는 L7 정책을 사용할 수 없으며, L7 관련 속성은 무시됩니다.
+		:::
 
-	:::caution 주의
-	- 리스너가 연결된 로드 밸런서의 상태가 `ACTIVE`가 아닌 경우 수정이 제한될 수 있습니다.
-	- 연결 제한 수(`connection_limit`)를 `-1`로 설정하면 무제한 연결이 허용되지만, 실제 처리 성능은 인스턴스 스펙에 따라 달라질 수 있습니다.
-	:::
+		:::caution 주의
+		- 리스너가 연결된 로드 밸런서의 상태가 `ACTIVE`가 아닌 경우 수정이 제한될 수 있습니다.
+		- 연결 제한 수(`connection_limit`)를 `-1`로 설정하면 무제한 연결이 허용되지만, 실제 처리 성능은 인스턴스 스펙에 따라 달라질 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param listenerId 수정할 리스너 ID
-		@return ApiUpdateListenerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param listenerId 수정할 리스너 ID
+			@return ApiUpdateListenerRequest
 	*/
 	UpdateListener(ctx context.Context, listenerId string) ApiUpdateListenerRequest
 

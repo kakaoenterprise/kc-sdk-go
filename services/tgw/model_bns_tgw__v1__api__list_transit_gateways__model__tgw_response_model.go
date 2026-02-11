@@ -20,20 +20,20 @@ var _ MappedNullable = &BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel{}
 
 // BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel struct for BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel
 type BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel struct {
-	Id NullableString `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Region NullableRegion `json:"region,omitempty"`
-	IsShared NullableBool `json:"is_shared,omitempty"`
-	Attachments []BnsTgwV1ApiListTransitGatewaysModelAttachmentResponseModel `json:"attachments,omitempty"`
-	Options NullableOptionResponseModel `json:"options,omitempty"`
-	ProvisioningStatus NullableTGWProvisioningStatus `json:"provisioning_status,omitempty"`
-	ProjectId NullableString `json:"project_id,omitempty"`
-	ProjectName NullableString `json:"project_name,omitempty"`
-	OwnerProjectId NullableString `json:"owner_project_id,omitempty"`
-	OwnerProjectName NullableString `json:"owner_project_name,omitempty"`
-	RouteTables []BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel `json:"route_tables,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
-	UpdatedAt NullableTime `json:"updated_at,omitempty"`
+	Id                   NullableString                                               `json:"id,omitempty"`
+	Name                 NullableString                                               `json:"name,omitempty"`
+	Region               NullableRegion                                               `json:"region,omitempty"`
+	IsShared             NullableBool                                                 `json:"is_shared,omitempty"`
+	Attachments          []BnsTgwV1ApiListTransitGatewaysModelAttachmentResponseModel `json:"attachments,omitempty"`
+	Options              NullableOptionResponseModel                                  `json:"options,omitempty"`
+	ProvisioningStatus   NullableTGWProvisioningStatus                                `json:"provisioning_status,omitempty"`
+	ProjectId            NullableString                                               `json:"project_id,omitempty"`
+	ProjectName          NullableString                                               `json:"project_name,omitempty"`
+	OwnerProjectId       NullableString                                               `json:"owner_project_id,omitempty"`
+	OwnerProjectName     NullableString                                               `json:"owner_project_name,omitempty"`
+	RouteTables          []BnsTgwV1ApiListTransitGatewaysModelRouteTableResponseModel `json:"route_tables,omitempty"`
+	CreatedAt            NullableTime                                                 `json:"created_at,omitempty"`
+	UpdatedAt            NullableTime                                                 `json:"updated_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -88,6 +88,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasId() bool {
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -130,6 +131,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasName() bool {
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -172,6 +174,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasRegion() bool {
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetRegion(v Region) {
 	o.Region.Set(&v)
 }
+
 // SetRegionNil sets the value for Region to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetRegionNil() {
 	o.Region.Set(nil)
@@ -214,6 +217,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasIsShared() bool
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetIsShared(v bool) {
 	o.IsShared.Set(&v)
 }
+
 // SetIsSharedNil sets the value for IsShared to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetIsSharedNil() {
 	o.IsShared.Set(nil)
@@ -289,6 +293,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasOptions() bool 
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOptions(v OptionResponseModel) {
 	o.Options.Set(&v)
 }
+
 // SetOptionsNil sets the value for Options to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOptionsNil() {
 	o.Options.Set(nil)
@@ -331,6 +336,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasProvisioningSta
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProvisioningStatus(v TGWProvisioningStatus) {
 	o.ProvisioningStatus.Set(&v)
 }
+
 // SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProvisioningStatusNil() {
 	o.ProvisioningStatus.Set(nil)
@@ -373,6 +379,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasProjectId() boo
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProjectId(v string) {
 	o.ProjectId.Set(&v)
 }
+
 // SetProjectIdNil sets the value for ProjectId to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProjectIdNil() {
 	o.ProjectId.Set(nil)
@@ -415,6 +422,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasProjectName() b
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProjectName(v string) {
 	o.ProjectName.Set(&v)
 }
+
 // SetProjectNameNil sets the value for ProjectName to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetProjectNameNil() {
 	o.ProjectName.Set(nil)
@@ -457,6 +465,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasOwnerProjectId(
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOwnerProjectId(v string) {
 	o.OwnerProjectId.Set(&v)
 }
+
 // SetOwnerProjectIdNil sets the value for OwnerProjectId to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOwnerProjectIdNil() {
 	o.OwnerProjectId.Set(nil)
@@ -499,6 +508,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasOwnerProjectNam
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOwnerProjectName(v string) {
 	o.OwnerProjectName.Set(&v)
 }
+
 // SetOwnerProjectNameNil sets the value for OwnerProjectName to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetOwnerProjectNameNil() {
 	o.OwnerProjectName.Set(nil)
@@ -574,6 +584,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasCreatedAt() boo
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
+
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -616,6 +627,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) HasUpdatedAt() boo
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -627,7 +639,7 @@ func (o *BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) UnsetUpdatedAt() {
 }
 
 func (o BnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -755,5 +767,3 @@ func (v *NullableBnsTgwV1ApiListTransitGatewaysModelTgwResponseModel) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

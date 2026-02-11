@@ -22,20 +22,20 @@ import (
 type InstanceAPI interface {
 
 	/*
-		CreateInstance Create instance
+			CreateInstance Create instance
 
-		새로운 인스턴스를 생성합니다. 생성 요청 시 제공된 정보를 바탕으로 인스턴스를 프로비저닝하며, 응답으로 해당 인스턴스의 ID와 관련 정보를 반환합니다.
+			새로운 인스턴스를 생성합니다. 생성 요청 시 제공된 정보를 바탕으로 인스턴스를 프로비저닝하며, 응답으로 해당 인스턴스의 ID와 관련 정보를 반환합니다.
 
-	인스턴스는 시작 후 상태가 `Active`(실행 중) 상태로 전환되며, 이 과정까지 인스턴스 유형별로 최대 몇 분 정도 소요될 수 있습니다. <br/>
-	인스턴스 상태에 대한 자세한 설명은 각 서비스 문서의 인스턴스 수명주기([Virtual Machine](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-lifecycle), [GPU](https://docs.kakaocloud.com/service/bcs/gpu/gpu-main#instance-lifecycle), [Bare Metal Server](https://docs.kakaocloud.com/service/bcs/bms/bms-main#instance-lifecycle))를 참고하시기 바랍니다.
+		인스턴스는 시작 후 상태가 `Active`(실행 중) 상태로 전환되며, 이 과정까지 인스턴스 유형별로 최대 몇 분 정도 소요될 수 있습니다. <br/>
+		인스턴스 상태에 대한 자세한 설명은 각 서비스 문서의 인스턴스 수명주기([Virtual Machine](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-lifecycle), [GPU](https://docs.kakaocloud.com/service/bcs/gpu/gpu-main#instance-lifecycle), [Bare Metal Server](https://docs.kakaocloud.com/service/bcs/bms/bms-main#instance-lifecycle))를 참고하시기 바랍니다.
 
 
-	:::info 안내
-	인스턴스는 프로젝트당 최대 500개까지 생성할 수 있습니다.
-	:::
+		:::info 안내
+		인스턴스는 프로젝트당 최대 500개까지 생성할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateInstanceRequest
 	*/
 	CreateInstance(ctx context.Context) ApiCreateInstanceRequest
 
@@ -44,18 +44,18 @@ type InstanceAPI interface {
 	CreateInstanceExecute(r ApiCreateInstanceRequest) (*ResponseCreateInstanceModel, *http.Response, error)
 
 	/*
-		DeleteInstance Delete instance
+			DeleteInstance Delete instance
 
-		인스턴스를 완전히 삭제합니다. 삭제 요청이 성공하면 인스턴스는 시스템에서 완전히 제거됩니다.
+			인스턴스를 완전히 삭제합니다. 삭제 요청이 성공하면 인스턴스는 시스템에서 완전히 제거됩니다.
 
-	:::caution 주의
-	- 삭제된 인스턴스는 복구할 수 없습니다.
-	- 중요 데이터가 포함되어 있는 경우, 반드시 삭제 전에 백업을 수행해 주세요.
-	:::
+		:::caution 주의
+		- 삭제된 인스턴스는 복구할 수 없습니다.
+		- 중요 데이터가 포함되어 있는 경우, 반드시 삭제 전에 백업을 수행해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiDeleteInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiDeleteInstanceRequest
 	*/
 	DeleteInstance(ctx context.Context, instanceId string) ApiDeleteInstanceRequest
 
@@ -78,16 +78,16 @@ type InstanceAPI interface {
 	GetInstanceExecute(r ApiGetInstanceRequest) (*ResponseInstanceModel, *http.Response, error)
 
 	/*
-		ListInstances List instances
+			ListInstances List instances
 
-		카카오클라우드의 전체 인스턴스 목록을 조회합니다.
+			카카오클라우드의 전체 인스턴스 목록을 조회합니다.
 
-	:::info 안내
-	최근 종료된 인스턴스는 일시적으로 결과 목록에 포함될 수 있습니다.
-	:::
+		:::info 안내
+		최근 종료된 인스턴스는 일시적으로 결과 목록에 포함될 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListInstancesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListInstancesRequest
 	*/
 	ListInstances(ctx context.Context) ApiListInstancesRequest
 

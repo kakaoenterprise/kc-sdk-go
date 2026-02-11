@@ -22,15 +22,15 @@ import (
 type InstancePublicIPAPI interface {
 
 	/*
-		AssociateNewPublicIp Associate new public IP
+			AssociateNewPublicIp Associate new public IP
 
-		인스턴스의 네트워크 인터페이스에 새 퍼블릭 IP를 연결합니다. <br/>
-	퍼블릭 IP가 아직 연결되지 않은 네트워크 인터페이스에만 사용할 수 있습니다.
+			인스턴스의 네트워크 인터페이스에 새 퍼블릭 IP를 연결합니다. <br/>
+		퍼블릭 IP가 아직 연결되지 않은 네트워크 인터페이스에만 사용할 수 있습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 퍼블릭 IP를 연결할 대상 네트워크 인터페이스 ID
-		@return ApiAssociateNewPublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 퍼블릭 IP를 연결할 대상 네트워크 인터페이스 ID
+			@return ApiAssociateNewPublicIpRequest
 	*/
 	AssociateNewPublicIp(ctx context.Context, instanceId string, networkInterfaceId string) ApiAssociateNewPublicIpRequest
 
@@ -39,16 +39,16 @@ type InstancePublicIPAPI interface {
 	AssociateNewPublicIpExecute(r ApiAssociateNewPublicIpRequest) (*BcsInstanceV1ApiAssociateNewPublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		AssociatePublicIp Associate public IP
+			AssociatePublicIp Associate public IP
 
-		지정한 인스턴스의 네트워크 인터페이스에 기존 퍼블릭 IP를 연결합니다.
-	퍼블릭 IP가 아직 연결되지 않은 네트워크 인터페이스에만 사용할 수 있습니다.
+			지정한 인스턴스의 네트워크 인터페이스에 기존 퍼블릭 IP를 연결합니다.
+		퍼블릭 IP가 아직 연결되지 않은 네트워크 인터페이스에만 사용할 수 있습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 퍼블릭 IP를 연결할 대상 네트워크 인터페이스 ID
-		@param publicIpId 인스턴스에 연결할 퍼블릭 IP의 ID
-		@return ApiAssociatePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 퍼블릭 IP를 연결할 대상 네트워크 인터페이스 ID
+			@param publicIpId 인스턴스에 연결할 퍼블릭 IP의 ID
+			@return ApiAssociatePublicIpRequest
 	*/
 	AssociatePublicIp(ctx context.Context, instanceId string, networkInterfaceId string, publicIpId string) ApiAssociatePublicIpRequest
 
@@ -57,18 +57,18 @@ type InstancePublicIPAPI interface {
 	AssociatePublicIpExecute(r ApiAssociatePublicIpRequest) (*BcsInstanceV1ApiAssociatePublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		RemovePublicIp Remove public IP
+			RemovePublicIp Remove public IP
 
-		인스턴스에 연결된 퍼블릭 IP를 연결 해제 또는 해제 후 삭제합니다.
+			인스턴스에 연결된 퍼블릭 IP를 연결 해제 또는 해제 후 삭제합니다.
 
-	:::caution 주의
-	퍼블릭 IP 연결 해제 시, 해당 IP를 사용하던 서비스에 접속 장애가 발생할 수 있습니다. 서비스 중단을 피하려면 퍼블릭 IP를 제거하기 전에 다른 대체 IP를 설정하거나 다른 네트워크 인터페이스에 할당해 주세요.
-	:::
+		:::caution 주의
+		퍼블릭 IP 연결 해제 시, 해당 IP를 사용하던 서비스에 접속 장애가 발생할 수 있습니다. 서비스 중단을 피하려면 퍼블릭 IP를 제거하기 전에 다른 대체 IP를 설정하거나 다른 네트워크 인터페이스에 할당해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 퍼블릭 IP를 분리할 네트워크 인터페이스 ID
-		@return ApiRemovePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 퍼블릭 IP를 분리할 네트워크 인터페이스 ID
+			@return ApiRemovePublicIpRequest
 	*/
 	RemovePublicIp(ctx context.Context, instanceId string, networkInterfaceId string) ApiRemovePublicIpRequest
 

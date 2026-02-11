@@ -21,7 +21,7 @@ var _ MappedNullable = &GetTgwRouteTableResponseModel{}
 // GetTgwRouteTableResponseModel struct for GetTgwRouteTableResponseModel
 type GetTgwRouteTableResponseModel struct {
 	// 라우팅 테이블의 상세 정보
-	TgwRouteTable BnsTgwV1ApiGetTgwRouteTableModelTgwRouteTableResponseModel `json:"tgw_route_table"`
+	TgwRouteTable        BnsTgwV1ApiGetTgwRouteTableModelTgwRouteTableResponseModel `json:"tgw_route_table"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *GetTgwRouteTableResponseModel) SetTgwRouteTable(v BnsTgwV1ApiGetTgwRout
 }
 
 func (o GetTgwRouteTableResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *GetTgwRouteTableResponseModel) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableGetTgwRouteTableResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

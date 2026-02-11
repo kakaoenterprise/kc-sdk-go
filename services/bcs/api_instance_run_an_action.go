@@ -37,25 +37,25 @@ type InstanceRunAnActionAPI interface {
 	GetInstanceConsoleLogExecute(r ApiGetInstanceConsoleLogRequest) (*InstanceConsoleLogModel, *http.Response, error)
 
 	/*
-		HardRebootInstance Hard reboot instance
+			HardRebootInstance Hard reboot instance
 
-		실행중인 상태의 인스턴스를 강제 재시작합니다. 이 작업은 인스턴스의 전원을 강제로 셧다운한 뒤 즉시 다시 켜는 방식이며, 인스턴스는 `Rebooting_hard` 또는 `Rebooting_started_hard` 상태를 거쳐 다시 `Active` 상태로 전환됩니다.
+			실행중인 상태의 인스턴스를 강제 재시작합니다. 이 작업은 인스턴스의 전원을 강제로 셧다운한 뒤 즉시 다시 켜는 방식이며, 인스턴스는 `Rebooting_hard` 또는 `Rebooting_started_hard` 상태를 거쳐 다시 `Active` 상태로 전환됩니다.
 
-	강제 재시작(Hard reboot) 기능을 통해 인스턴스의 전원을 완전히 셧다운 후 즉시 재시작합니다. <br/>
-	 강제 재시작은 시스템을 하드 리셋하여 인스턴스를 다시 시작하는 방식으로, 예기치 않은 문제가 발생하여 응답 없음 상태가 지속되거나 프리즈 상태가 되었을 때 등, 통상적인 재시작 방법으로 문제를 해결할 수 없다고 판단되었을 때 최종 수단으로 사용됩니다.
+		강제 재시작(Hard reboot) 기능을 통해 인스턴스의 전원을 완전히 셧다운 후 즉시 재시작합니다. <br/>
+		 강제 재시작은 시스템을 하드 리셋하여 인스턴스를 다시 시작하는 방식으로, 예기치 않은 문제가 발생하여 응답 없음 상태가 지속되거나 프리즈 상태가 되었을 때 등, 통상적인 재시작 방법으로 문제를 해결할 수 없다고 판단되었을 때 최종 수단으로 사용됩니다.
 
-	:::info 안내
-	- 이 API는 인스턴스가 `Active`(실행) 또는 `Stopped`(정지) 상태일 때만 호출할 수 있습니다.
-	- 일반적인 재시작이 필요한 경우, 강제 재시작 대신 [Soft reboot instance](https://docs.kakaocloud.com/openapi/bcs/soft-reboot-instance) API를 사용하시기 바랍니다.
-	:::
+		:::info 안내
+		- 이 API는 인스턴스가 `Active`(실행) 또는 `Stopped`(정지) 상태일 때만 호출할 수 있습니다.
+		- 일반적인 재시작이 필요한 경우, 강제 재시작 대신 [Soft reboot instance](https://docs.kakaocloud.com/openapi/bcs/soft-reboot-instance) API를 사용하시기 바랍니다.
+		:::
 
-	:::caution 주의
-	강제 재시작은 데이터 손실 등의 위험이 있으며, 실제 운영 환경에서 중요한 서비스를 제공하는 인스턴스에는 신중하게 사용해 주세요.
-	:::
+		:::caution 주의
+		강제 재시작은 데이터 손실 등의 위험이 있으며, 실제 운영 환경에서 중요한 서비스를 제공하는 인스턴스에는 신중하게 사용해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiHardRebootInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiHardRebootInstanceRequest
 	*/
 	HardRebootInstance(ctx context.Context, instanceId string) ApiHardRebootInstanceRequest
 
@@ -79,18 +79,18 @@ type InstanceRunAnActionAPI interface {
 	RebuildInstanceExecute(r ApiRebuildInstanceRequest) (*ResponseRebuildInstanceModel, *http.Response, error)
 
 	/*
-		ResizeInstance Resize instance
+			ResizeInstance Resize instance
 
-		인스턴스의 유형(flavor)을 변경하여 CPU, 메모리, 스토리지 등의 리소스 사양을 조정합니다.
-	자세한 정보는 [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type)을 참고해 주세요.
+			인스턴스의 유형(flavor)을 변경하여 CPU, 메모리, 스토리지 등의 리소스 사양을 조정합니다.
+		자세한 정보는 [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type)을 참고해 주세요.
 
-	:::info 안내
-	인스턴스 유형 변경은 인스턴스가 `Stopped` 상태일 때만 진행할 수 있습니다.
-	:::
+		:::info 안내
+		인스턴스 유형 변경은 인스턴스가 `Stopped` 상태일 때만 진행할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiResizeInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiResizeInstanceRequest
 	*/
 	ResizeInstance(ctx context.Context, instanceId string) ApiResizeInstanceRequest
 
@@ -99,19 +99,19 @@ type InstanceRunAnActionAPI interface {
 	ResizeInstanceExecute(r ApiResizeInstanceRequest) (interface{}, *http.Response, error)
 
 	/*
-		ShelveInstance Shelve instance
+			ShelveInstance Shelve instance
 
-		인스턴스를 `Shelved_offloaded`(종료) 상태로 변경합니다. 종료 상태로 전환된 인스턴스는 실행 중인 인스턴스와는 달리 비용이 미청구되므로 비용을 절약할 수 있습니다.
+			인스턴스를 `Shelved_offloaded`(종료) 상태로 변경합니다. 종료 상태로 전환된 인스턴스는 실행 중인 인스턴스와는 달리 비용이 미청구되므로 비용을 절약할 수 있습니다.
 
 
-	:::info 안내
-	- 인스턴스를 `Shelved_offloaded` 상태로 변경한 후, [Unshelve instance](https://docs.kakaocloud.com/openapi/bcs/unshelve-instance) API를 통해 다시 활성화할 수 있습니다.
-	- `Shelved_offloaded` 상태인 인스턴스는 과금이 되지 않습니다. 자세한 정보는 [인스턴스별 상태별 과금](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-state-and-billing)을 참고해 주세요.
-	:::
+		:::info 안내
+		- 인스턴스를 `Shelved_offloaded` 상태로 변경한 후, [Unshelve instance](https://docs.kakaocloud.com/openapi/bcs/unshelve-instance) API를 통해 다시 활성화할 수 있습니다.
+		- `Shelved_offloaded` 상태인 인스턴스는 과금이 되지 않습니다. 자세한 정보는 [인스턴스별 상태별 과금](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-state-and-billing)을 참고해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiShelveInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiShelveInstanceRequest
 	*/
 	ShelveInstance(ctx context.Context, instanceId string) ApiShelveInstanceRequest
 
@@ -120,20 +120,20 @@ type InstanceRunAnActionAPI interface {
 	ShelveInstanceExecute(r ApiShelveInstanceRequest) (interface{}, *http.Response, error)
 
 	/*
-		SoftRebootInstance Soft reboot instance
+			SoftRebootInstance Soft reboot instance
 
-		실행 중인 인스턴스를 재시작(Soft reboot)하여, 인스턴스 상태를 `Active`(실행 중) 상태로 전환합니다. 소프트 재시작은 설정 변경 사항을 적용하거나, 일시적인 성능 저하를 해결하고, 서비스 장애를 복구하는 등의 상황에서 유용하게 사용할 수 있습니다.
+			실행 중인 인스턴스를 재시작(Soft reboot)하여, 인스턴스 상태를 `Active`(실행 중) 상태로 전환합니다. 소프트 재시작은 설정 변경 사항을 적용하거나, 일시적인 성능 저하를 해결하고, 서비스 장애를 복구하는 등의 상황에서 유용하게 사용할 수 있습니다.
 
-	예를 들어, 네트워크 설정이나 방화벽 규칙을 변경한 후 이를 반영하려면 인스턴스를 재시작해야 할 수 있으며, 장시간 실행된 프로세스가 메모리를 과도하게 사용하거나 CPU 점유율이 높은 경우에도 재시작을 통해 리소스를 정리할 수 있습니다. 또한, 애플리케이션이 응답하지 않거나 특정 프로세스가 멈춘 경우에도 재시작을 통해 정상 상태로 복구할 수 있으며, 소프트웨어 패치 적용이나 시스템 설정 변경 후 이를 반영하기 위해 재시작이 필요할 수 있습니다. <br/><br/>
+		예를 들어, 네트워크 설정이나 방화벽 규칙을 변경한 후 이를 반영하려면 인스턴스를 재시작해야 할 수 있으며, 장시간 실행된 프로세스가 메모리를 과도하게 사용하거나 CPU 점유율이 높은 경우에도 재시작을 통해 리소스를 정리할 수 있습니다. 또한, 애플리케이션이 응답하지 않거나 특정 프로세스가 멈춘 경우에도 재시작을 통해 정상 상태로 복구할 수 있으며, 소프트웨어 패치 적용이나 시스템 설정 변경 후 이를 반영하기 위해 재시작이 필요할 수 있습니다. <br/><br/>
 
-	:::info 안내
-	- 이 API는 인스턴스가 `Active`(실행) 상태일 때만 호출할 수 있습니다.
-	- 소프트 재시작은 하드웨어적인 전원 차단 없이 운영체제 수준에서 수행되므로, 데이터 손실 위험 없이 안전하게 인스턴스를 다시 시작할 수 있습니다.
-	:::
+		:::info 안내
+		- 이 API는 인스턴스가 `Active`(실행) 상태일 때만 호출할 수 있습니다.
+		- 소프트 재시작은 하드웨어적인 전원 차단 없이 운영체제 수준에서 수행되므로, 데이터 손실 위험 없이 안전하게 인스턴스를 다시 시작할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiSoftRebootInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiSoftRebootInstanceRequest
 	*/
 	SoftRebootInstance(ctx context.Context, instanceId string) ApiSoftRebootInstanceRequest
 
@@ -142,17 +142,17 @@ type InstanceRunAnActionAPI interface {
 	SoftRebootInstanceExecute(r ApiSoftRebootInstanceRequest) (interface{}, *http.Response, error)
 
 	/*
-		StartInstance Start instance
+			StartInstance Start instance
 
-		`Stopped`(정지) 상태의 인스턴스를 시작하여 `Active`(실행) 상태로 전환합니다.
+			`Stopped`(정지) 상태의 인스턴스를 시작하여 `Active`(실행) 상태로 전환합니다.
 
-	:::info 안내
-	이 API는 인스턴스가 `Stopped` 상태일 때만 호출할 수 있습니다.
-	:::
+		:::info 안내
+		이 API는 인스턴스가 `Stopped` 상태일 때만 호출할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiStartInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiStartInstanceRequest
 	*/
 	StartInstance(ctx context.Context, instanceId string) ApiStartInstanceRequest
 
@@ -161,19 +161,19 @@ type InstanceRunAnActionAPI interface {
 	StartInstanceExecute(r ApiStartInstanceRequest) (interface{}, *http.Response, error)
 
 	/*
-		StopInstance Stop instance
+			StopInstance Stop instance
 
-		`Active`(실행)인 인스턴스를 `Stopped`(중지) 상태로 전환합니다.
-	이 API는 인스턴스가 `Active` 상태일 때만 호출할 수 있으며, 정상적으로 호출되면 인스턴스는 `Stopped` 상태로 변경됩니다.
+			`Active`(실행)인 인스턴스를 `Stopped`(중지) 상태로 전환합니다.
+		이 API는 인스턴스가 `Active` 상태일 때만 호출할 수 있으며, 정상적으로 호출되면 인스턴스는 `Stopped` 상태로 변경됩니다.
 
-	:::info 안내
-	- 인스턴스를 중지한 후, [Start instance API](https://docs.kakaocloud.com/openapi/bcs/start-instance)를 통해 다시 시작할 수 있습니다.
-	- `Stopped` 상태의 인스턴스는 하이퍼바이저 리소스를 점유하고 있으므로 과금이 계속 발생합니다. 자세한 정보는 [인스턴스 상태별 과금](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-state-and-billing)을 참고해 주세요.
-	:::
+		:::info 안내
+		- 인스턴스를 중지한 후, [Start instance API](https://docs.kakaocloud.com/openapi/bcs/start-instance)를 통해 다시 시작할 수 있습니다.
+		- `Stopped` 상태의 인스턴스는 하이퍼바이저 리소스를 점유하고 있으므로 과금이 계속 발생합니다. 자세한 정보는 [인스턴스 상태별 과금](https://docs.kakaocloud.com/service/bcs/vm/vm-main#instance-state-and-billing)을 참고해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiStopInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiStopInstanceRequest
 	*/
 	StopInstance(ctx context.Context, instanceId string) ApiStopInstanceRequest
 
@@ -182,18 +182,18 @@ type InstanceRunAnActionAPI interface {
 	StopInstanceExecute(r ApiStopInstanceRequest) (interface{}, *http.Response, error)
 
 	/*
-		UnshelveInstance Unshelve instance
+			UnshelveInstance Unshelve instance
 
-		`Shelved_offloaded`(종료) 상태의 인스턴스를 시작하여 `Active`(실행) 상태로 전환됩니다.
-	인스턴스가 `Active` 상태로 변경되면, 인스턴스 과금이 시작됩니다.
+			`Shelved_offloaded`(종료) 상태의 인스턴스를 시작하여 `Active`(실행) 상태로 전환됩니다.
+		인스턴스가 `Active` 상태로 변경되면, 인스턴스 과금이 시작됩니다.
 
-	:::info 안내
-	- 이 API는 인스턴스가 `Shelved_offloaded` 상태에서 호출할 수 있습니다.
-	:::
+		:::info 안내
+		- 이 API는 인스턴스가 `Shelved_offloaded` 상태에서 호출할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@return ApiUnshelveInstanceRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@return ApiUnshelveInstanceRequest
 	*/
 	UnshelveInstance(ctx context.Context, instanceId string) ApiUnshelveInstanceRequest
 

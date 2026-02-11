@@ -22,17 +22,17 @@ import (
 type VPCSubnetAPI interface {
 
 	/*
-		CreateSubnet Create subnet
+			CreateSubnet Create subnet
 
-		VPC 내에 새로운 서브넷을 생성합니다.
+			VPC 내에 새로운 서브넷을 생성합니다.
 
 
-	:::info 안내
-	- 서브넷은 프로젝트당 최대 30개까지 생성할 수 있습니다. 자세한 설명은 [쿼터](https://docs.kakaocloud.com/service/bns/vpc/vpc-pricing)를 참고해 주세요.
-	:::
+		:::info 안내
+		- 서브넷은 프로젝트당 최대 30개까지 생성할 수 있습니다. 자세한 설명은 [쿼터](https://docs.kakaocloud.com/service/bns/vpc/vpc-pricing)를 참고해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateSubnetRequest
 	*/
 	CreateSubnet(ctx context.Context) ApiCreateSubnetRequest
 
@@ -41,18 +41,18 @@ type VPCSubnetAPI interface {
 	CreateSubnetExecute(r ApiCreateSubnetRequest) (*BnsVpcV1ApiCreateSubnetModelResponseSubnetModel, *http.Response, error)
 
 	/*
-		DeleteSubnet Delete subnet
+			DeleteSubnet Delete subnet
 
-		지정한 서브넷을 삭제합니다. 서브넷 내에 생성된 리소스가 있는 경우 삭제할 수 없습니다.
+			지정한 서브넷을 삭제합니다. 서브넷 내에 생성된 리소스가 있는 경우 삭제할 수 없습니다.
 
-	:::caution 주의
-	- 삭제된 서브넷은 복구할 수 없습니다.
-	- 삭제 전, 해당 서브넷에 연결된 모든 리소스(VM, 인터페이스 등)를 제거한 뒤 삭제를 시도해야 합니다.
-	:::
+		:::caution 주의
+		- 삭제된 서브넷은 복구할 수 없습니다.
+		- 삭제 전, 해당 서브넷에 연결된 모든 리소스(VM, 인터페이스 등)를 제거한 뒤 삭제를 시도해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param subnetId 삭제할 서브넷 ID
-		@return ApiDeleteSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param subnetId 삭제할 서브넷 ID
+			@return ApiDeleteSubnetRequest
 	*/
 	DeleteSubnet(ctx context.Context, subnetId string) ApiDeleteSubnetRequest
 
@@ -60,14 +60,14 @@ type VPCSubnetAPI interface {
 	DeleteSubnetExecute(r ApiDeleteSubnetRequest) (*http.Response, error)
 
 	/*
-		GetSubnet Get subnet
+			GetSubnet Get subnet
 
-		특정 서브넷의 상세 정보를 조회합니다.
-	조회 결과에는 서브넷의 이름, CIDR 블록, 가용 영역, 상태, 연결된 VPC 및 라우팅 테이블 정보가 포함됩니다.
+			특정 서브넷의 상세 정보를 조회합니다.
+		조회 결과에는 서브넷의 이름, CIDR 블록, 가용 영역, 상태, 연결된 VPC 및 라우팅 테이블 정보가 포함됩니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param subnetId 조회할 서브넷 ID
-		@return ApiGetSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param subnetId 조회할 서브넷 ID
+			@return ApiGetSubnetRequest
 	*/
 	GetSubnet(ctx context.Context, subnetId string) ApiGetSubnetRequest
 
@@ -91,17 +91,17 @@ type VPCSubnetAPI interface {
 	ListSubnetSharedProjectsExecute(r ApiListSubnetSharedProjectsRequest) (*ResponseSubnetSharedProjectListModel, *http.Response, error)
 
 	/*
-		ListSubnets List subnets
+			ListSubnets List subnets
 
-		프로젝트 내에서 사용 중인 서브넷 목록을 조회합니다.
-	응답에는 각 서브넷의 ID, 이름, 설명, 가용 영역, CIDR 블록, 운영 상태, 프로비저닝 상태 등의 정보를 포함합니다.
+			프로젝트 내에서 사용 중인 서브넷 목록을 조회합니다.
+		응답에는 각 서브넷의 ID, 이름, 설명, 가용 영역, CIDR 블록, 운영 상태, 프로비저닝 상태 등의 정보를 포함합니다.
 
-	:::info 안내
-	삭제된 서브넷도 최대 1시간 이내까지 목록에 포함되어 조회될 수 있습니다.
-	:::
+		:::info 안내
+		삭제된 서브넷도 최대 1시간 이내까지 목록에 포함되어 조회될 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSubnetsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListSubnetsRequest
 	*/
 	ListSubnets(ctx context.Context) ApiListSubnetsRequest
 
@@ -110,18 +110,18 @@ type VPCSubnetAPI interface {
 	ListSubnetsExecute(r ApiListSubnetsRequest) (*SubnetListModel, *http.Response, error)
 
 	/*
-		ShareSubnet Share subnet
+			ShareSubnet Share subnet
 
-		지정한 서브넷을 다른 프로젝트에 공유합니다.
+			지정한 서브넷을 다른 프로젝트에 공유합니다.
 
-	:::info 안내
-	서브넷을 공유하면 대상 프로젝트에서 네트워크 인터페이스, 가상 머신(VM) 등의 리소스를 생성할 수 있습니다. 단, 서브넷의 수정 및 삭제는 소유 프로젝트에서만 수행 가능합니다.
-	:::
+		:::info 안내
+		서브넷을 공유하면 대상 프로젝트에서 네트워크 인터페이스, 가상 머신(VM) 등의 리소스를 생성할 수 있습니다. 단, 서브넷의 수정 및 삭제는 소유 프로젝트에서만 수행 가능합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param subnetId 공유할 서브넷 ID
-		@param projectId 서브넷을 공유받을 대상 프로젝트 ID
-		@return ApiShareSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param subnetId 공유할 서브넷 ID
+			@param projectId 서브넷을 공유받을 대상 프로젝트 ID
+			@return ApiShareSubnetRequest
 	*/
 	ShareSubnet(ctx context.Context, subnetId string, projectId string) ApiShareSubnetRequest
 
@@ -130,18 +130,18 @@ type VPCSubnetAPI interface {
 	ShareSubnetExecute(r ApiShareSubnetRequest) (interface{}, *http.Response, error)
 
 	/*
-		UnshareSubnet Unshare subnet
+			UnshareSubnet Unshare subnet
 
-		지정한 서브넷의 공유를 해제하여, 해당 프로젝트에서 더 이상 이 서브넷을 사용할 수 없도록 합니다.
+			지정한 서브넷의 공유를 해제하여, 해당 프로젝트에서 더 이상 이 서브넷을 사용할 수 없도록 합니다.
 
-	:::caution 주의
-	공유 해제 시 공유받은 프로젝트에서 해당 서브넷을 참조하던 리소스는 네트워크 연결이 끊길 수 있으므로, 사전에 리소스 상태를 확인하는 것이 필요합니다.
-	:::
+		:::caution 주의
+		공유 해제 시 공유받은 프로젝트에서 해당 서브넷을 참조하던 리소스는 네트워크 연결이 끊길 수 있으므로, 사전에 리소스 상태를 확인하는 것이 필요합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param subnetId 공유 해제할 서브넷 ID
-		@param projectId 공유를 해제할 대상 프로젝트 ID
-		@return ApiUnshareSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param subnetId 공유 해제할 서브넷 ID
+			@param projectId 공유를 해제할 대상 프로젝트 ID
+			@return ApiUnshareSubnetRequest
 	*/
 	UnshareSubnet(ctx context.Context, subnetId string, projectId string) ApiUnshareSubnetRequest
 
@@ -149,17 +149,17 @@ type VPCSubnetAPI interface {
 	UnshareSubnetExecute(r ApiUnshareSubnetRequest) (*http.Response, error)
 
 	/*
-		UpdateSubnet Update subnet
+			UpdateSubnet Update subnet
 
-		기존 서브넷의 이름을 수정합니다.
+			기존 서브넷의 이름을 수정합니다.
 
-	:::info 안내
-	서브넷의 이름만 수정 가능하며, 다른 속성은 변경할 수 없습니다.
-	:::
+		:::info 안내
+		서브넷의 이름만 수정 가능하며, 다른 속성은 변경할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param subnetId 이름을 수정할 서브넷의 ID
-		@return ApiUpdateSubnetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param subnetId 이름을 수정할 서브넷의 ID
+			@return ApiUpdateSubnetRequest
 	*/
 	UpdateSubnet(ctx context.Context, subnetId string) ApiUpdateSubnetRequest
 

@@ -22,16 +22,16 @@ import (
 type SecurityGroupAPI interface {
 
 	/*
-		CreateSecurityGroup Create security group
+			CreateSecurityGroup Create security group
 
-		새로운 보안 그룹을 생성합니다.
+			새로운 보안 그룹을 생성합니다.
 
-	:::info 안내
-	Bare Metal Server 인스턴스는 보안 그룹을 할당해도 규칙이 적용되지 않습니다. 해당 기능은 추후 지원 예정입니다.
-	:::
+		:::info 안내
+		Bare Metal Server 인스턴스는 보안 그룹을 할당해도 규칙이 적용되지 않습니다. 해당 기능은 추후 지원 예정입니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSecurityGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateSecurityGroupRequest
 	*/
 	CreateSecurityGroup(ctx context.Context) ApiCreateSecurityGroupRequest
 
@@ -40,18 +40,18 @@ type SecurityGroupAPI interface {
 	CreateSecurityGroupExecute(r ApiCreateSecurityGroupRequest) (*BnsNetworkV1ApiCreateSecurityGroupModelResponseSecurityGroupModel, *http.Response, error)
 
 	/*
-		CreateSecurityGroupRule Create security group rule
+			CreateSecurityGroupRule Create security group rule
 
-		보안 그룹에 대한 새로운 보안 그룹 규칙(인바운드 또는 아웃바운드)을 생성하여 특정 트래픽을 허용하거나 제한합니다. 자세한 설명은 [보안 그룹 규칙](https://docs.kakaocloud.com/service/bns/vpc/main/vpc-security-group#security-group-rules)을 참고해 주세요.
+			보안 그룹에 대한 새로운 보안 그룹 규칙(인바운드 또는 아웃바운드)을 생성하여 특정 트래픽을 허용하거나 제한합니다. 자세한 설명은 [보안 그룹 규칙](https://docs.kakaocloud.com/service/bns/vpc/main/vpc-security-group#security-group-rules)을 참고해 주세요.
 
-	:::info 안내
-	- Bare Metal Server 인스턴스는 보안 그룹을 지원하지 않습니다.
-	- 해당 인스턴스에 연결된 네트워크 인터페이스는 보안 그룹 규칙의 영향을 받지 않습니다.
-	:::
+		:::info 안내
+		- Bare Metal Server 인스턴스는 보안 그룹을 지원하지 않습니다.
+		- 해당 인스턴스에 연결된 네트워크 인터페이스는 보안 그룹 규칙의 영향을 받지 않습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param securityGroupId 보안 그룹의 고유 ID
-		@return ApiCreateSecurityGroupRuleRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param securityGroupId 보안 그룹의 고유 ID
+			@return ApiCreateSecurityGroupRuleRequest
 	*/
 	CreateSecurityGroupRule(ctx context.Context, securityGroupId string) ApiCreateSecurityGroupRuleRequest
 
@@ -60,20 +60,20 @@ type SecurityGroupAPI interface {
 	CreateSecurityGroupRuleExecute(r ApiCreateSecurityGroupRuleRequest) (*ResponseSecurityGroupRuleModel, *http.Response, error)
 
 	/*
-		DeleteSecurityGroup Delete security group
+			DeleteSecurityGroup Delete security group
 
-		지정한 보안 그룹을 삭제합니다.
-	단, 기본(Default) 보안 그룹은 삭제할 수 없습니다.
+			지정한 보안 그룹을 삭제합니다.
+		단, 기본(Default) 보안 그룹은 삭제할 수 없습니다.
 
-	:::caution 주의
-	- 보안 그룹이 삭제되면, 해당 그룹에 포함된 모든 규칙도 함께 삭제됩니다.
-	- 이로 인해 보안 설정이 변경되고, 연결된 인스턴스나 네트워크 리소스의 통신에 영향을 줄 수 있습니다.
-	- 삭제 전에는 반드시 해당 보안 그룹이 어떤 리소스에 연결되어 있는지 확인하고, 필요한 경우 대체 보안 그룹을 먼저 연결해야 합니다.
-	:::
+		:::caution 주의
+		- 보안 그룹이 삭제되면, 해당 그룹에 포함된 모든 규칙도 함께 삭제됩니다.
+		- 이로 인해 보안 설정이 변경되고, 연결된 인스턴스나 네트워크 리소스의 통신에 영향을 줄 수 있습니다.
+		- 삭제 전에는 반드시 해당 보안 그룹이 어떤 리소스에 연결되어 있는지 확인하고, 필요한 경우 대체 보안 그룹을 먼저 연결해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param securityGroupId 보안 그룹의 고유 ID
-		@return ApiDeleteSecurityGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param securityGroupId 보안 그룹의 고유 ID
+			@return ApiDeleteSecurityGroupRequest
 	*/
 	DeleteSecurityGroup(ctx context.Context, securityGroupId string) ApiDeleteSecurityGroupRequest
 
@@ -111,16 +111,16 @@ type SecurityGroupAPI interface {
 	GetSecurityGroupExecute(r ApiGetSecurityGroupRequest) (*BnsNetworkV1ApiGetSecurityGroupModelResponseSecurityGroupModel, *http.Response, error)
 
 	/*
-		ListSecurityGroups List security groups
+			ListSecurityGroups List security groups
 
-		프로젝트 내에서 사용 중인 보안 그룹 목록을 조회합니다.
+			프로젝트 내에서 사용 중인 보안 그룹 목록을 조회합니다.
 
-	:::info 안내
-	해당 API는 사용자가 속한 프로젝트의 보안 그룹만 조회할 수 있습니다.
-	:::
+		:::info 안내
+		해당 API는 사용자가 속한 프로젝트의 보안 그룹만 조회할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSecurityGroupsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListSecurityGroupsRequest
 	*/
 	ListSecurityGroups(ctx context.Context) ApiListSecurityGroupsRequest
 

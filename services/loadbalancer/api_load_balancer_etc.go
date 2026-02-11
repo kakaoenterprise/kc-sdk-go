@@ -49,18 +49,18 @@ type LoadBalancerEtcAPI interface {
 	ListLoadBalancerTypesExecute(r ApiListLoadBalancerTypesRequest) (*FlavorListModel, *http.Response, error)
 
 	/*
-		ListTlsCertificates List TLS certificates
+			ListTlsCertificates List TLS certificates
 
-		로드 밸런서에서 사용할 수 있는 TLS 인증서(Secret) 목록을 조회합니다.
-	HTTPS 리스너 생성 시 `default_tls_container_ref` 파라미터에 참조되는 인증서 목록이며, 인증서 이름, 상태, 만료일, 생성자 등의 메타데이터를 포함합니다.
+			로드 밸런서에서 사용할 수 있는 TLS 인증서(Secret) 목록을 조회합니다.
+		HTTPS 리스너 생성 시 `default_tls_container_ref` 파라미터에 참조되는 인증서 목록이며, 인증서 이름, 상태, 만료일, 생성자 등의 메타데이터를 포함합니다.
 
-	:::info 안내
-	- 인증서는 Certificate Manager를 통해 등록된 리소스이며, HTTPS 리스너에 사용됩니다.
-	- 모든 Query Parameter는 전체 일치(full match) 검색만 지원합니다. 부분 일치 검색은 지원되지 않습니다.
-	:::
+		:::info 안내
+		- 인증서는 Certificate Manager를 통해 등록된 리소스이며, HTTPS 리스너에 사용됩니다.
+		- 모든 Query Parameter는 전체 일치(full match) 검색만 지원합니다. 부분 일치 검색은 지원되지 않습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTlsCertificatesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListTlsCertificatesRequest
 	*/
 	ListTlsCertificates(ctx context.Context) ApiListTlsCertificatesRequest
 

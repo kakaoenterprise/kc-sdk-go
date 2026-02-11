@@ -22,19 +22,19 @@ import (
 type VPCRouteTableRouteAPI interface {
 
 	/*
-		AddRoute Add route
+			AddRoute Add route
 
-		라우팅 테이블에 새로운 라우팅 항목을 추가합니다.
+			라우팅 테이블에 새로운 라우팅 항목을 추가합니다.
 
-	:::info 안내
-	- 라우팅 추가/변경/삭제 시 연결된 서브넷의 통신 경로가 변경됩니다. 변경 전 연결된 서브넷 현황을 확인하는 것을 권장합니다.
-	- 네트워크 인터페이스가 2개 이상 연결된 인스턴스는 라우팅 테이블의 대상(target)으로 지정할 수 없습니다. 추후 인터페이스 단위 대상 지정이 지원될 예정입니다.
-	- 이미 존재하는 경로는 중복 추가할 수 없습니다.
-	:::
+		:::info 안내
+		- 라우팅 추가/변경/삭제 시 연결된 서브넷의 통신 경로가 변경됩니다. 변경 전 연결된 서브넷 현황을 확인하는 것을 권장합니다.
+		- 네트워크 인터페이스가 2개 이상 연결된 인스턴스는 라우팅 테이블의 대상(target)으로 지정할 수 없습니다. 추후 인터페이스 단위 대상 지정이 지원될 예정입니다.
+		- 이미 존재하는 경로는 중복 추가할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 라우팅을 추가할 대상 라우팅 테이블의 ID <br/> - [List route tables](https://docs.kakaocloud.com/openapi/bns/vpc/list-route-tables) API 참고
-		@return ApiAddRouteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param routeTableId 라우팅을 추가할 대상 라우팅 테이블의 ID <br/> - [List route tables](https://docs.kakaocloud.com/openapi/bns/vpc/list-route-tables) API 참고
+			@return ApiAddRouteRequest
 	*/
 	AddRoute(ctx context.Context, routeTableId string) ApiAddRouteRequest
 
@@ -43,21 +43,21 @@ type VPCRouteTableRouteAPI interface {
 	AddRouteExecute(r ApiAddRouteRequest) (*BnsVpcV1ApiAddRouteModelResponseRouteModel, *http.Response, error)
 
 	/*
-		DeleteRoute Delete route
+			DeleteRoute Delete route
 
-		지정된 라우팅 테이블에서 개별 라우팅(Route) 항목을 삭제합니다.
-	삭제된 라우팅은 즉시 네트워크에서 제거되며, 해당 목적지로의 트래픽이 차단될 수 있습니다.
+			지정된 라우팅 테이블에서 개별 라우팅(Route) 항목을 삭제합니다.
+		삭제된 라우팅은 즉시 네트워크에서 제거되며, 해당 목적지로의 트래픽이 차단될 수 있습니다.
 
-	:::caution 주의
-	- 삭제된 라우팅은 복구할 수 없습니다.
-	- 라우팅 경로가 제거되면, 해당 CIDR 범위로의 네트워크 통신이 차단될 수 있습니다.
-	- 삭제 전에 반드시 라우팅 테이블과 연결된 서브넷 구성과 트래픽 경로를 확인해야 합니다.
-	:::
+		:::caution 주의
+		- 삭제된 라우팅은 복구할 수 없습니다.
+		- 라우팅 경로가 제거되면, 해당 CIDR 범위로의 네트워크 통신이 차단될 수 있습니다.
+		- 삭제 전에 반드시 라우팅 테이블과 연결된 서브넷 구성과 트래픽 경로를 확인해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 삭제할 라우팅 테이블 ID
-		@param routeId 삭제할 라우팅 ID
-		@return ApiDeleteRouteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param routeTableId 삭제할 라우팅 테이블 ID
+			@param routeId 삭제할 라우팅 ID
+			@return ApiDeleteRouteRequest
 	*/
 	DeleteRoute(ctx context.Context, routeTableId string, routeId string) ApiDeleteRouteRequest
 
@@ -65,20 +65,20 @@ type VPCRouteTableRouteAPI interface {
 	DeleteRouteExecute(r ApiDeleteRouteRequest) (*http.Response, error)
 
 	/*
-		UpdateRoute Update route
+			UpdateRoute Update route
 
-		라우팅 테이블에 등록된 개별 라우팅 항목을 수정합니다. 목적지(CIDR) 또는 대상 리소스(ID)를 변경할 수 있으며, 수정 내용은 즉시 적용됩니다.
+			라우팅 테이블에 등록된 개별 라우팅 항목을 수정합니다. 목적지(CIDR) 또는 대상 리소스(ID)를 변경할 수 있으며, 수정 내용은 즉시 적용됩니다.
 
-	:::info 안내
-	- 라우팅 변경 시 연결된 서브넷의 네트워크 경로가 변경될 수 있으므로 사전에 영향도를 충분히 검토해야 합니다.
-	- 카카오클라우드 서비스를 위해 사용되는 링크 로컬 주소 대역인 `169.254.0.0/16` 및 이에 포함되는 목적지 CIDR는 경로로 추가할 수 없습니다.
-	- 네트워크 인터페이스가 2개 이상 연결된 인스턴스는 대상 리소스로 지정할 수 없습니다. 이 기능은 추후 지원 예정입니다.
-	:::
+		:::info 안내
+		- 라우팅 변경 시 연결된 서브넷의 네트워크 경로가 변경될 수 있으므로 사전에 영향도를 충분히 검토해야 합니다.
+		- 카카오클라우드 서비스를 위해 사용되는 링크 로컬 주소 대역인 `169.254.0.0/16` 및 이에 포함되는 목적지 CIDR는 경로로 추가할 수 없습니다.
+		- 네트워크 인터페이스가 2개 이상 연결된 인스턴스는 대상 리소스로 지정할 수 없습니다. 이 기능은 추후 지원 예정입니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param routeTableId 라우팅 테이블의 고유 ID
-		@param routeId 라우팅의 고유 ID
-		@return ApiUpdateRouteRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param routeTableId 라우팅 테이블의 고유 ID
+			@param routeId 라우팅의 고유 ID
+			@return ApiUpdateRouteRequest
 	*/
 	UpdateRoute(ctx context.Context, routeTableId string, routeId string) ApiUpdateRouteRequest
 

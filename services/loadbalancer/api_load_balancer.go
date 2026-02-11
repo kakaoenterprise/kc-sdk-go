@@ -37,15 +37,15 @@ type LoadBalancerAPI interface {
 	AssociateNewPublicIpExecute(r ApiAssociateNewPublicIpRequest) (*BnsLoadBalancerV1ApiAssociateNewPublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		AssociatePublicIp Associate public IP
+			AssociatePublicIp Associate public IP
 
-		기존에 생성된 퍼블릭 IP를 지정한 로드 밸런서에 연결합니다.
-	퍼블릭 IP는 외부 인터넷에서 접근 가능한 주소이므로, 외부 노출을 최소화하기 위해 보안 그룹 및 ACL 설정을 반드시 검토해야 합니다.
+			기존에 생성된 퍼블릭 IP를 지정한 로드 밸런서에 연결합니다.
+		퍼블릭 IP는 외부 인터넷에서 접근 가능한 주소이므로, 외부 노출을 최소화하기 위해 보안 그룹 및 ACL 설정을 반드시 검토해야 합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param loadBalancerId 퍼블릭 IP를 연결할 대상 로드 밸런서 ID
-		@param publicIpId 연결할 퍼블릭 IP의 고유 ID
-		@return ApiAssociatePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param loadBalancerId 퍼블릭 IP를 연결할 대상 로드 밸런서 ID
+			@param publicIpId 연결할 퍼블릭 IP의 고유 ID
+			@return ApiAssociatePublicIpRequest
 	*/
 	AssociatePublicIp(ctx context.Context, loadBalancerId string, publicIpId string) ApiAssociatePublicIpRequest
 
@@ -68,18 +68,18 @@ type LoadBalancerAPI interface {
 	CreateLoadBalancerExecute(r ApiCreateLoadBalancerRequest) (*BnsLoadBalancerV1ApiCreateLoadBalancerModelResponseLoadBalancerModel, *http.Response, error)
 
 	/*
-		DeleteLoadBalancer Delete load balancer
+			DeleteLoadBalancer Delete load balancer
 
-		지정한 로드 밸런서를 삭제합니다.
+			지정한 로드 밸런서를 삭제합니다.
 
-	:::caution 주의
-	- 삭제된 로드 밸런서는 복구할 수 없습니다.
-	- 삭제 시 연결된 리스너, 대상 그룹 등 관련 리소스가 함께 삭제됩니다.
-	:::
+		:::caution 주의
+		- 삭제된 로드 밸런서는 복구할 수 없습니다.
+		- 삭제 시 연결된 리스너, 대상 그룹 등 관련 리소스가 함께 삭제됩니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param loadBalancerId 삭제할 로드 밸런서의 ID
-		@return ApiDeleteLoadBalancerRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param loadBalancerId 삭제할 로드 밸런서의 ID
+			@return ApiDeleteLoadBalancerRequest
 	*/
 	DeleteLoadBalancer(ctx context.Context, loadBalancerId string) ApiDeleteLoadBalancerRequest
 
@@ -116,18 +116,18 @@ type LoadBalancerAPI interface {
 	ListLoadBalancersExecute(r ApiListLoadBalancersRequest) (*LoadBalancerListModel, *http.Response, error)
 
 	/*
-		RemovePublicIp Remove public IP
+			RemovePublicIp Remove public IP
 
-		지정한 로드 밸런서에서 퍼블릭 IP를 연결 해제 또는 해제 후 삭제합니다.
+			지정한 로드 밸런서에서 퍼블릭 IP를 연결 해제 또는 해제 후 삭제합니다.
 
-	:::info 안내
-	- 퍼블릭 IP가 삭제되면 외부와의 연결이 즉시 끊어지며, 연결된 리스너나 트래픽 흐름에 영향을 줄 수 있습니다.
-	- 삭제 전 반드시 프로비저닝 상태를 점검하고, 서비스 중단 여부를 확인하세요.
-	:::
+		:::info 안내
+		- 퍼블릭 IP가 삭제되면 외부와의 연결이 즉시 끊어지며, 연결된 리스너나 트래픽 흐름에 영향을 줄 수 있습니다.
+		- 삭제 전 반드시 프로비저닝 상태를 점검하고, 서비스 중단 여부를 확인하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param loadBalancerId 삭제할 퍼블릭 IP ID
-		@return ApiRemovePublicIpRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param loadBalancerId 삭제할 퍼블릭 IP ID
+			@return ApiRemovePublicIpRequest
 	*/
 	RemovePublicIp(ctx context.Context, loadBalancerId string) ApiRemovePublicIpRequest
 
@@ -136,14 +136,14 @@ type LoadBalancerAPI interface {
 	RemovePublicIpExecute(r ApiRemovePublicIpRequest) (*BnsLoadBalancerV1ApiRemovePublicIpModelResponsePublicIpModel, *http.Response, error)
 
 	/*
-		UpdateAccessLog Update access log
+			UpdateAccessLog Update access log
 
-		지정한 로드 밸런서의 액세스 로그를 버킷에 저장하도록 설정합니다.<br/>
-	버킷은 사전에 생성되어 있어야 하며, 지정한 인증 정보에는 해당 버킷에 대한 쓰기 권한이 포함되어야 합니다.
+			지정한 로드 밸런서의 액세스 로그를 버킷에 저장하도록 설정합니다.<br/>
+		버킷은 사전에 생성되어 있어야 하며, 지정한 인증 정보에는 해당 버킷에 대한 쓰기 권한이 포함되어야 합니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param loadBalancerId 액세스 로그 설정을 변경할 로드 밸런서 ID
-		@return ApiUpdateAccessLogRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param loadBalancerId 액세스 로그 설정을 변경할 로드 밸런서 ID
+			@return ApiUpdateAccessLogRequest
 	*/
 	UpdateAccessLog(ctx context.Context, loadBalancerId string) ApiUpdateAccessLogRequest
 

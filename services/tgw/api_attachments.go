@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 type AttachmentsAPI interface {
 
 	/*
-	ApproveTgwAttachment Approve TGW attachment
+		ApproveTgwAttachment Approve TGW attachment
 
-	Transit Gateway Attachment를 승인합니다.
+		Transit Gateway Attachment를 승인합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param attachmentId 승인할 Transit Gateway Attachment ID 
-	@return ApiApproveTgwAttachmentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param attachmentId 승인할 Transit Gateway Attachment ID
+		@return ApiApproveTgwAttachmentRequest
 	*/
 	ApproveTgwAttachment(ctx context.Context, attachmentId string) ApiApproveTgwAttachmentRequest
 
@@ -38,12 +37,12 @@ type AttachmentsAPI interface {
 	ApproveTgwAttachmentExecute(r ApiApproveTgwAttachmentRequest) (*BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel, *http.Response, error)
 
 	/*
-	CreateTgwAttachment Create TGW attachment
+		CreateTgwAttachment Create TGW attachment
 
-	Transit Gateway Attachment를 생성합니다.
+		Transit Gateway Attachment를 생성합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTgwAttachmentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateTgwAttachmentRequest
 	*/
 	CreateTgwAttachment(ctx context.Context) ApiCreateTgwAttachmentRequest
 
@@ -52,13 +51,13 @@ type AttachmentsAPI interface {
 	CreateTgwAttachmentExecute(r ApiCreateTgwAttachmentRequest) (*BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel, *http.Response, error)
 
 	/*
-	DeleteTgwAttachment Delete TGW attachment
+		DeleteTgwAttachment Delete TGW attachment
 
-	Transit Gateway Attachment를 삭제합니다.
+		Transit Gateway Attachment를 삭제합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param attachmentId 삭제할 Transit Gateway Attachment ID 
-	@return ApiDeleteTgwAttachmentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param attachmentId 삭제할 Transit Gateway Attachment ID
+		@return ApiDeleteTgwAttachmentRequest
 	*/
 	DeleteTgwAttachment(ctx context.Context, attachmentId string) ApiDeleteTgwAttachmentRequest
 
@@ -66,13 +65,13 @@ type AttachmentsAPI interface {
 	DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachmentRequest) (*http.Response, error)
 
 	/*
-	GetTgwAttachment Get TGW attachment
+		GetTgwAttachment Get TGW attachment
 
-	Transit Gateway Attachment의 상세 정보를 조회합니다.
+		Transit Gateway Attachment의 상세 정보를 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param attachmentId 조회할 Transit Gateway Attachment ID 
-	@return ApiGetTgwAttachmentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param attachmentId 조회할 Transit Gateway Attachment ID
+		@return ApiGetTgwAttachmentRequest
 	*/
 	GetTgwAttachment(ctx context.Context, attachmentId string) ApiGetTgwAttachmentRequest
 
@@ -81,12 +80,12 @@ type AttachmentsAPI interface {
 	GetTgwAttachmentExecute(r ApiGetTgwAttachmentRequest) (*GetTgwAttachmentResponseModel, *http.Response, error)
 
 	/*
-	ListTgwAttachments List TGW attachments
+		ListTgwAttachments List TGW attachments
 
-	Transit Gateway에 연결된 Attachment 목록을 조회합니다.
+		Transit Gateway에 연결된 Attachment 목록을 조회합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTgwAttachmentsRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiListTgwAttachmentsRequest
 	*/
 	ListTgwAttachments(ctx context.Context) ApiListTgwAttachmentsRequest
 
@@ -95,13 +94,13 @@ type AttachmentsAPI interface {
 	ListTgwAttachmentsExecute(r ApiListTgwAttachmentsRequest) (*GetTgwAttachmentsResponseModel, *http.Response, error)
 
 	/*
-	UpdateTgwAttachment Update TGW attachment
+		UpdateTgwAttachment Update TGW attachment
 
-	Transit Gateway Attachment를 수정합니다.
+		Transit Gateway Attachment를 수정합니다.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param attachmentId 수정할 Transit Gateway Attachment ID  
-	@return ApiUpdateTgwAttachmentRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param attachmentId 수정할 Transit Gateway Attachment ID
+		@return ApiUpdateTgwAttachmentRequest
 	*/
 	UpdateTgwAttachment(ctx context.Context, attachmentId string) ApiUpdateTgwAttachmentRequest
 
@@ -114,10 +113,10 @@ type AttachmentsAPI interface {
 type AttachmentsAPIService service
 
 type ApiApproveTgwAttachmentRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
+	ctx          context.Context
+	ApiService   AttachmentsAPI
 	attachmentId string
-	xAuthToken *string
+	xAuthToken   *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -135,26 +134,27 @@ ApproveTgwAttachment Approve TGW attachment
 
 Transit Gateway Attachment를 승인합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param attachmentId 승인할 Transit Gateway Attachment ID 
- @return ApiApproveTgwAttachmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param attachmentId 승인할 Transit Gateway Attachment ID
+	@return ApiApproveTgwAttachmentRequest
 */
 func (a *AttachmentsAPIService) ApproveTgwAttachment(ctx context.Context, attachmentId string) ApiApproveTgwAttachmentRequest {
 	return ApiApproveTgwAttachmentRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		attachmentId: attachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel
+//
+//	@return BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel
 func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttachmentRequest) (*BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BnsTgwV1ApiApproveTgwAttachmentModelCreateTgwAttachmentResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ApproveTgwAttachment")
@@ -233,8 +233,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -244,8 +244,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -255,8 +255,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -266,8 +266,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -277,8 +277,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -288,8 +288,8 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -307,9 +307,9 @@ func (a *AttachmentsAPIService) ApproveTgwAttachmentExecute(r ApiApproveTgwAttac
 }
 
 type ApiCreateTgwAttachmentRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
-	xAuthToken *string
+	ctx                             context.Context
+	ApiService                      AttachmentsAPI
+	xAuthToken                      *string
 	createTgwAttachmentRequestModel *CreateTgwAttachmentRequestModel
 }
 
@@ -333,24 +333,25 @@ CreateTgwAttachment Create TGW attachment
 
 Transit Gateway Attachment를 생성합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateTgwAttachmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateTgwAttachmentRequest
 */
 func (a *AttachmentsAPIService) CreateTgwAttachment(ctx context.Context) ApiCreateTgwAttachmentRequest {
 	return ApiCreateTgwAttachmentRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel
+//
+//	@return BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel
 func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachmentRequest) (*BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BnsTgwV1ApiCreateTgwAttachmentModelCreateTgwAttachmentResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.CreateTgwAttachment")
@@ -433,8 +434,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -444,8 +445,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -455,8 +456,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -466,8 +467,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -477,8 +478,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -488,8 +489,8 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -507,10 +508,10 @@ func (a *AttachmentsAPIService) CreateTgwAttachmentExecute(r ApiCreateTgwAttachm
 }
 
 type ApiDeleteTgwAttachmentRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
+	ctx          context.Context
+	ApiService   AttachmentsAPI
 	attachmentId string
-	xAuthToken *string
+	xAuthToken   *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -528,14 +529,14 @@ DeleteTgwAttachment Delete TGW attachment
 
 Transit Gateway Attachment를 삭제합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param attachmentId 삭제할 Transit Gateway Attachment ID 
- @return ApiDeleteTgwAttachmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param attachmentId 삭제할 Transit Gateway Attachment ID
+	@return ApiDeleteTgwAttachmentRequest
 */
 func (a *AttachmentsAPIService) DeleteTgwAttachment(ctx context.Context, attachmentId string) ApiDeleteTgwAttachmentRequest {
 	return ApiDeleteTgwAttachmentRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		attachmentId: attachmentId,
 	}
 }
@@ -543,9 +544,9 @@ func (a *AttachmentsAPIService) DeleteTgwAttachment(ctx context.Context, attachm
 // Execute executes the request
 func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachmentRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.DeleteTgwAttachment")
@@ -624,8 +625,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -635,8 +636,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -646,8 +647,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -657,8 +658,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -668,8 +669,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -679,8 +680,8 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -689,10 +690,10 @@ func (a *AttachmentsAPIService) DeleteTgwAttachmentExecute(r ApiDeleteTgwAttachm
 }
 
 type ApiGetTgwAttachmentRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
+	ctx          context.Context
+	ApiService   AttachmentsAPI
 	attachmentId string
-	xAuthToken *string
+	xAuthToken   *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -710,26 +711,27 @@ GetTgwAttachment Get TGW attachment
 
 Transit Gateway Attachment의 상세 정보를 조회합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param attachmentId 조회할 Transit Gateway Attachment ID 
- @return ApiGetTgwAttachmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param attachmentId 조회할 Transit Gateway Attachment ID
+	@return ApiGetTgwAttachmentRequest
 */
 func (a *AttachmentsAPIService) GetTgwAttachment(ctx context.Context, attachmentId string) ApiGetTgwAttachmentRequest {
 	return ApiGetTgwAttachmentRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		attachmentId: attachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return GetTgwAttachmentResponseModel
+//
+//	@return GetTgwAttachmentResponseModel
 func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentRequest) (*GetTgwAttachmentResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTgwAttachmentResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetTgwAttachmentResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.GetTgwAttachment")
@@ -808,8 +810,8 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -819,8 +821,8 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -830,8 +832,8 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -841,8 +843,8 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -852,8 +854,8 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -871,23 +873,23 @@ func (a *AttachmentsAPIService) GetTgwAttachmentExecute(r ApiGetTgwAttachmentReq
 }
 
 type ApiListTgwAttachmentsRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
-	xAuthToken *string
-	id *string
-	tgwId *string
-	tgwName *string
+	ctx                context.Context
+	ApiService         AttachmentsAPI
+	xAuthToken         *string
+	id                 *string
+	tgwId              *string
+	tgwName            *string
 	provisioningStatus *ProvisioningStatus
-	resourceId *string
-	resourceName *string
-	routeTableId *string
-	routeTableName *string
-	createdAt *string
-	updatedAt *string
-	offset *int32
-	limit *int32
-	sortKeys *string
-	sortDirs *string
+	resourceId         *string
+	resourceName       *string
+	routeTableId       *string
+	routeTableName     *string
+	createdAt          *string
+	updatedAt          *string
+	offset             *int32
+	limit              *int32
+	sortKeys           *string
+	sortDirs           *string
 }
 
 // - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
@@ -896,19 +898,19 @@ func (r ApiListTgwAttachmentsRequest) XAuthToken(xAuthToken string) ApiListTgwAt
 	return r
 }
 
-// TGW Attachment ID 
+// TGW Attachment ID
 func (r ApiListTgwAttachmentsRequest) Id(id string) ApiListTgwAttachmentsRequest {
 	r.id = &id
 	return r
 }
 
-// Transit Gateway ID 
+// Transit Gateway ID
 func (r ApiListTgwAttachmentsRequest) TgwId(tgwId string) ApiListTgwAttachmentsRequest {
 	r.tgwId = &tgwId
 	return r
 }
 
-// Transit Gateway 이름 
+// Transit Gateway 이름
 func (r ApiListTgwAttachmentsRequest) TgwName(tgwName string) ApiListTgwAttachmentsRequest {
 	r.tgwName = &tgwName
 	return r
@@ -932,7 +934,7 @@ func (r ApiListTgwAttachmentsRequest) ResourceName(resourceName string) ApiListT
 	return r
 }
 
-// 연결된 라우팅 테이블 ID 
+// 연결된 라우팅 테이블 ID
 func (r ApiListTgwAttachmentsRequest) RouteTableId(routeTableId string) ApiListTgwAttachmentsRequest {
 	r.routeTableId = &routeTableId
 	return r
@@ -974,7 +976,7 @@ func (r ApiListTgwAttachmentsRequest) SortKeys(sortKeys string) ApiListTgwAttach
 	return r
 }
 
-// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)  
+// 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)
 func (r ApiListTgwAttachmentsRequest) SortDirs(sortDirs string) ApiListTgwAttachmentsRequest {
 	r.sortDirs = &sortDirs
 	return r
@@ -989,24 +991,25 @@ ListTgwAttachments List TGW attachments
 
 Transit Gateway에 연결된 Attachment 목록을 조회합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListTgwAttachmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListTgwAttachmentsRequest
 */
 func (a *AttachmentsAPIService) ListTgwAttachments(ctx context.Context) ApiListTgwAttachmentsRequest {
 	return ApiListTgwAttachmentsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetTgwAttachmentsResponseModel
+//
+//	@return GetTgwAttachmentsResponseModel
 func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachmentsRequest) (*GetTgwAttachmentsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTgwAttachmentsResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetTgwAttachmentsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ListTgwAttachments")
@@ -1138,8 +1141,8 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1149,8 +1152,8 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1160,8 +1163,8 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1171,8 +1174,8 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1182,8 +1185,8 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1201,10 +1204,10 @@ func (a *AttachmentsAPIService) ListTgwAttachmentsExecute(r ApiListTgwAttachment
 }
 
 type ApiUpdateTgwAttachmentRequest struct {
-	ctx context.Context
-	ApiService AttachmentsAPI
-	attachmentId string
-	xAuthToken *string
+	ctx                             context.Context
+	ApiService                      AttachmentsAPI
+	attachmentId                    string
+	xAuthToken                      *string
 	updateTgwAttachmentRequestModel *UpdateTgwAttachmentRequestModel
 }
 
@@ -1228,26 +1231,27 @@ UpdateTgwAttachment Update TGW attachment
 
 Transit Gateway Attachment를 수정합니다.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param attachmentId 수정할 Transit Gateway Attachment ID  
- @return ApiUpdateTgwAttachmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param attachmentId 수정할 Transit Gateway Attachment ID
+	@return ApiUpdateTgwAttachmentRequest
 */
 func (a *AttachmentsAPIService) UpdateTgwAttachment(ctx context.Context, attachmentId string) ApiUpdateTgwAttachmentRequest {
 	return ApiUpdateTgwAttachmentRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:   a,
+		ctx:          ctx,
 		attachmentId: attachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return BnsTgwV1ApiUpdateTgwAttachmentModelCreateTgwAttachmentResponseModel
+//
+//	@return BnsTgwV1ApiUpdateTgwAttachmentModelCreateTgwAttachmentResponseModel
 func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachmentRequest) (*BnsTgwV1ApiUpdateTgwAttachmentModelCreateTgwAttachmentResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BnsTgwV1ApiUpdateTgwAttachmentModelCreateTgwAttachmentResponseModel
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BnsTgwV1ApiUpdateTgwAttachmentModelCreateTgwAttachmentResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.UpdateTgwAttachment")
@@ -1331,8 +1335,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1342,8 +1346,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1353,8 +1357,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1364,8 +1368,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1375,8 +1379,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1386,8 +1390,8 @@ func (a *AttachmentsAPIService) UpdateTgwAttachmentExecute(r ApiUpdateTgwAttachm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

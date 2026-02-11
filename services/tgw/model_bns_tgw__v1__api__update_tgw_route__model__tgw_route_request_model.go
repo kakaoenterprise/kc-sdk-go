@@ -21,7 +21,7 @@ var _ MappedNullable = &BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel{}
 // BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel struct for BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel
 type BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel struct {
 	// Transit Gateway와 연결된 Attachment의 연결 ID<br/>- [List TGW attachments](/openapi/bns/tgw/list-tgw-attachments) API에서 조회한 `attachments.tgw.attachment_id` 확인
-	TgwAttachmentId string `json:"tgw_attachment_id"`
+	TgwAttachmentId      string `json:"tgw_attachment_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel) SetTgwAttachmentId(
 }
 
 func (o BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *BnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel) UnmarshalJSON(data 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableBnsTgwV1ApiUpdateTgwRouteModelTgwRouteRequestModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

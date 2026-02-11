@@ -23,9 +23,9 @@ type BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel struct {
 	// 공유 Attachment 자동 승인 여부
 	IsAutoAcceptSharedAttachments bool `json:"is_auto_accept_shared_attachments"`
 	// 기본 라우팅 테이블 자동 연결 여부
-	IsDefaultRouteTableAssociation bool `json:"is_default_route_table_association"`
+	IsDefaultRouteTableAssociation bool           `json:"is_default_route_table_association"`
 	AssociationDefaultRouteTableId NullableString `json:"association_default_route_table_id,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties           map[string]interface{}
 }
 
 type _BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel
@@ -129,6 +129,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) HasAssociati
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) SetAssociationDefaultRouteTableId(v string) {
 	o.AssociationDefaultRouteTableId.Set(&v)
 }
+
 // SetAssociationDefaultRouteTableIdNil sets the value for AssociationDefaultRouteTableId to be an explicit nil
 func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) SetAssociationDefaultRouteTableIdNil() {
 	o.AssociationDefaultRouteTableId.Set(nil)
@@ -140,7 +141,7 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) UnsetAssocia
 }
 
 func (o BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -176,10 +177,10 @@ func (o *BnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) UnmarshalJSO
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -242,5 +243,3 @@ func (v *NullableBnsTgwV1ApiUpdateTransitGatewayModelTgwOptionRequestModel) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

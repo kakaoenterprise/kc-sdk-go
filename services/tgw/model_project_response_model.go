@@ -12,8 +12,8 @@ package tgw
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ProjectResponseModel type satisfies the MappedNullable interface at compile time
@@ -30,10 +30,10 @@ type ProjectResponseModel struct {
 	// 프로젝트 설명
 	Description string `json:"description"`
 	// 프로젝트가 속한 도메인 ID
-	DomainId string `json:"domain_id"`
-	IsEnabled NullableBool `json:"is_enabled,omitempty"`
-	CreatedAt NullableTime `json:"created_at,omitempty"`
-	DisabledAt NullableTime `json:"disabled_at,omitempty"`
+	DomainId             string       `json:"domain_id"`
+	IsEnabled            NullableBool `json:"is_enabled,omitempty"`
+	CreatedAt            NullableTime `json:"created_at,omitempty"`
+	DisabledAt           NullableTime `json:"disabled_at,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -213,6 +213,7 @@ func (o *ProjectResponseModel) HasIsEnabled() bool {
 func (o *ProjectResponseModel) SetIsEnabled(v bool) {
 	o.IsEnabled.Set(&v)
 }
+
 // SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
 func (o *ProjectResponseModel) SetIsEnabledNil() {
 	o.IsEnabled.Set(nil)
@@ -255,6 +256,7 @@ func (o *ProjectResponseModel) HasCreatedAt() bool {
 func (o *ProjectResponseModel) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
+
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *ProjectResponseModel) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -297,6 +299,7 @@ func (o *ProjectResponseModel) HasDisabledAt() bool {
 func (o *ProjectResponseModel) SetDisabledAt(v time.Time) {
 	o.DisabledAt.Set(&v)
 }
+
 // SetDisabledAtNil sets the value for DisabledAt to be an explicit nil
 func (o *ProjectResponseModel) SetDisabledAtNil() {
 	o.DisabledAt.Set(nil)
@@ -308,7 +311,7 @@ func (o *ProjectResponseModel) UnsetDisabledAt() {
 }
 
 func (o ProjectResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -356,10 +359,10 @@ func (o *ProjectResponseModel) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -427,5 +430,3 @@ func (v *NullableProjectResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

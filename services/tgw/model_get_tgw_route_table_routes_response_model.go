@@ -23,7 +23,7 @@ type GetTgwRouteTableRoutesResponseModel struct {
 	// 조회된 Route 목록
 	Routes []BnsTgwV1ApiListTgwRoutesModelRouteResponseModel `json:"routes"`
 	// 페이지네이션 메타데이터
-	Pagination PaginationModel `json:"pagination"`
+	Pagination           PaginationModel `json:"pagination"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,7 @@ func (o *GetTgwRouteTableRoutesResponseModel) SetPagination(v PaginationModel) {
 }
 
 func (o GetTgwRouteTableRoutesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *GetTgwRouteTableRoutesResponseModel) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,5 +195,3 @@ func (v *NullableGetTgwRouteTableRoutesResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,19 +22,19 @@ import (
 type InstanceSecurityGroupAPI interface {
 
 	/*
-		AttachSecurityGroup Attach security group
+			AttachSecurityGroup Attach security group
 
-		인스턴스에 보안 그룹을 연결합니다.
+			인스턴스에 보안 그룹을 연결합니다.
 
-	:::info 안내
-	Bare Metal Server(BMS) 인스턴스의 경우,  보안 그룹을 할당해도 규칙이 적용되지 않습니다. 이 기능은 추후 지원 예정입니다.
-	:::
+		:::info 안내
+		Bare Metal Server(BMS) 인스턴스의 경우,  보안 그룹을 할당해도 규칙이 적용되지 않습니다. 이 기능은 추후 지원 예정입니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param instanceId 인스턴스의 고유 ID
-		@param networkInterfaceId 보안 그룹을 연결할 네트워크 인터페이스 ID
-		@param securityGroupId 보안 그룹의 고유 ID
-		@return ApiAttachSecurityGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param instanceId 인스턴스의 고유 ID
+			@param networkInterfaceId 보안 그룹을 연결할 네트워크 인터페이스 ID
+			@param securityGroupId 보안 그룹의 고유 ID
+			@return ApiAttachSecurityGroupRequest
 	*/
 	AttachSecurityGroup(ctx context.Context, instanceId string, networkInterfaceId string, securityGroupId string) ApiAttachSecurityGroupRequest
 

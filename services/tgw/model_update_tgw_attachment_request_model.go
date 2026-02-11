@@ -21,7 +21,7 @@ var _ MappedNullable = &UpdateTgwAttachmentRequestModel{}
 // UpdateTgwAttachmentRequestModel struct for UpdateTgwAttachmentRequestModel
 type UpdateTgwAttachmentRequestModel struct {
 	// 수정할 Attachment 속성 정보
-	Attachment BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel `json:"attachment"`
+	Attachment           BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel `json:"attachment"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *UpdateTgwAttachmentRequestModel) SetAttachment(v BnsTgwV1ApiUpdateTgwAt
 }
 
 func (o UpdateTgwAttachmentRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *UpdateTgwAttachmentRequestModel) UnmarshalJSON(data []byte) (err error)
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableUpdateTgwAttachmentRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

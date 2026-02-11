@@ -21,7 +21,7 @@ var _ MappedNullable = &BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestM
 // BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel struct for BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel
 type BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel struct {
 	// Attachment에 연결할 서브넷 ID 목록
-	SubnetIds []string `json:"subnet_ids"`
+	SubnetIds            []string `json:"subnet_ids"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel) SetSubnet
 }
 
 func (o BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *BnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel) Unmarshal
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableBnsTgwV1ApiUpdateTgwAttachmentModelTgwAttachmentRequestModel) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

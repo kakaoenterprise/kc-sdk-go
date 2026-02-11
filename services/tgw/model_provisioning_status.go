@@ -20,9 +20,9 @@ type ProvisioningStatus string
 
 // List of ProvisioningStatus
 const (
-	PROVISIONINGSTATUS_ACTIVE ProvisioningStatus = "ACTIVE"
-	PROVISIONINGSTATUS_DELETED ProvisioningStatus = "DELETED"
-	PROVISIONINGSTATUS_ERROR ProvisioningStatus = "ERROR"
+	PROVISIONINGSTATUS_ACTIVE         ProvisioningStatus = "ACTIVE"
+	PROVISIONINGSTATUS_DELETED        ProvisioningStatus = "DELETED"
+	PROVISIONINGSTATUS_ERROR          ProvisioningStatus = "ERROR"
 	PROVISIONINGSTATUS_PENDING_CREATE ProvisioningStatus = "PENDING_CREATE"
 	PROVISIONINGSTATUS_PENDING_UPDATE ProvisioningStatus = "PENDING_UPDATE"
 	PROVISIONINGSTATUS_PENDING_DELETE ProvisioningStatus = "PENDING_DELETE"
@@ -116,4 +116,3 @@ func (v *NullableProvisioningStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

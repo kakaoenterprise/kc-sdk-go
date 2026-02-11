@@ -33,7 +33,7 @@ type TgwRouteTableAssociationResponseModel struct {
 	// Association 프로비저닝 상태
 	ProvisioningStatus TGWProvisioningStatus `json:"provisioning_status"`
 	// 프로젝트 ID
-	ProjectId string `json:"project_id"`
+	ProjectId            string `json:"project_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -232,7 +232,7 @@ func (o *TgwRouteTableAssociationResponseModel) SetProjectId(v string) {
 }
 
 func (o TgwRouteTableAssociationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -275,10 +275,10 @@ func (o *TgwRouteTableAssociationResponseModel) UnmarshalJSON(data []byte) (err 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -345,5 +345,3 @@ func (v *NullableTgwRouteTableAssociationResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

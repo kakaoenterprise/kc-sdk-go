@@ -23,7 +23,7 @@ type ErrorResponseSubModel struct {
 	// 에러 코드
 	Code string `json:"code"`
 	// 상세 에러 메시지
-	Message string `json:"message"`
+	Message              string `json:"message"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,7 @@ func (o *ErrorResponseSubModel) SetMessage(v string) {
 }
 
 func (o ErrorResponseSubModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -130,10 +130,10 @@ func (o *ErrorResponseSubModel) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -195,5 +195,3 @@ func (v *NullableErrorResponseSubModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

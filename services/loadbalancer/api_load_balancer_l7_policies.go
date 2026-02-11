@@ -37,13 +37,13 @@ type LoadBalancerL7PoliciesAPI interface {
 	AddL7PolicyRuleExecute(r ApiAddL7PolicyRuleRequest) (*BnsLoadBalancerV1ApiAddL7PolicyRuleModelResponseL7PolicyRuleModel, *http.Response, error)
 
 	/*
-		CreateL7Policy Create L7 policy
+			CreateL7Policy Create L7 policy
 
-		지정한 리스너에 L7 정책을 생성합니다.<br/>
-	정책은 하나 이상의 L7 규칙과 함께 구성되어야 하며, 리디렉션 동작(action)에 따라 대상 그룹, 경로(prefix), URL 등을 지정할 수 있습니다.
+			지정한 리스너에 L7 정책을 생성합니다.<br/>
+		정책은 하나 이상의 L7 규칙과 함께 구성되어야 하며, 리디렉션 동작(action)에 따라 대상 그룹, 경로(prefix), URL 등을 지정할 수 있습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateL7PolicyRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateL7PolicyRequest
 	*/
 	CreateL7Policy(ctx context.Context) ApiCreateL7PolicyRequest
 
@@ -52,19 +52,19 @@ type LoadBalancerL7PoliciesAPI interface {
 	CreateL7PolicyExecute(r ApiCreateL7PolicyRequest) (*BnsLoadBalancerV1ApiCreateL7PolicyModelResponseL7PolicyModel, *http.Response, error)
 
 	/*
-		DeleteL7Policy Delete L7 policy
+			DeleteL7Policy Delete L7 policy
 
-		로드 밸런서에 설정된 특정 L7 정책(Policy)을 삭제합니다.
-	삭제 시, 해당 정책에 포함된 모든 L7 규칙도 함께 제거됩니다.
+			로드 밸런서에 설정된 특정 L7 정책(Policy)을 삭제합니다.
+		삭제 시, 해당 정책에 포함된 모든 L7 규칙도 함께 제거됩니다.
 
-	:::caution 주의
-	- L7 정책을 삭제하면 트래픽 라우팅 규칙이 제거되어 서비스 흐름에 영향을 줄 수 있습니다.
-	- 삭제 전 리스너에 설정된 기본 대상 그룹 및 기타 정책 구성을 반드시 확인하세요.
-	:::
+		:::caution 주의
+		- L7 정책을 삭제하면 트래픽 라우팅 규칙이 제거되어 서비스 흐름에 영향을 줄 수 있습니다.
+		- 삭제 전 리스너에 설정된 기본 대상 그룹 및 기타 정책 구성을 반드시 확인하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param l7PolicyId 삭제할 L7 정책의 ID
-		@return ApiDeleteL7PolicyRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param l7PolicyId 삭제할 L7 정책의 ID
+			@return ApiDeleteL7PolicyRequest
 	*/
 	DeleteL7Policy(ctx context.Context, l7PolicyId string) ApiDeleteL7PolicyRequest
 
@@ -72,19 +72,19 @@ type LoadBalancerL7PoliciesAPI interface {
 	DeleteL7PolicyExecute(r ApiDeleteL7PolicyRequest) (*http.Response, error)
 
 	/*
-		DeleteL7PolicyRule Delete L7 policy rule
+			DeleteL7PolicyRule Delete L7 policy rule
 
-		로드 밸런서의 특정 L7 정책에 설정된 L7 규칙을 삭제합니다.
+			로드 밸런서의 특정 L7 정책에 설정된 L7 규칙을 삭제합니다.
 
-	:::caution 주의
-	- L7 규칙이 삭제되면 해당 규칙에 따라 수행되던 트래픽 분기 또는 리디렉션 정책이 더 이상 적용되지 않습니다.
-	- 정책 동작에 영향을 줄 수 있으므로 삭제 전에 전체 L7 정책 구성을 확인하세요.
-	:::
+		:::caution 주의
+		- L7 규칙이 삭제되면 해당 규칙에 따라 수행되던 트래픽 분기 또는 리디렉션 정책이 더 이상 적용되지 않습니다.
+		- 정책 동작에 영향을 줄 수 있으므로 삭제 전에 전체 L7 정책 구성을 확인하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param l7PolicyId 삭제할 L7 정책의 ID
-		@param l7RuleId 삭제할 L7 규칙의 ID
-		@return ApiDeleteL7PolicyRuleRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param l7PolicyId 삭제할 L7 정책의 ID
+			@param l7RuleId 삭제할 L7 규칙의 ID
+			@return ApiDeleteL7PolicyRuleRequest
 	*/
 	DeleteL7PolicyRule(ctx context.Context, l7PolicyId string, l7RuleId string) ApiDeleteL7PolicyRuleRequest
 

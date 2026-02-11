@@ -22,14 +22,14 @@ import (
 type FlavorAPI interface {
 
 	/*
-		GetInstanceType Get instance type
+			GetInstanceType Get instance type
 
-		인스턴스 유형(Flavor)의 상세 정보(가상 CPU, 메모리, 디스크 용량, 네트워크 성능 등)를 조회합니다. <br/>
-	자세한 사양은 [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 문서를 참고해 주세요
+			인스턴스 유형(Flavor)의 상세 정보(가상 CPU, 메모리, 디스크 용량, 네트워크 성능 등)를 조회합니다. <br/>
+		자세한 사양은 [인스턴스 유형별 사양](https://docs.kakaocloud.com/service/bcs/bcs-instance/bcs-type) 문서를 참고해 주세요
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param flavorId 조회할 인스턴스 유형(Flavor)의 ID
-		@return ApiGetInstanceTypeRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param flavorId 조회할 인스턴스 유형(Flavor)의 ID
+			@return ApiGetInstanceTypeRequest
 	*/
 	GetInstanceType(ctx context.Context, flavorId string) ApiGetInstanceTypeRequest
 

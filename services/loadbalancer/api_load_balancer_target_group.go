@@ -22,14 +22,14 @@ import (
 type LoadBalancerTargetGroupAPI interface {
 
 	/*
-		AddTarget Add target
+			AddTarget Add target
 
-		로드 밸런서 대상 그룹에 새로운 대상 인스턴스를 추가합니다. <br/>
-	지정된 인스턴스는 지정된 프로토콜 포트로 트래픽을 수신하며, 헬스 체크는 별도의 모니터링 포트로 수행됩니다.
+			로드 밸런서 대상 그룹에 새로운 대상 인스턴스를 추가합니다. <br/>
+		지정된 인스턴스는 지정된 프로토콜 포트로 트래픽을 수신하며, 헬스 체크는 별도의 모니터링 포트로 수행됩니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param targetGroupId 대상을 추가할 대상 그룹의 ID
-		@return ApiAddTargetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param targetGroupId 대상을 추가할 대상 그룹의 ID
+			@return ApiAddTargetRequest
 	*/
 	AddTarget(ctx context.Context, targetGroupId string) ApiAddTargetRequest
 
@@ -38,16 +38,16 @@ type LoadBalancerTargetGroupAPI interface {
 	AddTargetExecute(r ApiAddTargetRequest) (*BnsLoadBalancerV1ApiAddTargetModelResponseTargetGroupMemberModel, *http.Response, error)
 
 	/*
-		CreateHealthMonitor Create health monitor
+			CreateHealthMonitor Create health monitor
 
-		지정한 대상 그룹에 헬스 모니터를 생성합니다.
+			지정한 대상 그룹에 헬스 모니터를 생성합니다.
 
-	:::info 안내
-	- 헬스 체크 방식(type)에 따라 `http_method`, `expected_codes`, `url_path` 등의 필드는 HTTP/HTTPS에서만 적용됩니다.
-	:::
+		:::info 안내
+		- 헬스 체크 방식(type)에 따라 `http_method`, `expected_codes`, `url_path` 등의 필드는 HTTP/HTTPS에서만 적용됩니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateHealthMonitorRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateHealthMonitorRequest
 	*/
 	CreateHealthMonitor(ctx context.Context) ApiCreateHealthMonitorRequest
 
@@ -56,18 +56,18 @@ type LoadBalancerTargetGroupAPI interface {
 	CreateHealthMonitorExecute(r ApiCreateHealthMonitorRequest) (*BnsLoadBalancerV1ApiCreateHealthMonitorModelResponseHealthMonitorModel, *http.Response, error)
 
 	/*
-		CreateTargetGroup Create target group
+			CreateTargetGroup Create target group
 
-		새로운 로드 밸런서 대상 그룹을 생성합니다. <br/>
-	대상 그룹 생성 시 멤버(대상 인스턴스)는 함께 지정할 수 없습니다. [대상 인스턴스 추가 API](https://docs.kakaocloud.com/openapi/bns/lb/add-target)를 참고하여 별도로 추가하세요.
+			새로운 로드 밸런서 대상 그룹을 생성합니다. <br/>
+		대상 그룹 생성 시 멤버(대상 인스턴스)는 함께 지정할 수 없습니다. [대상 인스턴스 추가 API](https://docs.kakaocloud.com/openapi/bns/lb/add-target)를 참고하여 별도로 추가하세요.
 
-	:::info 안내
-	- 세션은 리스너 프로토콜과 대상 그룹 프로토콜 조합이 `HTTP-HTTP`, `TCP-TCP`, `UDP-UDP`인 경우에만 설정할 수 있습니다.
-	- 로드 밸런서의 유형(ALB, NLB 등)에 따라 선택 가능한 프로토콜이 다르므로, 사전에 [로드 밸런서와 호환되는 프로토콜](https://docs.kakaocloud.com/service/bns/lb/main/lb-target-group#target-group-protocol-and-routing-configuration)을 확인해 주세요.
-	:::
+		:::info 안내
+		- 세션은 리스너 프로토콜과 대상 그룹 프로토콜 조합이 `HTTP-HTTP`, `TCP-TCP`, `UDP-UDP`인 경우에만 설정할 수 있습니다.
+		- 로드 밸런서의 유형(ALB, NLB 등)에 따라 선택 가능한 프로토콜이 다르므로, 사전에 [로드 밸런서와 호환되는 프로토콜](https://docs.kakaocloud.com/service/bns/lb/main/lb-target-group#target-group-protocol-and-routing-configuration)을 확인해 주세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTargetGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateTargetGroupRequest
 	*/
 	CreateTargetGroup(ctx context.Context) ApiCreateTargetGroupRequest
 
@@ -76,19 +76,19 @@ type LoadBalancerTargetGroupAPI interface {
 	CreateTargetGroupExecute(r ApiCreateTargetGroupRequest) (*BnsLoadBalancerV1ApiCreateTargetGroupModelResponseTargetGroupModel, *http.Response, error)
 
 	/*
-		DeleteHealthMonitor Delete health monitor
+			DeleteHealthMonitor Delete health monitor
 
-		지정한 헬스 모니터(Health Monitor)를 삭제합니다.
-	삭제 시 해당 모니터는 연결된 대상 그룹에서도 제거됩니다.
+			지정한 헬스 모니터(Health Monitor)를 삭제합니다.
+		삭제 시 해당 모니터는 연결된 대상 그룹에서도 제거됩니다.
 
-	:::caution 주의
-	- 헬스 모니터가 삭제되면 해당 모니터를 기반으로 동작하던 대상 그룹의 상태 점검 기능도 함께 중단됩니다.
-	- 서비스 가용성에 영향을 줄 수 있으므로 삭제 전 의존성을 반드시 확인해야 합니다.
-	:::
+		:::caution 주의
+		- 헬스 모니터가 삭제되면 해당 모니터를 기반으로 동작하던 대상 그룹의 상태 점검 기능도 함께 중단됩니다.
+		- 서비스 가용성에 영향을 줄 수 있으므로 삭제 전 의존성을 반드시 확인해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param healthMonitorId 삭제할 헬스 모니터의 ID
-		@return ApiDeleteHealthMonitorRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param healthMonitorId 삭제할 헬스 모니터의 ID
+			@return ApiDeleteHealthMonitorRequest
 	*/
 	DeleteHealthMonitor(ctx context.Context, healthMonitorId string) ApiDeleteHealthMonitorRequest
 
@@ -96,17 +96,17 @@ type LoadBalancerTargetGroupAPI interface {
 	DeleteHealthMonitorExecute(r ApiDeleteHealthMonitorRequest) (*http.Response, error)
 
 	/*
-		DeleteTargetGroup Delete target group
+			DeleteTargetGroup Delete target group
 
-		지정한 로드 밸런서의 대상 그룹을 삭제합니다.
+			지정한 로드 밸런서의 대상 그룹을 삭제합니다.
 
-	:::caution 주의
-	대상 그룹을 삭제하면 해당 그룹과 연결된 리스너 설정, 헬스 모니터 등도 영향을 받을 수 있으므로 삭제 전 구성을 반드시 확인해야 합니다.
-	:::
+		:::caution 주의
+		대상 그룹을 삭제하면 해당 그룹과 연결된 리스너 설정, 헬스 모니터 등도 영향을 받을 수 있으므로 삭제 전 구성을 반드시 확인해야 합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param targetGroupId 삭제할 대상 그룹의 ID
-		@return ApiDeleteTargetGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param targetGroupId 삭제할 대상 그룹의 ID
+			@return ApiDeleteTargetGroupRequest
 	*/
 	DeleteTargetGroup(ctx context.Context, targetGroupId string) ApiDeleteTargetGroupRequest
 
@@ -175,16 +175,16 @@ type LoadBalancerTargetGroupAPI interface {
 	GetTargetGroupHealthMonitorExecute(r ApiGetTargetGroupHealthMonitorRequest) (*BnsLoadBalancerV1ApiGetTargetGroupHealthMonitorModelResponseHealthMonitorModel, *http.Response, error)
 
 	/*
-		ListTargetGroups List target groups
+			ListTargetGroups List target groups
 
-		로드 밸런서에 등록된 대상 그룹 목록을 조회합니다.
+			로드 밸런서에 등록된 대상 그룹 목록을 조회합니다.
 
-	:::caution 주의
-	대상 그룹은 로드 밸런서의 트래픽 분산 대상이므로, 구성 변경 시 서비스에 영향을 줄 수 있습니다. 프로비저닝 상태를 사전에 점검하세요.
-	:::
+		:::caution 주의
+		대상 그룹은 로드 밸런서의 트래픽 분산 대상이므로, 구성 변경 시 서비스에 영향을 줄 수 있습니다. 프로비저닝 상태를 사전에 점검하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTargetGroupsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListTargetGroupsRequest
 	*/
 	ListTargetGroups(ctx context.Context) ApiListTargetGroupsRequest
 
@@ -208,19 +208,19 @@ type LoadBalancerTargetGroupAPI interface {
 	ListTargetsInTargetGroupExecute(r ApiListTargetsInTargetGroupRequest) (*TargetGroupMemberListModel, *http.Response, error)
 
 	/*
-		RemoveTarget Remove target
+			RemoveTarget Remove target
 
-		로드 밸런서 대상 그룹에서 지정한 대상 인스턴스를 삭제합니다.
-	삭제된 대상은 더 이상 트래픽 분산 대상에 포함되지 않습니다.
+			로드 밸런서 대상 그룹에서 지정한 대상 인스턴스를 삭제합니다.
+		삭제된 대상은 더 이상 트래픽 분산 대상에 포함되지 않습니다.
 
-	:::info 안내
-	대상을 삭제하면 해당 인스턴스로의 트래픽 전달이 즉시 중단됩니다. 삭제 전 서비스 영향도를 충분히 고려하세요.
-	:::
+		:::info 안내
+		대상을 삭제하면 해당 인스턴스로의 트래픽 전달이 즉시 중단됩니다. 삭제 전 서비스 영향도를 충분히 고려하세요.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param targetGroupId 대상 그룹 ID
-		@param memberId 삭제할 대상 인스턴스의 ID
-		@return ApiRemoveTargetRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param targetGroupId 대상 그룹 ID
+			@param memberId 삭제할 대상 인스턴스의 ID
+			@return ApiRemoveTargetRequest
 	*/
 	RemoveTarget(ctx context.Context, targetGroupId string, memberId string) ApiRemoveTargetRequest
 
@@ -228,18 +228,18 @@ type LoadBalancerTargetGroupAPI interface {
 	RemoveTargetExecute(r ApiRemoveTargetRequest) (*http.Response, error)
 
 	/*
-		UpdateHealthMonitor Update health monitor
+			UpdateHealthMonitor Update health monitor
 
-		지정한 헬스 모니터의 설정을 수정합니다.
+			지정한 헬스 모니터의 설정을 수정합니다.
 
-	:::info 안내
-	- 지원하지 않는 `http_method` 또는 부정확한 `expected_codes` 값을 설정할 경우, 트래픽 라우팅 오류가 발생할 수 있습니다.
-	- 설정 변경은 대상 그룹 전체에 영향을 주며, 적용 즉시 다음 헬스 체크 주기부터 반영됩니다.
-	:::
+		:::info 안내
+		- 지원하지 않는 `http_method` 또는 부정확한 `expected_codes` 값을 설정할 경우, 트래픽 라우팅 오류가 발생할 수 있습니다.
+		- 설정 변경은 대상 그룹 전체에 영향을 주며, 적용 즉시 다음 헬스 체크 주기부터 반영됩니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param healthMonitorId 수정 대상 헬스 모니터의 ID
-		@return ApiUpdateHealthMonitorRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param healthMonitorId 수정 대상 헬스 모니터의 ID
+			@return ApiUpdateHealthMonitorRequest
 	*/
 	UpdateHealthMonitor(ctx context.Context, healthMonitorId string) ApiUpdateHealthMonitorRequest
 
@@ -264,18 +264,18 @@ type LoadBalancerTargetGroupAPI interface {
 	UpdateTargetExecute(r ApiUpdateTargetRequest) (*BnsLoadBalancerV1ApiUpdateTargetModelResponseTargetGroupMemberModel, *http.Response, error)
 
 	/*
-		UpdateTargetGroup Update target group
+			UpdateTargetGroup Update target group
 
-		로드 밸런서에 연결된 대상 그룹의 정보를 수정합니다.
+			로드 밸런서에 연결된 대상 그룹의 정보를 수정합니다.
 
-	:::info 안내
-	- 세션은 대상 그룹과 리스너가 연결된 경우에만 설정할 수 있습니다.
-	- 세션은 리스너 프로토콜과 대상 그룹 프로토콜 조합이 `HTTP-HTTP`, `TCP-TCP`, `UDP-UDP`인 경우에만 설정할 수 있습니다.
-	:::
+		:::info 안내
+		- 세션은 대상 그룹과 리스너가 연결된 경우에만 설정할 수 있습니다.
+		- 세션은 리스너 프로토콜과 대상 그룹 프로토콜 조합이 `HTTP-HTTP`, `TCP-TCP`, `UDP-UDP`인 경우에만 설정할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param targetGroupId 수정할 대상 그룹의 ID
-		@return ApiUpdateTargetGroupRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param targetGroupId 수정할 대상 그룹의 ID
+			@return ApiUpdateTargetGroupRequest
 	*/
 	UpdateTargetGroup(ctx context.Context, targetGroupId string) ApiUpdateTargetGroupRequest
 
@@ -284,14 +284,14 @@ type LoadBalancerTargetGroupAPI interface {
 	UpdateTargetGroupExecute(r ApiUpdateTargetGroupRequest) (*BnsLoadBalancerV1ApiUpdateTargetGroupModelResponseTargetGroupModel, *http.Response, error)
 
 	/*
-		UpdateTargets Update targets
+			UpdateTargets Update targets
 
-		로드 밸런서 대상 그룹의 여러 대상 인스턴스 정보를 일괄 수정합니다. <br/>
-	기존 대상 인스턴스를 수정/삭제하거나, 새로운 대상 인스턴스를 추가할 수 있습니다.
+			로드 밸런서 대상 그룹의 여러 대상 인스턴스 정보를 일괄 수정합니다. <br/>
+		기존 대상 인스턴스를 수정/삭제하거나, 새로운 대상 인스턴스를 추가할 수 있습니다.
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param targetGroupId 수정할 대상 인스턴스가 속한 대상 그룹의 ID
-		@return ApiUpdateTargetsRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param targetGroupId 수정할 대상 인스턴스가 속한 대상 그룹의 ID
+			@return ApiUpdateTargetsRequest
 	*/
 	UpdateTargets(ctx context.Context, targetGroupId string) ApiUpdateTargetsRequest
 

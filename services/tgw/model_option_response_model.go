@@ -19,10 +19,10 @@ var _ MappedNullable = &OptionResponseModel{}
 
 // OptionResponseModel struct for OptionResponseModel
 type OptionResponseModel struct {
-	IsAutoAcceptSharedAttachments NullableBool `json:"is_auto_accept_shared_attachments,omitempty"`
-	IsDefaultRouteTableAssociation NullableBool `json:"is_default_route_table_association,omitempty"`
+	IsAutoAcceptSharedAttachments  NullableBool   `json:"is_auto_accept_shared_attachments,omitempty"`
+	IsDefaultRouteTableAssociation NullableBool   `json:"is_default_route_table_association,omitempty"`
 	AssociationDefaultRouteTableId NullableString `json:"association_default_route_table_id,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties           map[string]interface{}
 }
 
 type _OptionResponseModel OptionResponseModel
@@ -76,6 +76,7 @@ func (o *OptionResponseModel) HasIsAutoAcceptSharedAttachments() bool {
 func (o *OptionResponseModel) SetIsAutoAcceptSharedAttachments(v bool) {
 	o.IsAutoAcceptSharedAttachments.Set(&v)
 }
+
 // SetIsAutoAcceptSharedAttachmentsNil sets the value for IsAutoAcceptSharedAttachments to be an explicit nil
 func (o *OptionResponseModel) SetIsAutoAcceptSharedAttachmentsNil() {
 	o.IsAutoAcceptSharedAttachments.Set(nil)
@@ -118,6 +119,7 @@ func (o *OptionResponseModel) HasIsDefaultRouteTableAssociation() bool {
 func (o *OptionResponseModel) SetIsDefaultRouteTableAssociation(v bool) {
 	o.IsDefaultRouteTableAssociation.Set(&v)
 }
+
 // SetIsDefaultRouteTableAssociationNil sets the value for IsDefaultRouteTableAssociation to be an explicit nil
 func (o *OptionResponseModel) SetIsDefaultRouteTableAssociationNil() {
 	o.IsDefaultRouteTableAssociation.Set(nil)
@@ -160,6 +162,7 @@ func (o *OptionResponseModel) HasAssociationDefaultRouteTableId() bool {
 func (o *OptionResponseModel) SetAssociationDefaultRouteTableId(v string) {
 	o.AssociationDefaultRouteTableId.Set(&v)
 }
+
 // SetAssociationDefaultRouteTableIdNil sets the value for AssociationDefaultRouteTableId to be an explicit nil
 func (o *OptionResponseModel) SetAssociationDefaultRouteTableIdNil() {
 	o.AssociationDefaultRouteTableId.Set(nil)
@@ -171,7 +174,7 @@ func (o *OptionResponseModel) UnsetAssociationDefaultRouteTableId() {
 }
 
 func (o OptionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -255,5 +258,3 @@ func (v *NullableOptionResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ var _ MappedNullable = &GetTgwAttachmentResponseModel{}
 // GetTgwAttachmentResponseModel struct for GetTgwAttachmentResponseModel
 type GetTgwAttachmentResponseModel struct {
 	// 조회한 Attachment 정보
-	Attachment BnsTgwV1ApiGetTgwAttachmentModelTgwAttachmentResponseModel `json:"attachment"`
+	Attachment           BnsTgwV1ApiGetTgwAttachmentModelTgwAttachmentResponseModel `json:"attachment"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *GetTgwAttachmentResponseModel) SetAttachment(v BnsTgwV1ApiGetTgwAttachm
 }
 
 func (o GetTgwAttachmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *GetTgwAttachmentResponseModel) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableGetTgwAttachmentResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

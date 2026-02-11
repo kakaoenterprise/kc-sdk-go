@@ -22,18 +22,18 @@ import (
 type VolumeAPI interface {
 
 	/*
-		CreateImage Create image
+			CreateImage Create image
 
-		특정 볼륨을 기반으로 이미지(템플릿)를 생성합니다.
+			특정 볼륨을 기반으로 이미지(템플릿)를 생성합니다.
 
-	:::info 안내
-	- 운영체제가 설치된 루트 볼륨만 이미지로 생성할 수 있습니다. 추가 볼륨을 백업할 경우, [스냅샷](https://docs.kakaocloud.com/openapi/bcs/create-snapshot) 기능을 이용하시기 바랍니다.
-	- 생성한 VM 인스턴스로부터 이미지 생성을 통해 내 이미지를 생성할 경우, 연결된 루트 볼륨의 크기에 따라 작업이 실패할 수 있습니다. 내 이미지를 생성할 때 해당 인스턴스에 연결된 대상 볼륨의 크기는 1 TB 이하를 권장합니다.
-	:::
+		:::info 안내
+		- 운영체제가 설치된 루트 볼륨만 이미지로 생성할 수 있습니다. 추가 볼륨을 백업할 경우, [스냅샷](https://docs.kakaocloud.com/openapi/bcs/create-snapshot) 기능을 이용하시기 바랍니다.
+		- 생성한 VM 인스턴스로부터 이미지 생성을 통해 내 이미지를 생성할 경우, 연결된 루트 볼륨의 크기에 따라 작업이 실패할 수 있습니다. 내 이미지를 생성할 때 해당 인스턴스에 연결된 대상 볼륨의 크기는 1 TB 이하를 권장합니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param volumeId 볼륨의 고유 ID
-		@return ApiCreateImageRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param volumeId 볼륨의 고유 ID
+			@return ApiCreateImageRequest
 	*/
 	CreateImage(ctx context.Context, volumeId string) ApiCreateImageRequest
 
@@ -57,18 +57,18 @@ type VolumeAPI interface {
 	CreateSnapshotExecute(r ApiCreateSnapshotRequest) (*ResponseCreateVolumeSnapshotModel, *http.Response, error)
 
 	/*
-		CreateVolume Create volume
+			CreateVolume Create volume
 
-		신규 볼륨을 생성합니다. 새로운 스토리지가 필요한 경우 볼륨을 생성하여 인스턴스에 연결할 수 있습니다. <br/>
-	생성된 볼륨은 상태가 `available`로 변경되면 사용할 수 있으며, 필요 시 인스턴스에 연결(attach)하여 활용할 수 있습니다. 볼륨을 인스턴스에 연결하기 위해서는 [Attach volume API](https://docs.kakaocloud.com/openapi/bcs/attach-volume)를 호출해 주세요.
+			신규 볼륨을 생성합니다. 새로운 스토리지가 필요한 경우 볼륨을 생성하여 인스턴스에 연결할 수 있습니다. <br/>
+		생성된 볼륨은 상태가 `available`로 변경되면 사용할 수 있으며, 필요 시 인스턴스에 연결(attach)하여 활용할 수 있습니다. 볼륨을 인스턴스에 연결하기 위해서는 [Attach volume API](https://docs.kakaocloud.com/openapi/bcs/attach-volume)를 호출해 주세요.
 
-	:::info 안내
-	- 볼륨 크기는 최소 허용 용량 이상이어야 합니다. 자세한 정보는 [볼륨 크기 제한](https://docs.kakaocloud.com/service/bcs/vm/vm-main#volume-size-limit)을 참고해 주세요.
-	- 볼륨 생성 시, 쿼터 내(프로젝트당 1,000개)에서 생성할 수 있습니다.
-	:::
+		:::info 안내
+		- 볼륨 크기는 최소 허용 용량 이상이어야 합니다. 자세한 정보는 [볼륨 크기 제한](https://docs.kakaocloud.com/service/bcs/vm/vm-main#volume-size-limit)을 참고해 주세요.
+		- 볼륨 생성 시, 쿼터 내(프로젝트당 1,000개)에서 생성할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateVolumeRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiCreateVolumeRequest
 	*/
 	CreateVolume(ctx context.Context) ApiCreateVolumeRequest
 
@@ -77,21 +77,21 @@ type VolumeAPI interface {
 	CreateVolumeExecute(r ApiCreateVolumeRequest) (*BcsVolumeV1ApiCreateVolumeModelResponseVolumeModel, *http.Response, error)
 
 	/*
-		DeleteVolume Delete volume
+			DeleteVolume Delete volume
 
-		볼륨을 삭제합니다.
+			볼륨을 삭제합니다.
 
-	:::info 안내
-	`In-use`(사용 중)인 상태의 볼륨 또는 `Deleting`(삭제 중) 상태의 볼륨은 삭제할 수 없습니다. 볼륨 상태 정보는 [List instance volumes API](https://docs.kakaocloud.com/openapi/bcs/list-volumes)를 통해 확인할 수 있습니다.
-	:::
+		:::info 안내
+		`In-use`(사용 중)인 상태의 볼륨 또는 `Deleting`(삭제 중) 상태의 볼륨은 삭제할 수 없습니다. 볼륨 상태 정보는 [List instance volumes API](https://docs.kakaocloud.com/openapi/bcs/list-volumes)를 통해 확인할 수 있습니다.
+		:::
 
-	:::caution 주의
-	삭제된 볼륨은 복구할 수 없습니다.
-	:::
+		:::caution 주의
+		삭제된 볼륨은 복구할 수 없습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@param volumeId 볼륨의 고유 ID
-		@return ApiDeleteVolumeRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@param volumeId 볼륨의 고유 ID
+			@return ApiDeleteVolumeRequest
 	*/
 	DeleteVolume(ctx context.Context, volumeId string) ApiDeleteVolumeRequest
 
@@ -144,16 +144,16 @@ type VolumeAPI interface {
 	ListVolumeTypesExecute(r ApiListVolumeTypesRequest) (*VolumeTypeListModel, *http.Response, error)
 
 	/*
-		ListVolumes List volumes
+			ListVolumes List volumes
 
-		사용자가 생성한 볼륨 목록과 볼륨의 상세 정보를 조회합니다.
+			사용자가 생성한 볼륨 목록과 볼륨의 상세 정보를 조회합니다.
 
-	:::info 안내
-	특정 프로젝트에 속한 볼륨에 대해서만 조회할 수 있습니다.
-	:::
+		:::info 안내
+		특정 프로젝트에 속한 볼륨에 대해서만 조회할 수 있습니다.
+		:::
 
-		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListVolumesRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiListVolumesRequest
 	*/
 	ListVolumes(ctx context.Context) ApiListVolumesRequest
 
