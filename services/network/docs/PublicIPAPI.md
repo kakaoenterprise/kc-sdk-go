@@ -31,7 +31,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -106,7 +106,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -174,7 +174,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -244,7 +244,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -319,7 +319,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -391,7 +391,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
@@ -479,7 +479,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
 )
 
 func main() {
