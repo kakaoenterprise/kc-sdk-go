@@ -136,7 +136,6 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [NetworkInterfaceStatus](docs/NetworkInterfaceStatus.md)
  - [PaginationModel](docs/PaginationModel.md)
- - [ProvisioningStatus](docs/ProvisioningStatus.md)
  - [PublicIpListModel](docs/PublicIpListModel.md)
  - [PublicIpStatus](docs/PublicIpStatus.md)
  - [ResponseSecurityGroupRuleModel](docs/ResponseSecurityGroupRuleModel.md)
