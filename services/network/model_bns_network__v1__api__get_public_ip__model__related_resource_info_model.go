@@ -21,17 +21,17 @@ var _ MappedNullable = &BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel{
 // BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel struct for BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel
 type BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel struct {
 	// 연결된 리소스 ID
-	Id                   string                     `json:"id"`
-	Name                 NullableString             `json:"name,omitempty"`
-	Status               NullableProvisioningStatus `json:"status,omitempty"`
-	Type                 NullableString             `json:"type,omitempty"`
-	DeviceOwner          NullableString             `json:"device_owner,omitempty"`
-	DeviceId             NullableString             `json:"device_id,omitempty"`
-	SubnetId             NullableString             `json:"subnet_id,omitempty"`
-	SubnetName           NullableString             `json:"subnet_name,omitempty"`
-	SubnetCidr           NullableString             `json:"subnet_cidr,omitempty"`
-	VpcId                NullableString             `json:"vpc_id,omitempty"`
-	VpcName              NullableString             `json:"vpc_name,omitempty"`
+	Id                   string                         `json:"id"`
+	Name                 NullableString                 `json:"name,omitempty"`
+	Status               NullableNetworkInterfaceStatus `json:"status,omitempty"`
+	Type                 NullableString                 `json:"type,omitempty"`
+	DeviceOwner          NullableString                 `json:"device_owner,omitempty"`
+	DeviceId             NullableString                 `json:"device_id,omitempty"`
+	SubnetId             NullableString                 `json:"subnet_id,omitempty"`
+	SubnetName           NullableString                 `json:"subnet_name,omitempty"`
+	SubnetCidr           NullableString                 `json:"subnet_cidr,omitempty"`
+	VpcId                NullableString                 `json:"vpc_id,omitempty"`
+	VpcName              NullableString                 `json:"vpc_name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -123,9 +123,9 @@ func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) UnsetName() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatus() ProvisioningStatus {
+func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatus() NetworkInterfaceStatus {
 	if o == nil || IsNil(o.Status.Get()) {
-		var ret ProvisioningStatus
+		var ret NetworkInterfaceStatus
 		return ret
 	}
 	return *o.Status.Get()
@@ -134,7 +134,7 @@ func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatus() Pr
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatusOk() (*ProvisioningStatus, bool) {
+func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatusOk() (*NetworkInterfaceStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,8 +150,8 @@ func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) HasStatus() bo
 	return false
 }
 
-// SetStatus gets a reference to the given NullableProvisioningStatus and assigns it to the Status field.
-func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) SetStatus(v ProvisioningStatus) {
+// SetStatus gets a reference to the given NullableNetworkInterfaceStatus and assigns it to the Status field.
+func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) SetStatus(v NetworkInterfaceStatus) {
 	o.Status.Set(&v)
 }
 

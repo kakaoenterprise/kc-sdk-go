@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | 연결된 리소스 ID | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to [**NullableProvisioningStatus**](ProvisioningStatus.md) |  | [optional] 
+**Status** | Pointer to [**NullableNetworkInterfaceStatus**](NetworkInterfaceStatus.md) |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **DeviceOwner** | Pointer to **NullableString** |  | [optional] 
 **DeviceId** | Pointer to **NullableString** |  | [optional] 
@@ -92,20 +92,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStatus
 
-`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatus() ProvisioningStatus`
+`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatus() NetworkInterfaceStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatusOk() (*ProvisioningStatus, bool)`
+`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) GetStatusOk() (*NetworkInterfaceStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) SetStatus(v ProvisioningStatus)`
+`func (o *BnsNetworkV1ApiGetPublicIpModelRelatedResourceInfoModel) SetStatus(v NetworkInterfaceStatus)`
 
 SetStatus sets Status field to given value.
 
