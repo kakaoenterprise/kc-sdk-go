@@ -11,7 +11,7 @@ package loadbalancer
 
 import (
 	"context"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/loadbalancer"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -86,13 +86,13 @@ func Test_loadbalancer_LoadBalancerTargetGroupAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LoadBalancerTargetGroupAPIService GetTargeGroupHealthCheckSubnets", func(t *testing.T) {
+	t.Run("Test LoadBalancerTargetGroupAPIService GetTargetGroupHealthCheckSubnets", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var targetGroupId string
 
-		resp, httpRes, err := apiClient.LoadBalancerTargetGroupAPI.GetTargeGroupHealthCheckSubnets(context.Background(), targetGroupId).Execute()
+		resp, httpRes, err := apiClient.LoadBalancerTargetGroupAPI.GetTargetGroupHealthCheckSubnets(context.Background(), targetGroupId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,13 +100,13 @@ func Test_loadbalancer_LoadBalancerTargetGroupAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LoadBalancerTargetGroupAPIService GetTargeGroupHealthMonitor", func(t *testing.T) {
+	t.Run("Test LoadBalancerTargetGroupAPIService GetTargetGroupHealthMonitor", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var healthMonitorId string
 
-		resp, httpRes, err := apiClient.LoadBalancerTargetGroupAPI.GetTargeGroupHealthMonitor(context.Background(), healthMonitorId).Execute()
+		resp, httpRes, err := apiClient.LoadBalancerTargetGroupAPI.GetTargetGroupHealthMonitor(context.Background(), healthMonitorId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

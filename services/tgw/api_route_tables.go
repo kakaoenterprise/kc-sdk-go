@@ -1715,10 +1715,6 @@ func (a *RouteTablesAPIService) ListTgwRouteTableAssociationsExecute(r ApiListTg
 	}
 	if r.sortKeys != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
-	} else {
-		var defaultValue string = "created_at"
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
-		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")
@@ -2339,10 +2335,6 @@ func (a *RouteTablesAPIService) ListTgwRoutesExecute(r ApiListTgwRoutesRequest) 
 	}
 	if r.sortKeys != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", r.sortKeys, "form", "")
-	} else {
-		var defaultValue string = "created_at"
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_keys", defaultValue, "form", "")
-		r.sortKeys = &defaultValue
 	}
 	if r.sortDirs != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_dirs", r.sortDirs, "form", "")

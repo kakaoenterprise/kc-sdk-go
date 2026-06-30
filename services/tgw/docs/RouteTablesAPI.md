@@ -36,7 +36,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -110,7 +110,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -178,7 +178,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -252,7 +252,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -325,7 +325,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -395,7 +395,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -468,7 +468,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -540,7 +540,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -554,7 +554,7 @@ func main() {
 	resourceAttachmentId := "resourceAttachmentId_example" // string | 연결된 Attachment ID  (optional)
 	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
 	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	sortKeys := "sortKeys_example" // string | 정렬할 필드  (optional) (default to "created_at")
+	sortKeys := "sortKeys_example" // string | 정렬할 필드  (optional)
 	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)    (optional) (default to "desc")
 
 	configuration := openapiclient.NewConfiguration()
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
  **resourceAttachmentId** | **string** | 연결된 Attachment ID  | 
  **offset** | **int32** | 조회 시작 위치 | [default to 0]
  **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **sortKeys** | **string** | 정렬할 필드  | [default to &quot;created_at&quot;]
+ **sortKeys** | **string** | 정렬할 필드  | 
  **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)    | [default to &quot;desc&quot;]
 
 ### Return type
@@ -632,7 +632,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -720,7 +720,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -736,7 +736,7 @@ func main() {
 	resourceAttachmentId := "resourceAttachmentId_example" // string | 연결된 Attachment ID  (optional)
 	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
 	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	sortKeys := "sortKeys_example" // string | 정렬할 필드  (optional) (default to "created_at")
+	sortKeys := "sortKeys_example" // string | 정렬할 필드  (optional)
 	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)    (optional) (default to "desc")
 
 	configuration := openapiclient.NewConfiguration()
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
  **resourceAttachmentId** | **string** | 연결된 Attachment ID  | 
  **offset** | **int32** | 조회 시작 위치 | [default to 0]
  **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **sortKeys** | **string** | 정렬할 필드  | [default to &quot;created_at&quot;]
+ **sortKeys** | **string** | 정렬할 필드  | 
  **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)    | [default to &quot;desc&quot;]
 
 ### Return type
@@ -816,7 +816,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {
@@ -890,7 +890,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 )
 
 func main() {

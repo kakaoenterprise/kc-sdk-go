@@ -11,7 +11,7 @@ package kubernetesengine
 
 import (
 	"context"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/kubernetesengine"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
@@ -34,11 +34,11 @@ func Test_kubernetesengine_ServiceAgentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ServiceAgentsAPIService ListServiceAgents", func(t *testing.T) {
+	t.Run("Test ServiceAgentsAPIService GetServiceAgent", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ServiceAgentsAPI.ListServiceAgents(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ServiceAgentsAPI.GetServiceAgent(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -13,6 +13,8 @@ type Endpoints struct {
 	IAM              string
 	KubernetesEngine string
 	TGW              string
+	MySQL            string
+	Config           string
 }
 
 // Config SDK 전역 설정

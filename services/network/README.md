@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import network "github.kakaoenterprise.in/kic2/kc-sdk-go/services/network"
+import network "github.com/kakaoenterprise/kc-sdk-go/services/network"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

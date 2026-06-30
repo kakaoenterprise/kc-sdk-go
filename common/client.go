@@ -2,10 +2,12 @@ package common
 
 import (
 	bcs "github.com/kakaoenterprise/kc-sdk-go/services/bcs"
+	"github.com/kakaoenterprise/kc-sdk-go/services/config"
 	iam "github.com/kakaoenterprise/kc-sdk-go/services/iam"
 	image "github.com/kakaoenterprise/kc-sdk-go/services/image"
 	kubernetesengine "github.com/kakaoenterprise/kc-sdk-go/services/kubernetesengine"
 	loadbalancer "github.com/kakaoenterprise/kc-sdk-go/services/loadbalancer"
+	mysql "github.com/kakaoenterprise/kc-sdk-go/services/mysql"
 	network "github.com/kakaoenterprise/kc-sdk-go/services/network"
 	tgw "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
 	volume "github.com/kakaoenterprise/kc-sdk-go/services/volume"
@@ -18,6 +20,9 @@ type APIClient struct {
 
 	// auth
 	IdentityAPI iam.IdentityAPI
+
+	// config
+	ConfigAPI config.PublicAPI
 
 	// bcs
 	FlavorAPI                   bcs.FlavorAPI
@@ -71,6 +76,17 @@ type APIClient struct {
 	TgwsAPI        tgw.TgwsAPI
 	AttachmentsAPI tgw.AttachmentsAPI
 	RouteTablesAPI tgw.RouteTablesAPI
+
+	// mysql
+	MySQLBackupsAPI                       mysql.BackupsAPI
+	MySQLCustomParameterGroupsAPI         mysql.CustomParameterGroupsAPI
+	MySQLDefaultParameterGroupsAPI        mysql.DefaultParameterGroupsAPI
+	MySQLEngineVersionsAPI                mysql.EngineVersionsAPI
+	MySQLFlavorsAPI                       mysql.FlavorsAPI
+	MySQLInstanceGroupsAPI                mysql.InstanceGroupsAPI
+	MySQLInstanceGroupsBackupSchedulesAPI mysql.InstanceGroupsBackupSchedulesAPI
+	MySQLInstanceGroupsInstancesAPI       mysql.InstanceGroupsInstancesAPI
+	MySQLInstanceGroupsParameterGroupsAPI mysql.InstanceGroupsParameterGroupsAPI
 }
 
 func NewAPIClient(cfg Config) *APIClient {
@@ -87,6 +103,16 @@ func NewAPIClient(cfg Config) *APIClient {
 		cli := iam.NewAPIClient(cc)
 
 		c.IdentityAPI = cli.IdentityAPI
+	}
+
+	{
+		cc := config.NewConfiguration()
+		cc.HTTPClient = authedClient
+		cc.Servers = config.ServerConfigurations{{URL: cfg.Endpoints.Config}}
+
+		cli := config.NewAPIClient(cc)
+
+		c.ConfigAPI = cli.PublicAPI
 	}
 
 	{
@@ -197,6 +223,25 @@ func NewAPIClient(cfg Config) *APIClient {
 		c.AttachmentsAPI = cli.AttachmentsAPI
 		c.RouteTablesAPI = cli.RouteTablesAPI
 	}
+
+	{
+		cc := mysql.NewConfiguration()
+		cc.HTTPClient = authedClient
+		cc.Servers = mysql.ServerConfigurations{{URL: cfg.Endpoints.MySQL}}
+
+		cli := mysql.NewAPIClient(cc)
+
+		c.MySQLBackupsAPI = cli.BackupsAPI
+		c.MySQLCustomParameterGroupsAPI = cli.CustomParameterGroupsAPI
+		c.MySQLDefaultParameterGroupsAPI = cli.DefaultParameterGroupsAPI
+		c.MySQLEngineVersionsAPI = cli.EngineVersionsAPI
+		c.MySQLFlavorsAPI = cli.FlavorsAPI
+		c.MySQLInstanceGroupsAPI = cli.InstanceGroupsAPI
+		c.MySQLInstanceGroupsBackupSchedulesAPI = cli.InstanceGroupsBackupSchedulesAPI
+		c.MySQLInstanceGroupsInstancesAPI = cli.InstanceGroupsInstancesAPI
+		c.MySQLInstanceGroupsParameterGroupsAPI = cli.InstanceGroupsParameterGroupsAPI
+	}
+
 	return c
 }
 

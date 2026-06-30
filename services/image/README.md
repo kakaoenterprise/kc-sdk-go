@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import image "github.com/GIT_USER_ID/GIT_REPO_ID"
+import image "github.com/kakaoenterprise/kc-sdk-go/services/image"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
