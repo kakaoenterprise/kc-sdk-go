@@ -12,9 +12,11 @@ type Endpoints struct {
 	LoadBalancer     string
 	IAM              string
 	KubernetesEngine string
+	KMS              string
 	TGW              string
 	MySQL            string
 	Config           string
+	SecretsManager   string
 }
 
 // Config SDK 전역 설정

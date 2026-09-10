@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `IMAGE` (value: `"image"`)
-
 * `BLANK` (value: `"blank"`)
+
+* `IMAGE` (value: `"image"`)
 
 * `VOLUME` (value: `"volume"`)
 

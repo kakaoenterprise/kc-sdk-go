@@ -5,19 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
-**LoadBalancerAlgorithm** | [**TargetGroupAlgorithm**](TargetGroupAlgorithm.md) | 로드 밸런싱 알고리즘 &lt;br/&gt; - &#x60;ROUND_ROBIN&#x60;: 라운드 로빈 방식 &lt;br/&gt; - &#x60;LEAST_CONNECTIONS&#x60;: 최소 연결 방식 &lt;br/&gt; - &#x60;SOURCE_IP&#x60;: 소스 IP 기반 방식 | 
+**LoadBalancerAlgorithm** | [**LoadBalancerPoolAlgorithm**](LoadBalancerPoolAlgorithm.md) | 로드 밸런싱 알고리즘 | 
 **ListenerId** | Pointer to **NullableString** |  | [optional] 
-**LoadBalancerId** | **string** | 연결할 로드 밸런서 ID | 
+**LoadBalancerId** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** | 대상 그룹의 이름 | 
-**Protocol** | [**TargetGroupProtocol**](TargetGroupProtocol.md) | 대상 그룹의 백엔드 통신에 사용할 프로토콜 &lt;br/&gt; - &#x60;HTTP&#x60;: HTTP 프로토콜 &lt;br/&gt; - &#x60;HTTPS&#x60;: HTTPS 프로토콜 &lt;br/&gt; - &#x60;TCP&#x60;: TCP 프로토콜 &lt;br/&gt; - &#x60;UDP&#x60;: UDP 프로토콜 &lt;br/&gt; - &#x60;PROXY&#x60;: 프록시 프로토콜 | 
-**AlpnProtocols** | Pointer to [**NullableAlpnProtocol**](AlpnProtocol.md) |  | [optional] 
-**SessionPersistence** | Pointer to [**NullableSessionPersistenceModel**](SessionPersistenceModel.md) |  | [optional] 
+**Protocol** | [**LoadBalancerPoolProtocol**](LoadBalancerPoolProtocol.md) | 대상 그룹의 백엔드 통신에 사용할 프로토콜 | 
+**AlpnProtocols** | Pointer to [**NullableLoadBalancerAlpnProtocol**](LoadBalancerAlpnProtocol.md) |  | [optional] 
+**SessionPersistence** | Pointer to [**NullableSessionPersistenceRequest**](SessionPersistenceRequest.md) |  | [optional] 
 
 ## Methods
 
 ### NewCreateTargetGroup
 
-`func NewCreateTargetGroup(loadBalancerAlgorithm TargetGroupAlgorithm, loadBalancerId string, name string, protocol TargetGroupProtocol, ) *CreateTargetGroup`
+`func NewCreateTargetGroup(loadBalancerAlgorithm LoadBalancerPoolAlgorithm, name string, protocol LoadBalancerPoolProtocol, ) *CreateTargetGroup`
 
 NewCreateTargetGroup instantiates a new CreateTargetGroup object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetLoadBalancerAlgorithm
 
-`func (o *CreateTargetGroup) GetLoadBalancerAlgorithm() TargetGroupAlgorithm`
+`func (o *CreateTargetGroup) GetLoadBalancerAlgorithm() LoadBalancerPoolAlgorithm`
 
 GetLoadBalancerAlgorithm returns the LoadBalancerAlgorithm field if non-nil, zero value otherwise.
 
 ### GetLoadBalancerAlgorithmOk
 
-`func (o *CreateTargetGroup) GetLoadBalancerAlgorithmOk() (*TargetGroupAlgorithm, bool)`
+`func (o *CreateTargetGroup) GetLoadBalancerAlgorithmOk() (*LoadBalancerPoolAlgorithm, bool)`
 
 GetLoadBalancerAlgorithmOk returns a tuple with the LoadBalancerAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLoadBalancerAlgorithm
 
-`func (o *CreateTargetGroup) SetLoadBalancerAlgorithm(v TargetGroupAlgorithm)`
+`func (o *CreateTargetGroup) SetLoadBalancerAlgorithm(v LoadBalancerPoolAlgorithm)`
 
 SetLoadBalancerAlgorithm sets LoadBalancerAlgorithm field to given value.
 
@@ -141,7 +141,22 @@ and a boolean to check if the value has been set.
 
 SetLoadBalancerId sets LoadBalancerId field to given value.
 
+### HasLoadBalancerId
 
+`func (o *CreateTargetGroup) HasLoadBalancerId() bool`
+
+HasLoadBalancerId returns a boolean if a field has been set.
+
+### SetLoadBalancerIdNil
+
+`func (o *CreateTargetGroup) SetLoadBalancerIdNil(b bool)`
+
+ SetLoadBalancerIdNil sets the value for LoadBalancerId to be an explicit nil
+
+### UnsetLoadBalancerId
+`func (o *CreateTargetGroup) UnsetLoadBalancerId()`
+
+UnsetLoadBalancerId ensures that no value is present for LoadBalancerId, not even an explicit nil
 ### GetName
 
 `func (o *CreateTargetGroup) GetName() string`
@@ -164,40 +179,40 @@ SetName sets Name field to given value.
 
 ### GetProtocol
 
-`func (o *CreateTargetGroup) GetProtocol() TargetGroupProtocol`
+`func (o *CreateTargetGroup) GetProtocol() LoadBalancerPoolProtocol`
 
 GetProtocol returns the Protocol field if non-nil, zero value otherwise.
 
 ### GetProtocolOk
 
-`func (o *CreateTargetGroup) GetProtocolOk() (*TargetGroupProtocol, bool)`
+`func (o *CreateTargetGroup) GetProtocolOk() (*LoadBalancerPoolProtocol, bool)`
 
 GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProtocol
 
-`func (o *CreateTargetGroup) SetProtocol(v TargetGroupProtocol)`
+`func (o *CreateTargetGroup) SetProtocol(v LoadBalancerPoolProtocol)`
 
 SetProtocol sets Protocol field to given value.
 
 
 ### GetAlpnProtocols
 
-`func (o *CreateTargetGroup) GetAlpnProtocols() AlpnProtocol`
+`func (o *CreateTargetGroup) GetAlpnProtocols() LoadBalancerAlpnProtocol`
 
 GetAlpnProtocols returns the AlpnProtocols field if non-nil, zero value otherwise.
 
 ### GetAlpnProtocolsOk
 
-`func (o *CreateTargetGroup) GetAlpnProtocolsOk() (*AlpnProtocol, bool)`
+`func (o *CreateTargetGroup) GetAlpnProtocolsOk() (*LoadBalancerAlpnProtocol, bool)`
 
 GetAlpnProtocolsOk returns a tuple with the AlpnProtocols field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAlpnProtocols
 
-`func (o *CreateTargetGroup) SetAlpnProtocols(v AlpnProtocol)`
+`func (o *CreateTargetGroup) SetAlpnProtocols(v LoadBalancerAlpnProtocol)`
 
 SetAlpnProtocols sets AlpnProtocols field to given value.
 
@@ -219,20 +234,20 @@ HasAlpnProtocols returns a boolean if a field has been set.
 UnsetAlpnProtocols ensures that no value is present for AlpnProtocols, not even an explicit nil
 ### GetSessionPersistence
 
-`func (o *CreateTargetGroup) GetSessionPersistence() SessionPersistenceModel`
+`func (o *CreateTargetGroup) GetSessionPersistence() SessionPersistenceRequest`
 
 GetSessionPersistence returns the SessionPersistence field if non-nil, zero value otherwise.
 
 ### GetSessionPersistenceOk
 
-`func (o *CreateTargetGroup) GetSessionPersistenceOk() (*SessionPersistenceModel, bool)`
+`func (o *CreateTargetGroup) GetSessionPersistenceOk() (*SessionPersistenceRequest, bool)`
 
 GetSessionPersistenceOk returns a tuple with the SessionPersistence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSessionPersistence
 
-`func (o *CreateTargetGroup) SetSessionPersistence(v SessionPersistenceModel)`
+`func (o *CreateTargetGroup) SetSessionPersistence(v SessionPersistenceRequest)`
 
 SetSessionPersistence sets SessionPersistence field to given value.
 

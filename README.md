@@ -11,11 +11,11 @@ This SDK provides convenient Go interfaces for accessing Kakao Enterprise cloud 
 Simplified API access for Kakao Enterprise cloud services
 Support for BCS, IAM, Image, Kubernetes Engine, Load Balancer, Network, TGW, Volume, VPC
 Handles authentication, request serialization, and response parsing
-Compatible with Go 1.23+  
+Compatible with Go 1.26+  
 
 ---
 
 ## Installation
 ```
-go get github.com/kakaoenterprise/kc-sdk-go
+go get github.com/kakaoenterprise/kc-sdk-go/v2
 ```

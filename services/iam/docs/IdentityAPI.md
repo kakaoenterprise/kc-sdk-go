@@ -26,7 +26,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/iam"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/iam"
 )
 
 func main() {
@@ -92,7 +92,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/iam"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/iam"
 )
 
 func main() {

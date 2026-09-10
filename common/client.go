@@ -1,17 +1,19 @@
 package common
 
 import (
-	bcs "github.com/kakaoenterprise/kc-sdk-go/services/bcs"
-	"github.com/kakaoenterprise/kc-sdk-go/services/config"
-	iam "github.com/kakaoenterprise/kc-sdk-go/services/iam"
-	image "github.com/kakaoenterprise/kc-sdk-go/services/image"
-	kubernetesengine "github.com/kakaoenterprise/kc-sdk-go/services/kubernetesengine"
-	loadbalancer "github.com/kakaoenterprise/kc-sdk-go/services/loadbalancer"
-	mysql "github.com/kakaoenterprise/kc-sdk-go/services/mysql"
-	network "github.com/kakaoenterprise/kc-sdk-go/services/network"
-	tgw "github.com/kakaoenterprise/kc-sdk-go/services/tgw"
-	volume "github.com/kakaoenterprise/kc-sdk-go/services/volume"
-	vpc "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	bcs "github.com/kakaoenterprise/kc-sdk-go/v2/services/bcs"
+	"github.com/kakaoenterprise/kc-sdk-go/v2/services/config"
+	iam "github.com/kakaoenterprise/kc-sdk-go/v2/services/iam"
+	image "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
+	kms "github.com/kakaoenterprise/kc-sdk-go/v2/services/kms"
+	kubernetesengine "github.com/kakaoenterprise/kc-sdk-go/v2/services/kubernetesengine"
+	loadbalancer "github.com/kakaoenterprise/kc-sdk-go/v2/services/loadbalancer"
+	mysql "github.com/kakaoenterprise/kc-sdk-go/v2/services/mysql"
+	network "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
+	secretsmanager "github.com/kakaoenterprise/kc-sdk-go/v2/services/secretsmanager"
+	tgw "github.com/kakaoenterprise/kc-sdk-go/v2/services/tgw"
+	volume "github.com/kakaoenterprise/kc-sdk-go/v2/services/volume"
+	vpc "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 type APIClient struct {
@@ -25,68 +27,67 @@ type APIClient struct {
 	ConfigAPI config.PublicAPI
 
 	// bcs
-	FlavorAPI                   bcs.FlavorAPI
-	InstanceAPI                 bcs.InstanceAPI
-	InstanceActionsAPI          bcs.InstanceActionsAPI
-	InstanceAttachedVolumeAPI   bcs.InstanceAttachedVolumeAPI
-	InstanceNetworkInterfaceAPI bcs.InstanceNetworkInterfaceAPI
-	InstancePasswordAPI         bcs.InstancePasswordAPI
-	InstancePublicIPAPI         bcs.InstancePublicIPAPI
-	InstanceRunAnActionAPI      bcs.InstanceRunAnActionAPI
-	InstanceSecurityGroupAPI    bcs.InstanceSecurityGroupAPI
-	KeypairAPI                  bcs.KeypairAPI
+	InstanceAPI bcs.InstanceAPI
+	KeypairAPI  bcs.KeypairAPI
 
 	// image
 	ImageAPI image.ImageAPI
 
 	// loadbalancer
-	BeyondLoadBalancerAPI      loadbalancer.BeyondLoadBalancerAPI
-	LoadBalancerAPI            loadbalancer.LoadBalancerAPI
-	LoadBalancerEtcAPI         loadbalancer.LoadBalancerEtcAPI
-	LoadBalancerL7PoliciesAPI  loadbalancer.LoadBalancerL7PoliciesAPI
-	LoadBalancerListenerAPI    loadbalancer.LoadBalancerListenerAPI
-	LoadBalancerTargetGroupAPI loadbalancer.LoadBalancerTargetGroupAPI
+	LoadBalancerHealthMonitorAPI         loadbalancer.HealthMonitorAPI
+	LoadBalancerHighAvailabilityGroupAPI loadbalancer.HighAvailabilityGroupAPI
+	LoadBalancerL7PolicyAPI              loadbalancer.L7PolicyAPI
+	LoadBalancerL7RuleAPI                loadbalancer.L7RuleAPI
+	LoadBalancerListenerAPI              loadbalancer.ListenerAPI
+	LoadBalancerAPI                      loadbalancer.LoadBalancerAPI
+	LoadBalancerTargetGroupAPI           loadbalancer.TargetGroupAPI
 
 	// network
-	PublicIPAPI      network.PublicIPAPI
-	SecurityGroupAPI network.SecurityGroupAPI
+	NetworkInterfaceAPI     network.NetworkInterfaceAPI
+	NetworkPublicIPAPI      network.PublicIPAPI
+	NetworkSecurityGroupAPI network.SecurityGroupAPI
 
 	// volume
+	VolumeImageAPI    volume.ImageAPI
+	VolumeSnapshotAPI volume.SnapshotAPI
 	VolumeAPI         volume.VolumeAPI
-	VolumeSnapshotAPI volume.VolumeSnapshotAPI
 
 	// vpc
-	NetworkInterfaceAPI         vpc.NetworkInterfaceAPI
-	VPCAPI                      vpc.VPCAPI
-	VPCRouteTableAPI            vpc.VPCRouteTableAPI
-	VPCRouteTableAssociationAPI vpc.VPCRouteTableAssociationAPI
-	VPCRouteTableRouteAPI       vpc.VPCRouteTableRouteAPI
-	VPCSubnetAPI                vpc.VPCSubnetAPI
+	VPCInternetGatewayAPI  vpc.InternetGatewayAPI
+	VPCNetworkInterfaceAPI vpc.NetworkInterfaceAPI
+	VPCSubnetAPI           vpc.SubnetAPI
+	VPCAPI                 vpc.VPCAPI
+	VPCRouteTableAPI       vpc.VPCRouteTableAPI
 
 	// kubernetes engine
-	ClustersAPI      kubernetesengine.ClustersAPI
-	ImagesAPI        kubernetesengine.ImagesAPI
-	NodePoolsAPI     kubernetesengine.NodePoolsAPI
-	NodesAPI         kubernetesengine.NodesAPI
-	ScalingAPI       kubernetesengine.ScalingAPI
-	ServiceAgentsAPI kubernetesengine.ServiceAgentsAPI
-	UpgradesAPI      kubernetesengine.UpgradesAPI
+	KubernetesEngineAPI         kubernetesengine.KubernetesEngineAPI
+	KubernetesEngineClusterAPI  kubernetesengine.KubernetesEngineClusterAPI
+	KubernetesEngineNodeAPI     kubernetesengine.NodeAPI
+	KubernetesEngineNodePoolAPI kubernetesengine.NodePoolAPI
+
+	// kms
+	KMSAPI        kms.KMSAPI
+	KeyAPI        kms.KeyAPI
+	KeyVersionAPI kms.KeyVersionAPI
+	PublicKeyAPI  kms.PublicKeyAPI
 
 	// tgw
-	TgwsAPI        tgw.TgwsAPI
-	AttachmentsAPI tgw.AttachmentsAPI
-	RouteTablesAPI tgw.RouteTablesAPI
+	TransitGatewayAPI           tgw.TransitGatewayAPI
+	TransitGatewayAttachmentAPI tgw.TransitGatewayAttachmentAPI
+	TransitGatewayRouteTableAPI tgw.TransitGatewayRouteTableAPI
 
 	// mysql
-	MySQLBackupsAPI                       mysql.BackupsAPI
-	MySQLCustomParameterGroupsAPI         mysql.CustomParameterGroupsAPI
-	MySQLDefaultParameterGroupsAPI        mysql.DefaultParameterGroupsAPI
-	MySQLEngineVersionsAPI                mysql.EngineVersionsAPI
-	MySQLFlavorsAPI                       mysql.FlavorsAPI
-	MySQLInstanceGroupsAPI                mysql.InstanceGroupsAPI
-	MySQLInstanceGroupsBackupSchedulesAPI mysql.InstanceGroupsBackupSchedulesAPI
-	MySQLInstanceGroupsInstancesAPI       mysql.InstanceGroupsInstancesAPI
-	MySQLInstanceGroupsParameterGroupsAPI mysql.InstanceGroupsParameterGroupsAPI
+	MySQLBackupAPI                mysql.BackupAPI
+	MySQLCustomParameterGroupAPI  mysql.CustomParameterGroupAPI
+	MySQLDefaultParameterGroupAPI mysql.DefaultParameterGroupAPI
+	MySQLEngineVersionAPI         mysql.EngineVersionAPI
+	MySQLInstanceAPI              mysql.InstanceAPI
+	MySQLInstanceGroupAPI         mysql.InstanceGroupAPI
+
+	// secrets manager
+	SecretAPI         secretsmanager.SecretAPI
+	SecretVersionAPI  secretsmanager.SecretVersionAPI
+	SecretsManagerAPI secretsmanager.SecretsManagerAPI
 }
 
 func NewAPIClient(cfg Config) *APIClient {
@@ -122,15 +123,7 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := bcs.NewAPIClient(cc)
 
-		c.FlavorAPI = cli.FlavorAPI
 		c.InstanceAPI = cli.InstanceAPI
-		c.InstanceActionsAPI = cli.InstanceActionsAPI
-		c.InstanceAttachedVolumeAPI = cli.InstanceAttachedVolumeAPI
-		c.InstanceNetworkInterfaceAPI = cli.InstanceNetworkInterfaceAPI
-		c.InstancePasswordAPI = cli.InstancePasswordAPI
-		c.InstancePublicIPAPI = cli.InstancePublicIPAPI
-		c.InstanceRunAnActionAPI = cli.InstanceRunAnActionAPI
-		c.InstanceSecurityGroupAPI = cli.InstanceSecurityGroupAPI
 		c.KeypairAPI = cli.KeypairAPI
 	}
 
@@ -151,8 +144,9 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := network.NewAPIClient(cc)
 
-		c.PublicIPAPI = cli.PublicIPAPI
-		c.SecurityGroupAPI = cli.SecurityGroupAPI
+		c.NetworkInterfaceAPI = cli.NetworkInterfaceAPI
+		c.NetworkPublicIPAPI = cli.PublicIPAPI
+		c.NetworkSecurityGroupAPI = cli.SecurityGroupAPI
 	}
 
 	{
@@ -162,12 +156,11 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := vpc.NewAPIClient(cc)
 
-		c.NetworkInterfaceAPI = cli.NetworkInterfaceAPI
+		c.VPCInternetGatewayAPI = cli.InternetGatewayAPI
+		c.VPCNetworkInterfaceAPI = cli.NetworkInterfaceAPI
+		c.VPCSubnetAPI = cli.SubnetAPI
 		c.VPCAPI = cli.VPCAPI
 		c.VPCRouteTableAPI = cli.VPCRouteTableAPI
-		c.VPCRouteTableAssociationAPI = cli.VPCRouteTableAssociationAPI
-		c.VPCRouteTableRouteAPI = cli.VPCRouteTableRouteAPI
-		c.VPCSubnetAPI = cli.VPCSubnetAPI
 	}
 
 	{
@@ -177,8 +170,9 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := volume.NewAPIClient(cc)
 
+		c.VolumeImageAPI = cli.ImageAPI
+		c.VolumeSnapshotAPI = cli.SnapshotAPI
 		c.VolumeAPI = cli.VolumeAPI
-		c.VolumeSnapshotAPI = cli.VolumeSnapshotAPI
 	}
 
 	{
@@ -188,12 +182,13 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := loadbalancer.NewAPIClient(cc)
 
-		c.BeyondLoadBalancerAPI = cli.BeyondLoadBalancerAPI
+		c.LoadBalancerHealthMonitorAPI = cli.HealthMonitorAPI
+		c.LoadBalancerHighAvailabilityGroupAPI = cli.HighAvailabilityGroupAPI
+		c.LoadBalancerL7PolicyAPI = cli.L7PolicyAPI
+		c.LoadBalancerL7RuleAPI = cli.L7RuleAPI
+		c.LoadBalancerListenerAPI = cli.ListenerAPI
 		c.LoadBalancerAPI = cli.LoadBalancerAPI
-		c.LoadBalancerEtcAPI = cli.LoadBalancerEtcAPI
-		c.LoadBalancerL7PoliciesAPI = cli.LoadBalancerL7PoliciesAPI
-		c.LoadBalancerListenerAPI = cli.LoadBalancerListenerAPI
-		c.LoadBalancerTargetGroupAPI = cli.LoadBalancerTargetGroupAPI
+		c.LoadBalancerTargetGroupAPI = cli.TargetGroupAPI
 	}
 
 	{
@@ -203,13 +198,23 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := kubernetesengine.NewAPIClient(cc)
 
-		c.ClustersAPI = cli.ClustersAPI
-		c.ImagesAPI = cli.ImagesAPI
-		c.NodePoolsAPI = cli.NodePoolsAPI
-		c.NodesAPI = cli.NodesAPI
-		c.ScalingAPI = cli.ScalingAPI
-		c.ServiceAgentsAPI = cli.ServiceAgentsAPI
-		c.UpgradesAPI = cli.UpgradesAPI
+		c.KubernetesEngineAPI = cli.KubernetesEngineAPI
+		c.KubernetesEngineClusterAPI = cli.KubernetesEngineClusterAPI
+		c.KubernetesEngineNodeAPI = cli.NodeAPI
+		c.KubernetesEngineNodePoolAPI = cli.NodePoolAPI
+	}
+
+	{
+		cc := kms.NewConfiguration()
+		cc.HTTPClient = authedClient
+		cc.Servers = kms.ServerConfigurations{{URL: cfg.Endpoints.KMS}}
+
+		cli := kms.NewAPIClient(cc)
+
+		c.KMSAPI = cli.KMSAPI
+		c.KeyAPI = cli.KeyAPI
+		c.KeyVersionAPI = cli.KeyVersionAPI
+		c.PublicKeyAPI = cli.PublicKeyAPI
 	}
 
 	{
@@ -219,9 +224,9 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := tgw.NewAPIClient(cc)
 
-		c.TgwsAPI = cli.TgwsAPI
-		c.AttachmentsAPI = cli.AttachmentsAPI
-		c.RouteTablesAPI = cli.RouteTablesAPI
+		c.TransitGatewayAPI = cli.TransitGatewayAPI
+		c.TransitGatewayAttachmentAPI = cli.TransitGatewayAttachmentAPI
+		c.TransitGatewayRouteTableAPI = cli.TransitGatewayRouteTableAPI
 	}
 
 	{
@@ -231,15 +236,24 @@ func NewAPIClient(cfg Config) *APIClient {
 
 		cli := mysql.NewAPIClient(cc)
 
-		c.MySQLBackupsAPI = cli.BackupsAPI
-		c.MySQLCustomParameterGroupsAPI = cli.CustomParameterGroupsAPI
-		c.MySQLDefaultParameterGroupsAPI = cli.DefaultParameterGroupsAPI
-		c.MySQLEngineVersionsAPI = cli.EngineVersionsAPI
-		c.MySQLFlavorsAPI = cli.FlavorsAPI
-		c.MySQLInstanceGroupsAPI = cli.InstanceGroupsAPI
-		c.MySQLInstanceGroupsBackupSchedulesAPI = cli.InstanceGroupsBackupSchedulesAPI
-		c.MySQLInstanceGroupsInstancesAPI = cli.InstanceGroupsInstancesAPI
-		c.MySQLInstanceGroupsParameterGroupsAPI = cli.InstanceGroupsParameterGroupsAPI
+		c.MySQLBackupAPI = cli.BackupAPI
+		c.MySQLCustomParameterGroupAPI = cli.CustomParameterGroupAPI
+		c.MySQLDefaultParameterGroupAPI = cli.DefaultParameterGroupAPI
+		c.MySQLEngineVersionAPI = cli.EngineVersionAPI
+		c.MySQLInstanceAPI = cli.InstanceAPI
+		c.MySQLInstanceGroupAPI = cli.InstanceGroupAPI
+	}
+
+	{
+		cc := secretsmanager.NewConfiguration()
+		cc.HTTPClient = authedClient
+		cc.Servers = secretsmanager.ServerConfigurations{{URL: cfg.Endpoints.SecretsManager}}
+
+		cli := secretsmanager.NewAPIClient(cc)
+
+		c.SecretAPI = cli.SecretAPI
+		c.SecretVersionAPI = cli.SecretVersionAPI
+		c.SecretsManagerAPI = cli.SecretsManagerAPI
 	}
 
 	return c

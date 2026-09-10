@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Delay** | **int32** | 헬스 체크 간 간격 (초 단위) | 
+**Delay** | **int32** | 헬스 체크 간 간격 (초) | 
 **MaxRetries** | **int32** | 성공으로 간주되기 위한 연속 성공 횟수 | 
 **MaxRetriesDown** | **int32** | 다운으로 간주되기 위한 연속 실패 횟수 | 
-**TargetGroupId** | **string** | 헬스 모니터를 연결할 대상 그룹 ID | 
-**Timeout** | **int32** | 헬스 체크 응답 대기 시간 (초 단위) | 
+**TargetGroupId** | **string** | 헬스 모니터를 연결할 대상 그룹 ID &lt;br/&gt;- [List target groups](https://docs.kakaocloud.com/openapi/networking/lb/list-target-groups)에서 확인 | 
+**Timeout** | **int32** | 헬스 체크 응답 대기 시간 (초) | 
 **Type** | [**HealthMonitorType**](HealthMonitorType.md) | 헬스 모니터 방식 &lt;br/&gt; - &#x60;HTTP&#x60;: HTTP 방식 &lt;br/&gt; - &#x60;HTTPS&#x60;: HTTPS 방식 &lt;br/&gt; - &#x60;TCP&#x60;: TCP 방식 &lt;br/&gt; - &#x60;PING&#x60;: Ping 방식 | 
 **HttpMethod** | Pointer to [**NullableHealthMonitorMethod**](HealthMonitorMethod.md) |  | [optional] 
 **HttpVersion** | Pointer to [**NullableHealthMonitorHttpVersion**](HealthMonitorHttpVersion.md) |  | [optional] 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **NullableString** |  | 
-**InstanceId** | **NullableString** |  | 
-**HostName** | **NullableString** |  | 
-**Device** | **NullableString** |  | 
-**AttachedAt** | **NullableString** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
+**InstanceId** | Pointer to **NullableString** |  | [optional] 
+**HostName** | Pointer to **NullableString** |  | [optional] 
+**Device** | Pointer to **NullableString** |  | [optional] 
+**AttachedAt** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewAttachment
 
-`func NewAttachment(id NullableString, instanceId NullableString, hostName NullableString, device NullableString, attachedAt NullableString, ) *Attachment`
+`func NewAttachment() *Attachment`
 
 NewAttachment instantiates a new Attachment object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *Attachment) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### SetIdNil
 
@@ -78,6 +83,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+### HasInstanceId
+
+`func (o *Attachment) HasInstanceId() bool`
+
+HasInstanceId returns a boolean if a field has been set.
 
 ### SetInstanceIdNil
 
@@ -108,6 +118,11 @@ and a boolean to check if the value has been set.
 
 SetHostName sets HostName field to given value.
 
+### HasHostName
+
+`func (o *Attachment) HasHostName() bool`
+
+HasHostName returns a boolean if a field has been set.
 
 ### SetHostNameNil
 
@@ -138,6 +153,11 @@ and a boolean to check if the value has been set.
 
 SetDevice sets Device field to given value.
 
+### HasDevice
+
+`func (o *Attachment) HasDevice() bool`
+
+HasDevice returns a boolean if a field has been set.
 
 ### SetDeviceNil
 
@@ -151,23 +171,28 @@ SetDevice sets Device field to given value.
 UnsetDevice ensures that no value is present for Device, not even an explicit nil
 ### GetAttachedAt
 
-`func (o *Attachment) GetAttachedAt() string`
+`func (o *Attachment) GetAttachedAt() time.Time`
 
 GetAttachedAt returns the AttachedAt field if non-nil, zero value otherwise.
 
 ### GetAttachedAtOk
 
-`func (o *Attachment) GetAttachedAtOk() (*string, bool)`
+`func (o *Attachment) GetAttachedAtOk() (*time.Time, bool)`
 
 GetAttachedAtOk returns a tuple with the AttachedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachedAt
 
-`func (o *Attachment) SetAttachedAt(v string)`
+`func (o *Attachment) SetAttachedAt(v time.Time)`
 
 SetAttachedAt sets AttachedAt field to given value.
 
+### HasAttachedAt
+
+`func (o *Attachment) HasAttachedAt() bool`
+
+HasAttachedAt returns a boolean if a field has been set.
 
 ### SetAttachedAtNil
 

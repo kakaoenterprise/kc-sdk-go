@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AddImageShare
 
-> ResponseImageMemberModel AddImageShare(ctx, imageId, memberId).XAuthToken(xAuthToken).Execute()
+> AddImageShareResponse AddImageShare(ctx, imageId, memberId).XAuthToken(xAuthToken).Execute()
 
 Add image share
 
@@ -31,11 +31,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
-	imageId := "imageId_example" // string | 이미지의 고유 ID
+	imageId := "imageId_example" // string | 이미지의 고유 ID <br/> - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인
 	memberId := "memberId_example" // string | 이미지를 공유할 다른 프로젝트의 ID
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
@@ -46,7 +46,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.AddImageShare``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AddImageShare`: ResponseImageMemberModel
+	// response from `AddImageShare`: AddImageShareResponse
 	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.AddImageShare`: %v\n", resp)
 }
 ```
@@ -57,7 +57,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**imageId** | **string** | 이미지의 고유 ID | 
+**imageId** | **string** | 이미지의 고유 ID &lt;br/&gt; - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인 | 
 **memberId** | **string** | 이미지를 공유할 다른 프로젝트의 ID | 
 
 ### Other Parameters
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseImageMemberModel**](ResponseImageMemberModel.md)
+[**AddImageShareResponse**](AddImageShareResponse.md)
 
 ### Authorization
 
@@ -106,11 +106,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
-	imageId := "imageId_example" // string | 이미지의 고유 ID
+	imageId := "imageId_example" // string | 이미지의 고유 ID <br/> - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -129,7 +129,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**imageId** | **string** | 이미지의 고유 ID | 
+**imageId** | **string** | 이미지의 고유 ID &lt;br/&gt; - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인 | 
 
 ### Other Parameters
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ## GetImage
 
-> BcsImageV1ApiGetImageModelResponseImageModel GetImage(ctx, imageId).XAuthToken(xAuthToken).Execute()
+> GetImageResponse GetImage(ctx, imageId).XAuthToken(xAuthToken).Execute()
 
 Get image
 
@@ -176,7 +176,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
@@ -190,7 +190,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.GetImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetImage`: BcsImageV1ApiGetImageModelResponseImageModel
+	// response from `GetImage`: GetImageResponse
 	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.GetImage`: %v\n", resp)
 }
 ```
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BcsImageV1ApiGetImageModelResponseImageModel**](BcsImageV1ApiGetImageModelResponseImageModel.md)
+[**GetImageResponse**](GetImageResponse.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## ListImageSharedProjects
 
-> ImageMemberListModel ListImageSharedProjects(ctx, imageId).XAuthToken(xAuthToken).Limit(limit).Offset(offset).Execute()
+> ListImageSharedProjectsResponse ListImageSharedProjects(ctx, imageId).XAuthToken(xAuthToken).Offset(offset).Limit(limit).Execute()
 
 List image shared projects
 
@@ -248,23 +248,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
 	imageId := "imageId_example" // string | 이미지의 고유 ID
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
+	offset := int32(56) // int32 | 조회 시작 위치 (optional)
+	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.ListImageSharedProjects(context.Background(), imageId).XAuthToken(xAuthToken).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.ImageAPI.ListImageSharedProjects(context.Background(), imageId).XAuthToken(xAuthToken).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.ListImageSharedProjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListImageSharedProjects`: ImageMemberListModel
+	// response from `ListImageSharedProjects`: ListImageSharedProjectsResponse
 	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.ListImageSharedProjects`: %v\n", resp)
 }
 ```
@@ -286,12 +286,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **offset** | **int32** | 조회 시작 위치 | [default to 0]
+ **offset** | **int32** | 조회 시작 위치 | 
+ **limit** | **int32** | 페이지당 최대 반환 항목 수 | 
 
 ### Return type
 
-[**ImageMemberListModel**](ImageMemberListModel.md)
+[**ListImageSharedProjectsResponse**](ListImageSharedProjectsResponse.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ## ListImages
 
-> ImageListModel ListImages(ctx).XAuthToken(xAuthToken).Id(id).Name(name).InstanceType(instanceType).ImageType(imageType).Size(size).MinDisk(minDisk).DiskFormat(diskFormat).Status(status).OsType(osType).Visibility(visibility).ImageMemberStatus(imageMemberStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+> ListImagesResponse ListImages(ctx).XAuthToken(xAuthToken).InstanceType(instanceType).ImageType(imageType).OsType(osType).Name(name).Id(id).Size(size).MinDisk(minDisk).DiskFormat(diskFormat).Status(status).Visibility(visibility).ImageMemberStatus(imageMemberStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()
 
 List images
 
@@ -324,37 +324,37 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	id := "id_example" // string | 이미지의 고유 ID (optional)
+	instanceType := openapiclient.ImageInstanceType("vm") // ImageInstanceType | 이미지와 호환 가능한 인스턴스 유형 (optional)
+	imageType := openapiclient.ImageType("basic") // ImageType | 이미지 제공 유형 (optional)
+	osType := "osType_example" // string | 운영체제 유형 (optional)
 	name := "name_example" // string | 이미지 이름 (optional)
-	instanceType := openapiclient.ImageInstanceType("vm") // ImageInstanceType | 이미지와 호환 가능한 인스턴스 유형 <br/> - `vm`: Virtual Machine 유형  <br/> - `bm`: Bare Metal Server 유형 (optional)
-	imageType := openapiclient.ImageVisibilityType("basic") // ImageVisibilityType | 이미지 제공 유형<br/> - `basic`: 카카오클라우드에서 기본적으로 제공하는 [기본 이미지](https://docs.kakaocloud.com/service/bcs/vm/vm-main#default-images-available)로 Linux 및 Windows 이미지를 제공 <br/> - `my`: 프로젝트 사용자가 생성한 커스텀 이미지 (optional)
+	id := "id_example" // string | 이미지의 고유 ID (optional)
 	size := int64(789) // int64 | 이미지 크기 (bytes 단위) (optional)
 	minDisk := int32(56) // int32 | 이미지를 사용할 때 필요한 최소 디스크 크기(GB) (optional)
 	diskFormat := "diskFormat_example" // string | 이미지의 디스크 포맷 (optional)
 	status := "status_example" // string | 이미지의 상태 (optional)
-	osType := "osType_example" // string | 운영체제 유형 (optional)
 	visibility := "visibility_example" // string | 이미지의 가시성 (optional)
 	imageMemberStatus := "imageMemberStatus_example" // string | 공유된 이미지의 멤버 상태 (optional)
-	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분   (optional) (default to "created_at")
-	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)   (optional) (default to "desc")
-	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
+	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분   (optional)
+	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)  (optional)
+	offset := int32(56) // int32 | 조회 시작 위치 (optional)
+	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.ListImages(context.Background()).XAuthToken(xAuthToken).Id(id).Name(name).InstanceType(instanceType).ImageType(imageType).Size(size).MinDisk(minDisk).DiskFormat(diskFormat).Status(status).OsType(osType).Visibility(visibility).ImageMemberStatus(imageMemberStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.ImageAPI.ListImages(context.Background()).XAuthToken(xAuthToken).InstanceType(instanceType).ImageType(imageType).OsType(osType).Name(name).Id(id).Size(size).MinDisk(minDisk).DiskFormat(diskFormat).Status(status).Visibility(visibility).ImageMemberStatus(imageMemberStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.ListImages``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListImages`: ImageListModel
+	// response from `ListImages`: ListImagesResponse
 	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.ListImages`: %v\n", resp)
 }
 ```
@@ -371,27 +371,27 @@ Other parameters are passed through a pointer to a apiListImagesRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **id** | **string** | 이미지의 고유 ID | 
+ **instanceType** | [**ImageInstanceType**](ImageInstanceType.md) | 이미지와 호환 가능한 인스턴스 유형 | 
+ **imageType** | [**ImageType**](ImageType.md) | 이미지 제공 유형 | 
+ **osType** | **string** | 운영체제 유형 | 
  **name** | **string** | 이미지 이름 | 
- **instanceType** | [**ImageInstanceType**](ImageInstanceType.md) | 이미지와 호환 가능한 인스턴스 유형 &lt;br/&gt; - &#x60;vm&#x60;: Virtual Machine 유형  &lt;br/&gt; - &#x60;bm&#x60;: Bare Metal Server 유형 | 
- **imageType** | [**ImageVisibilityType**](ImageVisibilityType.md) | 이미지 제공 유형&lt;br/&gt; - &#x60;basic&#x60;: 카카오클라우드에서 기본적으로 제공하는 [기본 이미지](https://docs.kakaocloud.com/service/bcs/vm/vm-main#default-images-available)로 Linux 및 Windows 이미지를 제공 &lt;br/&gt; - &#x60;my&#x60;: 프로젝트 사용자가 생성한 커스텀 이미지 | 
+ **id** | **string** | 이미지의 고유 ID | 
  **size** | **int64** | 이미지 크기 (bytes 단위) | 
  **minDisk** | **int32** | 이미지를 사용할 때 필요한 최소 디스크 크기(GB) | 
  **diskFormat** | **string** | 이미지의 디스크 포맷 | 
  **status** | **string** | 이미지의 상태 | 
- **osType** | **string** | 운영체제 유형 | 
  **visibility** | **string** | 이미지의 가시성 | 
  **imageMemberStatus** | **string** | 공유된 이미지의 멤버 상태 | 
- **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분   | [default to &quot;created_at&quot;]
- **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   | [default to &quot;desc&quot;]
- **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **offset** | **int32** | 조회 시작 위치 | [default to 0]
+ **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분   | 
+ **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)  | 
+ **offset** | **int32** | 조회 시작 위치 | 
+ **limit** | **int32** | 페이지당 최대 반환 항목 수 | 
 
 ### Return type
 
-[**ImageListModel**](ImageListModel.md)
+[**ListImagesResponse**](ListImagesResponse.md)
 
 ### Authorization
 
@@ -424,12 +424,12 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
-	imageId := "imageId_example" // string | 이미지의 고유 ID
-	memberId := "memberId_example" // string | 이미지 공유를 해제할 멤버(프로젝트) ID 
+	imageId := "imageId_example" // string | 이미지의 고유 ID <br/> - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인
+	memberId := "memberId_example" // string | 공유 대상 프로젝트 ID <br/> - [List image shared projects](https://docs.kakaocloud.com/openapi/bcs/list-image-shared-projects)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -448,8 +448,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**imageId** | **string** | 이미지의 고유 ID | 
-**memberId** | **string** | 이미지 공유를 해제할 멤버(프로젝트) ID  | 
+**imageId** | **string** | 이미지의 고유 ID &lt;br/&gt; - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인 | 
+**memberId** | **string** | 공유 대상 프로젝트 ID &lt;br/&gt; - [List image shared projects](https://docs.kakaocloud.com/openapi/bcs/list-image-shared-projects)에서 확인 | 
 
 ### Other Parameters
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 ## UpdateImage
 
-> BcsImageV1ApiUpdateImageModelResponseImageModel UpdateImage(ctx, imageId).XAuthToken(xAuthToken).BodyUpdateImage(bodyUpdateImage).Execute()
+> UpdateImageResponse UpdateImage(ctx, imageId).XAuthToken(xAuthToken).UpdateImageRequest(updateImageRequest).Execute()
 
 Update image
 
@@ -497,22 +497,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/image"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/image"
 )
 
 func main() {
-	imageId := "imageId_example" // string | 이미지의 고유 ID
+	imageId := "imageId_example" // string | 이미지의 고유 ID <br/> - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyUpdateImage := *openapiclient.NewBodyUpdateImage(*openapiclient.NewEditImageModel()) // BodyUpdateImage | 
+	updateImageRequest := *openapiclient.NewUpdateImageRequest(*openapiclient.NewUpdateImage()) // UpdateImageRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.UpdateImage(context.Background(), imageId).XAuthToken(xAuthToken).BodyUpdateImage(bodyUpdateImage).Execute()
+	resp, r, err := apiClient.ImageAPI.UpdateImage(context.Background(), imageId).XAuthToken(xAuthToken).UpdateImageRequest(updateImageRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.UpdateImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateImage`: BcsImageV1ApiUpdateImageModelResponseImageModel
+	// response from `UpdateImage`: UpdateImageResponse
 	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.UpdateImage`: %v\n", resp)
 }
 ```
@@ -523,7 +523,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**imageId** | **string** | 이미지의 고유 ID | 
+**imageId** | **string** | 이미지의 고유 ID &lt;br/&gt; - [List images](https://docs.kakaocloud.com/openapi/bcs/list-images)에서 확인 | 
 
 ### Other Parameters
 
@@ -534,11 +534,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyUpdateImage** | [**BodyUpdateImage**](BodyUpdateImage.md) |  | 
+ **updateImageRequest** | [**UpdateImageRequest**](UpdateImageRequest.md) |  | 
 
 ### Return type
 
-[**BcsImageV1ApiUpdateImageModelResponseImageModel**](BcsImageV1ApiUpdateImageModelResponseImageModel.md)
+[**UpdateImageResponse**](UpdateImageResponse.md)
 
 ### Authorization
 

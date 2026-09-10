@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LoadBalancerId** | **string** | 리스너를 생성할 대상 로드 밸런서 ID | 
-**Protocol** | [**Protocol**](Protocol.md) | 리스너가 수신할 트래픽의 프로토콜 &lt;br/&gt; - &#x60;HTTP&#x60;: HTTP 프로토콜 &lt;br/&gt; - &#x60;TCP&#x60;: TCP 프로토콜 &lt;br/&gt; - &#x60;UDP&#x60;: UDP 프로토콜 &lt;br/&gt; - &#x60;TERMINATED_HTTPS&#x60;: SSL 종료된 HTTPS 프로토콜 | 
+**LoadBalancerId** | **string** | 리스너를 생성할 대상 로드 밸런서 ID &lt;br/&gt;- [List load balancers](https://docs.kakaocloud.com/openapi/networking/lb/list-load-balancers)에서 확인 | 
+**Protocol** | [**Protocol**](Protocol.md) | 리스너가 수신할 트래픽의 프로토콜 | 
 **ProtocolPort** | **int32** | 수신 포트 번호 | 
 **TargetGroupId** | Pointer to **NullableString** |  | [optional] 
 **DefaultTlsContainerRef** | Pointer to **NullableString** |  | [optional] 

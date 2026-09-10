@@ -8,13 +8,13 @@ Method | HTTP request | Description
 [**DeleteVpc**](VPCAPI.md#DeleteVpc) | **Delete** /api/v1/vpcs/{vpc_id} | Delete VPC
 [**GetVpc**](VPCAPI.md#GetVpc) | **Get** /api/v1/vpcs/{vpc_id} | Get VPC
 [**ListVpcs**](VPCAPI.md#ListVpcs) | **Get** /api/v1/vpcs | List VPCs
-[**PutBnsVpc**](VPCAPI.md#PutBnsVpc) | **Put** /api/v1/vpcs/{vpc_id} | Update VPC
+[**UpdateVpc**](VPCAPI.md#UpdateVpc) | **Put** /api/v1/vpcs/{vpc_id} | Update VPC
 
 
 
 ## CreateVpc
 
-> BnsVpcV1ApiCreateVpcModelResponseVPCModel CreateVpc(ctx).XAuthToken(xAuthToken).BodyCreateVpc(bodyCreateVpc).Execute()
+> CreateVpcResponse CreateVpc(ctx).XAuthToken(xAuthToken).CreateVpcRequest(createVpcRequest).Execute()
 
 Create VPC 
 
@@ -29,21 +29,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyCreateVpc := *openapiclient.NewBodyCreateVpc(*openapiclient.NewCreateVPCModel("Name_example", "CidrBlock_example")) // BodyCreateVpc | 
+	createVpcRequest := *openapiclient.NewCreateVpcRequest(*openapiclient.NewCreateVpc("Name_example", "CidrBlock_example")) // CreateVpcRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VPCAPI.CreateVpc(context.Background()).XAuthToken(xAuthToken).BodyCreateVpc(bodyCreateVpc).Execute()
+	resp, r, err := apiClient.VPCAPI.CreateVpc(context.Background()).XAuthToken(xAuthToken).CreateVpcRequest(createVpcRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VPCAPI.CreateVpc``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateVpc`: BnsVpcV1ApiCreateVpcModelResponseVPCModel
+	// response from `CreateVpc`: CreateVpcResponse
 	fmt.Fprintf(os.Stdout, "Response from `VPCAPI.CreateVpc`: %v\n", resp)
 }
 ```
@@ -60,11 +60,11 @@ Other parameters are passed through a pointer to a apiCreateVpcRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyCreateVpc** | [**BodyCreateVpc**](BodyCreateVpc.md) |  | 
+ **createVpcRequest** | [**CreateVpcRequest**](CreateVpcRequest.md) |  | 
 
 ### Return type
 
-[**BnsVpcV1ApiCreateVpcModelResponseVPCModel**](BnsVpcV1ApiCreateVpcModelResponseVPCModel.md)
+[**CreateVpcResponse**](CreateVpcResponse.md)
 
 ### Authorization
 
@@ -97,11 +97,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 func main() {
-	vpcId := "vpcId_example" // string | 삭제할 VPC ID
+	vpcId := "vpcId_example" // string | 삭제할 VPC ID <br/>- [List VPCs](https://docs.kakaocloud.com/openapi/networking/vpc/list-vpcs)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -120,7 +120,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**vpcId** | **string** | 삭제할 VPC ID | 
+**vpcId** | **string** | 삭제할 VPC ID &lt;br/&gt;- [List VPCs](https://docs.kakaocloud.com/openapi/networking/vpc/list-vpcs)에서 확인 | 
 
 ### Other Parameters
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## GetVpc
 
-> BnsVpcV1ApiGetVpcModelResponseVPCModel GetVpc(ctx, vpcId).XAuthToken(xAuthToken).Execute()
+> GetVpcResponse GetVpc(ctx, vpcId).XAuthToken(xAuthToken).Execute()
 
 Get VPC
 
@@ -167,11 +167,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 func main() {
-	vpcId := "vpcId_example" // string | 조회할 VPC ID <br/>- [List VPCs](https://docs.kakaocloud.com/openapi/bns/vpc/list-vpcs) 참고
+	vpcId := "vpcId_example" // string | 조회할 VPC ID
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -181,7 +181,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `VPCAPI.GetVpc``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetVpc`: BnsVpcV1ApiGetVpcModelResponseVPCModel
+	// response from `GetVpc`: GetVpcResponse
 	fmt.Fprintf(os.Stdout, "Response from `VPCAPI.GetVpc`: %v\n", resp)
 }
 ```
@@ -192,7 +192,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**vpcId** | **string** | 조회할 VPC ID &lt;br/&gt;- [List VPCs](https://docs.kakaocloud.com/openapi/bns/vpc/list-vpcs) 참고 | 
+**vpcId** | **string** | 조회할 VPC ID | 
 
 ### Other Parameters
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BnsVpcV1ApiGetVpcModelResponseVPCModel**](BnsVpcV1ApiGetVpcModelResponseVPCModel.md)
+[**GetVpcResponse**](GetVpcResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## ListVpcs
 
-> VPCListModel ListVpcs(ctx).XAuthToken(xAuthToken).Id(id).Name(name).CidrBlock(cidrBlock).ProvisioningStatus(provisioningStatus).IsDefault(isDefault).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+> ListVpcsResponse ListVpcs(ctx).XAuthToken(xAuthToken).Id(id).Name(name).CidrBlock(cidrBlock).ProvisioningStatus(provisioningStatus).IsDefault(isDefault).SortKeys(sortKeys).SortDirs(sortDirs).CreatedAt(createdAt).UpdatedAt(updatedAt).Offset(offset).Limit(limit).Execute()
 
 List VPCs
 
@@ -239,31 +239,31 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	id := "id_example" // string | 조회할 VPC ID <br/>- [List VPCs](https://docs.kakaocloud.com/openapi/bns/vpc/list-vpcs) 참고 (optional)
+	id := "id_example" // string | 조회할 VPC ID (optional)
 	name := "name_example" // string | 조회할 VPC 이름 (optional)
-	cidrBlock := "cidrBlock_example" // string | VPC의 IPv4 CIDR 블록 (예: `10.0.0.0/16`)  (optional)
-	provisioningStatus := openapiclient.ProvisioningStatus("ACTIVE") // ProvisioningStatus | 프로비저닝 상태 <br/> - `ACTIVE`: 활성 상태 <br/> - `DELETED`: 삭제됨 <br/> - `ERROR`: 오류 발생 <br/> - `PENDING_CREATE`: 생성 대기 중 <br/> - `PENDING_UPDATE`: 업데이트 대기 중 <br/> - `PENDING_DELETE`: 삭제 대기 중 (optional)
+	cidrBlock := "cidrBlock_example" // string | VPC의 IPv4 CIDR 블록 (예: `10.0.0.0/16`) (optional)
+	provisioningStatus := openapiclient.ProvisioningStatus("ACTIVE") // ProvisioningStatus | 프로비저닝 상태 (optional)
 	isDefault := true // bool | 기본 VPC 여부 (optional)
-	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분     (optional) (default to "created_at")
-	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)   (optional) (default to "desc")
-	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
+	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분  (optional)
+	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)  (optional)
+	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	offset := int32(56) // int32 | 조회 시작 위치 (optional)
+	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VPCAPI.ListVpcs(context.Background()).XAuthToken(xAuthToken).Id(id).Name(name).CidrBlock(cidrBlock).ProvisioningStatus(provisioningStatus).IsDefault(isDefault).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.VPCAPI.ListVpcs(context.Background()).XAuthToken(xAuthToken).Id(id).Name(name).CidrBlock(cidrBlock).ProvisioningStatus(provisioningStatus).IsDefault(isDefault).SortKeys(sortKeys).SortDirs(sortDirs).CreatedAt(createdAt).UpdatedAt(updatedAt).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VPCAPI.ListVpcs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListVpcs`: VPCListModel
+	// response from `ListVpcs`: ListVpcsResponse
 	fmt.Fprintf(os.Stdout, "Response from `VPCAPI.ListVpcs`: %v\n", resp)
 }
 ```
@@ -280,21 +280,21 @@ Other parameters are passed through a pointer to a apiListVpcsRequest struct via
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **id** | **string** | 조회할 VPC ID &lt;br/&gt;- [List VPCs](https://docs.kakaocloud.com/openapi/bns/vpc/list-vpcs) 참고 | 
+ **id** | **string** | 조회할 VPC ID | 
  **name** | **string** | 조회할 VPC 이름 | 
- **cidrBlock** | **string** | VPC의 IPv4 CIDR 블록 (예: &#x60;10.0.0.0/16&#x60;)  | 
- **provisioningStatus** | [**ProvisioningStatus**](ProvisioningStatus.md) | 프로비저닝 상태 &lt;br/&gt; - &#x60;ACTIVE&#x60;: 활성 상태 &lt;br/&gt; - &#x60;DELETED&#x60;: 삭제됨 &lt;br/&gt; - &#x60;ERROR&#x60;: 오류 발생 &lt;br/&gt; - &#x60;PENDING_CREATE&#x60;: 생성 대기 중 &lt;br/&gt; - &#x60;PENDING_UPDATE&#x60;: 업데이트 대기 중 &lt;br/&gt; - &#x60;PENDING_DELETE&#x60;: 삭제 대기 중 | 
+ **cidrBlock** | **string** | VPC의 IPv4 CIDR 블록 (예: &#x60;10.0.0.0/16&#x60;) | 
+ **provisioningStatus** | [**ProvisioningStatus**](ProvisioningStatus.md) | 프로비저닝 상태 | 
  **isDefault** | **bool** | 기본 VPC 여부 | 
- **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분     | [default to &quot;created_at&quot;]
- **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   | [default to &quot;desc&quot;]
- **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **offset** | **int32** | 조회 시작 위치 | [default to 0]
+ **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분  | 
+ **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)  | 
+ **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **offset** | **int32** | 조회 시작 위치 | 
+ **limit** | **int32** | 페이지당 최대 반환 항목 수 | 
 
 ### Return type
 
-[**VPCListModel**](VPCListModel.md)
+[**ListVpcsResponse**](ListVpcsResponse.md)
 
 ### Authorization
 
@@ -310,9 +310,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PutBnsVpc
+## UpdateVpc
 
-> BnsVpcV1ApiUpdateVpcModelResponseVPCModel PutBnsVpc(ctx, vpcId).XAuthToken(xAuthToken).BodyPutBnsVpc(bodyPutBnsVpc).Execute()
+> UpdateVpcResponse UpdateVpc(ctx, vpcId).XAuthToken(xAuthToken).UpdateVpcRequest(updateVpcRequest).Execute()
 
 Update VPC
 
@@ -327,23 +327,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/vpc"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/vpc"
 )
 
 func main() {
-	vpcId := "vpcId_example" // string | 수정할 VPC ID
+	vpcId := "vpcId_example" // string | 수정할 VPC ID <br/>- [List VPCs](https://docs.kakaocloud.com/openapi/networking/vpc/list-vpcs)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyPutBnsVpc := *openapiclient.NewBodyPutBnsVpc(*openapiclient.NewEditVPCModel("Name_example")) // BodyPutBnsVpc | 
+	updateVpcRequest := *openapiclient.NewUpdateVpcRequest(*openapiclient.NewUpdateVpc()) // UpdateVpcRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VPCAPI.PutBnsVpc(context.Background(), vpcId).XAuthToken(xAuthToken).BodyPutBnsVpc(bodyPutBnsVpc).Execute()
+	resp, r, err := apiClient.VPCAPI.UpdateVpc(context.Background(), vpcId).XAuthToken(xAuthToken).UpdateVpcRequest(updateVpcRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `VPCAPI.PutBnsVpc``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `VPCAPI.UpdateVpc``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PutBnsVpc`: BnsVpcV1ApiUpdateVpcModelResponseVPCModel
-	fmt.Fprintf(os.Stdout, "Response from `VPCAPI.PutBnsVpc`: %v\n", resp)
+	// response from `UpdateVpc`: UpdateVpcResponse
+	fmt.Fprintf(os.Stdout, "Response from `VPCAPI.UpdateVpc`: %v\n", resp)
 }
 ```
 
@@ -353,22 +353,22 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**vpcId** | **string** | 수정할 VPC ID | 
+**vpcId** | **string** | 수정할 VPC ID &lt;br/&gt;- [List VPCs](https://docs.kakaocloud.com/openapi/networking/vpc/list-vpcs)에서 확인 | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPutBnsVpcRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateVpcRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyPutBnsVpc** | [**BodyPutBnsVpc**](BodyPutBnsVpc.md) |  | 
+ **updateVpcRequest** | [**UpdateVpcRequest**](UpdateVpcRequest.md) |  | 
 
 ### Return type
 
-[**BnsVpcV1ApiUpdateVpcModelResponseVPCModel**](BnsVpcV1ApiUpdateVpcModelResponseVPCModel.md)
+[**UpdateVpcResponse**](UpdateVpcResponse.md)
 
 ### Authorization
 

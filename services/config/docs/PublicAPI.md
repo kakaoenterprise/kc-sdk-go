@@ -25,7 +25,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/config"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/config"
 )
 
 func main() {
@@ -89,7 +89,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/config"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/config"
 )
 
 func main() {
@@ -153,7 +153,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/config"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/config"
 )
 
 func main() {

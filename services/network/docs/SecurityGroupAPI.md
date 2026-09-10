@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## CreateSecurityGroup
 
-> BnsNetworkV1ApiCreateSecurityGroupModelResponseSecurityGroupModel CreateSecurityGroup(ctx).XAuthToken(xAuthToken).BodyCreateSecurityGroup(bodyCreateSecurityGroup).Execute()
+> CreateSecurityGroupResponse CreateSecurityGroup(ctx).XAuthToken(xAuthToken).CreateSecurityGroupRequest(createSecurityGroupRequest).Execute()
 
 Create security group
 
@@ -31,21 +31,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyCreateSecurityGroup := *openapiclient.NewBodyCreateSecurityGroup(*openapiclient.NewCreateSecurityGroupModel("Name_example")) // BodyCreateSecurityGroup | 
+	createSecurityGroupRequest := *openapiclient.NewCreateSecurityGroupRequest(*openapiclient.NewCreateSecurityGroup("Name_example")) // CreateSecurityGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SecurityGroupAPI.CreateSecurityGroup(context.Background()).XAuthToken(xAuthToken).BodyCreateSecurityGroup(bodyCreateSecurityGroup).Execute()
+	resp, r, err := apiClient.SecurityGroupAPI.CreateSecurityGroup(context.Background()).XAuthToken(xAuthToken).CreateSecurityGroupRequest(createSecurityGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SecurityGroupAPI.CreateSecurityGroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateSecurityGroup`: BnsNetworkV1ApiCreateSecurityGroupModelResponseSecurityGroupModel
+	// response from `CreateSecurityGroup`: CreateSecurityGroupResponse
 	fmt.Fprintf(os.Stdout, "Response from `SecurityGroupAPI.CreateSecurityGroup`: %v\n", resp)
 }
 ```
@@ -62,11 +62,11 @@ Other parameters are passed through a pointer to a apiCreateSecurityGroupRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyCreateSecurityGroup** | [**BodyCreateSecurityGroup**](BodyCreateSecurityGroup.md) |  | 
+ **createSecurityGroupRequest** | [**CreateSecurityGroupRequest**](CreateSecurityGroupRequest.md) |  | 
 
 ### Return type
 
-[**BnsNetworkV1ApiCreateSecurityGroupModelResponseSecurityGroupModel**](BnsNetworkV1ApiCreateSecurityGroupModelResponseSecurityGroupModel.md)
+[**CreateSecurityGroupResponse**](CreateSecurityGroupResponse.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## CreateSecurityGroupRule
 
-> ResponseSecurityGroupRuleModel CreateSecurityGroupRule(ctx, securityGroupId).XAuthToken(xAuthToken).BodyCreateSecurityGroupRule(bodyCreateSecurityGroupRule).Execute()
+> CreateSecurityGroupRuleResponse CreateSecurityGroupRule(ctx, securityGroupId).XAuthToken(xAuthToken).CreateSecurityGroupRuleRequest(createSecurityGroupRuleRequest).Execute()
 
 Create security group rule
 
@@ -99,22 +99,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
 	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyCreateSecurityGroupRule := *openapiclient.NewBodyCreateSecurityGroupRule(*openapiclient.NewCreateSecurityGroupRuleModel(openapiclient.SecurityGroupRuleDirection("ingress"), openapiclient.SecurityGroupRuleProtocol("TCP"))) // BodyCreateSecurityGroupRule | 
+	createSecurityGroupRuleRequest := *openapiclient.NewCreateSecurityGroupRuleRequest(*openapiclient.NewCreateSecurityGroupRule(openapiclient.RuleDirection("ingress"), openapiclient.RuleProtocol("TCP"))) // CreateSecurityGroupRuleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SecurityGroupAPI.CreateSecurityGroupRule(context.Background(), securityGroupId).XAuthToken(xAuthToken).BodyCreateSecurityGroupRule(bodyCreateSecurityGroupRule).Execute()
+	resp, r, err := apiClient.SecurityGroupAPI.CreateSecurityGroupRule(context.Background(), securityGroupId).XAuthToken(xAuthToken).CreateSecurityGroupRuleRequest(createSecurityGroupRuleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SecurityGroupAPI.CreateSecurityGroupRule``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateSecurityGroupRule`: ResponseSecurityGroupRuleModel
+	// response from `CreateSecurityGroupRule`: CreateSecurityGroupRuleResponse
 	fmt.Fprintf(os.Stdout, "Response from `SecurityGroupAPI.CreateSecurityGroupRule`: %v\n", resp)
 }
 ```
@@ -136,11 +136,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyCreateSecurityGroupRule** | [**BodyCreateSecurityGroupRule**](BodyCreateSecurityGroupRule.md) |  | 
+ **createSecurityGroupRuleRequest** | [**CreateSecurityGroupRuleRequest**](CreateSecurityGroupRuleRequest.md) |  | 
 
 ### Return type
 
-[**ResponseSecurityGroupRuleModel**](ResponseSecurityGroupRuleModel.md)
+[**CreateSecurityGroupRuleResponse**](CreateSecurityGroupRuleResponse.md)
 
 ### Authorization
 
@@ -173,11 +173,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
-	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID
+	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID <br/>- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -196,7 +196,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityGroupId** | **string** | 보안 그룹의 고유 ID | 
+**securityGroupId** | **string** | 보안 그룹의 고유 ID &lt;br/&gt;- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인 | 
 
 ### Other Parameters
 
@@ -243,12 +243,12 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
-	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID
-	securityGroupRuleId := "securityGroupRuleId_example" // string | 삭제할 보안 그룹 규칙 ID
+	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID <br/>- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인
+	securityGroupRuleId := "securityGroupRuleId_example" // string | 삭제할 보안 그룹 규칙 ID <br/>- [Get security group](https://docs.kakaocloud.com/openapi/networking/vpc/get-security-group)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 
 	configuration := openapiclient.NewConfiguration()
@@ -267,8 +267,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityGroupId** | **string** | 보안 그룹의 고유 ID | 
-**securityGroupRuleId** | **string** | 삭제할 보안 그룹 규칙 ID | 
+**securityGroupId** | **string** | 보안 그룹의 고유 ID &lt;br/&gt;- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인 | 
+**securityGroupRuleId** | **string** | 삭제할 보안 그룹 규칙 ID &lt;br/&gt;- [Get security group](https://docs.kakaocloud.com/openapi/networking/vpc/get-security-group)에서 확인 | 
 
 ### Other Parameters
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ## GetSecurityGroup
 
-> BnsNetworkV1ApiGetSecurityGroupModelResponseSecurityGroupModel GetSecurityGroup(ctx, securityGroupId).XAuthToken(xAuthToken).Execute()
+> GetSecurityGroupResponse GetSecurityGroup(ctx, securityGroupId).XAuthToken(xAuthToken).Execute()
 
 Get security group
 
@@ -316,7 +316,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
@@ -330,7 +330,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SecurityGroupAPI.GetSecurityGroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSecurityGroup`: BnsNetworkV1ApiGetSecurityGroupModelResponseSecurityGroupModel
+	// response from `GetSecurityGroup`: GetSecurityGroupResponse
 	fmt.Fprintf(os.Stdout, "Response from `SecurityGroupAPI.GetSecurityGroup`: %v\n", resp)
 }
 ```
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BnsNetworkV1ApiGetSecurityGroupModelResponseSecurityGroupModel**](BnsNetworkV1ApiGetSecurityGroupModelResponseSecurityGroupModel.md)
+[**GetSecurityGroupResponse**](GetSecurityGroupResponse.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## ListSecurityGroups
 
-> SecurityGroupListModel ListSecurityGroups(ctx).XAuthToken(xAuthToken).Id(id).Name(name).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+> ListSecurityGroupsResponse ListSecurityGroups(ctx).XAuthToken(xAuthToken).Id(id).Name(name).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()
 
 List security groups
 
@@ -388,28 +388,28 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
 	id := "id_example" // string | 보안 그룹 ID (optional)
 	name := "name_example" // string | 보안 그룹 이름 (optional)
-	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO_8601 형식  <br/> - UTC 기준 (optional)
-	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분   (optional) (default to "created_at")
-	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)   (optional) (default to "desc")
-	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional) (default to 20)
-	offset := int32(56) // int32 | 조회 시작 위치 (optional) (default to 0)
+	createdAt := "createdAt_example" // string | 리소스가 생성된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	updatedAt := "updatedAt_example" // string | 리소스가 마지막으로 수정된 시간 <br/> - ISO 8601 형식 <br/> - UTC 기준 (optional)
+	sortKeys := "sortKeys_example" // string | 정렬할 필드를 콤마(,)로 구분   (optional)
+	sortDirs := "sortDirs_example" // string | 정렬 방향 (`asc`, `desc`)  (optional)
+	offset := int32(56) // int32 | 조회 시작 위치 (optional)
+	limit := int32(56) // int32 | 페이지당 최대 반환 항목 수 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SecurityGroupAPI.ListSecurityGroups(context.Background()).XAuthToken(xAuthToken).Id(id).Name(name).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.SecurityGroupAPI.ListSecurityGroups(context.Background()).XAuthToken(xAuthToken).Id(id).Name(name).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SecurityGroupAPI.ListSecurityGroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListSecurityGroups`: SecurityGroupListModel
+	// response from `ListSecurityGroups`: ListSecurityGroupsResponse
 	fmt.Fprintf(os.Stdout, "Response from `SecurityGroupAPI.ListSecurityGroups`: %v\n", resp)
 }
 ```
@@ -428,16 +428,16 @@ Name | Type | Description  | Notes
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
  **id** | **string** | 보안 그룹 ID | 
  **name** | **string** | 보안 그룹 이름 | 
- **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO_8601 형식  &lt;br/&gt; - UTC 기준 | 
- **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분   | [default to &quot;created_at&quot;]
- **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)   | [default to &quot;desc&quot;]
- **limit** | **int32** | 페이지당 최대 반환 항목 수 | [default to 20]
- **offset** | **int32** | 조회 시작 위치 | [default to 0]
+ **createdAt** | **string** | 리소스가 생성된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **updatedAt** | **string** | 리소스가 마지막으로 수정된 시간 &lt;br/&gt; - ISO 8601 형식 &lt;br/&gt; - UTC 기준 | 
+ **sortKeys** | **string** | 정렬할 필드를 콤마(,)로 구분   | 
+ **sortDirs** | **string** | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)  | 
+ **offset** | **int32** | 조회 시작 위치 | 
+ **limit** | **int32** | 페이지당 최대 반환 항목 수 | 
 
 ### Return type
 
-[**SecurityGroupListModel**](SecurityGroupListModel.md)
+[**ListSecurityGroupsResponse**](ListSecurityGroupsResponse.md)
 
 ### Authorization
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSecurityGroup
 
-> BnsNetworkV1ApiUpdateSecurityGroupModelResponseSecurityGroupModel UpdateSecurityGroup(ctx, securityGroupId).XAuthToken(xAuthToken).BodyUpdateSecurityGroup(bodyUpdateSecurityGroup).Execute()
+> UpdateSecurityGroupResponse UpdateSecurityGroup(ctx, securityGroupId).XAuthToken(xAuthToken).UpdateSecurityGroupRequest(updateSecurityGroupRequest).Execute()
 
 Update security group
 
@@ -470,22 +470,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/kakaoenterprise/kc-sdk-go/services/network"
+	openapiclient "github.com/kakaoenterprise/kc-sdk-go/v2/services/network"
 )
 
 func main() {
-	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID
+	securityGroupId := "securityGroupId_example" // string | 보안 그룹의 고유 ID <br/>- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인
 	xAuthToken := "xAuthToken_example" // string | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급)
-	bodyUpdateSecurityGroup := *openapiclient.NewBodyUpdateSecurityGroup(*openapiclient.NewEditSecurityGroupModel()) // BodyUpdateSecurityGroup | 
+	updateSecurityGroupRequest := *openapiclient.NewUpdateSecurityGroupRequest(*openapiclient.NewUpdateSecurityGroup()) // UpdateSecurityGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SecurityGroupAPI.UpdateSecurityGroup(context.Background(), securityGroupId).XAuthToken(xAuthToken).BodyUpdateSecurityGroup(bodyUpdateSecurityGroup).Execute()
+	resp, r, err := apiClient.SecurityGroupAPI.UpdateSecurityGroup(context.Background(), securityGroupId).XAuthToken(xAuthToken).UpdateSecurityGroupRequest(updateSecurityGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SecurityGroupAPI.UpdateSecurityGroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateSecurityGroup`: BnsNetworkV1ApiUpdateSecurityGroupModelResponseSecurityGroupModel
+	// response from `UpdateSecurityGroup`: UpdateSecurityGroupResponse
 	fmt.Fprintf(os.Stdout, "Response from `SecurityGroupAPI.UpdateSecurityGroup`: %v\n", resp)
 }
 ```
@@ -496,7 +496,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**securityGroupId** | **string** | 보안 그룹의 고유 ID | 
+**securityGroupId** | **string** | 보안 그룹의 고유 ID &lt;br/&gt;- [List security groups](https://docs.kakaocloud.com/openapi/networking/vpc/list-security-groups)에서 확인 | 
 
 ### Other Parameters
 
@@ -507,11 +507,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **xAuthToken** | **string** | - [API 인증 토큰](https://docs.kakaocloud.com/openapi/start#api-인증-토큰-발급) | 
- **bodyUpdateSecurityGroup** | [**BodyUpdateSecurityGroup**](BodyUpdateSecurityGroup.md) |  | 
+ **updateSecurityGroupRequest** | [**UpdateSecurityGroupRequest**](UpdateSecurityGroupRequest.md) |  | 
 
 ### Return type
 
-[**BnsNetworkV1ApiUpdateSecurityGroupModelResponseSecurityGroupModel**](BnsNetworkV1ApiUpdateSecurityGroupModelResponseSecurityGroupModel.md)
+[**UpdateSecurityGroupResponse**](UpdateSecurityGroupResponse.md)
 
 ### Authorization
 
