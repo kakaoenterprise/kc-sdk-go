@@ -1,0 +1,106 @@
+site_name: kc-sdk-go/v2/vpc (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - InternetGatewayAPI.md: api/InternetGatewayAPI.md
+      - NetworkInterfaceAPI.md: api/NetworkInterfaceAPI.md
+      - SubnetAPI.md: api/SubnetAPI.md
+      - VPCAPI.md: api/VPCAPI.md
+      - VPCRouteTableAPI.md: api/VPCRouteTableAPI.md
+  - Models:
+      - AddRoute: models/AddRoute.md
+      - AddRouteRequest: models/AddRouteRequest.md
+      - AddRouteResponse: models/AddRouteResponse.md
+      - AllowedAddressPair: models/AllowedAddressPair.md
+      - Attachment: models/Attachment.md
+      - AvailabilityZone: models/AvailabilityZone.md
+      - CreatedRouteTable: models/CreatedRouteTable.md
+      - CreateIgwAttachment: models/CreateIgwAttachment.md
+      - CreateIgwAttachmentRequest: models/CreateIgwAttachmentRequest.md
+      - CreateIgwAttachmentResponse: models/CreateIgwAttachmentResponse.md
+      - CreateInternetGateway: models/CreateInternetGateway.md
+      - CreateInternetGatewayRequest: models/CreateInternetGatewayRequest.md
+      - CreateInternetGatewayResponse: models/CreateInternetGatewayResponse.md
+      - CreateNetworkInterface: models/CreateNetworkInterface.md
+      - CreateNetworkInterfaceRequest: models/CreateNetworkInterfaceRequest.md
+      - CreateNetworkInterfaceResponse: models/CreateNetworkInterfaceResponse.md
+      - CreateRouteTable: models/CreateRouteTable.md
+      - CreateRouteTableRequest: models/CreateRouteTableRequest.md
+      - CreateRouteTableResponse: models/CreateRouteTableResponse.md
+      - CreateSubnet: models/CreateSubnet.md
+      - CreateSubnetRequest: models/CreateSubnetRequest.md
+      - CreateSubnetResponse: models/CreateSubnetResponse.md
+      - CreateVpc: models/CreateVpc.md
+      - CreateVpcRequest: models/CreateVpcRequest.md
+      - CreateVpcResponse: models/CreateVpcResponse.md
+      - DefaultRouteTable: models/DefaultRouteTable.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GetInternetGatewayResponse: models/GetInternetGatewayResponse.md
+      - GetNetworkInterfaceResponse: models/GetNetworkInterfaceResponse.md
+      - GetRouteTableResponse: models/GetRouteTableResponse.md
+      - GetSubnetResponse: models/GetSubnetResponse.md
+      - GetVpcResponse: models/GetVpcResponse.md
+      - Igw: models/Igw.md
+      - IGWAttachment: models/IGWAttachment.md
+      - IGWResult: models/IGWResult.md
+      - InternetGatewayVpc: models/InternetGatewayVpc.md
+      - ListInternetGatewaysResponse: models/ListInternetGatewaysResponse.md
+      - ListNetworkInterfacesResponse: models/ListNetworkInterfacesResponse.md
+      - ListRouteTableAssociationsResponse: models/ListRouteTableAssociationsResponse.md
+      - ListRouteTablesResponse: models/ListRouteTablesResponse.md
+      - ListSubnetSharedProjectsResponse: models/ListSubnetSharedProjectsResponse.md
+      - ListSubnetsResponse: models/ListSubnetsResponse.md
+      - ListVpcsResponse: models/ListVpcsResponse.md
+      - NetworkInterface: models/NetworkInterface.md
+      - NetworkInterfaceResult: models/NetworkInterfaceResult.md
+      - NetworkInterfaceStatus: models/NetworkInterfaceStatus.md
+      - Project: models/Project.md
+      - ProvisioningStatus: models/ProvisioningStatus.md
+      - Region: models/Region.md
+      - Route: models/Route.md
+      - RouteType: models/RouteType.md
+      - SecurityGroup: models/SecurityGroup.md
+      - Subnet: models/Subnet.md
+      - SubnetResult: models/SubnetResult.md
+      - UpdatedRouteTable: models/UpdatedRouteTable.md
+      - UpdateInternetGateway: models/UpdateInternetGateway.md
+      - UpdateInternetGatewayRequest: models/UpdateInternetGatewayRequest.md
+      - UpdateInternetGatewayResponse: models/UpdateInternetGatewayResponse.md
+      - UpdateNetworkInterface: models/UpdateNetworkInterface.md
+      - UpdateNetworkInterfaceAllowedAddresses: models/UpdateNetworkInterfaceAllowedAddresses.md
+      - UpdateNetworkInterfaceAllowedAddressesRequest: models/UpdateNetworkInterfaceAllowedAddressesRequest.md
+      - UpdateNetworkInterfaceAllowedAddressesResponse: models/UpdateNetworkInterfaceAllowedAddressesResponse.md
+      - UpdateNetworkInterfaceRequest: models/UpdateNetworkInterfaceRequest.md
+      - UpdateNetworkInterfaceResponse: models/UpdateNetworkInterfaceResponse.md
+      - UpdateRoute: models/UpdateRoute.md
+      - UpdateRouteRequest: models/UpdateRouteRequest.md
+      - UpdateRouteResponse: models/UpdateRouteResponse.md
+      - UpdateRouteTable: models/UpdateRouteTable.md
+      - UpdateRouteTableAssociation: models/UpdateRouteTableAssociation.md
+      - UpdateRouteTableAssociationRequest: models/UpdateRouteTableAssociationRequest.md
+      - UpdateRouteTableRequest: models/UpdateRouteTableRequest.md
+      - UpdateRouteTableResponse: models/UpdateRouteTableResponse.md
+      - UpdateSubnet: models/UpdateSubnet.md
+      - UpdateSubnetRequest: models/UpdateSubnetRequest.md
+      - UpdateSubnetResponse: models/UpdateSubnetResponse.md
+      - UpdateVpc: models/UpdateVpc.md
+      - UpdateVpcRequest: models/UpdateVpcRequest.md
+      - UpdateVpcResponse: models/UpdateVpcResponse.md
+      - Vpc: models/Vpc.md
+      - VpcAssociation: models/VpcAssociation.md
+      - VpcIgw: models/VpcIgw.md
+      - VPCOperatingStatus: models/VPCOperatingStatus.md
+      - VpcResult: models/VpcResult.md
+      - VpcRoute: models/VpcRoute.md
+      - VpcRouteTable: models/VpcRouteTable.md

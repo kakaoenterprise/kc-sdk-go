@@ -1,0 +1,7992 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ListenerAPI/">
+      
+      
+        <link rel="next" href="../TargetGroupAPI/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LoadBalancerAPI.md - kc-sdk-go/v2/loadbalancer (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#loadbalancerapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/loadbalancer (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/loadbalancer (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/loadbalancer (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LoadBalancerAPI.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/loadbalancer (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/loadbalancer (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/loadbalancer (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HealthMonitorAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HealthMonitorAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HighAvailabilityGroupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HighAvailabilityGroupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L7PolicyAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7PolicyAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L7RuleAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7RuleAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListenerAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListenerAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerAPI.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#associatenewpublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AssociateNewPublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AssociateNewPublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associatepublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AssociatePublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AssociatePublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listavailabilityzones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListAvailabilityZones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListAvailabilityZones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listloadbalancertypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListLoadBalancerTypes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListLoadBalancerTypes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listloadbalancers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListLoadBalancers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListLoadBalancers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtlscertificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTlsCertificates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTlsCertificates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removepublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RemovePublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RemovePublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateaccesslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateAccessLog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateAccessLog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TargetGroupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TargetGroupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AccessLog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AccessLog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddL7PolicyRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddL7PolicyRule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddL7PolicyRuleRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddL7PolicyRuleRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddL7PolicyRuleResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddL7PolicyRuleResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddTarget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddTarget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddTargetRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddTargetRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddTargetResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddTargetResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AssociateNewPublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AssociateNewPublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AssociatePublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AssociatePublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AvailabilityZone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AvailabilityZoneInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZoneInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/BeyondLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BeyondLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/BeyondLoadBalancerResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BeyondLoadBalancerResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/BeyondLoadBalancerScheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BeyondLoadBalancerScheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ContentTypesDto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ContentTypesDto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreatedL7Policy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedL7Policy2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreatedListener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreatedLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreatedMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreatedPool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedPool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHaGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHaGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHaGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHaGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHaGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHaGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHealthMonitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHealthMonitor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHealthMonitorRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHealthMonitorRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateHealthMonitorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateHealthMonitorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateL7Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateL7Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateL7PolicyRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateL7PolicyRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateL7PolicyResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateL7PolicyResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateListener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateListenerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateListenerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateListenerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateListenerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerHealthMonitorRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerHealthMonitorRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerL7PolicyRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerL7PolicyRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerListenerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerListenerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerMemberRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerMemberRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerPoolRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerPoolRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateLoadBalancerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateLoadBalancerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTargetGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTargetGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTargetGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTargetGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTargetGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTargetGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Flavor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetHaGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetHaGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetL7PolicyResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetL7PolicyResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetL7PolicyRuleResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetL7PolicyRuleResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetListenerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetListenerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetLoadBalancerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetLoadBalancerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTargetGroupHealthCheckSubnetsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTargetGroupHealthCheckSubnetsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTargetGroupHealthMonitorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTargetGroupHealthMonitorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTargetGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTargetGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTargetResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTargetResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/HealthMonitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HealthMonitor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/HealthMonitorHttpVersion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HealthMonitorHttpVersion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/HealthMonitorMethod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HealthMonitorMethod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/HealthMonitorType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HealthMonitorType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Ids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ids
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/InsertHeaderRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InsertHeaderRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/L7Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/L7PolicyAction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7PolicyAction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/L7PolicyResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7PolicyResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/L7RuleCompareType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7RuleCompareType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/L7RuleType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L7RuleType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListAvailabilityZonesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListAvailabilityZonesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Listener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Listener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListenerResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListenerResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListHaGroupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListHaGroupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListL7PoliciesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListL7PoliciesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListL7PolicyRulesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListL7PolicyRulesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListListenersResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListListenersResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListLoadBalancersResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListLoadBalancersResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListLoadBalancerTypesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListLoadBalancerTypesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTargetGroupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTargetGroupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTargetsInTargetGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTargetsInTargetGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTlsCertificatesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTlsCertificatesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTlsCertificatesSecret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTlsCertificatesSecret
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerAlpnProtocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerAlpnProtocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerDetail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerDetail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerListener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerListenerInsertHeadersValue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerListenerInsertHeadersValue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerOperatingStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerOperatingStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerPool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerPool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerPoolAlgorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerPoolAlgorithm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerPoolProtocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerPoolProtocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerSessionPersistenceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerSessionPersistenceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/LoadBalancerType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoadBalancerType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Member/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Member
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/MemberResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MemberResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/PoolMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PoolMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/PoolRefRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PoolRefRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/PublicIp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PublicIp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/RemovePublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RemovePublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/RuleResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RuleResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secret
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SecurityGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SecurityGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SessionPersistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SessionPersistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/SessionPersistenceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SessionPersistenceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Subnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TargetGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TargetGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TargetGroupHealthMonitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TargetGroupHealthMonitor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TLSVersion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLSVersion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateAccessLog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateAccessLog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateAccessLogRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateAccessLogRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateAccessLogResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateAccessLogResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdatedL7Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedL7Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdatedListener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdatedLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdatedRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedRule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroupLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroupLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroupLoadBalancerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroupLoadBalancerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroupLoadBalancerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroupLoadBalancerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHaGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHaGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHealthMonitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHealthMonitor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHealthMonitorRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHealthMonitorRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateHealthMonitorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateHealthMonitorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7PolicyRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7PolicyRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7PolicyResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7PolicyResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7PolicyRule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7PolicyRule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7PolicyRuleRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7PolicyRuleRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateL7PolicyRuleResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateL7PolicyRuleResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateListener/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateListener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateListenerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateListenerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateListenerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateListenerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateLoadBalancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateLoadBalancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateLoadBalancerRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateLoadBalancerRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateLoadBalancerResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateLoadBalancerResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTarget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTarget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTargetsRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTargetsRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/VpcSubnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VpcSubnet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/VpcSubnetRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VpcSubnetRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/XForwardedFor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XForwardedFor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/XForwardedProto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XForwardedProto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#associatenewpublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AssociateNewPublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AssociateNewPublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associatepublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AssociatePublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AssociatePublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listavailabilityzones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListAvailabilityZones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListAvailabilityZones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listloadbalancertypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListLoadBalancerTypes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListLoadBalancerTypes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listloadbalancers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListLoadBalancers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListLoadBalancers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtlscertificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTlsCertificates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTlsCertificates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removepublicip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RemovePublicIp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RemovePublicIp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateaccesslog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateAccessLog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateAccessLog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateloadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateLoadBalancer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateLoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="loadbalancerapi">\LoadBalancerAPI</h1>
+<p>All URIs are relative to <em>https://load-balancer.kr-central-2.kakaocloud.com</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>HTTP request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./#AssociateNewPublicIp"><strong>AssociateNewPublicIp</strong></a></td>
+<td><strong>Post</strong> /api/v1/load-balancers/{load_balancer_id}/public-ips</td>
+<td>Associate new public IP</td>
+</tr>
+<tr>
+<td><a href="./#AssociatePublicIp"><strong>AssociatePublicIp</strong></a></td>
+<td><strong>Put</strong> /api/v1/load-balancers/{load_balancer_id}/public-ips/{public_ip_id}</td>
+<td>Associate public IP</td>
+</tr>
+<tr>
+<td><a href="./#CreateLoadBalancer"><strong>CreateLoadBalancer</strong></a></td>
+<td><strong>Post</strong> /api/v1/load-balancers</td>
+<td>Create load balancer</td>
+</tr>
+<tr>
+<td><a href="./#DeleteLoadBalancer"><strong>DeleteLoadBalancer</strong></a></td>
+<td><strong>Delete</strong> /api/v1/load-balancers/{load_balancer_id}</td>
+<td>Delete load balancer</td>
+</tr>
+<tr>
+<td><a href="./#GetLoadBalancer"><strong>GetLoadBalancer</strong></a></td>
+<td><strong>Get</strong> /api/v1/load-balancers/{load_balancer_id}</td>
+<td>Get load balancer</td>
+</tr>
+<tr>
+<td><a href="./#ListAvailabilityZones"><strong>ListAvailabilityZones</strong></a></td>
+<td><strong>Get</strong> /api/v1/load-balancers/availability-zones</td>
+<td>List availability zones</td>
+</tr>
+<tr>
+<td><a href="./#ListLoadBalancerTypes"><strong>ListLoadBalancerTypes</strong></a></td>
+<td><strong>Get</strong> /api/v1/load-balancers/flavors</td>
+<td>List load balancer types</td>
+</tr>
+<tr>
+<td><a href="./#ListLoadBalancers"><strong>ListLoadBalancers</strong></a></td>
+<td><strong>Get</strong> /api/v1/load-balancers</td>
+<td>List load balancers</td>
+</tr>
+<tr>
+<td><a href="./#ListTlsCertificates"><strong>ListTlsCertificates</strong></a></td>
+<td><strong>Get</strong> /api/v1/load-balancers/secrets</td>
+<td>List TLS certificates</td>
+</tr>
+<tr>
+<td><a href="./#RemovePublicIp"><strong>RemovePublicIp</strong></a></td>
+<td><strong>Delete</strong> /api/v1/load-balancers/{load_balancer_id}/public-ips</td>
+<td>Remove public IP</td>
+</tr>
+<tr>
+<td><a href="./#UpdateAccessLog"><strong>UpdateAccessLog</strong></a></td>
+<td><strong>Patch</strong> /api/v1/load-balancers/{load_balancer_id}/access-log</td>
+<td>Update access log</td>
+</tr>
+<tr>
+<td><a href="./#UpdateLoadBalancer"><strong>UpdateLoadBalancer</strong></a></td>
+<td><strong>Put</strong> /api/v1/load-balancers/{load_balancer_id}</td>
+<td>Update load balancer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="associatenewpublicip">AssociateNewPublicIp</h2>
+<blockquote>
+<p>AssociateNewPublicIpResponse AssociateNewPublicIp(ctx, loadBalancerId).Execute()</p>
+</blockquote>
+<p>Associate new public IP</p>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 퍼블릭 IP를 연결할 대상 로드 밸런서 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">AssociateNewPublicIp</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.AssociateNewPublicIp``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `AssociateNewPublicIp`: AssociateNewPublicIpResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.AssociateNewPublicIp`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>퍼블릭 IP를 연결할 대상 로드 밸런서 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiAssociateNewPublicIpRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type">Return type</h3>
+<p><a href="AssociateNewPublicIpResponse.md"><strong>AssociateNewPublicIpResponse</strong></a></p>
+<h3 id="authorization">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="associatepublicip">AssociatePublicIp</h2>
+<blockquote>
+<p>AssociatePublicIpResponse AssociatePublicIp(ctx, loadBalancerId, publicIpId).Execute()</p>
+</blockquote>
+<p>Associate public IP</p>
+<h3 id="example_1">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 퍼블릭 IP를 연결할 대상 로드 밸런서 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+<span class="w">    </span><span class="nx">publicIpId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"publicIpId_example"</span><span class="w"> </span><span class="c1">// string | 연결할 퍼블릭 IP의 고유 ID - [List public IPs](/openapi/networking/vpc/list-public-ips)에서 확인</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">AssociatePublicIp</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">,</span><span class="w"> </span><span class="nx">publicIpId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.AssociatePublicIp``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `AssociatePublicIp`: AssociatePublicIpResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.AssociatePublicIp`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_1">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>퍼블릭 IP를 연결할 대상 로드 밸런서 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>publicIpId</strong></td>
+<td><strong>string</strong></td>
+<td>연결할 퍼블릭 IP의 고유 ID - <a href="/openapi/networking/vpc/list-public-ips">List public IPs</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_1">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiAssociatePublicIpRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_1">Return type</h3>
+<p><a href="AssociatePublicIpResponse.md"><strong>AssociatePublicIpResponse</strong></a></p>
+<h3 id="authorization_1">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_1">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="createloadbalancer">CreateLoadBalancer</h2>
+<blockquote>
+<p>CreateLoadBalancerResponse CreateLoadBalancer(ctx).CreateLoadBalancerRequest(createLoadBalancerRequest).Execute()</p>
+</blockquote>
+<p>Create load balancer</p>
+<h3 id="example_2">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">createLoadBalancerRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateLoadBalancerRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateLoadBalancer</span><span class="p">(</span><span class="s">"Name_example"</span><span class="p">,</span><span class="w"> </span><span class="s">"SubnetId_example"</span><span class="p">,</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">AvailabilityZone</span><span class="p">(</span><span class="s">"kr-central-2-a"</span><span class="p">),</span><span class="w"> </span><span class="s">"FlavorId_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// CreateLoadBalancerRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">CreateLoadBalancer</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">CreateLoadBalancerRequest</span><span class="p">(</span><span class="nx">createLoadBalancerRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.CreateLoadBalancer``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `CreateLoadBalancer`: CreateLoadBalancerResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.CreateLoadBalancer`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_2">Path Parameters</h3>
+<h3 id="other-parameters_2">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiCreateLoadBalancerRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>createLoadBalancerRequest</strong></td>
+<td><a href="CreateLoadBalancerRequest.md"><strong>CreateLoadBalancerRequest</strong></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_2">Return type</h3>
+<p><a href="CreateLoadBalancerResponse.md"><strong>CreateLoadBalancerResponse</strong></a></p>
+<h3 id="authorization_2">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_2">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="deleteloadbalancer">DeleteLoadBalancer</h2>
+<blockquote>
+<p>DeleteLoadBalancer(ctx, loadBalancerId).Execute()</p>
+</blockquote>
+<p>Delete load balancer</p>
+<h3 id="example_3">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 삭제할 로드 밸런서의 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">DeleteLoadBalancer</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.DeleteLoadBalancer``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_3">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>삭제할 로드 밸런서의 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_3">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiDeleteLoadBalancerRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_3">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_3">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_3">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="getloadbalancer">GetLoadBalancer</h2>
+<blockquote>
+<p>GetLoadBalancerResponse GetLoadBalancer(ctx, loadBalancerId).Execute()</p>
+</blockquote>
+<p>Get load balancer</p>
+<h3 id="example_4">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 조회할 로드 밸런서의 ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">GetLoadBalancer</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.GetLoadBalancer``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `GetLoadBalancer`: GetLoadBalancerResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.GetLoadBalancer`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_4">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>조회할 로드 밸런서의 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_4">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiGetLoadBalancerRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_4">Return type</h3>
+<p><a href="GetLoadBalancerResponse.md"><strong>GetLoadBalancerResponse</strong></a></p>
+<h3 id="authorization_4">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_4">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listavailabilityzones">ListAvailabilityZones</h2>
+<blockquote>
+<p>ListAvailabilityZonesResponse ListAvailabilityZones(ctx).Execute()</p>
+</blockquote>
+<p>List availability zones</p>
+<h3 id="example_5">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">ListAvailabilityZones</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.ListAvailabilityZones``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListAvailabilityZones`: ListAvailabilityZonesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.ListAvailabilityZones`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_5">Path Parameters</h3>
+<p>This endpoint does not need any parameter.</p>
+<h3 id="other-parameters_5">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListAvailabilityZonesRequest struct via the builder pattern</p>
+<h3 id="return-type_5">Return type</h3>
+<p><a href="ListAvailabilityZonesResponse.md"><strong>ListAvailabilityZonesResponse</strong></a></p>
+<h3 id="authorization_5">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_5">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listloadbalancertypes">ListLoadBalancerTypes</h2>
+<blockquote>
+<p>ListLoadBalancerTypesResponse ListLoadBalancerTypes(ctx).Execute()</p>
+</blockquote>
+<p>List load balancer types</p>
+<h3 id="example_6">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">ListLoadBalancerTypes</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.ListLoadBalancerTypes``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListLoadBalancerTypes`: ListLoadBalancerTypesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.ListLoadBalancerTypes`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_6">Path Parameters</h3>
+<p>This endpoint does not need any parameter.</p>
+<h3 id="other-parameters_6">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListLoadBalancerTypesRequest struct via the builder pattern</p>
+<h3 id="return-type_6">Return type</h3>
+<p><a href="ListLoadBalancerTypesResponse.md"><strong>ListLoadBalancerTypesResponse</strong></a></p>
+<h3 id="authorization_6">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_6">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listloadbalancers">ListLoadBalancers</h2>
+<blockquote>
+<p>ListLoadBalancersResponse ListLoadBalancers(ctx).Id(id).Name(name).Type_(type_).PrivateVip(privateVip).PublicVip(publicVip).ProvisioningStatus(provisioningStatus).OperatingStatus(operatingStatus).SubnetId(subnetId).SubnetCidrBlock(subnetCidrBlock).VpcName(vpcName).VpcId(vpcId).AvailabilityZone(availabilityZone).BeyondLoadBalancerName(beyondLoadBalancerName).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()</p>
+</blockquote>
+<p>List load balancers</p>
+<h3 id="example_7">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"id_example"</span><span class="w"> </span><span class="c1">// string | 로드 밸런서 ID (optional)</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"name_example"</span><span class="w"> </span><span class="c1">// string | 로드 밸런서 이름 (optional)</span>
+<span class="w">    </span><span class="nx">type_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">LoadBalancerType</span><span class="p">(</span><span class="s">"ALB"</span><span class="p">)</span><span class="w"> </span><span class="c1">// LoadBalancerType | 로드 밸런서 유형 (optional)</span>
+<span class="w">    </span><span class="nx">privateVip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"privateVip_example"</span><span class="w"> </span><span class="c1">// string | 내부 VIP 주소 (optional)</span>
+<span class="w">    </span><span class="nx">publicVip</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"publicVip_example"</span><span class="w"> </span><span class="c1">// string | 외부 VIP 주소 (optional)</span>
+<span class="w">    </span><span class="nx">provisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">ProvisioningStatus</span><span class="p">(</span><span class="s">"ACTIVE"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ProvisioningStatus | 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">operatingStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">LoadBalancerOperatingStatus</span><span class="p">(</span><span class="s">"ONLINE"</span><span class="p">)</span><span class="w"> </span><span class="c1">// LoadBalancerOperatingStatus | 운영 상태 (optional)</span>
+<span class="w">    </span><span class="nx">subnetId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"subnetId_example"</span><span class="w"> </span><span class="c1">// string | 서브넷 ID (optional)</span>
+<span class="w">    </span><span class="nx">subnetCidrBlock</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"subnetCidrBlock_example"</span><span class="w"> </span><span class="c1">// string | 서브넷의 IPv4 CIDR 블록 (optional)</span>
+<span class="w">    </span><span class="nx">vpcName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"vpcName_example"</span><span class="w"> </span><span class="c1">// string | VPC 이름 (optional)</span>
+<span class="w">    </span><span class="nx">vpcId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"vpcId_example"</span><span class="w"> </span><span class="c1">// string | VPC의 고유 ID (optional)</span>
+<span class="w">    </span><span class="nx">availabilityZone</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">AvailabilityZone</span><span class="p">(</span><span class="s">"kr-central-2-a"</span><span class="p">)</span><span class="w"> </span><span class="c1">// AvailabilityZone | 가용 영역 (optional)</span>
+<span class="w">    </span><span class="nx">beyondLoadBalancerName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"beyondLoadBalancerName_example"</span><span class="w"> </span><span class="c1">// string | 연결된 고가용성 그룹 이름 (optional)</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"createdAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">updatedAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"updatedAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">sortKeys</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortKeys_example"</span><span class="w"> </span><span class="c1">// string | 정렬할 필드를 콤마(,)로 구분 (optional)</span>
+<span class="w">    </span><span class="nx">sortDirs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortDirs_example"</span><span class="w"> </span><span class="c1">// string | 정렬 방향 (`asc`, `desc`) (optional)</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">ListLoadBalancers</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">Id</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">Name</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">Type_</span><span class="p">(</span><span class="nx">type_</span><span class="p">).</span><span class="nx">PrivateVip</span><span class="p">(</span><span class="nx">privateVip</span><span class="p">).</span><span class="nx">PublicVip</span><span class="p">(</span><span class="nx">publicVip</span><span class="p">).</span><span class="nx">ProvisioningStatus</span><span class="p">(</span><span class="nx">provisioningStatus</span><span class="p">).</span><span class="nx">OperatingStatus</span><span class="p">(</span><span class="nx">operatingStatus</span><span class="p">).</span><span class="nx">SubnetId</span><span class="p">(</span><span class="nx">subnetId</span><span class="p">).</span><span class="nx">SubnetCidrBlock</span><span class="p">(</span><span class="nx">subnetCidrBlock</span><span class="p">).</span><span class="nx">VpcName</span><span class="p">(</span><span class="nx">vpcName</span><span class="p">).</span><span class="nx">VpcId</span><span class="p">(</span><span class="nx">vpcId</span><span class="p">).</span><span class="nx">AvailabilityZone</span><span class="p">(</span><span class="nx">availabilityZone</span><span class="p">).</span><span class="nx">BeyondLoadBalancerName</span><span class="p">(</span><span class="nx">beyondLoadBalancerName</span><span class="p">).</span><span class="nx">CreatedAt</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">UpdatedAt</span><span class="p">(</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">SortKeys</span><span class="p">(</span><span class="nx">sortKeys</span><span class="p">).</span><span class="nx">SortDirs</span><span class="p">(</span><span class="nx">sortDirs</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.ListLoadBalancers``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListLoadBalancers`: ListLoadBalancersResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.ListLoadBalancers`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_7">Path Parameters</h3>
+<h3 id="other-parameters_7">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListLoadBalancersRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>string</strong></td>
+<td>로드 밸런서 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>string</strong></td>
+<td>로드 밸런서 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>type_</strong></td>
+<td><a href="LoadBalancerType.md"><strong>LoadBalancerType</strong></a></td>
+<td>로드 밸런서 유형</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>privateVip</strong></td>
+<td><strong>string</strong></td>
+<td>내부 VIP 주소</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>publicVip</strong></td>
+<td><strong>string</strong></td>
+<td>외부 VIP 주소</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>provisioningStatus</strong></td>
+<td><a href="ProvisioningStatus.md"><strong>ProvisioningStatus</strong></a></td>
+<td>프로비저닝 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>operatingStatus</strong></td>
+<td><a href="LoadBalancerOperatingStatus.md"><strong>LoadBalancerOperatingStatus</strong></a></td>
+<td>운영 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>subnetId</strong></td>
+<td><strong>string</strong></td>
+<td>서브넷 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>subnetCidrBlock</strong></td>
+<td><strong>string</strong></td>
+<td>서브넷의 IPv4 CIDR 블록</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>vpcName</strong></td>
+<td><strong>string</strong></td>
+<td>VPC 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>vpcId</strong></td>
+<td><strong>string</strong></td>
+<td>VPC의 고유 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>availabilityZone</strong></td>
+<td><a href="AvailabilityZone.md"><strong>AvailabilityZone</strong></a></td>
+<td>가용 영역</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>beyondLoadBalancerName</strong></td>
+<td><strong>string</strong></td>
+<td>연결된 고가용성 그룹 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>createdAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>updatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortKeys</strong></td>
+<td><strong>string</strong></td>
+<td>정렬할 필드를 콤마(,)로 구분</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortDirs</strong></td>
+<td><strong>string</strong></td>
+<td>정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td><strong>int32</strong></td>
+<td>조회 시작 위치</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td><strong>int32</strong></td>
+<td>페이지당 최대 반환 항목 수</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_7">Return type</h3>
+<p><a href="ListLoadBalancersResponse.md"><strong>ListLoadBalancersResponse</strong></a></p>
+<h3 id="authorization_7">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_7">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listtlscertificates">ListTlsCertificates</h2>
+<blockquote>
+<p>ListTlsCertificatesResponse ListTlsCertificates(ctx).Offset(offset).Limit(limit).Name(name).CreatedAt(createdAt).UpdatedAt(updatedAt).Expiration(expiration).Execute()</p>
+</blockquote>
+<p>List TLS certificates</p>
+<h3 id="example_8">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"name_example"</span><span class="w"> </span><span class="c1">// string | 인증서 이름 (optional)</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"createdAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">updatedAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"updatedAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">expiration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"expiration_example"</span><span class="w"> </span><span class="c1">// string | 만료일 - ISO 8601 형식 - UTC 기준 (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">ListTlsCertificates</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">Name</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">CreatedAt</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">UpdatedAt</span><span class="p">(</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">Expiration</span><span class="p">(</span><span class="nx">expiration</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.ListTlsCertificates``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListTlsCertificates`: ListTlsCertificatesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.ListTlsCertificates`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_8">Path Parameters</h3>
+<h3 id="other-parameters_8">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListTlsCertificatesRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td><strong>int32</strong></td>
+<td>조회 시작 위치</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td><strong>int32</strong></td>
+<td>페이지당 최대 반환 항목 수</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>string</strong></td>
+<td>인증서 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>createdAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>updatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>expiration</strong></td>
+<td><strong>string</strong></td>
+<td>만료일 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_8">Return type</h3>
+<p><a href="ListTlsCertificatesResponse.md"><strong>ListTlsCertificatesResponse</strong></a></p>
+<h3 id="authorization_8">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_8">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="removepublicip">RemovePublicIp</h2>
+<blockquote>
+<p>RemovePublicIpResponse RemovePublicIp(ctx, loadBalancerId).IsDelete(isDelete).Execute()</p>
+</blockquote>
+<p>Remove public IP</p>
+<h3 id="example_9">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 퍼블릭 IP를 제거할 대상 로드 밸런서 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+<span class="w">    </span><span class="nx">isDelete</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// bool | - `true`로 지정하면 퍼블릭 IP를 함께 삭제함 - `false`인 경우 연결만 해제하고 IP는 유지됨 (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">RemovePublicIp</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">IsDelete</span><span class="p">(</span><span class="nx">isDelete</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.RemovePublicIp``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `RemovePublicIp`: RemovePublicIpResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.RemovePublicIp`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_9">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>퍼블릭 IP를 제거할 대상 로드 밸런서 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_9">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiRemovePublicIpRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>isDelete</strong> | <strong>bool</strong> | - &#x60;true&#x60;로 지정하면 퍼블릭 IP를 함께 삭제함 - &#x60;false&#x60;인 경우 연결만 해제하고 IP는 유지됨 | </p>
+<h3 id="return-type_9">Return type</h3>
+<p><a href="RemovePublicIpResponse.md"><strong>RemovePublicIpResponse</strong></a></p>
+<h3 id="authorization_9">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_9">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="updateaccesslog">UpdateAccessLog</h2>
+<blockquote>
+<p>UpdateAccessLogResponse UpdateAccessLog(ctx, loadBalancerId).UpdateAccessLogRequest(updateAccessLogRequest).Execute()</p>
+</blockquote>
+<p>Update access log</p>
+<h3 id="example_10">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 액세스 로그 설정을 변경할 로드 밸런서 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+<span class="w">    </span><span class="nx">updateAccessLogRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateAccessLogRequest</span><span class="p">()</span><span class="w"> </span><span class="c1">// UpdateAccessLogRequest |  (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">UpdateAccessLog</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">UpdateAccessLogRequest</span><span class="p">(</span><span class="nx">updateAccessLogRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.UpdateAccessLog``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `UpdateAccessLog`: UpdateAccessLogResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.UpdateAccessLog`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_10">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>액세스 로그 설정을 변경할 로드 밸런서 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_10">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiUpdateAccessLogRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>updateAccessLogRequest</strong> | <a href="UpdateAccessLogRequest.md"><strong>UpdateAccessLogRequest</strong></a> |  | </p>
+<h3 id="return-type_10">Return type</h3>
+<p><a href="UpdateAccessLogResponse.md"><strong>UpdateAccessLogResponse</strong></a></p>
+<h3 id="authorization_10">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_10">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="updateloadbalancer">UpdateLoadBalancer</h2>
+<blockquote>
+<p>UpdateLoadBalancerResponse UpdateLoadBalancer(ctx, loadBalancerId).UpdateLoadBalancerRequest(updateLoadBalancerRequest).Execute()</p>
+</blockquote>
+<p>Update load balancer</p>
+<h3 id="example_11">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/loadbalancer"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">loadBalancerId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"loadBalancerId_example"</span><span class="w"> </span><span class="c1">// string | 수정할 로드 밸런서의 ID - [List load balancers](/openapi/networking/lb/list-load-balancers)에서 확인</span>
+<span class="w">    </span><span class="nx">updateLoadBalancerRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateLoadBalancerRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateLoadBalancer</span><span class="p">())</span><span class="w"> </span><span class="c1">// UpdateLoadBalancerRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">LoadBalancerAPI</span><span class="p">.</span><span class="nx">UpdateLoadBalancer</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">loadBalancerId</span><span class="p">).</span><span class="nx">UpdateLoadBalancerRequest</span><span class="p">(</span><span class="nx">updateLoadBalancerRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `LoadBalancerAPI.UpdateLoadBalancer``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `UpdateLoadBalancer`: UpdateLoadBalancerResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `LoadBalancerAPI.UpdateLoadBalancer`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_11">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>loadBalancerId</strong></td>
+<td><strong>string</strong></td>
+<td>수정할 로드 밸런서의 ID - <a href="/openapi/networking/lb/list-load-balancers">List load balancers</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_11">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiUpdateLoadBalancerRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>updateLoadBalancerRequest</strong> | <a href="UpdateLoadBalancerRequest.md"><strong>UpdateLoadBalancerRequest</strong></a> |  | </p>
+<h3 id="return-type_11">Return type</h3>
+<p><a href="UpdateLoadBalancerResponse.md"><strong>UpdateLoadBalancerResponse</strong></a></p>
+<h3 id="authorization_11">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_11">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

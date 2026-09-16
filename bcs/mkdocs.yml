@@ -1,0 +1,93 @@
+site_name: kc-sdk-go/v2/bcs (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - InstanceAPI.md: api/InstanceAPI.md
+      - KeypairAPI.md: api/KeypairAPI.md
+  - Models:
+      - Action: models/Action.md
+      - AllowedAddressPair: models/AllowedAddressPair.md
+      - AssociateNewPublicIpResponse: models/AssociateNewPublicIpResponse.md
+      - AssociatePublicIpResponse: models/AssociatePublicIpResponse.md
+      - AttachedVolume: models/AttachedVolume.md
+      - AttachNetworkInterfaceResponse: models/AttachNetworkInterfaceResponse.md
+      - AttachSecurityGroupResponse: models/AttachSecurityGroupResponse.md
+      - AttachVolume: models/AttachVolume.md
+      - AttachVolumeRequest: models/AttachVolumeRequest.md
+      - AttachVolumeResponse: models/AttachVolumeResponse.md
+      - AvailabilityZone: models/AvailabilityZone.md
+      - BlockDeviceMappingRequest: models/BlockDeviceMappingRequest.md
+      - CreatedInstance: models/CreatedInstance.md
+      - CreatedKeypair: models/CreatedKeypair.md
+      - CreateInstance: models/CreateInstance.md
+      - CreateInstanceRequest: models/CreateInstanceRequest.md
+      - CreateInstanceResponse: models/CreateInstanceResponse.md
+      - CreateKeypair: models/CreateKeypair.md
+      - CreateKeypairRequest: models/CreateKeypairRequest.md
+      - CreateKeypairResponse: models/CreateKeypairResponse.md
+      - DetachSecurityGroupResponse: models/DetachSecurityGroupResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - FixedIp: models/FixedIp.md
+      - Flavor: models/Flavor.md
+      - GetInstanceConsoleLogResponse: models/GetInstanceConsoleLogResponse.md
+      - GetInstancePasswordResponse: models/GetInstancePasswordResponse.md
+      - GetInstanceResponse: models/GetInstanceResponse.md
+      - GetInstanceTypeResponse: models/GetInstanceTypeResponse.md
+      - GetKeypairResponse: models/GetKeypairResponse.md
+      - Image: models/Image.md
+      - Instance: models/Instance.md
+      - InstanceActionType: models/InstanceActionType.md
+      - InstanceAddress: models/InstanceAddress.md
+      - InstanceFlavor: models/InstanceFlavor.md
+      - InstanceSg: models/InstanceSg.md
+      - InstanceType: models/InstanceType.md
+      - InterfaceAttachment: models/InterfaceAttachment.md
+      - Keypair: models/Keypair.md
+      - ListInstanceActionLogsResponse: models/ListInstanceActionLogsResponse.md
+      - ListInstanceNetworkInterface: models/ListInstanceNetworkInterface.md
+      - ListInstanceNetworkInterfacesResponse: models/ListInstanceNetworkInterfacesResponse.md
+      - ListInstanceNetworkInterfacesSecurityGroup: models/ListInstanceNetworkInterfacesSecurityGroup.md
+      - ListInstancesResponse: models/ListInstancesResponse.md
+      - ListInstanceTypesResponse: models/ListInstanceTypesResponse.md
+      - ListKeypairsResponse: models/ListKeypairsResponse.md
+      - NetworkInterface: models/NetworkInterface.md
+      - NetworkInterfaceStatus: models/NetworkInterfaceStatus.md
+      - PowerState: models/PowerState.md
+      - PublicIp: models/PublicIp.md
+      - RebuildInstance: models/RebuildInstance.md
+      - RebuildInstanceAttachedVolume: models/RebuildInstanceAttachedVolume.md
+      - RebuildInstanceFlavor: models/RebuildInstanceFlavor.md
+      - RebuildInstanceRequest: models/RebuildInstanceRequest.md
+      - RebuildInstanceResponse: models/RebuildInstanceResponse.md
+      - RebuiltInstance: models/RebuiltInstance.md
+      - RemovePublicIpResponse: models/RemovePublicIpResponse.md
+      - ResizeInstance: models/ResizeInstance.md
+      - ResizeInstanceRequest: models/ResizeInstanceRequest.md
+      - SecurityGroup: models/SecurityGroup.md
+      - SecurityGroupRequest: models/SecurityGroupRequest.md
+      - SourceType: models/SourceType.md
+      - SubnetRequest: models/SubnetRequest.md
+      - UpdatedAttachedVolume: models/UpdatedAttachedVolume.md
+      - UpdatedFlavor: models/UpdatedFlavor.md
+      - UpdatedInstance: models/UpdatedInstance.md
+      - UpdatedNetworkInterface: models/UpdatedNetworkInterface.md
+      - UpdateInstance: models/UpdateInstance.md
+      - UpdateInstanceRequest: models/UpdateInstanceRequest.md
+      - UpdateInstanceResponse: models/UpdateInstanceResponse.md
+      - UpdateInstanceVolume: models/UpdateInstanceVolume.md
+      - UpdateInstanceVolumeRequest: models/UpdateInstanceVolumeRequest.md
+      - UpdateNetworkInterfaceAllowedAddresses: models/UpdateNetworkInterfaceAllowedAddresses.md
+      - UpdateNetworkInterfaceAllowedAddressesRequest: models/UpdateNetworkInterfaceAllowedAddressesRequest.md
+      - UpdateNetworkInterfaceAllowedAddressesResponse: models/UpdateNetworkInterfaceAllowedAddressesResponse.md
+      - VolumeAttachment: models/VolumeAttachment.md

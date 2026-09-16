@@ -1,0 +1,109 @@
+site_name: kc-sdk-go/v2/kms (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - KeyAPI.md: api/KeyAPI.md
+      - KeyVersionAPI.md: api/KeyVersionAPI.md
+      - KMSAPI.md: api/KMSAPI.md
+      - PublicKeyAPI.md: api/PublicKeyAPI.md
+  - Models:
+      - AccessControl: models/AccessControl.md
+      - AccessTargets: models/AccessTargets.md
+      - ActivateKmsServiceResponse: models/ActivateKmsServiceResponse.md
+      - ActivateKMSServiceResponseInner: models/ActivateKMSServiceResponseInner.md
+      - AddUserKeyAccessTargets: models/AddUserKeyAccessTargets.md
+      - AddUserKeyAccessTargetsRequest: models/AddUserKeyAccessTargetsRequest.md
+      - AddUserKeyAccessTargetsResponse: models/AddUserKeyAccessTargetsResponse.md
+      - Algorithm: models/Algorithm.md
+      - BulkCancelScheduledKeyVersionDestruction: models/BulkCancelScheduledKeyVersionDestruction.md
+      - BulkCancelScheduledKeyVersionDestructionRequest: models/BulkCancelScheduledKeyVersionDestructionRequest.md
+      - BulkCancelScheduledKeyVersionDestructionResponse: models/BulkCancelScheduledKeyVersionDestructionResponse.md
+      - BulkDeleteUserKeys: models/BulkDeleteUserKeys.md
+      - BulkDeleteUserKeysRequest: models/BulkDeleteUserKeysRequest.md
+      - BulkDeleteUserKeysResponse: models/BulkDeleteUserKeysResponse.md
+      - BulkScheduleKeyVersionDestruction: models/BulkScheduleKeyVersionDestruction.md
+      - BulkScheduleKeyVersionDestructionRequest: models/BulkScheduleKeyVersionDestructionRequest.md
+      - BulkScheduleKeyVersionDestructionResponse: models/BulkScheduleKeyVersionDestructionResponse.md
+      - CancelScheduledKeyVersionDestructionResponse: models/CancelScheduledKeyVersionDestructionResponse.md
+      - CreateDataKeyResponse: models/CreateDataKeyResponse.md
+      - CreateKeyVersionResponse: models/CreateKeyVersionResponse.md
+      - CreateUserKey: models/CreateUserKey.md
+      - CreateUserKeyRequest: models/CreateUserKeyRequest.md
+      - CreateUserKeyResponse: models/CreateUserKeyResponse.md
+      - DataKey: models/DataKey.md
+      - DeactivateKeyVersionResponse: models/DeactivateKeyVersionResponse.md
+      - DeactivateKeyVersionVersion: models/DeactivateKeyVersionVersion.md
+      - Decrypt: models/Decrypt.md
+      - DecryptData: models/DecryptData.md
+      - DecryptDataRequest: models/DecryptDataRequest.md
+      - DecryptDataResponse: models/DecryptDataResponse.md
+      - Encrypt: models/Encrypt.md
+      - EncryptData: models/EncryptData.md
+      - EncryptDataRequest: models/EncryptDataRequest.md
+      - EncryptDataResponse: models/EncryptDataResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GenerateHmac: models/GenerateHmac.md
+      - GenerateHmacRequest: models/GenerateHmacRequest.md
+      - GenerateHmacResponse: models/GenerateHmacResponse.md
+      - GetKeyByNameKey: models/GetKeyByNameKey.md
+      - GetKeyByNameResponse: models/GetKeyByNameResponse.md
+      - GetKeyResponse: models/GetKeyResponse.md
+      - GetKmsServiceStatusResponse: models/GetKmsServiceStatusResponse.md
+      - GetKMSServiceStatusResponseInner: models/GetKMSServiceStatusResponseInner.md
+      - GetPublicKeyResponse: models/GetPublicKeyResponse.md
+      - GetPublicKeyResponseInner: models/GetPublicKeyResponseInner.md
+      - HMAC: models/HMAC.md
+      - Key: models/Key.md
+      - KeyAlgorithm: models/KeyAlgorithm.md
+      - KeyPurpose: models/KeyPurpose.md
+      - KeyStatus: models/KeyStatus.md
+      - KeyType: models/KeyType.md
+      - KeyVersion: models/KeyVersion.md
+      - KeyVersionStatus: models/KeyVersionStatus.md
+      - ListKeyAlgorithmsResponse: models/ListKeyAlgorithmsResponse.md
+      - ListKeyVersionsResponse: models/ListKeyVersionsResponse.md
+      - ListServiceKeysResponse: models/ListServiceKeysResponse.md
+      - ListSymmetricKeysResponse: models/ListSymmetricKeysResponse.md
+      - ListUserKeyAccessTargetsResponse: models/ListUserKeyAccessTargetsResponse.md
+      - ListUserKeysResponse: models/ListUserKeysResponse.md
+      - RemoveUserKeyAccessTargets: models/RemoveUserKeyAccessTargets.md
+      - RemoveUserKeyAccessTargetsRequest: models/RemoveUserKeyAccessTargetsRequest.md
+      - RemoveUserKeyAccessTargetsResponse: models/RemoveUserKeyAccessTargetsResponse.md
+      - Result: models/Result.md
+      - ScheduleKeyVersionDestruction: models/ScheduleKeyVersionDestruction.md
+      - ScheduleKeyVersionDestructionRequest: models/ScheduleKeyVersionDestructionRequest.md
+      - ScheduleKeyVersionDestructionResponse: models/ScheduleKeyVersionDestructionResponse.md
+      - ServiceKey: models/ServiceKey.md
+      - Sign: models/Sign.md
+      - SignData: models/SignData.md
+      - SignDataRequest: models/SignDataRequest.md
+      - SignDataResponse: models/SignDataResponse.md
+      - SymmetricKey: models/SymmetricKey.md
+      - Target: models/Target.md
+      - UpdatedResult: models/UpdatedResult.md
+      - UpdateUserKeyAccessControl: models/UpdateUserKeyAccessControl.md
+      - UpdateUserKeyAccessControlRequest: models/UpdateUserKeyAccessControlRequest.md
+      - UpdateUserKeyAccessControlResponse: models/UpdateUserKeyAccessControlResponse.md
+      - UpdateUserKeyRotation: models/UpdateUserKeyRotation.md
+      - UpdateUserKeyRotationRequest: models/UpdateUserKeyRotationRequest.md
+      - UpdateUserKeyRotationResponse: models/UpdateUserKeyRotationResponse.md
+      - VerifyHmac: models/VerifyHmac.md
+      - VerifyHmacRequest: models/VerifyHmacRequest.md
+      - VerifyHmacResponse: models/VerifyHmacResponse.md
+      - VerifyHMACResponseInner: models/VerifyHMACResponseInner.md
+      - VerifySignature: models/VerifySignature.md
+      - VerifySignatureRequest: models/VerifySignatureRequest.md
+      - VerifySignatureResponse: models/VerifySignatureResponse.md
+      - VerifySignatureResponseInner: models/VerifySignatureResponseInner.md
+      - Version: models/Version.md

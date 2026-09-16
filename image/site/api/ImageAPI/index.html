@@ -1,0 +1,2875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../models/AddImageShareMember/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ImageAPI.md - kc-sdk-go/v2/image (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#imageapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/image (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/image (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/image (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ImageAPI.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/image (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/image (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/image (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageAPI.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#addimageshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AddImageShare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AddImageShare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listimagesharedprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListImageSharedProjects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListImageSharedProjects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listimages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListImages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListImages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeimageshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RemoveImageShare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RemoveImageShare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddImageShareMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddImageShareMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AddImageShareResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddImageShareResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetImageResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetImageResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ImageInstanceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageInstanceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ImageType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListImageSharedProjectsMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImageSharedProjectsMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListImageSharedProjectsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImageSharedProjectsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListImagesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImagesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/OsInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OsInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdatedImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedImage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateImageRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImageRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateImageResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImageResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#addimageshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AddImageShare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AddImageShare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listimagesharedprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListImageSharedProjects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListImageSharedProjects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listimages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListImages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListImages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeimageshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RemoveImageShare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RemoveImageShare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateImage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateImage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="imageapi">\ImageAPI</h1>
+<p>All URIs are relative to <em>https://image.kr-central-2.kakaocloud.com</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>HTTP request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./#AddImageShare"><strong>AddImageShare</strong></a></td>
+<td><strong>Post</strong> /api/v1/images/{image_id}/members/{member_id}</td>
+<td>Add image share</td>
+</tr>
+<tr>
+<td><a href="./#DeleteImage"><strong>DeleteImage</strong></a></td>
+<td><strong>Delete</strong> /api/v1/images/{image_id}</td>
+<td>Delete image</td>
+</tr>
+<tr>
+<td><a href="./#GetImage"><strong>GetImage</strong></a></td>
+<td><strong>Get</strong> /api/v1/images/{image_id}</td>
+<td>Get image</td>
+</tr>
+<tr>
+<td><a href="./#ListImageSharedProjects"><strong>ListImageSharedProjects</strong></a></td>
+<td><strong>Get</strong> /api/v1/images/{image_id}/members</td>
+<td>List image shared projects</td>
+</tr>
+<tr>
+<td><a href="./#ListImages"><strong>ListImages</strong></a></td>
+<td><strong>Get</strong> /api/v1/images</td>
+<td>List images</td>
+</tr>
+<tr>
+<td><a href="./#RemoveImageShare"><strong>RemoveImageShare</strong></a></td>
+<td><strong>Delete</strong> /api/v1/images/{image_id}/members/{member_id}</td>
+<td>Remove image share</td>
+</tr>
+<tr>
+<td><a href="./#UpdateImage"><strong>UpdateImage</strong></a></td>
+<td><strong>Put</strong> /api/v1/images/{image_id}</td>
+<td>Update image</td>
+</tr>
+</tbody>
+</table>
+<h2 id="addimageshare">AddImageShare</h2>
+<blockquote>
+<p>AddImageShareResponse AddImageShare(ctx, imageId, memberId).Execute()</p>
+</blockquote>
+<p>Add image share</p>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID - [List images](/openapi/bcs/list-images)에서 확인</span>
+<span class="w">    </span><span class="nx">memberId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"memberId_example"</span><span class="w"> </span><span class="c1">// string | 이미지를 공유할 다른 프로젝트의 ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">AddImageShare</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">,</span><span class="w"> </span><span class="nx">memberId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.AddImageShare``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `AddImageShare`: AddImageShareResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `ImageAPI.AddImageShare`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID - <a href="/openapi/bcs/list-images">List images</a>에서 확인</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>memberId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지를 공유할 다른 프로젝트의 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiAddImageShareRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type">Return type</h3>
+<p><a href="AddImageShareResponse.md"><strong>AddImageShareResponse</strong></a></p>
+<h3 id="authorization">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="deleteimage">DeleteImage</h2>
+<blockquote>
+<p>DeleteImage(ctx, imageId).Execute()</p>
+</blockquote>
+<p>Delete image</p>
+<h3 id="example_1">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID - [List images](/openapi/bcs/list-images)에서 확인</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">DeleteImage</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.DeleteImage``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_1">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID - <a href="/openapi/bcs/list-images">List images</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_1">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiDeleteImageRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_1">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_1">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_1">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="getimage">GetImage</h2>
+<blockquote>
+<p>GetImageResponse GetImage(ctx, imageId).Execute()</p>
+</blockquote>
+<p>Get image</p>
+<h3 id="example_2">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">GetImage</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.GetImage``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `GetImage`: GetImageResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `ImageAPI.GetImage`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_2">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_2">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiGetImageRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_2">Return type</h3>
+<p><a href="GetImageResponse.md"><strong>GetImageResponse</strong></a></p>
+<h3 id="authorization_2">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_2">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listimagesharedprojects">ListImageSharedProjects</h2>
+<blockquote>
+<p>ListImageSharedProjectsResponse ListImageSharedProjects(ctx, imageId).Offset(offset).Limit(limit).Execute()</p>
+</blockquote>
+<p>List image shared projects</p>
+<h3 id="example_3">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">ListImageSharedProjects</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.ListImageSharedProjects``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListImageSharedProjects`: ListImageSharedProjectsResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `ImageAPI.ListImageSharedProjects`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_3">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_3">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListImageSharedProjectsRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>offset</strong> | <strong>int32</strong> | 조회 시작 위치 | 
+ <strong>limit</strong> | <strong>int32</strong> | 페이지당 최대 반환 항목 수 | </p>
+<h3 id="return-type_3">Return type</h3>
+<p><a href="ListImageSharedProjectsResponse.md"><strong>ListImageSharedProjectsResponse</strong></a></p>
+<h3 id="authorization_3">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_3">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listimages">ListImages</h2>
+<blockquote>
+<p>ListImagesResponse ListImages(ctx).InstanceType(instanceType).ImageType(imageType).OsType(osType).Name(name).Id(id).Size(size).MinDisk(minDisk).DiskFormat(diskFormat).Status(status).Visibility(visibility).ImageMemberStatus(imageMemberStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).SortKeys(sortKeys).SortDirs(sortDirs).Offset(offset).Limit(limit).Execute()</p>
+</blockquote>
+<p>List images</p>
+<h3 id="example_4">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">instanceType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">ImageInstanceType</span><span class="p">(</span><span class="s">"vm"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ImageInstanceType | 이미지와 호환 가능한 인스턴스 유형 (optional)</span>
+<span class="w">    </span><span class="nx">imageType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">ImageType</span><span class="p">(</span><span class="s">"basic"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ImageType | 이미지 제공 유형 (optional)</span>
+<span class="w">    </span><span class="nx">osType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"osType_example"</span><span class="w"> </span><span class="c1">// string | 운영체제 유형 (optional)</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"name_example"</span><span class="w"> </span><span class="c1">// string | 이미지 이름 (optional)</span>
+<span class="w">    </span><span class="nx">id</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"id_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID (optional)</span>
+<span class="w">    </span><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int64</span><span class="p">(</span><span class="mi">789</span><span class="p">)</span><span class="w"> </span><span class="c1">// int64 | 이미지 크기 (bytes 단위) (optional)</span>
+<span class="w">    </span><span class="nx">minDisk</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 이미지를 사용할 때 필요한 최소 디스크 크기(GB) (optional)</span>
+<span class="w">    </span><span class="nx">diskFormat</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"diskFormat_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 디스크 포맷 (optional)</span>
+<span class="w">    </span><span class="nx">status</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"status_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 상태 (optional)</span>
+<span class="w">    </span><span class="nx">visibility</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"visibility_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 가시성 (optional)</span>
+<span class="w">    </span><span class="nx">imageMemberStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageMemberStatus_example"</span><span class="w"> </span><span class="c1">// string | 공유된 이미지의 멤버 상태 (optional)</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"createdAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">updatedAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"updatedAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">sortKeys</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortKeys_example"</span><span class="w"> </span><span class="c1">// string | 정렬할 필드를 콤마(,)로 구분 (optional)</span>
+<span class="w">    </span><span class="nx">sortDirs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortDirs_example"</span><span class="w"> </span><span class="c1">// string | 정렬 방향 (`asc`, `desc`) (optional)</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">ListImages</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">InstanceType</span><span class="p">(</span><span class="nx">instanceType</span><span class="p">).</span><span class="nx">ImageType</span><span class="p">(</span><span class="nx">imageType</span><span class="p">).</span><span class="nx">OsType</span><span class="p">(</span><span class="nx">osType</span><span class="p">).</span><span class="nx">Name</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">Id</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">Size</span><span class="p">(</span><span class="nx">size</span><span class="p">).</span><span class="nx">MinDisk</span><span class="p">(</span><span class="nx">minDisk</span><span class="p">).</span><span class="nx">DiskFormat</span><span class="p">(</span><span class="nx">diskFormat</span><span class="p">).</span><span class="nx">Status</span><span class="p">(</span><span class="nx">status</span><span class="p">).</span><span class="nx">Visibility</span><span class="p">(</span><span class="nx">visibility</span><span class="p">).</span><span class="nx">ImageMemberStatus</span><span class="p">(</span><span class="nx">imageMemberStatus</span><span class="p">).</span><span class="nx">CreatedAt</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">UpdatedAt</span><span class="p">(</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">SortKeys</span><span class="p">(</span><span class="nx">sortKeys</span><span class="p">).</span><span class="nx">SortDirs</span><span class="p">(</span><span class="nx">sortDirs</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.ListImages``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListImages`: ListImagesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `ImageAPI.ListImages`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_4">Path Parameters</h3>
+<h3 id="other-parameters_4">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListImagesRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>instanceType</strong></td>
+<td><a href="ImageInstanceType.md"><strong>ImageInstanceType</strong></a></td>
+<td>이미지와 호환 가능한 인스턴스 유형</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageType</strong></td>
+<td><a href="ImageType.md"><strong>ImageType</strong></a></td>
+<td>이미지 제공 유형</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>osType</strong></td>
+<td><strong>string</strong></td>
+<td>운영체제 유형</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>string</strong></td>
+<td>이미지 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>size</strong></td>
+<td><strong>int64</strong></td>
+<td>이미지 크기 (bytes 단위)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>minDisk</strong></td>
+<td><strong>int32</strong></td>
+<td>이미지를 사용할 때 필요한 최소 디스크 크기(GB)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>diskFormat</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 디스크 포맷</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>visibility</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 가시성</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageMemberStatus</strong></td>
+<td><strong>string</strong></td>
+<td>공유된 이미지의 멤버 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>createdAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>updatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortKeys</strong></td>
+<td><strong>string</strong></td>
+<td>정렬할 필드를 콤마(,)로 구분</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortDirs</strong></td>
+<td><strong>string</strong></td>
+<td>정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td><strong>int32</strong></td>
+<td>조회 시작 위치</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td><strong>int32</strong></td>
+<td>페이지당 최대 반환 항목 수</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_4">Return type</h3>
+<p><a href="ListImagesResponse.md"><strong>ListImagesResponse</strong></a></p>
+<h3 id="authorization_4">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_4">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="removeimageshare">RemoveImageShare</h2>
+<blockquote>
+<p>RemoveImageShare(ctx, imageId, memberId).Execute()</p>
+</blockquote>
+<p>Remove image share</p>
+<h3 id="example_5">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID - [List images](/openapi/bcs/list-images)에서 확인</span>
+<span class="w">    </span><span class="nx">memberId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"memberId_example"</span><span class="w"> </span><span class="c1">// string | 공유 대상 프로젝트 ID - [List image shared projects](/openapi/bcs/list-image-shared-projects)에서 확인</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">RemoveImageShare</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">,</span><span class="w"> </span><span class="nx">memberId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.RemoveImageShare``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_5">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID - <a href="/openapi/bcs/list-images">List images</a>에서 확인</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>memberId</strong></td>
+<td><strong>string</strong></td>
+<td>공유 대상 프로젝트 ID - <a href="/openapi/bcs/list-image-shared-projects">List image shared projects</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_5">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiRemoveImageShareRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_5">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_5">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_5">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="updateimage">UpdateImage</h2>
+<blockquote>
+<p>UpdateImageResponse UpdateImage(ctx, imageId).UpdateImageRequest(updateImageRequest).Execute()</p>
+</blockquote>
+<p>Update image</p>
+<h3 id="example_6">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/image"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">imageId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"imageId_example"</span><span class="w"> </span><span class="c1">// string | 이미지의 고유 ID - [List images](/openapi/bcs/list-images)에서 확인</span>
+<span class="w">    </span><span class="nx">updateImageRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateImageRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateImage</span><span class="p">())</span><span class="w"> </span><span class="c1">// UpdateImageRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">ImageAPI</span><span class="p">.</span><span class="nx">UpdateImage</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">imageId</span><span class="p">).</span><span class="nx">UpdateImageRequest</span><span class="p">(</span><span class="nx">updateImageRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `ImageAPI.UpdateImage``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `UpdateImage`: UpdateImageResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `ImageAPI.UpdateImage`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_6">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>imageId</strong></td>
+<td><strong>string</strong></td>
+<td>이미지의 고유 ID - <a href="/openapi/bcs/list-images">List images</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_6">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiUpdateImageRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>updateImageRequest</strong> | <a href="UpdateImageRequest.md"><strong>UpdateImageRequest</strong></a> |  | </p>
+<h3 id="return-type_6">Return type</h3>
+<p><a href="UpdateImageResponse.md"><strong>UpdateImageResponse</strong></a></p>
+<h3 id="authorization_6">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_6">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,123 @@
+site_name: kc-sdk-go/v2/mysql (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - BackupAPI.md: api/BackupAPI.md
+      - CustomParameterGroupAPI.md: api/CustomParameterGroupAPI.md
+      - DefaultParameterGroupAPI.md: api/DefaultParameterGroupAPI.md
+      - EngineVersionAPI.md: api/EngineVersionAPI.md
+      - InstanceAPI.md: api/InstanceAPI.md
+      - InstanceGroupAPI.md: api/InstanceGroupAPI.md
+  - Models:
+      - ApplyMode: models/ApplyMode.md
+      - ApplyMysqlParameterGroup: models/ApplyMysqlParameterGroup.md
+      - ApplyMysqlParameterGroupRequest: models/ApplyMysqlParameterGroupRequest.md
+      - Backup: models/Backup.md
+      - BackupSchedule: models/BackupSchedule.md
+      - BackupScheduleRequest: models/BackupScheduleRequest.md
+      - BackupScheduleType: models/BackupScheduleType.md
+      - BackupStatus: models/BackupStatus.md
+      - BackupType: models/BackupType.md
+      - ClusterType: models/ClusterType.md
+      - CreatedCustomParameterGroup: models/CreatedCustomParameterGroup.md
+      - CreatedInstanceGroup: models/CreatedInstanceGroup.md
+      - CreateMysqlBackup: models/CreateMysqlBackup.md
+      - CreateMysqlBackupRequest: models/CreateMysqlBackupRequest.md
+      - CreateMysqlBackupResponse: models/CreateMysqlBackupResponse.md
+      - CreateMysqlCustomParameterGroup: models/CreateMysqlCustomParameterGroup.md
+      - CreateMysqlCustomParameterGroupRequest: models/CreateMysqlCustomParameterGroupRequest.md
+      - CreateMysqlCustomParameterGroupResponse: models/CreateMysqlCustomParameterGroupResponse.md
+      - CreateMysqlInstanceGroup: models/CreateMysqlInstanceGroup.md
+      - CreateMysqlInstanceGroupRequest: models/CreateMysqlInstanceGroupRequest.md
+      - CreateMysqlInstanceGroupResponse: models/CreateMysqlInstanceGroupResponse.md
+      - CustomParameterGroupEvent: models/CustomParameterGroupEvent.md
+      - DataDetailParameters: models/DataDetailParameters.md
+      - DataType: models/DataType.md
+      - DataUpdateParameterRequest: models/DataUpdateParameterRequest.md
+      - DefaultParameterGroupEvent: models/DefaultParameterGroupEvent.md
+      - DefaultParameterGroupInstanceGroup: models/DefaultParameterGroupInstanceGroup.md
+      - EngineVersion: models/EngineVersion.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - ExportMysqlInstanceLogs: models/ExportMysqlInstanceLogs.md
+      - ExportMysqlInstanceLogsRequest: models/ExportMysqlInstanceLogsRequest.md
+      - ExtendMysqlInstanceGroupVolume: models/ExtendMysqlInstanceGroupVolume.md
+      - ExtendMysqlInstanceGroupVolumeRequest: models/ExtendMysqlInstanceGroupVolumeRequest.md
+      - ExtraInfo: models/ExtraInfo.md
+      - ExtraInfoRequest: models/ExtraInfoRequest.md
+      - Flavor: models/Flavor.md
+      - GetMysqlBackupResponse: models/GetMysqlBackupResponse.md
+      - GetMysqlCustomParameterGroupCustomParameterGroup: models/GetMysqlCustomParameterGroupCustomParameterGroup.md
+      - GetMysqlCustomParameterGroupResponse: models/GetMysqlCustomParameterGroupResponse.md
+      - GetMysqlDefaultParameterGroupDefaultParameterGroup: models/GetMysqlDefaultParameterGroupDefaultParameterGroup.md
+      - GetMysqlDefaultParameterGroupResponse: models/GetMysqlDefaultParameterGroupResponse.md
+      - GetMysqlInstanceGroupInstanceGroup: models/GetMysqlInstanceGroupInstanceGroup.md
+      - GetMysqlInstanceGroupResponse: models/GetMysqlInstanceGroupResponse.md
+      - GetMysqlInstanceGroupTopology: models/GetMysqlInstanceGroupTopology.md
+      - GetMysqlInstanceGroupTopologyInfo: models/GetMysqlInstanceGroupTopologyInfo.md
+      - GetMysqlRestorableTimeResponse: models/GetMysqlRestorableTimeResponse.md
+      - Instance: models/Instance.md
+      - InstanceGroupStatus: models/InstanceGroupStatus.md
+      - InstanceRole: models/InstanceRole.md
+      - InstanceStatus: models/InstanceStatus.md
+      - ListAvailableMysqlEngineVersionsResponse: models/ListAvailableMysqlEngineVersionsResponse.md
+      - ListMysqlBackupsResponse: models/ListMysqlBackupsResponse.md
+      - ListMysqlCustomParameterGroupEventsResponse: models/ListMysqlCustomParameterGroupEventsResponse.md
+      - ListMysqlCustomParameterGroupsCustomParameterGroup: models/ListMysqlCustomParameterGroupsCustomParameterGroup.md
+      - ListMysqlCustomParameterGroupsResponse: models/ListMysqlCustomParameterGroupsResponse.md
+      - ListMysqlDefaultParameterGroupEventsResponse: models/ListMysqlDefaultParameterGroupEventsResponse.md
+      - ListMysqlDefaultParameterGroupsDefaultParameterGroup: models/ListMysqlDefaultParameterGroupsDefaultParameterGroup.md
+      - ListMysqlDefaultParameterGroupsResponse: models/ListMysqlDefaultParameterGroupsResponse.md
+      - ListMysqlInstanceGroupsInstanceGroup: models/ListMysqlInstanceGroupsInstanceGroup.md
+      - ListMysqlInstanceGroupsResponse: models/ListMysqlInstanceGroupsResponse.md
+      - ListMysqlInstanceGroupsTopology: models/ListMysqlInstanceGroupsTopology.md
+      - ListMysqlInstanceGroupsTopologyInfo: models/ListMysqlInstanceGroupsTopologyInfo.md
+      - ListMysqlInstanceGroupsUsingCustomParameterGroupResponse: models/ListMysqlInstanceGroupsUsingCustomParameterGroupResponse.md
+      - ListMysqlInstanceGroupsUsingDefaultParameterGroupResponse: models/ListMysqlInstanceGroupsUsingDefaultParameterGroupResponse.md
+      - ListMysqlInstancesResponse: models/ListMysqlInstancesResponse.md
+      - ListMysqlInstancesSpecContent: models/ListMysqlInstancesSpecContent.md
+      - ListMysqlInstanceTypesFlavorsResponse: models/ListMysqlInstanceTypesFlavorsResponse.md
+      - LogInfoRequest: models/LogInfoRequest.md
+      - LogType: models/LogType.md
+      - MySQLBackup: models/MySQLBackup.md
+      - NetworkInfo: models/NetworkInfo.md
+      - NetworkInfoRequest: models/NetworkInfoRequest.md
+      - NetworkPort: models/NetworkPort.md
+      - Parameter: models/Parameter.md
+      - ParameterGroup: models/ParameterGroup.md
+      - ParameterGroupRequest: models/ParameterGroupRequest.md
+      - ParameterGroupStatus: models/ParameterGroupStatus.md
+      - ParameterGroupType: models/ParameterGroupType.md
+      - ParameterType: models/ParameterType.md
+      - ResetMysqlCustomParameterGroup: models/ResetMysqlCustomParameterGroup.md
+      - ResetMysqlCustomParameterGroupRequest: models/ResetMysqlCustomParameterGroupRequest.md
+      - RestartMysqlInstances: models/RestartMysqlInstances.md
+      - RestartMysqlInstancesRequest: models/RestartMysqlInstancesRequest.md
+      - RestorableTime: models/RestorableTime.md
+      - RestoreSourceRequest: models/RestoreSourceRequest.md
+      - RestoreSourceType: models/RestoreSourceType.md
+      - ScaleInMysqlInstanceGroup: models/ScaleInMysqlInstanceGroup.md
+      - ScaleInMysqlInstanceGroupRequest: models/ScaleInMysqlInstanceGroupRequest.md
+      - ScaleOutMysqlInstanceGroup: models/ScaleOutMysqlInstanceGroup.md
+      - ScaleOutMysqlInstanceGroupRequest: models/ScaleOutMysqlInstanceGroupRequest.md
+      - SpecContent: models/SpecContent.md
+      - SpecContentRequest: models/SpecContentRequest.md
+      - StatusContent: models/StatusContent.md
+      - SubnetInfo: models/SubnetInfo.md
+      - SubnetInfoRequest: models/SubnetInfoRequest.md
+      - UpdateMysqlCustomParameterGroup: models/UpdateMysqlCustomParameterGroup.md
+      - UpdateMysqlCustomParameterGroupRequest: models/UpdateMysqlCustomParameterGroupRequest.md
+      - UpdateMysqlInstanceGroupBackupSchedule: models/UpdateMysqlInstanceGroupBackupSchedule.md
+      - UpdateMysqlInstanceGroupBackupScheduleRequest: models/UpdateMysqlInstanceGroupBackupScheduleRequest.md
+      - UpdateMysqlSecurityGroups: models/UpdateMysqlSecurityGroups.md
+      - UpdateMysqlSecurityGroupsRequest: models/UpdateMysqlSecurityGroupsRequest.md

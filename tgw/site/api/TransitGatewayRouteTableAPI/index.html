@@ -1,0 +1,5713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../TransitGatewayAttachmentAPI/">
+      
+      
+        <link rel="next" href="../../models/ApproveTgwAttachmentResponse/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>TransitGatewayRouteTableAPI.md - kc-sdk-go/v2/tgw (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transitgatewayroutetableapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/tgw (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/tgw (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/tgw (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TransitGatewayRouteTableAPI.md
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/tgw (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/tgw (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/tgw (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TransitGatewayAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TransitGatewayAttachmentAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayAttachmentAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayRouteTableAPI.md
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayRouteTableAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroutetableassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRouteTableAssociation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRouteTableAssociation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroutetableassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRouteTableAssociation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRouteTableAssociation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gettgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutetableassociations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRouteTableAssociations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRouteTableAssociations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutetables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRouteTables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRouteTables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRoutes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ApproveTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ApproveTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Association/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Association
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Attachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/AvailabilityZone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwAttachmentRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachmentRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTableAssociation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTableAssociationRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociationRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTableAssociationResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociationResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTableRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTransitGatewayRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/CreateTransitGatewayTgwOptionRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayTgwOptionRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/GetTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTgwAttachmentsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwAttachmentsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTgwRoutesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRoutesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTgwRouteTableAssociationsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRouteTableAssociationsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTgwRouteTablesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRouteTablesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTgwSharedProjectsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwSharedProjectsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ListTransitGatewaysResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTransitGatewaysResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Region/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Region
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/RejectTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RejectTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/ResourceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResourceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Route/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/RouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/Tgw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tgw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TGWAssociationProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWAssociationProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TGWAttachmentProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWAttachmentProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwAttachmentResource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachmentResource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwAttachmentResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachmentResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwOptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TGWProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwRouteAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TGWRouteProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWRouteProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwRouteTableAssociation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTableAssociation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TGWRouteTableProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWRouteTableProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TgwRouteTableResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTableResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/TransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwAttachmentRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachmentRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRouteResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRouteTableRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTableRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTransitGatewayRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/UpdateTransitGatewayTgwOptionRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayTgwOptionRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtgwroutetableassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateTgwRouteTableAssociation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreateTgwRouteTableAssociation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetgwroutetableassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteTgwRouteTableAssociation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeleteTgwRouteTableAssociation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gettgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GetTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutetableassociations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRouteTableAssociations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRouteTableAssociations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutetables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRouteTables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRouteTables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtgwroutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ListTgwRoutes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ListTgwRoutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetgwroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateTgwRoute
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateTgwRoute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetgwroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateTgwRouteTable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UpdateTgwRouteTable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-request-headers_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP request headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="transitgatewayroutetableapi">\TransitGatewayRouteTableAPI</h1>
+<p>All URIs are relative to <em>https://tgw.kr-central-2.kakaocloud.com</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>HTTP request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./#CreateTgwRoute"><strong>CreateTgwRoute</strong></a></td>
+<td><strong>Post</strong> /api/v1/route-tables/{route_table_id}/routes</td>
+<td>Create TGW route</td>
+</tr>
+<tr>
+<td><a href="./#CreateTgwRouteTable"><strong>CreateTgwRouteTable</strong></a></td>
+<td><strong>Post</strong> /api/v1/route-tables</td>
+<td>Create TGW route table</td>
+</tr>
+<tr>
+<td><a href="./#CreateTgwRouteTableAssociation"><strong>CreateTgwRouteTableAssociation</strong></a></td>
+<td><strong>Post</strong> /api/v1/route-tables/{route_table_id}/associations</td>
+<td>Create TGW route table association</td>
+</tr>
+<tr>
+<td><a href="./#DeleteTgwRoute"><strong>DeleteTgwRoute</strong></a></td>
+<td><strong>Delete</strong> /api/v1/route-tables/{route_table_id}/routes/{route_id}</td>
+<td>Delete TGW route</td>
+</tr>
+<tr>
+<td><a href="./#DeleteTgwRouteTable"><strong>DeleteTgwRouteTable</strong></a></td>
+<td><strong>Delete</strong> /api/v1/route-tables/{route_table_id}</td>
+<td>Delete TGW route table</td>
+</tr>
+<tr>
+<td><a href="./#DeleteTgwRouteTableAssociation"><strong>DeleteTgwRouteTableAssociation</strong></a></td>
+<td><strong>Delete</strong> /api/v1/route-tables/{route_table_id}/associations/{association_id}</td>
+<td>Delete TGW route table association</td>
+</tr>
+<tr>
+<td><a href="./#GetTgwRouteTable"><strong>GetTgwRouteTable</strong></a></td>
+<td><strong>Get</strong> /api/v1/route-tables/{route_table_id}</td>
+<td>Get TGW route table</td>
+</tr>
+<tr>
+<td><a href="./#ListTgwRouteTableAssociations"><strong>ListTgwRouteTableAssociations</strong></a></td>
+<td><strong>Get</strong> /api/v1/route-tables/{route_table_id}/associations</td>
+<td>List TGW route table associations</td>
+</tr>
+<tr>
+<td><a href="./#ListTgwRouteTables"><strong>ListTgwRouteTables</strong></a></td>
+<td><strong>Get</strong> /api/v1/route-tables</td>
+<td>List TGW route tables</td>
+</tr>
+<tr>
+<td><a href="./#ListTgwRoutes"><strong>ListTgwRoutes</strong></a></td>
+<td><strong>Get</strong> /api/v1/route-tables/{route_table_id}/routes</td>
+<td>List TGW routes</td>
+</tr>
+<tr>
+<td><a href="./#UpdateTgwRoute"><strong>UpdateTgwRoute</strong></a></td>
+<td><strong>Put</strong> /api/v1/route-tables/{route_table_id}/routes/{route_id}</td>
+<td>Update TGW route</td>
+</tr>
+<tr>
+<td><a href="./#UpdateTgwRouteTable"><strong>UpdateTgwRouteTable</strong></a></td>
+<td><strong>Put</strong> /api/v1/route-tables/{route_table_id}</td>
+<td>Update TGW route table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createtgwroute">CreateTgwRoute</h2>
+<blockquote>
+<p>CreateTgwRouteResponse CreateTgwRoute(ctx, routeTableId).CreateTgwRouteRequest(createTgwRouteRequest).Execute()</p>
+</blockquote>
+<p>Create TGW route</p>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | Route가 속한 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">createTgwRouteRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRouteRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRoute</span><span class="p">(</span><span class="s">"DestinationCidrBlock_example"</span><span class="p">,</span><span class="w"> </span><span class="s">"TgwAttachmentId_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// CreateTgwRouteRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">CreateTgwRoute</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">CreateTgwRouteRequest</span><span class="p">(</span><span class="nx">createTgwRouteRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.CreateTgwRoute``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `CreateTgwRoute`: CreateTgwRouteResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.CreateTgwRoute`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>Route가 속한 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiCreateTgwRouteRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>createTgwRouteRequest</strong> | <a href="CreateTgwRouteRequest.md"><strong>CreateTgwRouteRequest</strong></a> |  | </p>
+<h3 id="return-type">Return type</h3>
+<p><a href="CreateTgwRouteResponse.md"><strong>CreateTgwRouteResponse</strong></a></p>
+<h3 id="authorization">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="createtgwroutetable">CreateTgwRouteTable</h2>
+<blockquote>
+<p>CreateTgwRouteTableResponse CreateTgwRouteTable(ctx).CreateTgwRouteTableRequest(createTgwRouteTableRequest).Execute()</p>
+</blockquote>
+<p>Create TGW route table</p>
+<h3 id="example_1">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">createTgwRouteTableRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTableRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTable</span><span class="p">(</span><span class="s">"TgwId_example"</span><span class="p">,</span><span class="w"> </span><span class="s">"Name_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// CreateTgwRouteTableRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">CreateTgwRouteTable</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">CreateTgwRouteTableRequest</span><span class="p">(</span><span class="nx">createTgwRouteTableRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.CreateTgwRouteTable``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `CreateTgwRouteTable`: CreateTgwRouteTableResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.CreateTgwRouteTable`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_1">Path Parameters</h3>
+<h3 id="other-parameters_1">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiCreateTgwRouteTableRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>createTgwRouteTableRequest</strong></td>
+<td><a href="CreateTgwRouteTableRequest.md"><strong>CreateTgwRouteTableRequest</strong></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_1">Return type</h3>
+<p><a href="CreateTgwRouteTableResponse.md"><strong>CreateTgwRouteTableResponse</strong></a></p>
+<h3 id="authorization_1">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_1">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="createtgwroutetableassociation">CreateTgwRouteTableAssociation</h2>
+<blockquote>
+<p>CreateTgwRouteTableAssociationResponse CreateTgwRouteTableAssociation(ctx, routeTableId).CreateTgwRouteTableAssociationRequest(createTgwRouteTableAssociationRequest).Execute()</p>
+</blockquote>
+<p>Create TGW route table association</p>
+<h3 id="example_2">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 연결할 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">createTgwRouteTableAssociationRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTableAssociationRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTableAssociation</span><span class="p">(</span><span class="s">"TgwAttachmentId_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// CreateTgwRouteTableAssociationRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">CreateTgwRouteTableAssociation</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">CreateTgwRouteTableAssociationRequest</span><span class="p">(</span><span class="nx">createTgwRouteTableAssociationRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.CreateTgwRouteTableAssociation``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `CreateTgwRouteTableAssociation`: CreateTgwRouteTableAssociationResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.CreateTgwRouteTableAssociation`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_2">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>연결할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_2">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiCreateTgwRouteTableAssociationRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>createTgwRouteTableAssociationRequest</strong> | <a href="CreateTgwRouteTableAssociationRequest.md"><strong>CreateTgwRouteTableAssociationRequest</strong></a> |  | </p>
+<h3 id="return-type_2">Return type</h3>
+<p><a href="CreateTgwRouteTableAssociationResponse.md"><strong>CreateTgwRouteTableAssociationResponse</strong></a></p>
+<h3 id="authorization_2">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_2">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="deletetgwroute">DeleteTgwRoute</h2>
+<blockquote>
+<p>DeleteTgwRoute(ctx, routeTableId, routeId).Execute()</p>
+</blockquote>
+<p>Delete TGW route</p>
+<h3 id="example_3">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | Route를 삭제할 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">routeId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeId_example"</span><span class="w"> </span><span class="c1">// string | 삭제할 Route ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">DeleteTgwRoute</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">,</span><span class="w"> </span><span class="nx">routeId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.DeleteTgwRoute``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_3">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>Route를 삭제할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeId</strong></td>
+<td><strong>string</strong></td>
+<td>삭제할 Route ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_3">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiDeleteTgwRouteRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_3">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_3">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_3">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="deletetgwroutetable">DeleteTgwRouteTable</h2>
+<blockquote>
+<p>DeleteTgwRouteTable(ctx, routeTableId).Execute()</p>
+</blockquote>
+<p>Delete TGW route table</p>
+<h3 id="example_4">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 삭제할 라우팅 테이블 ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">DeleteTgwRouteTable</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.DeleteTgwRouteTable``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_4">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>삭제할 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_4">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiDeleteTgwRouteTableRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_4">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_4">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_4">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="deletetgwroutetableassociation">DeleteTgwRouteTableAssociation</h2>
+<blockquote>
+<p>DeleteTgwRouteTableAssociation(ctx, routeTableId, associationId).Execute()</p>
+</blockquote>
+<p>Delete TGW route table association</p>
+<h3 id="example_5">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | Association을 해제할 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">associationId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"associationId_example"</span><span class="w"> </span><span class="c1">// string | 해제할 Association ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">DeleteTgwRouteTableAssociation</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">,</span><span class="w"> </span><span class="nx">associationId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.DeleteTgwRouteTableAssociation``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_5">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>Association을 해제할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>associationId</strong></td>
+<td><strong>string</strong></td>
+<td>해제할 Association ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_5">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiDeleteTgwRouteTableAssociationRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_5">Return type</h3>
+<p>(empty response body)</p>
+<h3 id="authorization_5">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_5">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="gettgwroutetable">GetTgwRouteTable</h2>
+<blockquote>
+<p>GetTgwRouteTableResponse GetTgwRouteTable(ctx, routeTableId).Execute()</p>
+</blockquote>
+<p>Get TGW route table</p>
+<h3 id="example_6">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 조회할 Transit Gateway 라우팅 테이블 ID</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">GetTgwRouteTable</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.GetTgwRouteTable``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `GetTgwRouteTable`: GetTgwRouteTableResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.GetTgwRouteTable`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_6">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>조회할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_6">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiGetTgwRouteTableRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_6">Return type</h3>
+<p><a href="GetTgwRouteTableResponse.md"><strong>GetTgwRouteTableResponse</strong></a></p>
+<h3 id="authorization_6">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_6">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listtgwroutetableassociations">ListTgwRouteTableAssociations</h2>
+<blockquote>
+<p>ListTgwRouteTableAssociationsResponse ListTgwRouteTableAssociations(ctx, routeTableId).ResourceName(resourceName).ResourceId(resourceId).ResourceProvisioningStatus(resourceProvisioningStatus).ResourceType(resourceType).ProvisioningStatus(provisioningStatus).ResourceAttachmentId(resourceAttachmentId).Offset(offset).Limit(limit).SortKeys(sortKeys).SortDirs(sortDirs).Execute()</p>
+</blockquote>
+<p>List TGW route table associations</p>
+<h3 id="example_7">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 조회할 Transit Gateway 라우팅 테이블 ID - [List TGW route tables](/openapi/networking/tgw/list-tgw-route-tables)에서 확인</span>
+<span class="w">    </span><span class="nx">resourceName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceName_example"</span><span class="w"> </span><span class="c1">// string | 연결된 리소스 이름 (optional)</span>
+<span class="w">    </span><span class="nx">resourceId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceId_example"</span><span class="w"> </span><span class="c1">// string | 연결된 리소스 ID (optional)</span>
+<span class="w">    </span><span class="nx">resourceProvisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceProvisioningStatus_example"</span><span class="w"> </span><span class="c1">// string | 리소스의 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">resourceType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">ResourceType</span><span class="p">(</span><span class="s">"vpc"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ResourceType | 연결된 리소스 유형 (optional)</span>
+<span class="w">    </span><span class="nx">provisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">TGWAssociationProvisioningStatus</span><span class="p">(</span><span class="s">"ACTIVE"</span><span class="p">)</span><span class="w"> </span><span class="c1">// TGWAssociationProvisioningStatus | Association의 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">resourceAttachmentId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceAttachmentId_example"</span><span class="w"> </span><span class="c1">// string | 연결된 Attachment ID (optional)</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+<span class="w">    </span><span class="nx">sortKeys</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortKeys_example"</span><span class="w"> </span><span class="c1">// string | 정렬할 필드 (optional)</span>
+<span class="w">    </span><span class="nx">sortDirs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortDirs_example"</span><span class="w"> </span><span class="c1">// string | 정렬 방향 (`asc`, `desc`) (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">ListTgwRouteTableAssociations</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">ResourceName</span><span class="p">(</span><span class="nx">resourceName</span><span class="p">).</span><span class="nx">ResourceId</span><span class="p">(</span><span class="nx">resourceId</span><span class="p">).</span><span class="nx">ResourceProvisioningStatus</span><span class="p">(</span><span class="nx">resourceProvisioningStatus</span><span class="p">).</span><span class="nx">ResourceType</span><span class="p">(</span><span class="nx">resourceType</span><span class="p">).</span><span class="nx">ProvisioningStatus</span><span class="p">(</span><span class="nx">provisioningStatus</span><span class="p">).</span><span class="nx">ResourceAttachmentId</span><span class="p">(</span><span class="nx">resourceAttachmentId</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">SortKeys</span><span class="p">(</span><span class="nx">sortKeys</span><span class="p">).</span><span class="nx">SortDirs</span><span class="p">(</span><span class="nx">sortDirs</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.ListTgwRouteTableAssociations``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListTgwRouteTableAssociations`: ListTgwRouteTableAssociationsResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.ListTgwRouteTableAssociations`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_7">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>조회할 Transit Gateway 라우팅 테이블 ID - <a href="/openapi/networking/tgw/list-tgw-route-tables">List TGW route tables</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_7">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListTgwRouteTableAssociationsRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>resourceName</strong> | <strong>string</strong> | 연결된 리소스 이름 | 
+ <strong>resourceId</strong> | <strong>string</strong> | 연결된 리소스 ID | 
+ <strong>resourceProvisioningStatus</strong> | <strong>string</strong> | 리소스의 프로비저닝 상태 | 
+ <strong>resourceType</strong> | <a href="ResourceType.md"><strong>ResourceType</strong></a> | 연결된 리소스 유형 | 
+ <strong>provisioningStatus</strong> | <a href="TGWAssociationProvisioningStatus.md"><strong>TGWAssociationProvisioningStatus</strong></a> | Association의 프로비저닝 상태 | 
+ <strong>resourceAttachmentId</strong> | <strong>string</strong> | 연결된 Attachment ID | 
+ <strong>offset</strong> | <strong>int32</strong> | 조회 시작 위치 | 
+ <strong>limit</strong> | <strong>int32</strong> | 페이지당 최대 반환 항목 수 | 
+ <strong>sortKeys</strong> | <strong>string</strong> | 정렬할 필드 | 
+ <strong>sortDirs</strong> | <strong>string</strong> | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;) | </p>
+<h3 id="return-type_7">Return type</h3>
+<p><a href="ListTgwRouteTableAssociationsResponse.md"><strong>ListTgwRouteTableAssociationsResponse</strong></a></p>
+<h3 id="authorization_7">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_7">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listtgwroutetables">ListTgwRouteTables</h2>
+<blockquote>
+<p>ListTgwRouteTablesResponse ListTgwRouteTables(ctx).Id(id).Name(name).TgwId(tgwId).TgwName(tgwName).ProvisioningStatus(provisioningStatus).CreatedAt(createdAt).UpdatedAt(updatedAt).Offset(offset).Limit(limit).SortKeys(sortKeys).SortDirs(sortDirs).Execute()</p>
+</blockquote>
+<p>List TGW route tables</p>
+<h3 id="example_8">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"id_example"</span><span class="w"> </span><span class="c1">// string | 라우팅 테이블 ID (optional)</span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"name_example"</span><span class="w"> </span><span class="c1">// string | 라우팅 테이블 이름 (optional)</span>
+<span class="w">    </span><span class="nx">tgwId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"tgwId_example"</span><span class="w"> </span><span class="c1">// string | Transit Gateway ID (optional)</span>
+<span class="w">    </span><span class="nx">tgwName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"tgwName_example"</span><span class="w"> </span><span class="c1">// string | Transit Gateway 이름 (optional)</span>
+<span class="w">    </span><span class="nx">provisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">TGWRouteTableProvisioningStatus</span><span class="p">(</span><span class="s">"ACTIVE"</span><span class="p">)</span><span class="w"> </span><span class="c1">// TGWRouteTableProvisioningStatus | 라우팅 테이블의 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">createdAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"createdAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">updatedAt</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"updatedAt_example"</span><span class="w"> </span><span class="c1">// string | 리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준 (optional)</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+<span class="w">    </span><span class="nx">sortKeys</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortKeys_example"</span><span class="w"> </span><span class="c1">// string | 정렬할 필드 (optional)</span>
+<span class="w">    </span><span class="nx">sortDirs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortDirs_example"</span><span class="w"> </span><span class="c1">// string | 정렬 방향 (`asc`, `desc`) (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">ListTgwRouteTables</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()).</span><span class="nx">Id</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">Name</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">TgwId</span><span class="p">(</span><span class="nx">tgwId</span><span class="p">).</span><span class="nx">TgwName</span><span class="p">(</span><span class="nx">tgwName</span><span class="p">).</span><span class="nx">ProvisioningStatus</span><span class="p">(</span><span class="nx">provisioningStatus</span><span class="p">).</span><span class="nx">CreatedAt</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">UpdatedAt</span><span class="p">(</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">SortKeys</span><span class="p">(</span><span class="nx">sortKeys</span><span class="p">).</span><span class="nx">SortDirs</span><span class="p">(</span><span class="nx">sortDirs</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.ListTgwRouteTables``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListTgwRouteTables`: ListTgwRouteTablesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.ListTgwRouteTables`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_8">Path Parameters</h3>
+<h3 id="other-parameters_8">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListTgwRouteTablesRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>string</strong></td>
+<td>라우팅 테이블 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><strong>string</strong></td>
+<td>라우팅 테이블 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>tgwId</strong></td>
+<td><strong>string</strong></td>
+<td>Transit Gateway ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>tgwName</strong></td>
+<td><strong>string</strong></td>
+<td>Transit Gateway 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>provisioningStatus</strong></td>
+<td><a href="TGWRouteTableProvisioningStatus.md"><strong>TGWRouteTableProvisioningStatus</strong></a></td>
+<td>라우팅 테이블의 프로비저닝 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>createdAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>updatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td><strong>int32</strong></td>
+<td>조회 시작 위치</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td><strong>int32</strong></td>
+<td>페이지당 최대 반환 항목 수</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortKeys</strong></td>
+<td><strong>string</strong></td>
+<td>정렬할 필드</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sortDirs</strong></td>
+<td><strong>string</strong></td>
+<td>정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_8">Return type</h3>
+<p><a href="ListTgwRouteTablesResponse.md"><strong>ListTgwRouteTablesResponse</strong></a></p>
+<h3 id="authorization_8">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_8">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="listtgwroutes">ListTgwRoutes</h2>
+<blockquote>
+<p>ListTgwRoutesResponse ListTgwRoutes(ctx, routeTableId).DestinationCidrBlock(destinationCidrBlock).RouteType(routeType).ProvisioningStatus(provisioningStatus).ResourceType(resourceType).ResourceId(resourceId).ResourceName(resourceName).ResourceProvisioningStatus(resourceProvisioningStatus).ResourceAttachmentId(resourceAttachmentId).Offset(offset).Limit(limit).SortKeys(sortKeys).SortDirs(sortDirs).Execute()</p>
+</blockquote>
+<p>List TGW routes</p>
+<h3 id="example_9">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 조회할 Transit Gateway 라우팅 테이블 ID - [List TGW route tables](/openapi/networking/tgw/list-tgw-route-tables)에서 확인</span>
+<span class="w">    </span><span class="nx">destinationCidrBlock</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"destinationCidrBlock_example"</span><span class="w"> </span><span class="c1">// string | 목적지 CIDR 블록 (optional)</span>
+<span class="w">    </span><span class="nx">routeType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeType_example"</span><span class="w"> </span><span class="c1">// string | Route 유형 (optional)</span>
+<span class="w">    </span><span class="nx">provisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">TGWRouteProvisioningStatus</span><span class="p">(</span><span class="s">"ACTIVE"</span><span class="p">)</span><span class="w"> </span><span class="c1">// TGWRouteProvisioningStatus | Route의 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">resourceType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">ResourceType</span><span class="p">(</span><span class="s">"vpc"</span><span class="p">)</span><span class="w"> </span><span class="c1">// ResourceType | 연결된 리소스 유형 (optional)</span>
+<span class="w">    </span><span class="nx">resourceId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceId_example"</span><span class="w"> </span><span class="c1">// string | 연결된 리소스 ID (optional)</span>
+<span class="w">    </span><span class="nx">resourceName</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceName_example"</span><span class="w"> </span><span class="c1">// string | 연결된 리소스 이름 (optional)</span>
+<span class="w">    </span><span class="nx">resourceProvisioningStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceProvisioningStatus_example"</span><span class="w"> </span><span class="c1">// string | 연결된 리소스의 프로비저닝 상태 (optional)</span>
+<span class="w">    </span><span class="nx">resourceAttachmentId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"resourceAttachmentId_example"</span><span class="w"> </span><span class="c1">// string | 연결된 Attachment ID (optional)</span>
+<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 조회 시작 위치 (optional)</span>
+<span class="w">    </span><span class="nx">limit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int32</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span><span class="w"> </span><span class="c1">// int32 | 페이지당 최대 반환 항목 수 (optional)</span>
+<span class="w">    </span><span class="nx">sortKeys</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortKeys_example"</span><span class="w"> </span><span class="c1">// string | 정렬할 필드 (optional)</span>
+<span class="w">    </span><span class="nx">sortDirs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"sortDirs_example"</span><span class="w"> </span><span class="c1">// string | 정렬 방향 (`asc`, `desc`) (optional)</span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">ListTgwRoutes</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">DestinationCidrBlock</span><span class="p">(</span><span class="nx">destinationCidrBlock</span><span class="p">).</span><span class="nx">RouteType</span><span class="p">(</span><span class="nx">routeType</span><span class="p">).</span><span class="nx">ProvisioningStatus</span><span class="p">(</span><span class="nx">provisioningStatus</span><span class="p">).</span><span class="nx">ResourceType</span><span class="p">(</span><span class="nx">resourceType</span><span class="p">).</span><span class="nx">ResourceId</span><span class="p">(</span><span class="nx">resourceId</span><span class="p">).</span><span class="nx">ResourceName</span><span class="p">(</span><span class="nx">resourceName</span><span class="p">).</span><span class="nx">ResourceProvisioningStatus</span><span class="p">(</span><span class="nx">resourceProvisioningStatus</span><span class="p">).</span><span class="nx">ResourceAttachmentId</span><span class="p">(</span><span class="nx">resourceAttachmentId</span><span class="p">).</span><span class="nx">Offset</span><span class="p">(</span><span class="nx">offset</span><span class="p">).</span><span class="nx">Limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">SortKeys</span><span class="p">(</span><span class="nx">sortKeys</span><span class="p">).</span><span class="nx">SortDirs</span><span class="p">(</span><span class="nx">sortDirs</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.ListTgwRoutes``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `ListTgwRoutes`: ListTgwRoutesResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.ListTgwRoutes`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_9">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>조회할 Transit Gateway 라우팅 테이블 ID - <a href="/openapi/networking/tgw/list-tgw-route-tables">List TGW route tables</a>에서 확인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_9">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiListTgwRoutesRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>destinationCidrBlock</strong> | <strong>string</strong> | 목적지 CIDR 블록 | 
+ <strong>routeType</strong> | <strong>string</strong> | Route 유형 | 
+ <strong>provisioningStatus</strong> | <a href="TGWRouteProvisioningStatus.md"><strong>TGWRouteProvisioningStatus</strong></a> | Route의 프로비저닝 상태 | 
+ <strong>resourceType</strong> | <a href="ResourceType.md"><strong>ResourceType</strong></a> | 연결된 리소스 유형 | 
+ <strong>resourceId</strong> | <strong>string</strong> | 연결된 리소스 ID | 
+ <strong>resourceName</strong> | <strong>string</strong> | 연결된 리소스 이름 | 
+ <strong>resourceProvisioningStatus</strong> | <strong>string</strong> | 연결된 리소스의 프로비저닝 상태 | 
+ <strong>resourceAttachmentId</strong> | <strong>string</strong> | 연결된 Attachment ID | 
+ <strong>offset</strong> | <strong>int32</strong> | 조회 시작 위치 | 
+ <strong>limit</strong> | <strong>int32</strong> | 페이지당 최대 반환 항목 수 | 
+ <strong>sortKeys</strong> | <strong>string</strong> | 정렬할 필드 | 
+ <strong>sortDirs</strong> | <strong>string</strong> | 정렬 방향 (&#x60;asc&#x60;, &#x60;desc&#x60;) | </p>
+<h3 id="return-type_9">Return type</h3>
+<p><a href="ListTgwRoutesResponse.md"><strong>ListTgwRoutesResponse</strong></a></p>
+<h3 id="authorization_9">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_9">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="updatetgwroute">UpdateTgwRoute</h2>
+<blockquote>
+<p>UpdateTgwRouteResponse UpdateTgwRoute(ctx, routeTableId, routeId).UpdateTgwRouteRequest(updateTgwRouteRequest).Execute()</p>
+</blockquote>
+<p>Update TGW route</p>
+<h3 id="example_10">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 수정할 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">routeId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeId_example"</span><span class="w"> </span><span class="c1">// string | 수정할 Route ID</span>
+<span class="w">    </span><span class="nx">updateTgwRouteRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateTgwRouteRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateTgwRoute</span><span class="p">(</span><span class="s">"TgwAttachmentId_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// UpdateTgwRouteRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">UpdateTgwRoute</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">,</span><span class="w"> </span><span class="nx">routeId</span><span class="p">).</span><span class="nx">UpdateTgwRouteRequest</span><span class="p">(</span><span class="nx">updateTgwRouteRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.UpdateTgwRoute``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `UpdateTgwRoute`: UpdateTgwRouteResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.UpdateTgwRoute`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_10">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>수정할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeId</strong></td>
+<td><strong>string</strong></td>
+<td>수정할 Route ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_10">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiUpdateTgwRouteRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>updateTgwRouteRequest</strong> | <a href="UpdateTgwRouteRequest.md"><strong>UpdateTgwRouteRequest</strong></a> |  | </p>
+<h3 id="return-type_10">Return type</h3>
+<p><a href="UpdateTgwRouteResponse.md"><strong>UpdateTgwRouteResponse</strong></a></p>
+<h3 id="authorization_10">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_10">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+<h2 id="updatetgwroutetable">UpdateTgwRouteTable</h2>
+<blockquote>
+<p>UpdateTgwRouteTableResponse UpdateTgwRouteTable(ctx, routeTableId).UpdateTgwRouteTableRequest(updateTgwRouteTableRequest).Execute()</p>
+</blockquote>
+<p>Update TGW route table</p>
+<h3 id="example_11">Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">"context"</span>
+<span class="w">    </span><span class="s">"fmt"</span>
+<span class="w">    </span><span class="s">"os"</span>
+<span class="w">    </span><span class="nx">openapiclient</span><span class="w"> </span><span class="s">"github.com/kakaoenterprise/kc-sdk-go/v2/tgw"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">routeTableId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">"routeTableId_example"</span><span class="w"> </span><span class="c1">// string | 수정할 Transit Gateway 라우팅 테이블 ID</span>
+<span class="w">    </span><span class="nx">updateTgwRouteTableRequest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateTgwRouteTableRequest</span><span class="p">(</span><span class="o">*</span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewUpdateTgwRouteTable</span><span class="p">(</span><span class="s">"Name_example"</span><span class="p">))</span><span class="w"> </span><span class="c1">// UpdateTgwRouteTableRequest | </span>
+
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">apiClient</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">openapiclient</span><span class="p">.</span><span class="nx">NewAPIClient</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">TransitGatewayRouteTableAPI</span><span class="p">.</span><span class="nx">UpdateTgwRouteTable</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">routeTableId</span><span class="p">).</span><span class="nx">UpdateTgwRouteTableRequest</span><span class="p">(</span><span class="nx">updateTgwRouteTableRequest</span><span class="p">).</span><span class="nx">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Error when calling `TransitGatewayRouteTableAPI.UpdateTgwRouteTable``: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"Full HTTP response: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// response from `UpdateTgwRouteTable`: UpdateTgwRouteTableResponse</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span><span class="w"> </span><span class="s">"Response from `TransitGatewayRouteTableAPI.UpdateTgwRouteTable`: %v\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">resp</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="path-parameters_11">Path Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ctx</strong></td>
+<td><strong>context.Context</strong></td>
+<td>context for authentication, logging, cancellation, deadlines, tracing, etc.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>routeTableId</strong></td>
+<td><strong>string</strong></td>
+<td>수정할 Transit Gateway 라우팅 테이블 ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters_11">Other Parameters</h3>
+<p>Other parameters are passed through a pointer to a apiUpdateTgwRouteTableRequest struct via the builder pattern</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>updateTgwRouteTableRequest</strong> | <a href="UpdateTgwRouteTableRequest.md"><strong>UpdateTgwRouteTableRequest</strong></a> |  | </p>
+<h3 id="return-type_11">Return type</h3>
+<p><a href="UpdateTgwRouteTableResponse.md"><strong>UpdateTgwRouteTableResponse</strong></a></p>
+<h3 id="authorization_11">Authorization</h3>
+<p><a href="../README.md#x-auth-token">x-auth-token</a></p>
+<h3 id="http-request-headers_11">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<p><a href="#">[Back to top]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a>
+<a href="../README.md#documentation-for-models">[Back to Model list]</a>
+<a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

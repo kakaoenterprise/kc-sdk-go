@@ -1,0 +1,32 @@
+site_name: kc-sdk-go/v2/image (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - ImageAPI.md: api/ImageAPI.md
+  - Models:
+      - AddImageShareMember: models/AddImageShareMember.md
+      - AddImageShareResponse: models/AddImageShareResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GetImageResponse: models/GetImageResponse.md
+      - Image: models/Image.md
+      - ImageInstanceType: models/ImageInstanceType.md
+      - ImageType: models/ImageType.md
+      - ListImageSharedProjectsMember: models/ListImageSharedProjectsMember.md
+      - ListImageSharedProjectsResponse: models/ListImageSharedProjectsResponse.md
+      - ListImagesResponse: models/ListImagesResponse.md
+      - OsInfo: models/OsInfo.md
+      - UpdatedImage: models/UpdatedImage.md
+      - UpdateImage: models/UpdateImage.md
+      - UpdateImageRequest: models/UpdateImageRequest.md
+      - UpdateImageResponse: models/UpdateImageResponse.md

@@ -1,0 +1,54 @@
+site_name: kc-sdk-go/v2/network (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - NetworkInterfaceAPI.md: api/NetworkInterfaceAPI.md
+      - PublicIPAPI.md: api/PublicIPAPI.md
+      - SecurityGroupAPI.md: api/SecurityGroupAPI.md
+  - Models:
+      - AssociatePublicIpResponse: models/AssociatePublicIpResponse.md
+      - CreatePublicIp: models/CreatePublicIp.md
+      - CreatePublicIpRequest: models/CreatePublicIpRequest.md
+      - CreatePublicIpResponse: models/CreatePublicIpResponse.md
+      - CreateSecurityGroup: models/CreateSecurityGroup.md
+      - CreateSecurityGroupRequest: models/CreateSecurityGroupRequest.md
+      - CreateSecurityGroupResponse: models/CreateSecurityGroupResponse.md
+      - CreateSecurityGroupRule: models/CreateSecurityGroupRule.md
+      - CreateSecurityGroupRuleRequest: models/CreateSecurityGroupRuleRequest.md
+      - CreateSecurityGroupRuleResponse: models/CreateSecurityGroupRuleResponse.md
+      - DisassociatePublicIpResponse: models/DisassociatePublicIpResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GetPublicIpResponse: models/GetPublicIpResponse.md
+      - GetSecurityGroupResponse: models/GetSecurityGroupResponse.md
+      - ListPublicIpsResponse: models/ListPublicIpsResponse.md
+      - ListSecurityGroupsResponse: models/ListSecurityGroupsResponse.md
+      - NetworkInterfaceStatus: models/NetworkInterfaceStatus.md
+      - PublicIp: models/PublicIp.md
+      - PublicIpResult: models/PublicIpResult.md
+      - PublicIpStatus: models/PublicIpStatus.md
+      - Resource: models/Resource.md
+      - Rule: models/Rule.md
+      - RuleDirection: models/RuleDirection.md
+      - RuleProtocol: models/RuleProtocol.md
+      - RuleResult: models/RuleResult.md
+      - SecurityGroup: models/SecurityGroup.md
+      - SecurityGroupResult: models/SecurityGroupResult.md
+      - SecurityGroupRule: models/SecurityGroupRule.md
+      - SecurityGroupRuleProtocol: models/SecurityGroupRuleProtocol.md
+      - UpdatePublicIp: models/UpdatePublicIp.md
+      - UpdatePublicIpRequest: models/UpdatePublicIpRequest.md
+      - UpdatePublicIpResponse: models/UpdatePublicIpResponse.md
+      - UpdateSecurityGroup: models/UpdateSecurityGroup.md
+      - UpdateSecurityGroupRequest: models/UpdateSecurityGroupRequest.md
+      - UpdateSecurityGroupResponse: models/UpdateSecurityGroupResponse.md

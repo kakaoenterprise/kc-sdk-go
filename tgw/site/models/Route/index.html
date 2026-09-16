@@ -1,0 +1,4067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ResourceType/">
+      
+      
+        <link rel="next" href="../RouteTable/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Route - kc-sdk-go/v2/tgw (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#route" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/tgw (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/tgw (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/tgw (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Route
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/tgw (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/tgw (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/tgw (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/TransitGatewayAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/TransitGatewayAttachmentAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayAttachmentAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/TransitGatewayRouteTableAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGatewayRouteTableAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApproveTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ApproveTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Association/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Association
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AvailabilityZone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwAttachmentRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachmentRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTableAssociation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTableAssociationRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociationRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTableAssociationResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableAssociationResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTableRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTransitGatewayRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateTransitGatewayTgwOptionRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateTransitGatewayTgwOptionRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTgwAttachmentsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwAttachmentsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTgwRoutesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRoutesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTgwRouteTableAssociationsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRouteTableAssociationsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTgwRouteTablesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwRouteTablesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTgwSharedProjectsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTgwSharedProjectsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListTransitGatewaysResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListTransitGatewaysResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Option/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Region/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Region
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RejectTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RejectTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResourceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResourceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewRoute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newroutewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewRouteWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getroutetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRouteTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setroutetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRouteTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdestinationcidrblockok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDestinationCidrBlockOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdestinationcidrblocknil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDestinationCidrBlockNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceattachmentidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceAttachmentIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceattachmentidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceAttachmentIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettgwroutetableidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTableIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hastgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settgwroutetableidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTgwRouteTableIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsettgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprovisioningstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProvisioningStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprovisioningstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProvisioningStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tgw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tgw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TGWAssociationProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWAssociationProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TGWAttachmentProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWAttachmentProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwAttachmentResource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachmentResource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwAttachmentResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwAttachmentResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwOptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TGWProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwRouteAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TGWRouteProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWRouteProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwRouteTableAssociation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTableAssociation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TGWRouteTableProvisioningStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TGWRouteTableProvisioningStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TgwRouteTableResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TgwRouteTableResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwAttachmentRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachmentRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwAttachmentResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwAttachmentResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRoute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRoute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRouteRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRouteResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRouteTable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRouteTableRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTableRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTgwRouteTableResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTgwRouteTableResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTransitGateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTransitGatewayRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTransitGatewayResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateTransitGatewayTgwOptionRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateTransitGatewayTgwOptionRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewRoute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newroutewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewRouteWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getroutetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRouteTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setroutetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRouteTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetroutetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRouteType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdestinationcidrblockok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDestinationCidrBlockOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdestinationcidrblocknil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDestinationCidrBlockNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdestinationcidrblock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDestinationCidrBlock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceattachmentidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceAttachmentIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceattachmentidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceAttachmentIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourceattachmentid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceAttachmentId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourceidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResourceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettgwroutetableidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTgwRouteTableIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hastgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settgwroutetableidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTgwRouteTableIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsettgwroutetableid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetTgwRouteTableId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprovisioningstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProvisioningStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprovisioningstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProvisioningStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetprovisioningstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetProvisioningStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourceok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetResourceOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setresourcenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetResourceNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="route">Route</h1>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Id</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>Route의 고유 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>RouteType</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>Route 유형</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>DestinationCidrBlock</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>목적지 CIDR 블록</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ResourceAttachmentId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>연결된 리소스 Attachment ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ResourceId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>연결된 리소스 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ResourceType</strong></td>
+<td>Pointer to <a href="../ResourceType/"><strong>NullableResourceType</strong></a></td>
+<td>연결된 리소스 유형</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>TgwRouteTableId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>해당 Route가 속한 라우팅 테이블 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ProvisioningStatus</strong></td>
+<td>Pointer to <a href="../TGWRouteProvisioningStatus/"><strong>NullableTGWRouteProvisioningStatus</strong></a></td>
+<td>Route의 프로비저닝 상태</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Resource</strong></td>
+<td>Pointer to <a href="../Resource/"><strong>NullableResource</strong></a></td>
+<td>연결된 리소스의 요약 정보 객체</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<h3 id="newroute">NewRoute</h3>
+<p><code>func NewRoute() *Route</code></p>
+<p>NewRoute instantiates a new Route object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed</p>
+<h3 id="newroutewithdefaults">NewRouteWithDefaults</h3>
+<p><code>func NewRouteWithDefaults() *Route</code></p>
+<p>NewRouteWithDefaults instantiates a new Route object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set</p>
+<h3 id="getid">GetId</h3>
+<p><code>func (o *Route) GetId() string</code></p>
+<p>GetId returns the Id field if non-nil, zero value otherwise.</p>
+<h3 id="getidok">GetIdOk</h3>
+<p><code>func (o *Route) GetIdOk() (*string, bool)</code></p>
+<p>GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setid">SetId</h3>
+<p><code>func (o *Route) SetId(v string)</code></p>
+<p>SetId sets Id field to given value.</p>
+<h3 id="hasid">HasId</h3>
+<p><code>func (o *Route) HasId() bool</code></p>
+<p>HasId returns a boolean if a field has been set.</p>
+<h3 id="setidnil">SetIdNil</h3>
+<p><code>func (o *Route) SetIdNil(b bool)</code></p>
+<p>SetIdNil sets the value for Id to be an explicit nil</p>
+<h3 id="unsetid">UnsetId</h3>
+<p><code>func (o *Route) UnsetId()</code></p>
+<p>UnsetId ensures that no value is present for Id, not even an explicit nil</p>
+<h3 id="getroutetype">GetRouteType</h3>
+<p><code>func (o *Route) GetRouteType() string</code></p>
+<p>GetRouteType returns the RouteType field if non-nil, zero value otherwise.</p>
+<h3 id="getroutetypeok">GetRouteTypeOk</h3>
+<p><code>func (o *Route) GetRouteTypeOk() (*string, bool)</code></p>
+<p>GetRouteTypeOk returns a tuple with the RouteType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setroutetype">SetRouteType</h3>
+<p><code>func (o *Route) SetRouteType(v string)</code></p>
+<p>SetRouteType sets RouteType field to given value.</p>
+<h3 id="hasroutetype">HasRouteType</h3>
+<p><code>func (o *Route) HasRouteType() bool</code></p>
+<p>HasRouteType returns a boolean if a field has been set.</p>
+<h3 id="setroutetypenil">SetRouteTypeNil</h3>
+<p><code>func (o *Route) SetRouteTypeNil(b bool)</code></p>
+<p>SetRouteTypeNil sets the value for RouteType to be an explicit nil</p>
+<h3 id="unsetroutetype">UnsetRouteType</h3>
+<p><code>func (o *Route) UnsetRouteType()</code></p>
+<p>UnsetRouteType ensures that no value is present for RouteType, not even an explicit nil</p>
+<h3 id="getdestinationcidrblock">GetDestinationCidrBlock</h3>
+<p><code>func (o *Route) GetDestinationCidrBlock() string</code></p>
+<p>GetDestinationCidrBlock returns the DestinationCidrBlock field if non-nil, zero value otherwise.</p>
+<h3 id="getdestinationcidrblockok">GetDestinationCidrBlockOk</h3>
+<p><code>func (o *Route) GetDestinationCidrBlockOk() (*string, bool)</code></p>
+<p>GetDestinationCidrBlockOk returns a tuple with the DestinationCidrBlock field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdestinationcidrblock">SetDestinationCidrBlock</h3>
+<p><code>func (o *Route) SetDestinationCidrBlock(v string)</code></p>
+<p>SetDestinationCidrBlock sets DestinationCidrBlock field to given value.</p>
+<h3 id="hasdestinationcidrblock">HasDestinationCidrBlock</h3>
+<p><code>func (o *Route) HasDestinationCidrBlock() bool</code></p>
+<p>HasDestinationCidrBlock returns a boolean if a field has been set.</p>
+<h3 id="setdestinationcidrblocknil">SetDestinationCidrBlockNil</h3>
+<p><code>func (o *Route) SetDestinationCidrBlockNil(b bool)</code></p>
+<p>SetDestinationCidrBlockNil sets the value for DestinationCidrBlock to be an explicit nil</p>
+<h3 id="unsetdestinationcidrblock">UnsetDestinationCidrBlock</h3>
+<p><code>func (o *Route) UnsetDestinationCidrBlock()</code></p>
+<p>UnsetDestinationCidrBlock ensures that no value is present for DestinationCidrBlock, not even an explicit nil</p>
+<h3 id="getresourceattachmentid">GetResourceAttachmentId</h3>
+<p><code>func (o *Route) GetResourceAttachmentId() string</code></p>
+<p>GetResourceAttachmentId returns the ResourceAttachmentId field if non-nil, zero value otherwise.</p>
+<h3 id="getresourceattachmentidok">GetResourceAttachmentIdOk</h3>
+<p><code>func (o *Route) GetResourceAttachmentIdOk() (*string, bool)</code></p>
+<p>GetResourceAttachmentIdOk returns a tuple with the ResourceAttachmentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setresourceattachmentid">SetResourceAttachmentId</h3>
+<p><code>func (o *Route) SetResourceAttachmentId(v string)</code></p>
+<p>SetResourceAttachmentId sets ResourceAttachmentId field to given value.</p>
+<h3 id="hasresourceattachmentid">HasResourceAttachmentId</h3>
+<p><code>func (o *Route) HasResourceAttachmentId() bool</code></p>
+<p>HasResourceAttachmentId returns a boolean if a field has been set.</p>
+<h3 id="setresourceattachmentidnil">SetResourceAttachmentIdNil</h3>
+<p><code>func (o *Route) SetResourceAttachmentIdNil(b bool)</code></p>
+<p>SetResourceAttachmentIdNil sets the value for ResourceAttachmentId to be an explicit nil</p>
+<h3 id="unsetresourceattachmentid">UnsetResourceAttachmentId</h3>
+<p><code>func (o *Route) UnsetResourceAttachmentId()</code></p>
+<p>UnsetResourceAttachmentId ensures that no value is present for ResourceAttachmentId, not even an explicit nil</p>
+<h3 id="getresourceid">GetResourceId</h3>
+<p><code>func (o *Route) GetResourceId() string</code></p>
+<p>GetResourceId returns the ResourceId field if non-nil, zero value otherwise.</p>
+<h3 id="getresourceidok">GetResourceIdOk</h3>
+<p><code>func (o *Route) GetResourceIdOk() (*string, bool)</code></p>
+<p>GetResourceIdOk returns a tuple with the ResourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setresourceid">SetResourceId</h3>
+<p><code>func (o *Route) SetResourceId(v string)</code></p>
+<p>SetResourceId sets ResourceId field to given value.</p>
+<h3 id="hasresourceid">HasResourceId</h3>
+<p><code>func (o *Route) HasResourceId() bool</code></p>
+<p>HasResourceId returns a boolean if a field has been set.</p>
+<h3 id="setresourceidnil">SetResourceIdNil</h3>
+<p><code>func (o *Route) SetResourceIdNil(b bool)</code></p>
+<p>SetResourceIdNil sets the value for ResourceId to be an explicit nil</p>
+<h3 id="unsetresourceid">UnsetResourceId</h3>
+<p><code>func (o *Route) UnsetResourceId()</code></p>
+<p>UnsetResourceId ensures that no value is present for ResourceId, not even an explicit nil</p>
+<h3 id="getresourcetype">GetResourceType</h3>
+<p><code>func (o *Route) GetResourceType() ResourceType</code></p>
+<p>GetResourceType returns the ResourceType field if non-nil, zero value otherwise.</p>
+<h3 id="getresourcetypeok">GetResourceTypeOk</h3>
+<p><code>func (o *Route) GetResourceTypeOk() (*ResourceType, bool)</code></p>
+<p>GetResourceTypeOk returns a tuple with the ResourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setresourcetype">SetResourceType</h3>
+<p><code>func (o *Route) SetResourceType(v ResourceType)</code></p>
+<p>SetResourceType sets ResourceType field to given value.</p>
+<h3 id="hasresourcetype">HasResourceType</h3>
+<p><code>func (o *Route) HasResourceType() bool</code></p>
+<p>HasResourceType returns a boolean if a field has been set.</p>
+<h3 id="setresourcetypenil">SetResourceTypeNil</h3>
+<p><code>func (o *Route) SetResourceTypeNil(b bool)</code></p>
+<p>SetResourceTypeNil sets the value for ResourceType to be an explicit nil</p>
+<h3 id="unsetresourcetype">UnsetResourceType</h3>
+<p><code>func (o *Route) UnsetResourceType()</code></p>
+<p>UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil</p>
+<h3 id="gettgwroutetableid">GetTgwRouteTableId</h3>
+<p><code>func (o *Route) GetTgwRouteTableId() string</code></p>
+<p>GetTgwRouteTableId returns the TgwRouteTableId field if non-nil, zero value otherwise.</p>
+<h3 id="gettgwroutetableidok">GetTgwRouteTableIdOk</h3>
+<p><code>func (o *Route) GetTgwRouteTableIdOk() (*string, bool)</code></p>
+<p>GetTgwRouteTableIdOk returns a tuple with the TgwRouteTableId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="settgwroutetableid">SetTgwRouteTableId</h3>
+<p><code>func (o *Route) SetTgwRouteTableId(v string)</code></p>
+<p>SetTgwRouteTableId sets TgwRouteTableId field to given value.</p>
+<h3 id="hastgwroutetableid">HasTgwRouteTableId</h3>
+<p><code>func (o *Route) HasTgwRouteTableId() bool</code></p>
+<p>HasTgwRouteTableId returns a boolean if a field has been set.</p>
+<h3 id="settgwroutetableidnil">SetTgwRouteTableIdNil</h3>
+<p><code>func (o *Route) SetTgwRouteTableIdNil(b bool)</code></p>
+<p>SetTgwRouteTableIdNil sets the value for TgwRouteTableId to be an explicit nil</p>
+<h3 id="unsettgwroutetableid">UnsetTgwRouteTableId</h3>
+<p><code>func (o *Route) UnsetTgwRouteTableId()</code></p>
+<p>UnsetTgwRouteTableId ensures that no value is present for TgwRouteTableId, not even an explicit nil</p>
+<h3 id="getprovisioningstatus">GetProvisioningStatus</h3>
+<p><code>func (o *Route) GetProvisioningStatus() TGWRouteProvisioningStatus</code></p>
+<p>GetProvisioningStatus returns the ProvisioningStatus field if non-nil, zero value otherwise.</p>
+<h3 id="getprovisioningstatusok">GetProvisioningStatusOk</h3>
+<p><code>func (o *Route) GetProvisioningStatusOk() (*TGWRouteProvisioningStatus, bool)</code></p>
+<p>GetProvisioningStatusOk returns a tuple with the ProvisioningStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setprovisioningstatus">SetProvisioningStatus</h3>
+<p><code>func (o *Route) SetProvisioningStatus(v TGWRouteProvisioningStatus)</code></p>
+<p>SetProvisioningStatus sets ProvisioningStatus field to given value.</p>
+<h3 id="hasprovisioningstatus">HasProvisioningStatus</h3>
+<p><code>func (o *Route) HasProvisioningStatus() bool</code></p>
+<p>HasProvisioningStatus returns a boolean if a field has been set.</p>
+<h3 id="setprovisioningstatusnil">SetProvisioningStatusNil</h3>
+<p><code>func (o *Route) SetProvisioningStatusNil(b bool)</code></p>
+<p>SetProvisioningStatusNil sets the value for ProvisioningStatus to be an explicit nil</p>
+<h3 id="unsetprovisioningstatus">UnsetProvisioningStatus</h3>
+<p><code>func (o *Route) UnsetProvisioningStatus()</code></p>
+<p>UnsetProvisioningStatus ensures that no value is present for ProvisioningStatus, not even an explicit nil</p>
+<h3 id="getresource">GetResource</h3>
+<p><code>func (o *Route) GetResource() Resource</code></p>
+<p>GetResource returns the Resource field if non-nil, zero value otherwise.</p>
+<h3 id="getresourceok">GetResourceOk</h3>
+<p><code>func (o *Route) GetResourceOk() (*Resource, bool)</code></p>
+<p>GetResourceOk returns a tuple with the Resource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setresource">SetResource</h3>
+<p><code>func (o *Route) SetResource(v Resource)</code></p>
+<p>SetResource sets Resource field to given value.</p>
+<h3 id="hasresource">HasResource</h3>
+<p><code>func (o *Route) HasResource() bool</code></p>
+<p>HasResource returns a boolean if a field has been set.</p>
+<h3 id="setresourcenil">SetResourceNil</h3>
+<p><code>func (o *Route) SetResourceNil(b bool)</code></p>
+<p>SetResourceNil sets the value for Resource to be an explicit nil</p>
+<h3 id="unsetresource">UnsetResource</h3>
+<p><code>func (o *Route) UnsetResource()</code></p>
+<p>UnsetResource ensures that no value is present for Resource, not even an explicit nil</p>
+<p><a href="../README.md#documentation-for-models">[Back to Model list]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a> <a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

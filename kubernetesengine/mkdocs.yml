@@ -1,0 +1,113 @@
+site_name: kc-sdk-go/v2/kubernetesengine (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - KubernetesEngineAPI.md: api/KubernetesEngineAPI.md
+      - KubernetesEngineClusterAPI.md: api/KubernetesEngineClusterAPI.md
+      - NodeAPI.md: api/NodeAPI.md
+      - NodePoolAPI.md: api/NodePoolAPI.md
+  - Models:
+      - Address: models/Address.md
+      - AllocatableResources: models/AllocatableResources.md
+      - ApiServerIngressRule: models/ApiServerIngressRule.md
+      - ApiServerIngressRuleRequest: models/ApiServerIngressRuleRequest.md
+      - Autoscaling: models/Autoscaling.md
+      - AvailabilityZone: models/AvailabilityZone.md
+      - Cluster: models/Cluster.md
+      - ClusterNetwork: models/ClusterNetwork.md
+      - ClusterNetworkCNI: models/ClusterNetworkCNI.md
+      - ClusterNetworkRequest: models/ClusterNetworkRequest.md
+      - ClusterQuota: models/ClusterQuota.md
+      - ClusterStatus: models/ClusterStatus.md
+      - Condition: models/Condition.md
+      - ControlPlaneEndpoint: models/ControlPlaneEndpoint.md
+      - CreateCluster: models/CreateCluster.md
+      - CreateClusterRequest: models/CreateClusterRequest.md
+      - CreateNodePool: models/CreateNodePool.md
+      - CreateNodePoolRequest: models/CreateNodePoolRequest.md
+      - CreateNodePoolScheduledScaling: models/CreateNodePoolScheduledScaling.md
+      - CreateNodePoolScheduledScalingRequest: models/CreateNodePoolScheduledScalingRequest.md
+      - CreatorInfo: models/CreatorInfo.md
+      - CurrentOMT: models/CurrentOMT.md
+      - DeleteClusterNodes: models/DeleteClusterNodes.md
+      - DeleteClusterNodesRequest: models/DeleteClusterNodesRequest.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - Event: models/Event.md
+      - GetClusterNodeDetailsResponse: models/GetClusterNodeDetailsResponse.md
+      - GetClusterNodeDetailsStatus: models/GetClusterNodeDetailsStatus.md
+      - GetClusterNodeResponse: models/GetClusterNodeResponse.md
+      - GetClusterQuotaResponse: models/GetClusterQuotaResponse.md
+      - GetClusterResponse: models/GetClusterResponse.md
+      - GetKubernetesEngineQuotaResponse: models/GetKubernetesEngineQuotaResponse.md
+      - GetNodePoolResponse: models/GetNodePoolResponse.md
+      - GetServiceAgentResponse: models/GetServiceAgentResponse.md
+      - Image: models/Image.md
+      - ImageInfo: models/ImageInfo.md
+      - Label: models/Label.md
+      - LabelInfo: models/LabelInfo.md
+      - LabelRequest: models/LabelRequest.md
+      - ListAvailableKubernetesVersionsResponse: models/ListAvailableKubernetesVersionsResponse.md
+      - ListClusterNodesResponse: models/ListClusterNodesResponse.md
+      - ListClustersResponse: models/ListClustersResponse.md
+      - ListClusterUpgradableVersionsResponse: models/ListClusterUpgradableVersionsResponse.md
+      - ListNodePoolImagesResponse: models/ListNodePoolImagesResponse.md
+      - ListNodePoolNodesResponse: models/ListNodePoolNodesResponse.md
+      - ListNodePoolScheduledScalingsResponse: models/ListNodePoolScheduledScalingsResponse.md
+      - ListNodePoolsResponse: models/ListNodePoolsResponse.md
+      - Metadata: models/Metadata.md
+      - Node: models/Node.md
+      - NodeDetail: models/NodeDetail.md
+      - NodePool: models/NodePool.md
+      - NodePoolLabel: models/NodePoolLabel.md
+      - NodePoolScript: models/NodePoolScript.md
+      - NodePoolStatus: models/NodePoolStatus.md
+      - NodePoolStatusInfo: models/NodePoolStatusInfo.md
+      - NodePoolTaintEffect: models/NodePoolTaintEffect.md
+      - NodeStatus: models/NodeStatus.md
+      - NodeUsage: models/NodeUsage.md
+      - OMTInfo: models/OMTInfo.md
+      - Pod: models/Pod.md
+      - ProjectNodeUsage: models/ProjectNodeUsage.md
+      - Quota: models/Quota.md
+      - ScalingHistory: models/ScalingHistory.md
+      - ScalingStatus: models/ScalingStatus.md
+      - ScheduledScale: models/ScheduledScale.md
+      - SchedulingType: models/SchedulingType.md
+      - ServiceAgent: models/ServiceAgent.md
+      - SetClusterNodesCordon: models/SetClusterNodesCordon.md
+      - SetClusterNodesCordonRequest: models/SetClusterNodesCordonRequest.md
+      - SetNodePoolNodeLabel: models/SetNodePoolNodeLabel.md
+      - SetNodePoolNodeLabelRequest: models/SetNodePoolNodeLabelRequest.md
+      - SetNodePoolNodeLabelResponse: models/SetNodePoolNodeLabelResponse.md
+      - SetNodePoolResourceBasedAutoScaling: models/SetNodePoolResourceBasedAutoScaling.md
+      - SetNodePoolResourceBasedAutoScalingRequest: models/SetNodePoolResourceBasedAutoScalingRequest.md
+      - SetNodePoolSecurityGroupsRequest: models/SetNodePoolSecurityGroupsRequest.md
+      - SetNodePoolUserScript: models/SetNodePoolUserScript.md
+      - SetNodePoolUserScriptRequest: models/SetNodePoolUserScriptRequest.md
+      - SetNodePoolUserScriptResponse: models/SetNodePoolUserScriptResponse.md
+      - Spec: models/Spec.md
+      - Status: models/Status.md
+      - StatusInfo: models/StatusInfo.md
+      - Subnet: models/Subnet.md
+      - Taint: models/Taint.md
+      - TaintInfo: models/TaintInfo.md
+      - TaintRequest: models/TaintRequest.md
+      - UpdateCluster: models/UpdateCluster.md
+      - UpdateClusterRequest: models/UpdateClusterRequest.md
+      - UpdateNodePool: models/UpdateNodePool.md
+      - UpdateNodePoolRequest: models/UpdateNodePoolRequest.md
+      - UpgradableVersion: models/UpgradableVersion.md
+      - Upgrade: models/Upgrade.md
+      - VpcInfo: models/VpcInfo.md
+      - VpcInfoRequest: models/VpcInfoRequest.md

@@ -1,0 +1,88 @@
+site_name: kc-sdk-go/v2/tgw (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - TransitGatewayAPI.md: api/TransitGatewayAPI.md
+      - TransitGatewayAttachmentAPI.md: api/TransitGatewayAttachmentAPI.md
+      - TransitGatewayRouteTableAPI.md: api/TransitGatewayRouteTableAPI.md
+  - Models:
+      - ApproveTgwAttachmentResponse: models/ApproveTgwAttachmentResponse.md
+      - Association: models/Association.md
+      - Attachment: models/Attachment.md
+      - AvailabilityZone: models/AvailabilityZone.md
+      - CreateTgwAttachment: models/CreateTgwAttachment.md
+      - CreateTgwAttachmentRequest: models/CreateTgwAttachmentRequest.md
+      - CreateTgwAttachmentResponse: models/CreateTgwAttachmentResponse.md
+      - CreateTgwRoute: models/CreateTgwRoute.md
+      - CreateTgwRouteRequest: models/CreateTgwRouteRequest.md
+      - CreateTgwRouteResponse: models/CreateTgwRouteResponse.md
+      - CreateTgwRouteTable: models/CreateTgwRouteTable.md
+      - CreateTgwRouteTableAssociation: models/CreateTgwRouteTableAssociation.md
+      - CreateTgwRouteTableAssociationRequest: models/CreateTgwRouteTableAssociationRequest.md
+      - CreateTgwRouteTableAssociationResponse: models/CreateTgwRouteTableAssociationResponse.md
+      - CreateTgwRouteTableRequest: models/CreateTgwRouteTableRequest.md
+      - CreateTgwRouteTableResponse: models/CreateTgwRouteTableResponse.md
+      - CreateTransitGateway: models/CreateTransitGateway.md
+      - CreateTransitGatewayRequest: models/CreateTransitGatewayRequest.md
+      - CreateTransitGatewayResponse: models/CreateTransitGatewayResponse.md
+      - CreateTransitGatewayTgwOptionRequest: models/CreateTransitGatewayTgwOptionRequest.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GetTgwAttachmentResponse: models/GetTgwAttachmentResponse.md
+      - GetTgwRouteTableResponse: models/GetTgwRouteTableResponse.md
+      - GetTransitGatewayResponse: models/GetTransitGatewayResponse.md
+      - ListTgwAttachmentsResponse: models/ListTgwAttachmentsResponse.md
+      - ListTgwRoutesResponse: models/ListTgwRoutesResponse.md
+      - ListTgwRouteTableAssociationsResponse: models/ListTgwRouteTableAssociationsResponse.md
+      - ListTgwRouteTablesResponse: models/ListTgwRouteTablesResponse.md
+      - ListTgwSharedProjectsResponse: models/ListTgwSharedProjectsResponse.md
+      - ListTransitGatewaysResponse: models/ListTransitGatewaysResponse.md
+      - Option: models/Option.md
+      - Project: models/Project.md
+      - ProvisioningStatus: models/ProvisioningStatus.md
+      - Region: models/Region.md
+      - RejectTgwAttachmentResponse: models/RejectTgwAttachmentResponse.md
+      - Resource: models/Resource.md
+      - ResourceType: models/ResourceType.md
+      - Route: models/Route.md
+      - RouteTable: models/RouteTable.md
+      - Tgw: models/Tgw.md
+      - TGWAssociationProvisioningStatus: models/TGWAssociationProvisioningStatus.md
+      - TgwAttachment: models/TgwAttachment.md
+      - TGWAttachmentProvisioningStatus: models/TGWAttachmentProvisioningStatus.md
+      - TgwAttachmentResource: models/TgwAttachmentResource.md
+      - TgwAttachmentResult: models/TgwAttachmentResult.md
+      - TgwOptions: models/TgwOptions.md
+      - TGWProvisioningStatus: models/TGWProvisioningStatus.md
+      - TgwResult: models/TgwResult.md
+      - TgwRoute: models/TgwRoute.md
+      - TgwRouteAttachment: models/TgwRouteAttachment.md
+      - TGWRouteProvisioningStatus: models/TGWRouteProvisioningStatus.md
+      - TgwRouteTable: models/TgwRouteTable.md
+      - TgwRouteTableAssociation: models/TgwRouteTableAssociation.md
+      - TGWRouteTableProvisioningStatus: models/TGWRouteTableProvisioningStatus.md
+      - TgwRouteTableResult: models/TgwRouteTableResult.md
+      - TransitGateway: models/TransitGateway.md
+      - UpdateTgwAttachment: models/UpdateTgwAttachment.md
+      - UpdateTgwAttachmentRequest: models/UpdateTgwAttachmentRequest.md
+      - UpdateTgwAttachmentResponse: models/UpdateTgwAttachmentResponse.md
+      - UpdateTgwRoute: models/UpdateTgwRoute.md
+      - UpdateTgwRouteRequest: models/UpdateTgwRouteRequest.md
+      - UpdateTgwRouteResponse: models/UpdateTgwRouteResponse.md
+      - UpdateTgwRouteTable: models/UpdateTgwRouteTable.md
+      - UpdateTgwRouteTableRequest: models/UpdateTgwRouteTableRequest.md
+      - UpdateTgwRouteTableResponse: models/UpdateTgwRouteTableResponse.md
+      - UpdateTransitGateway: models/UpdateTransitGateway.md
+      - UpdateTransitGatewayRequest: models/UpdateTransitGatewayRequest.md
+      - UpdateTransitGatewayResponse: models/UpdateTransitGatewayResponse.md
+      - UpdateTransitGatewayTgwOptionRequest: models/UpdateTransitGatewayTgwOptionRequest.md

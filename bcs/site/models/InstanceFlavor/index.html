@@ -1,0 +1,5306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../InstanceAddress/">
+      
+      
+        <link rel="next" href="../InstanceSg/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>InstanceFlavor - kc-sdk-go/v2/bcs (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instanceflavor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/bcs (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/bcs (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/bcs (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              InstanceFlavor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/bcs (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/bcs (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/bcs (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/InstanceAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/KeypairAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KeypairAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AllowedAddressPair/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AllowedAddressPair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssociateNewPublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AssociateNewPublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssociatePublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AssociatePublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachedVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachedVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachNetworkInterfaceResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachNetworkInterfaceResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachSecurityGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachSecurityGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AttachVolumeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AttachVolumeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AvailabilityZone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BlockDeviceMappingRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BlockDeviceMappingRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreatedInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreatedKeypair/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedKeypair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateInstanceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateInstanceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateInstanceResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateInstanceResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateKeypair/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateKeypair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateKeypairRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateKeypairRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateKeypairResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateKeypairResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DetachSecurityGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DetachSecurityGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FixedIp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FixedIp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flavor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetInstanceConsoleLogResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetInstanceConsoleLogResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetInstancePasswordResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetInstancePasswordResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetInstanceResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetInstanceResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetInstanceTypeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetInstanceTypeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetKeypairResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetKeypairResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceActionType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceActionType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceAddress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceAddress
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceFlavor
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceFlavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newinstanceflavor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewInstanceFlavor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newinstanceflavorwithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewInstanceFlavorWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgroupok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetGroupOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgroupnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetGroupNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvcpusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVcpusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvcpusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVcpusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisburstableok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBurstableOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisburstablenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBurstableNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmanufacturerok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetManufacturerOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmanufacturernil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetManufacturerNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmemorymbok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMemoryMbOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmemorymbnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMemoryMbNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrootgbok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRootGbOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrootgbnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRootGbNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdisktypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdisktypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancefamilyok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceFamilyOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancefamilynil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceFamilyNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosdistrook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsDistroOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosdistronil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsDistroNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaximumnetworkinterfacesok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMaximumNetworkInterfacesOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaximumnetworkinterfacesnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMaximumNetworkInterfacesNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwtypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwtypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwcountok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwCountOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwcountnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwCountNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getishyperthreadingsupportedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsHyperThreadingSupportedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setishyperthreadingsupportednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsHyperThreadingSupportedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrealvcpusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRealVcpusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrealvcpusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRealVcpusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceSg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceSg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InterfaceAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterfaceAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Keypair/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keypair
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstanceActionLogsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstanceActionLogsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstanceNetworkInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstanceNetworkInterface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstanceNetworkInterfacesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstanceNetworkInterfacesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstanceNetworkInterfacesSecurityGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstanceNetworkInterfacesSecurityGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstancesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstancesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListInstanceTypesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListInstanceTypesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListKeypairsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListKeypairsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetworkInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetworkInterface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetworkInterfaceStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetworkInterfaceStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerState/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PowerState
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PublicIp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PublicIp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuildInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuildInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuildInstanceAttachedVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuildInstanceAttachedVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuildInstanceFlavor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuildInstanceFlavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuildInstanceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuildInstanceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuildInstanceResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuildInstanceResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RebuiltInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RebuiltInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RemovePublicIpResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RemovePublicIpResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResizeInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResizeInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResizeInstanceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResizeInstanceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SecurityGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SecurityGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SecurityGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SecurityGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SourceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SourceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SubnetRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SubnetRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdatedAttachedVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedAttachedVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdatedFlavor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedFlavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdatedInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdatedNetworkInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedNetworkInterface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateInstance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateInstance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateInstanceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateInstanceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateInstanceResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateInstanceResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateInstanceVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateInstanceVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateInstanceVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateInstanceVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateNetworkInterfaceAllowedAddresses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateNetworkInterfaceAllowedAddresses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateNetworkInterfaceAllowedAddressesRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateNetworkInterfaceAllowedAddressesRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateNetworkInterfaceAllowedAddressesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateNetworkInterfaceAllowedAddressesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VolumeAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VolumeAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newinstanceflavor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewInstanceFlavor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newinstanceflavorwithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewInstanceFlavorWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgroupok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetGroupOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgroupnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetGroupNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvcpusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVcpusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvcpusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVcpusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisburstableok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBurstableOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisburstablenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBurstableNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisburstable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsBurstable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmanufacturerok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetManufacturerOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmanufacturernil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetManufacturerNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmanufacturer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetManufacturer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmemorymbok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMemoryMbOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmemorymbnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMemoryMbNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmemorymb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMemoryMb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrootgbok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRootGbOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrootgbnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRootGbNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetrootgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRootGb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdisktypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdisktypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdisktype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDiskType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancefamilyok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceFamilyOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancefamilynil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceFamilyNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancefamily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceFamily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosdistrook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsDistroOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosdistronil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsDistroNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetosdistro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetOsDistro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaximumnetworkinterfacesok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMaximumNetworkInterfacesOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaximumnetworkinterfacesnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMaximumNetworkInterfacesNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmaximumnetworkinterfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMaximumNetworkInterfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwtypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwtypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsethwtype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetHwType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethwcountok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHwCountOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethwcountnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetHwCountNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsethwcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetHwCount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getishyperthreadingsupportedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsHyperThreadingSupportedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setishyperthreadingsupportednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsHyperThreadingSupportedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetishyperthreadingsupported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsHyperThreadingSupported
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrealvcpusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetRealVcpusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setrealvcpusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetRealVcpusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetrealvcpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetRealVcpus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="instanceflavor">InstanceFlavor</h1>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Id</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 유형 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 유형 이름</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Group</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 그룹 (성능, 요금 기준 구분) - 예시:  &#x60;cpu_optimized&#x60;, &#x60;memory_optimized&#x60;, &#x60;gpu&#x60; 등</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Vcpus</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>가상 CPU(Virtual CPU) 수</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsBurstable</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td><a href="https://docs.kakaocloud.com/service/bcs/bcs-specifications/general-purpose/burstable-main">버스터블 인스턴스</a> 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Manufacturer</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>하드웨어 제조사</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>MemoryMb</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>메모리 크기 (MB 단위)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>RootGb</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>루트 디스크의 크기 (GB 단위)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>DiskType</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>디스크 유형</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>InstanceFamily</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 계열</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>OsDistro</strong></td>
+<td>Pointer to <strong>[]string</strong></td>
+<td>운영체제 배포판</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>MaximumNetworkInterfaces</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>연결 가능한 최대 네트워크 인터페이스 수</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>HwType</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>하드웨어 유형 - 예시: GPU</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>HwCount</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>해당 인스턴스 유형에 포함된 하드웨어 개수 - 예시: GPU 개수</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsHyperThreadingSupported</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td>하이퍼스레딩 지원 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>RealVcpus</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>실제 사용 가능한 가상 CPU 수</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<h3 id="newinstanceflavor">NewInstanceFlavor</h3>
+<p><code>func NewInstanceFlavor() *InstanceFlavor</code></p>
+<p>NewInstanceFlavor instantiates a new InstanceFlavor object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed</p>
+<h3 id="newinstanceflavorwithdefaults">NewInstanceFlavorWithDefaults</h3>
+<p><code>func NewInstanceFlavorWithDefaults() *InstanceFlavor</code></p>
+<p>NewInstanceFlavorWithDefaults instantiates a new InstanceFlavor object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set</p>
+<h3 id="getid">GetId</h3>
+<p><code>func (o *InstanceFlavor) GetId() string</code></p>
+<p>GetId returns the Id field if non-nil, zero value otherwise.</p>
+<h3 id="getidok">GetIdOk</h3>
+<p><code>func (o *InstanceFlavor) GetIdOk() (*string, bool)</code></p>
+<p>GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setid">SetId</h3>
+<p><code>func (o *InstanceFlavor) SetId(v string)</code></p>
+<p>SetId sets Id field to given value.</p>
+<h3 id="hasid">HasId</h3>
+<p><code>func (o *InstanceFlavor) HasId() bool</code></p>
+<p>HasId returns a boolean if a field has been set.</p>
+<h3 id="setidnil">SetIdNil</h3>
+<p><code>func (o *InstanceFlavor) SetIdNil(b bool)</code></p>
+<p>SetIdNil sets the value for Id to be an explicit nil</p>
+<h3 id="unsetid">UnsetId</h3>
+<p><code>func (o *InstanceFlavor) UnsetId()</code></p>
+<p>UnsetId ensures that no value is present for Id, not even an explicit nil</p>
+<h3 id="getname">GetName</h3>
+<p><code>func (o *InstanceFlavor) GetName() string</code></p>
+<p>GetName returns the Name field if non-nil, zero value otherwise.</p>
+<h3 id="getnameok">GetNameOk</h3>
+<p><code>func (o *InstanceFlavor) GetNameOk() (*string, bool)</code></p>
+<p>GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setname">SetName</h3>
+<p><code>func (o *InstanceFlavor) SetName(v string)</code></p>
+<p>SetName sets Name field to given value.</p>
+<h3 id="hasname">HasName</h3>
+<p><code>func (o *InstanceFlavor) HasName() bool</code></p>
+<p>HasName returns a boolean if a field has been set.</p>
+<h3 id="setnamenil">SetNameNil</h3>
+<p><code>func (o *InstanceFlavor) SetNameNil(b bool)</code></p>
+<p>SetNameNil sets the value for Name to be an explicit nil</p>
+<h3 id="unsetname">UnsetName</h3>
+<p><code>func (o *InstanceFlavor) UnsetName()</code></p>
+<p>UnsetName ensures that no value is present for Name, not even an explicit nil</p>
+<h3 id="getgroup">GetGroup</h3>
+<p><code>func (o *InstanceFlavor) GetGroup() string</code></p>
+<p>GetGroup returns the Group field if non-nil, zero value otherwise.</p>
+<h3 id="getgroupok">GetGroupOk</h3>
+<p><code>func (o *InstanceFlavor) GetGroupOk() (*string, bool)</code></p>
+<p>GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setgroup">SetGroup</h3>
+<p><code>func (o *InstanceFlavor) SetGroup(v string)</code></p>
+<p>SetGroup sets Group field to given value.</p>
+<h3 id="hasgroup">HasGroup</h3>
+<p><code>func (o *InstanceFlavor) HasGroup() bool</code></p>
+<p>HasGroup returns a boolean if a field has been set.</p>
+<h3 id="setgroupnil">SetGroupNil</h3>
+<p><code>func (o *InstanceFlavor) SetGroupNil(b bool)</code></p>
+<p>SetGroupNil sets the value for Group to be an explicit nil</p>
+<h3 id="unsetgroup">UnsetGroup</h3>
+<p><code>func (o *InstanceFlavor) UnsetGroup()</code></p>
+<p>UnsetGroup ensures that no value is present for Group, not even an explicit nil</p>
+<h3 id="getvcpus">GetVcpus</h3>
+<p><code>func (o *InstanceFlavor) GetVcpus() int32</code></p>
+<p>GetVcpus returns the Vcpus field if non-nil, zero value otherwise.</p>
+<h3 id="getvcpusok">GetVcpusOk</h3>
+<p><code>func (o *InstanceFlavor) GetVcpusOk() (*int32, bool)</code></p>
+<p>GetVcpusOk returns a tuple with the Vcpus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setvcpus">SetVcpus</h3>
+<p><code>func (o *InstanceFlavor) SetVcpus(v int32)</code></p>
+<p>SetVcpus sets Vcpus field to given value.</p>
+<h3 id="hasvcpus">HasVcpus</h3>
+<p><code>func (o *InstanceFlavor) HasVcpus() bool</code></p>
+<p>HasVcpus returns a boolean if a field has been set.</p>
+<h3 id="setvcpusnil">SetVcpusNil</h3>
+<p><code>func (o *InstanceFlavor) SetVcpusNil(b bool)</code></p>
+<p>SetVcpusNil sets the value for Vcpus to be an explicit nil</p>
+<h3 id="unsetvcpus">UnsetVcpus</h3>
+<p><code>func (o *InstanceFlavor) UnsetVcpus()</code></p>
+<p>UnsetVcpus ensures that no value is present for Vcpus, not even an explicit nil</p>
+<h3 id="getisburstable">GetIsBurstable</h3>
+<p><code>func (o *InstanceFlavor) GetIsBurstable() bool</code></p>
+<p>GetIsBurstable returns the IsBurstable field if non-nil, zero value otherwise.</p>
+<h3 id="getisburstableok">GetIsBurstableOk</h3>
+<p><code>func (o *InstanceFlavor) GetIsBurstableOk() (*bool, bool)</code></p>
+<p>GetIsBurstableOk returns a tuple with the IsBurstable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setisburstable">SetIsBurstable</h3>
+<p><code>func (o *InstanceFlavor) SetIsBurstable(v bool)</code></p>
+<p>SetIsBurstable sets IsBurstable field to given value.</p>
+<h3 id="hasisburstable">HasIsBurstable</h3>
+<p><code>func (o *InstanceFlavor) HasIsBurstable() bool</code></p>
+<p>HasIsBurstable returns a boolean if a field has been set.</p>
+<h3 id="setisburstablenil">SetIsBurstableNil</h3>
+<p><code>func (o *InstanceFlavor) SetIsBurstableNil(b bool)</code></p>
+<p>SetIsBurstableNil sets the value for IsBurstable to be an explicit nil</p>
+<h3 id="unsetisburstable">UnsetIsBurstable</h3>
+<p><code>func (o *InstanceFlavor) UnsetIsBurstable()</code></p>
+<p>UnsetIsBurstable ensures that no value is present for IsBurstable, not even an explicit nil</p>
+<h3 id="getmanufacturer">GetManufacturer</h3>
+<p><code>func (o *InstanceFlavor) GetManufacturer() string</code></p>
+<p>GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.</p>
+<h3 id="getmanufacturerok">GetManufacturerOk</h3>
+<p><code>func (o *InstanceFlavor) GetManufacturerOk() (*string, bool)</code></p>
+<p>GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmanufacturer">SetManufacturer</h3>
+<p><code>func (o *InstanceFlavor) SetManufacturer(v string)</code></p>
+<p>SetManufacturer sets Manufacturer field to given value.</p>
+<h3 id="hasmanufacturer">HasManufacturer</h3>
+<p><code>func (o *InstanceFlavor) HasManufacturer() bool</code></p>
+<p>HasManufacturer returns a boolean if a field has been set.</p>
+<h3 id="setmanufacturernil">SetManufacturerNil</h3>
+<p><code>func (o *InstanceFlavor) SetManufacturerNil(b bool)</code></p>
+<p>SetManufacturerNil sets the value for Manufacturer to be an explicit nil</p>
+<h3 id="unsetmanufacturer">UnsetManufacturer</h3>
+<p><code>func (o *InstanceFlavor) UnsetManufacturer()</code></p>
+<p>UnsetManufacturer ensures that no value is present for Manufacturer, not even an explicit nil</p>
+<h3 id="getmemorymb">GetMemoryMb</h3>
+<p><code>func (o *InstanceFlavor) GetMemoryMb() int32</code></p>
+<p>GetMemoryMb returns the MemoryMb field if non-nil, zero value otherwise.</p>
+<h3 id="getmemorymbok">GetMemoryMbOk</h3>
+<p><code>func (o *InstanceFlavor) GetMemoryMbOk() (*int32, bool)</code></p>
+<p>GetMemoryMbOk returns a tuple with the MemoryMb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmemorymb">SetMemoryMb</h3>
+<p><code>func (o *InstanceFlavor) SetMemoryMb(v int32)</code></p>
+<p>SetMemoryMb sets MemoryMb field to given value.</p>
+<h3 id="hasmemorymb">HasMemoryMb</h3>
+<p><code>func (o *InstanceFlavor) HasMemoryMb() bool</code></p>
+<p>HasMemoryMb returns a boolean if a field has been set.</p>
+<h3 id="setmemorymbnil">SetMemoryMbNil</h3>
+<p><code>func (o *InstanceFlavor) SetMemoryMbNil(b bool)</code></p>
+<p>SetMemoryMbNil sets the value for MemoryMb to be an explicit nil</p>
+<h3 id="unsetmemorymb">UnsetMemoryMb</h3>
+<p><code>func (o *InstanceFlavor) UnsetMemoryMb()</code></p>
+<p>UnsetMemoryMb ensures that no value is present for MemoryMb, not even an explicit nil</p>
+<h3 id="getrootgb">GetRootGb</h3>
+<p><code>func (o *InstanceFlavor) GetRootGb() int32</code></p>
+<p>GetRootGb returns the RootGb field if non-nil, zero value otherwise.</p>
+<h3 id="getrootgbok">GetRootGbOk</h3>
+<p><code>func (o *InstanceFlavor) GetRootGbOk() (*int32, bool)</code></p>
+<p>GetRootGbOk returns a tuple with the RootGb field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setrootgb">SetRootGb</h3>
+<p><code>func (o *InstanceFlavor) SetRootGb(v int32)</code></p>
+<p>SetRootGb sets RootGb field to given value.</p>
+<h3 id="hasrootgb">HasRootGb</h3>
+<p><code>func (o *InstanceFlavor) HasRootGb() bool</code></p>
+<p>HasRootGb returns a boolean if a field has been set.</p>
+<h3 id="setrootgbnil">SetRootGbNil</h3>
+<p><code>func (o *InstanceFlavor) SetRootGbNil(b bool)</code></p>
+<p>SetRootGbNil sets the value for RootGb to be an explicit nil</p>
+<h3 id="unsetrootgb">UnsetRootGb</h3>
+<p><code>func (o *InstanceFlavor) UnsetRootGb()</code></p>
+<p>UnsetRootGb ensures that no value is present for RootGb, not even an explicit nil</p>
+<h3 id="getdisktype">GetDiskType</h3>
+<p><code>func (o *InstanceFlavor) GetDiskType() string</code></p>
+<p>GetDiskType returns the DiskType field if non-nil, zero value otherwise.</p>
+<h3 id="getdisktypeok">GetDiskTypeOk</h3>
+<p><code>func (o *InstanceFlavor) GetDiskTypeOk() (*string, bool)</code></p>
+<p>GetDiskTypeOk returns a tuple with the DiskType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdisktype">SetDiskType</h3>
+<p><code>func (o *InstanceFlavor) SetDiskType(v string)</code></p>
+<p>SetDiskType sets DiskType field to given value.</p>
+<h3 id="hasdisktype">HasDiskType</h3>
+<p><code>func (o *InstanceFlavor) HasDiskType() bool</code></p>
+<p>HasDiskType returns a boolean if a field has been set.</p>
+<h3 id="setdisktypenil">SetDiskTypeNil</h3>
+<p><code>func (o *InstanceFlavor) SetDiskTypeNil(b bool)</code></p>
+<p>SetDiskTypeNil sets the value for DiskType to be an explicit nil</p>
+<h3 id="unsetdisktype">UnsetDiskType</h3>
+<p><code>func (o *InstanceFlavor) UnsetDiskType()</code></p>
+<p>UnsetDiskType ensures that no value is present for DiskType, not even an explicit nil</p>
+<h3 id="getinstancefamily">GetInstanceFamily</h3>
+<p><code>func (o *InstanceFlavor) GetInstanceFamily() string</code></p>
+<p>GetInstanceFamily returns the InstanceFamily field if non-nil, zero value otherwise.</p>
+<h3 id="getinstancefamilyok">GetInstanceFamilyOk</h3>
+<p><code>func (o *InstanceFlavor) GetInstanceFamilyOk() (*string, bool)</code></p>
+<p>GetInstanceFamilyOk returns a tuple with the InstanceFamily field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setinstancefamily">SetInstanceFamily</h3>
+<p><code>func (o *InstanceFlavor) SetInstanceFamily(v string)</code></p>
+<p>SetInstanceFamily sets InstanceFamily field to given value.</p>
+<h3 id="hasinstancefamily">HasInstanceFamily</h3>
+<p><code>func (o *InstanceFlavor) HasInstanceFamily() bool</code></p>
+<p>HasInstanceFamily returns a boolean if a field has been set.</p>
+<h3 id="setinstancefamilynil">SetInstanceFamilyNil</h3>
+<p><code>func (o *InstanceFlavor) SetInstanceFamilyNil(b bool)</code></p>
+<p>SetInstanceFamilyNil sets the value for InstanceFamily to be an explicit nil</p>
+<h3 id="unsetinstancefamily">UnsetInstanceFamily</h3>
+<p><code>func (o *InstanceFlavor) UnsetInstanceFamily()</code></p>
+<p>UnsetInstanceFamily ensures that no value is present for InstanceFamily, not even an explicit nil</p>
+<h3 id="getosdistro">GetOsDistro</h3>
+<p><code>func (o *InstanceFlavor) GetOsDistro() []string</code></p>
+<p>GetOsDistro returns the OsDistro field if non-nil, zero value otherwise.</p>
+<h3 id="getosdistrook">GetOsDistroOk</h3>
+<p><code>func (o *InstanceFlavor) GetOsDistroOk() (*[]string, bool)</code></p>
+<p>GetOsDistroOk returns a tuple with the OsDistro field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setosdistro">SetOsDistro</h3>
+<p><code>func (o *InstanceFlavor) SetOsDistro(v []string)</code></p>
+<p>SetOsDistro sets OsDistro field to given value.</p>
+<h3 id="hasosdistro">HasOsDistro</h3>
+<p><code>func (o *InstanceFlavor) HasOsDistro() bool</code></p>
+<p>HasOsDistro returns a boolean if a field has been set.</p>
+<h3 id="setosdistronil">SetOsDistroNil</h3>
+<p><code>func (o *InstanceFlavor) SetOsDistroNil(b bool)</code></p>
+<p>SetOsDistroNil sets the value for OsDistro to be an explicit nil</p>
+<h3 id="unsetosdistro">UnsetOsDistro</h3>
+<p><code>func (o *InstanceFlavor) UnsetOsDistro()</code></p>
+<p>UnsetOsDistro ensures that no value is present for OsDistro, not even an explicit nil</p>
+<h3 id="getmaximumnetworkinterfaces">GetMaximumNetworkInterfaces</h3>
+<p><code>func (o *InstanceFlavor) GetMaximumNetworkInterfaces() int32</code></p>
+<p>GetMaximumNetworkInterfaces returns the MaximumNetworkInterfaces field if non-nil, zero value otherwise.</p>
+<h3 id="getmaximumnetworkinterfacesok">GetMaximumNetworkInterfacesOk</h3>
+<p><code>func (o *InstanceFlavor) GetMaximumNetworkInterfacesOk() (*int32, bool)</code></p>
+<p>GetMaximumNetworkInterfacesOk returns a tuple with the MaximumNetworkInterfaces field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmaximumnetworkinterfaces">SetMaximumNetworkInterfaces</h3>
+<p><code>func (o *InstanceFlavor) SetMaximumNetworkInterfaces(v int32)</code></p>
+<p>SetMaximumNetworkInterfaces sets MaximumNetworkInterfaces field to given value.</p>
+<h3 id="hasmaximumnetworkinterfaces">HasMaximumNetworkInterfaces</h3>
+<p><code>func (o *InstanceFlavor) HasMaximumNetworkInterfaces() bool</code></p>
+<p>HasMaximumNetworkInterfaces returns a boolean if a field has been set.</p>
+<h3 id="setmaximumnetworkinterfacesnil">SetMaximumNetworkInterfacesNil</h3>
+<p><code>func (o *InstanceFlavor) SetMaximumNetworkInterfacesNil(b bool)</code></p>
+<p>SetMaximumNetworkInterfacesNil sets the value for MaximumNetworkInterfaces to be an explicit nil</p>
+<h3 id="unsetmaximumnetworkinterfaces">UnsetMaximumNetworkInterfaces</h3>
+<p><code>func (o *InstanceFlavor) UnsetMaximumNetworkInterfaces()</code></p>
+<p>UnsetMaximumNetworkInterfaces ensures that no value is present for MaximumNetworkInterfaces, not even an explicit nil</p>
+<h3 id="gethwtype">GetHwType</h3>
+<p><code>func (o *InstanceFlavor) GetHwType() string</code></p>
+<p>GetHwType returns the HwType field if non-nil, zero value otherwise.</p>
+<h3 id="gethwtypeok">GetHwTypeOk</h3>
+<p><code>func (o *InstanceFlavor) GetHwTypeOk() (*string, bool)</code></p>
+<p>GetHwTypeOk returns a tuple with the HwType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="sethwtype">SetHwType</h3>
+<p><code>func (o *InstanceFlavor) SetHwType(v string)</code></p>
+<p>SetHwType sets HwType field to given value.</p>
+<h3 id="hashwtype">HasHwType</h3>
+<p><code>func (o *InstanceFlavor) HasHwType() bool</code></p>
+<p>HasHwType returns a boolean if a field has been set.</p>
+<h3 id="sethwtypenil">SetHwTypeNil</h3>
+<p><code>func (o *InstanceFlavor) SetHwTypeNil(b bool)</code></p>
+<p>SetHwTypeNil sets the value for HwType to be an explicit nil</p>
+<h3 id="unsethwtype">UnsetHwType</h3>
+<p><code>func (o *InstanceFlavor) UnsetHwType()</code></p>
+<p>UnsetHwType ensures that no value is present for HwType, not even an explicit nil</p>
+<h3 id="gethwcount">GetHwCount</h3>
+<p><code>func (o *InstanceFlavor) GetHwCount() int32</code></p>
+<p>GetHwCount returns the HwCount field if non-nil, zero value otherwise.</p>
+<h3 id="gethwcountok">GetHwCountOk</h3>
+<p><code>func (o *InstanceFlavor) GetHwCountOk() (*int32, bool)</code></p>
+<p>GetHwCountOk returns a tuple with the HwCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="sethwcount">SetHwCount</h3>
+<p><code>func (o *InstanceFlavor) SetHwCount(v int32)</code></p>
+<p>SetHwCount sets HwCount field to given value.</p>
+<h3 id="hashwcount">HasHwCount</h3>
+<p><code>func (o *InstanceFlavor) HasHwCount() bool</code></p>
+<p>HasHwCount returns a boolean if a field has been set.</p>
+<h3 id="sethwcountnil">SetHwCountNil</h3>
+<p><code>func (o *InstanceFlavor) SetHwCountNil(b bool)</code></p>
+<p>SetHwCountNil sets the value for HwCount to be an explicit nil</p>
+<h3 id="unsethwcount">UnsetHwCount</h3>
+<p><code>func (o *InstanceFlavor) UnsetHwCount()</code></p>
+<p>UnsetHwCount ensures that no value is present for HwCount, not even an explicit nil</p>
+<h3 id="getishyperthreadingsupported">GetIsHyperThreadingSupported</h3>
+<p><code>func (o *InstanceFlavor) GetIsHyperThreadingSupported() bool</code></p>
+<p>GetIsHyperThreadingSupported returns the IsHyperThreadingSupported field if non-nil, zero value otherwise.</p>
+<h3 id="getishyperthreadingsupportedok">GetIsHyperThreadingSupportedOk</h3>
+<p><code>func (o *InstanceFlavor) GetIsHyperThreadingSupportedOk() (*bool, bool)</code></p>
+<p>GetIsHyperThreadingSupportedOk returns a tuple with the IsHyperThreadingSupported field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setishyperthreadingsupported">SetIsHyperThreadingSupported</h3>
+<p><code>func (o *InstanceFlavor) SetIsHyperThreadingSupported(v bool)</code></p>
+<p>SetIsHyperThreadingSupported sets IsHyperThreadingSupported field to given value.</p>
+<h3 id="hasishyperthreadingsupported">HasIsHyperThreadingSupported</h3>
+<p><code>func (o *InstanceFlavor) HasIsHyperThreadingSupported() bool</code></p>
+<p>HasIsHyperThreadingSupported returns a boolean if a field has been set.</p>
+<h3 id="setishyperthreadingsupportednil">SetIsHyperThreadingSupportedNil</h3>
+<p><code>func (o *InstanceFlavor) SetIsHyperThreadingSupportedNil(b bool)</code></p>
+<p>SetIsHyperThreadingSupportedNil sets the value for IsHyperThreadingSupported to be an explicit nil</p>
+<h3 id="unsetishyperthreadingsupported">UnsetIsHyperThreadingSupported</h3>
+<p><code>func (o *InstanceFlavor) UnsetIsHyperThreadingSupported()</code></p>
+<p>UnsetIsHyperThreadingSupported ensures that no value is present for IsHyperThreadingSupported, not even an explicit nil</p>
+<h3 id="getrealvcpus">GetRealVcpus</h3>
+<p><code>func (o *InstanceFlavor) GetRealVcpus() int32</code></p>
+<p>GetRealVcpus returns the RealVcpus field if non-nil, zero value otherwise.</p>
+<h3 id="getrealvcpusok">GetRealVcpusOk</h3>
+<p><code>func (o *InstanceFlavor) GetRealVcpusOk() (*int32, bool)</code></p>
+<p>GetRealVcpusOk returns a tuple with the RealVcpus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setrealvcpus">SetRealVcpus</h3>
+<p><code>func (o *InstanceFlavor) SetRealVcpus(v int32)</code></p>
+<p>SetRealVcpus sets RealVcpus field to given value.</p>
+<h3 id="hasrealvcpus">HasRealVcpus</h3>
+<p><code>func (o *InstanceFlavor) HasRealVcpus() bool</code></p>
+<p>HasRealVcpus returns a boolean if a field has been set.</p>
+<h3 id="setrealvcpusnil">SetRealVcpusNil</h3>
+<p><code>func (o *InstanceFlavor) SetRealVcpusNil(b bool)</code></p>
+<p>SetRealVcpusNil sets the value for RealVcpus to be an explicit nil</p>
+<h3 id="unsetrealvcpus">UnsetRealVcpus</h3>
+<p><code>func (o *InstanceFlavor) UnsetRealVcpus()</code></p>
+<p>UnsetRealVcpus ensures that no value is present for RealVcpus, not even an explicit nil</p>
+<p><a href="../README.md#documentation-for-models">[Back to Model list]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a> <a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,123 @@
+# ClusterNetworkRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Cni** | [**ClusterNetworkCNI**](ClusterNetworkCNI.md) | 사용 중인 CNI(Container Network Interface) 플러그인 | 
+**ServiceCidr** | Pointer to **NullableString** | 클러스터의 서비스 객체가 수신할 IP | [optional] 
+**PodCidr** | Pointer to **NullableString** | 파드가 수신할 IP | [optional] 
+
+## Methods
+
+### NewClusterNetworkRequest
+
+`func NewClusterNetworkRequest(cni ClusterNetworkCNI, ) *ClusterNetworkRequest`
+
+NewClusterNetworkRequest instantiates a new ClusterNetworkRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewClusterNetworkRequestWithDefaults
+
+`func NewClusterNetworkRequestWithDefaults() *ClusterNetworkRequest`
+
+NewClusterNetworkRequestWithDefaults instantiates a new ClusterNetworkRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetCni
+
+`func (o *ClusterNetworkRequest) GetCni() ClusterNetworkCNI`
+
+GetCni returns the Cni field if non-nil, zero value otherwise.
+
+### GetCniOk
+
+`func (o *ClusterNetworkRequest) GetCniOk() (*ClusterNetworkCNI, bool)`
+
+GetCniOk returns a tuple with the Cni field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCni
+
+`func (o *ClusterNetworkRequest) SetCni(v ClusterNetworkCNI)`
+
+SetCni sets Cni field to given value.
+
+
+### GetServiceCidr
+
+`func (o *ClusterNetworkRequest) GetServiceCidr() string`
+
+GetServiceCidr returns the ServiceCidr field if non-nil, zero value otherwise.
+
+### GetServiceCidrOk
+
+`func (o *ClusterNetworkRequest) GetServiceCidrOk() (*string, bool)`
+
+GetServiceCidrOk returns a tuple with the ServiceCidr field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceCidr
+
+`func (o *ClusterNetworkRequest) SetServiceCidr(v string)`
+
+SetServiceCidr sets ServiceCidr field to given value.
+
+### HasServiceCidr
+
+`func (o *ClusterNetworkRequest) HasServiceCidr() bool`
+
+HasServiceCidr returns a boolean if a field has been set.
+
+### SetServiceCidrNil
+
+`func (o *ClusterNetworkRequest) SetServiceCidrNil(b bool)`
+
+ SetServiceCidrNil sets the value for ServiceCidr to be an explicit nil
+
+### UnsetServiceCidr
+`func (o *ClusterNetworkRequest) UnsetServiceCidr()`
+
+UnsetServiceCidr ensures that no value is present for ServiceCidr, not even an explicit nil
+### GetPodCidr
+
+`func (o *ClusterNetworkRequest) GetPodCidr() string`
+
+GetPodCidr returns the PodCidr field if non-nil, zero value otherwise.
+
+### GetPodCidrOk
+
+`func (o *ClusterNetworkRequest) GetPodCidrOk() (*string, bool)`
+
+GetPodCidrOk returns a tuple with the PodCidr field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPodCidr
+
+`func (o *ClusterNetworkRequest) SetPodCidr(v string)`
+
+SetPodCidr sets PodCidr field to given value.
+
+### HasPodCidr
+
+`func (o *ClusterNetworkRequest) HasPodCidr() bool`
+
+HasPodCidr returns a boolean if a field has been set.
+
+### SetPodCidrNil
+
+`func (o *ClusterNetworkRequest) SetPodCidrNil(b bool)`
+
+ SetPodCidrNil sets the value for PodCidr to be an explicit nil
+
+### UnsetPodCidr
+`func (o *ClusterNetworkRequest) UnsetPodCidr()`
+
+UnsetPodCidr ensures that no value is present for PodCidr, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

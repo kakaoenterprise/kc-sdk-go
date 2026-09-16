@@ -1,0 +1,504 @@
+# ListenerResult
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** | 리스너 고유 ID | 
+**Name** | **string** | 리스너 이름 | 
+**Description** | **string** | 리스너에 대한 설명 | 
+**ProvisioningStatus** | [**ProvisioningStatus**](ProvisioningStatus.md) | 프로비저닝 상태 | 
+**OperatingStatus** | [**LoadBalancerOperatingStatus**](LoadBalancerOperatingStatus.md) | 운영 상태 | 
+**Protocol** | [**Protocol**](Protocol.md) | 리스너가 사용하는 프로토콜 | 
+**ProtocolPort** | **int32** | 리스너가 사용하는 포트 | 
+**DefaultTlsContainerRef** | Pointer to **NullableString** | HTTPS 리스너에서 사용하는 기본 TLS 인증서 참조 ID | [optional] 
+**SniContainerRefs** | **[]string** | SNI(Server Name Indication)를 위한 추가 인증서 목록 | 
+**ProjectId** | **string** | 리스너가 속한 프로젝트의 ID | 
+**DefaultTargetGroupId** | Pointer to **NullableString** | 기본 연결 대상인 대상 그룹 ID | [optional] 
+**L7Policies** | [**[]UpdatedL7Policy**](UpdatedL7Policy.md) | 연결된 L7 정책 목록 | 
+**InsertHeaders** | **map[string]interface{}** | 백엔드로 전달할 헤더 (예: X-Forwarded-For, X-Forwarded-Port) | 
+**CreatedAt** | **time.Time** | 리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준 | 
+**UpdatedAt** | Pointer to **NullableTime** | 리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준 | [optional] 
+**LoadBalancers** | [**[]LoadBalancerResult**](LoadBalancerResult.md) | 리스너가 연결된 로드 밸런서 목록 | 
+**TimeoutClientData** | **int32** | 클라이언트 데이터 수신 타임아웃 시간 (ms) | 
+**TlsCiphers** | Pointer to **NullableString** | TLS 암호화 스위트 목록 (&#x60;TERMINATED_HTTPS&#x60; 프로토콜에만 적용) | [optional] 
+**TlsVersions** | Pointer to [**[]TLSVersion**](TLSVersion.md) | 허용되는 TLS 프로토콜 버전 | [optional] 
+
+## Methods
+
+### NewListenerResult
+
+`func NewListenerResult(id string, name string, description string, provisioningStatus ProvisioningStatus, operatingStatus LoadBalancerOperatingStatus, protocol Protocol, protocolPort int32, sniContainerRefs []string, projectId string, l7Policies []UpdatedL7Policy, insertHeaders map[string]interface{}, createdAt time.Time, loadBalancers []LoadBalancerResult, timeoutClientData int32, ) *ListenerResult`
+
+NewListenerResult instantiates a new ListenerResult object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewListenerResultWithDefaults
+
+`func NewListenerResultWithDefaults() *ListenerResult`
+
+NewListenerResultWithDefaults instantiates a new ListenerResult object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *ListenerResult) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ListenerResult) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ListenerResult) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *ListenerResult) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ListenerResult) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ListenerResult) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetDescription
+
+`func (o *ListenerResult) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ListenerResult) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ListenerResult) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+
+### GetProvisioningStatus
+
+`func (o *ListenerResult) GetProvisioningStatus() ProvisioningStatus`
+
+GetProvisioningStatus returns the ProvisioningStatus field if non-nil, zero value otherwise.
+
+### GetProvisioningStatusOk
+
+`func (o *ListenerResult) GetProvisioningStatusOk() (*ProvisioningStatus, bool)`
+
+GetProvisioningStatusOk returns a tuple with the ProvisioningStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProvisioningStatus
+
+`func (o *ListenerResult) SetProvisioningStatus(v ProvisioningStatus)`
+
+SetProvisioningStatus sets ProvisioningStatus field to given value.
+
+
+### GetOperatingStatus
+
+`func (o *ListenerResult) GetOperatingStatus() LoadBalancerOperatingStatus`
+
+GetOperatingStatus returns the OperatingStatus field if non-nil, zero value otherwise.
+
+### GetOperatingStatusOk
+
+`func (o *ListenerResult) GetOperatingStatusOk() (*LoadBalancerOperatingStatus, bool)`
+
+GetOperatingStatusOk returns a tuple with the OperatingStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperatingStatus
+
+`func (o *ListenerResult) SetOperatingStatus(v LoadBalancerOperatingStatus)`
+
+SetOperatingStatus sets OperatingStatus field to given value.
+
+
+### GetProtocol
+
+`func (o *ListenerResult) GetProtocol() Protocol`
+
+GetProtocol returns the Protocol field if non-nil, zero value otherwise.
+
+### GetProtocolOk
+
+`func (o *ListenerResult) GetProtocolOk() (*Protocol, bool)`
+
+GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProtocol
+
+`func (o *ListenerResult) SetProtocol(v Protocol)`
+
+SetProtocol sets Protocol field to given value.
+
+
+### GetProtocolPort
+
+`func (o *ListenerResult) GetProtocolPort() int32`
+
+GetProtocolPort returns the ProtocolPort field if non-nil, zero value otherwise.
+
+### GetProtocolPortOk
+
+`func (o *ListenerResult) GetProtocolPortOk() (*int32, bool)`
+
+GetProtocolPortOk returns a tuple with the ProtocolPort field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProtocolPort
+
+`func (o *ListenerResult) SetProtocolPort(v int32)`
+
+SetProtocolPort sets ProtocolPort field to given value.
+
+
+### GetDefaultTlsContainerRef
+
+`func (o *ListenerResult) GetDefaultTlsContainerRef() string`
+
+GetDefaultTlsContainerRef returns the DefaultTlsContainerRef field if non-nil, zero value otherwise.
+
+### GetDefaultTlsContainerRefOk
+
+`func (o *ListenerResult) GetDefaultTlsContainerRefOk() (*string, bool)`
+
+GetDefaultTlsContainerRefOk returns a tuple with the DefaultTlsContainerRef field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultTlsContainerRef
+
+`func (o *ListenerResult) SetDefaultTlsContainerRef(v string)`
+
+SetDefaultTlsContainerRef sets DefaultTlsContainerRef field to given value.
+
+### HasDefaultTlsContainerRef
+
+`func (o *ListenerResult) HasDefaultTlsContainerRef() bool`
+
+HasDefaultTlsContainerRef returns a boolean if a field has been set.
+
+### SetDefaultTlsContainerRefNil
+
+`func (o *ListenerResult) SetDefaultTlsContainerRefNil(b bool)`
+
+ SetDefaultTlsContainerRefNil sets the value for DefaultTlsContainerRef to be an explicit nil
+
+### UnsetDefaultTlsContainerRef
+`func (o *ListenerResult) UnsetDefaultTlsContainerRef()`
+
+UnsetDefaultTlsContainerRef ensures that no value is present for DefaultTlsContainerRef, not even an explicit nil
+### GetSniContainerRefs
+
+`func (o *ListenerResult) GetSniContainerRefs() []string`
+
+GetSniContainerRefs returns the SniContainerRefs field if non-nil, zero value otherwise.
+
+### GetSniContainerRefsOk
+
+`func (o *ListenerResult) GetSniContainerRefsOk() (*[]string, bool)`
+
+GetSniContainerRefsOk returns a tuple with the SniContainerRefs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSniContainerRefs
+
+`func (o *ListenerResult) SetSniContainerRefs(v []string)`
+
+SetSniContainerRefs sets SniContainerRefs field to given value.
+
+
+### GetProjectId
+
+`func (o *ListenerResult) GetProjectId() string`
+
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+
+### GetProjectIdOk
+
+`func (o *ListenerResult) GetProjectIdOk() (*string, bool)`
+
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectId
+
+`func (o *ListenerResult) SetProjectId(v string)`
+
+SetProjectId sets ProjectId field to given value.
+
+
+### GetDefaultTargetGroupId
+
+`func (o *ListenerResult) GetDefaultTargetGroupId() string`
+
+GetDefaultTargetGroupId returns the DefaultTargetGroupId field if non-nil, zero value otherwise.
+
+### GetDefaultTargetGroupIdOk
+
+`func (o *ListenerResult) GetDefaultTargetGroupIdOk() (*string, bool)`
+
+GetDefaultTargetGroupIdOk returns a tuple with the DefaultTargetGroupId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultTargetGroupId
+
+`func (o *ListenerResult) SetDefaultTargetGroupId(v string)`
+
+SetDefaultTargetGroupId sets DefaultTargetGroupId field to given value.
+
+### HasDefaultTargetGroupId
+
+`func (o *ListenerResult) HasDefaultTargetGroupId() bool`
+
+HasDefaultTargetGroupId returns a boolean if a field has been set.
+
+### SetDefaultTargetGroupIdNil
+
+`func (o *ListenerResult) SetDefaultTargetGroupIdNil(b bool)`
+
+ SetDefaultTargetGroupIdNil sets the value for DefaultTargetGroupId to be an explicit nil
+
+### UnsetDefaultTargetGroupId
+`func (o *ListenerResult) UnsetDefaultTargetGroupId()`
+
+UnsetDefaultTargetGroupId ensures that no value is present for DefaultTargetGroupId, not even an explicit nil
+### GetL7Policies
+
+`func (o *ListenerResult) GetL7Policies() []UpdatedL7Policy`
+
+GetL7Policies returns the L7Policies field if non-nil, zero value otherwise.
+
+### GetL7PoliciesOk
+
+`func (o *ListenerResult) GetL7PoliciesOk() (*[]UpdatedL7Policy, bool)`
+
+GetL7PoliciesOk returns a tuple with the L7Policies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetL7Policies
+
+`func (o *ListenerResult) SetL7Policies(v []UpdatedL7Policy)`
+
+SetL7Policies sets L7Policies field to given value.
+
+
+### GetInsertHeaders
+
+`func (o *ListenerResult) GetInsertHeaders() map[string]interface{}`
+
+GetInsertHeaders returns the InsertHeaders field if non-nil, zero value otherwise.
+
+### GetInsertHeadersOk
+
+`func (o *ListenerResult) GetInsertHeadersOk() (*map[string]interface{}, bool)`
+
+GetInsertHeadersOk returns a tuple with the InsertHeaders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInsertHeaders
+
+`func (o *ListenerResult) SetInsertHeaders(v map[string]interface{})`
+
+SetInsertHeaders sets InsertHeaders field to given value.
+
+
+### GetCreatedAt
+
+`func (o *ListenerResult) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ListenerResult) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ListenerResult) SetCreatedAt(v time.Time)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
+### GetUpdatedAt
+
+`func (o *ListenerResult) GetUpdatedAt() time.Time`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *ListenerResult) GetUpdatedAtOk() (*time.Time, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *ListenerResult) SetUpdatedAt(v time.Time)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
+
+### HasUpdatedAt
+
+`func (o *ListenerResult) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
+
+### SetUpdatedAtNil
+
+`func (o *ListenerResult) SetUpdatedAtNil(b bool)`
+
+ SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+
+### UnsetUpdatedAt
+`func (o *ListenerResult) UnsetUpdatedAt()`
+
+UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+### GetLoadBalancers
+
+`func (o *ListenerResult) GetLoadBalancers() []LoadBalancerResult`
+
+GetLoadBalancers returns the LoadBalancers field if non-nil, zero value otherwise.
+
+### GetLoadBalancersOk
+
+`func (o *ListenerResult) GetLoadBalancersOk() (*[]LoadBalancerResult, bool)`
+
+GetLoadBalancersOk returns a tuple with the LoadBalancers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadBalancers
+
+`func (o *ListenerResult) SetLoadBalancers(v []LoadBalancerResult)`
+
+SetLoadBalancers sets LoadBalancers field to given value.
+
+
+### GetTimeoutClientData
+
+`func (o *ListenerResult) GetTimeoutClientData() int32`
+
+GetTimeoutClientData returns the TimeoutClientData field if non-nil, zero value otherwise.
+
+### GetTimeoutClientDataOk
+
+`func (o *ListenerResult) GetTimeoutClientDataOk() (*int32, bool)`
+
+GetTimeoutClientDataOk returns a tuple with the TimeoutClientData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeoutClientData
+
+`func (o *ListenerResult) SetTimeoutClientData(v int32)`
+
+SetTimeoutClientData sets TimeoutClientData field to given value.
+
+
+### GetTlsCiphers
+
+`func (o *ListenerResult) GetTlsCiphers() string`
+
+GetTlsCiphers returns the TlsCiphers field if non-nil, zero value otherwise.
+
+### GetTlsCiphersOk
+
+`func (o *ListenerResult) GetTlsCiphersOk() (*string, bool)`
+
+GetTlsCiphersOk returns a tuple with the TlsCiphers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTlsCiphers
+
+`func (o *ListenerResult) SetTlsCiphers(v string)`
+
+SetTlsCiphers sets TlsCiphers field to given value.
+
+### HasTlsCiphers
+
+`func (o *ListenerResult) HasTlsCiphers() bool`
+
+HasTlsCiphers returns a boolean if a field has been set.
+
+### SetTlsCiphersNil
+
+`func (o *ListenerResult) SetTlsCiphersNil(b bool)`
+
+ SetTlsCiphersNil sets the value for TlsCiphers to be an explicit nil
+
+### UnsetTlsCiphers
+`func (o *ListenerResult) UnsetTlsCiphers()`
+
+UnsetTlsCiphers ensures that no value is present for TlsCiphers, not even an explicit nil
+### GetTlsVersions
+
+`func (o *ListenerResult) GetTlsVersions() []*TLSVersion`
+
+GetTlsVersions returns the TlsVersions field if non-nil, zero value otherwise.
+
+### GetTlsVersionsOk
+
+`func (o *ListenerResult) GetTlsVersionsOk() (*[]*TLSVersion, bool)`
+
+GetTlsVersionsOk returns a tuple with the TlsVersions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTlsVersions
+
+`func (o *ListenerResult) SetTlsVersions(v []*TLSVersion)`
+
+SetTlsVersions sets TlsVersions field to given value.
+
+### HasTlsVersions
+
+`func (o *ListenerResult) HasTlsVersions() bool`
+
+HasTlsVersions returns a boolean if a field has been set.
+
+### SetTlsVersionsNil
+
+`func (o *ListenerResult) SetTlsVersionsNil(b bool)`
+
+ SetTlsVersionsNil sets the value for TlsVersions to be an explicit nil
+
+### UnsetTlsVersions
+`func (o *ListenerResult) UnsetTlsVersions()`
+
+UnsetTlsVersions ensures that no value is present for TlsVersions, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

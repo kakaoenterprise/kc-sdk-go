@@ -1,0 +1,76 @@
+site_name: kc-sdk-go/v2/secretsmanager (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - SecretAPI.md: api/SecretAPI.md
+      - SecretsManagerAPI.md: api/SecretsManagerAPI.md
+      - SecretVersionAPI.md: api/SecretVersionAPI.md
+  - Models:
+      - AccessControl: models/AccessControl.md
+      - ActivateSecretsManagerServiceResponse: models/ActivateSecretsManagerServiceResponse.md
+      - ActivateSecretVersionResponse: models/ActivateSecretVersionResponse.md
+      - AddSecretsAccessTargets: models/AddSecretsAccessTargets.md
+      - AddSecretsAccessTargetsRequest: models/AddSecretsAccessTargetsRequest.md
+      - AddSecretsAccessTargetsResponse: models/AddSecretsAccessTargetsResponse.md
+      - Bulk: models/Bulk.md
+      - BulkCancelScheduledSecretVersionDestruction: models/BulkCancelScheduledSecretVersionDestruction.md
+      - BulkCancelScheduledSecretVersionDestructionRequest: models/BulkCancelScheduledSecretVersionDestructionRequest.md
+      - BulkCancelScheduledSecretVersionDestructionResponse: models/BulkCancelScheduledSecretVersionDestructionResponse.md
+      - BulkDeactivateSecretVersions: models/BulkDeactivateSecretVersions.md
+      - BulkDeactivateSecretVersionsRequest: models/BulkDeactivateSecretVersionsRequest.md
+      - BulkDeactivateSecretVersionsResponse: models/BulkDeactivateSecretVersionsResponse.md
+      - BulkDeleteSecrets: models/BulkDeleteSecrets.md
+      - BulkDeleteSecretsRequest: models/BulkDeleteSecretsRequest.md
+      - BulkDeleteSecretsResponse: models/BulkDeleteSecretsResponse.md
+      - BulkDestroySecretVersions: models/BulkDestroySecretVersions.md
+      - BulkDestroySecretVersionsRequest: models/BulkDestroySecretVersionsRequest.md
+      - BulkDestroySecretVersionsResponse: models/BulkDestroySecretVersionsResponse.md
+      - BulkScheduleSecretVersionDestruction: models/BulkScheduleSecretVersionDestruction.md
+      - BulkScheduleSecretVersionDestructionRequest: models/BulkScheduleSecretVersionDestructionRequest.md
+      - BulkScheduleSecretVersionDestructionResponse: models/BulkScheduleSecretVersionDestructionResponse.md
+      - CancelScheduledSecretVersionDestructionResponse: models/CancelScheduledSecretVersionDestructionResponse.md
+      - CreateSecret: models/CreateSecret.md
+      - CreateSecretRequest: models/CreateSecretRequest.md
+      - CreateSecretResponse: models/CreateSecretResponse.md
+      - CreateSecretVersion: models/CreateSecretVersion.md
+      - CreateSecretVersionRequest: models/CreateSecretVersionRequest.md
+      - CreateSecretVersionResponse: models/CreateSecretVersionResponse.md
+      - DeactivateSecretVersionResponse: models/DeactivateSecretVersionResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - GetSecretDefaultVersionResponse: models/GetSecretDefaultVersionResponse.md
+      - GetSecretDefaultVersionVersion: models/GetSecretDefaultVersionVersion.md
+      - GetSecretResponse: models/GetSecretResponse.md
+      - GetSecretsManagerServiceStatusResponse: models/GetSecretsManagerServiceStatusResponse.md
+      - GetSecretVersionResponse: models/GetSecretVersionResponse.md
+      - GetSecretVersionVersion: models/GetSecretVersionVersion.md
+      - ListSecretsAccessTargetsResponse: models/ListSecretsAccessTargetsResponse.md
+      - ListSecretsResponse: models/ListSecretsResponse.md
+      - ListSecretVersionsResponse: models/ListSecretVersionsResponse.md
+      - RemoveSecretsAccessTargets: models/RemoveSecretsAccessTargets.md
+      - RemoveSecretsAccessTargetsRequest: models/RemoveSecretsAccessTargetsRequest.md
+      - RemoveSecretsAccessTargetsResponse: models/RemoveSecretsAccessTargetsResponse.md
+      - ScheduleSecretVersionDestruction: models/ScheduleSecretVersionDestruction.md
+      - ScheduleSecretVersionDestructionRequest: models/ScheduleSecretVersionDestructionRequest.md
+      - ScheduleSecretVersionDestructionResponse: models/ScheduleSecretVersionDestructionResponse.md
+      - Secret: models/Secret.md
+      - Service: models/Service.md
+      - Status: models/Status.md
+      - Target: models/Target.md
+      - UpdateSecretKmsKey: models/UpdateSecretKmsKey.md
+      - UpdateSecretKmsKeyRequest: models/UpdateSecretKmsKeyRequest.md
+      - UpdateSecretKmsKeyResponse: models/UpdateSecretKmsKeyResponse.md
+      - UpdateSecretsAccessControl: models/UpdateSecretsAccessControl.md
+      - UpdateSecretsAccessControlRequest: models/UpdateSecretsAccessControlRequest.md
+      - UpdateSecretsAccessControlResponse: models/UpdateSecretsAccessControlResponse.md
+      - Version: models/Version.md

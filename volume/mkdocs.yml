@@ -1,0 +1,57 @@
+site_name: kc-sdk-go/v2/volume (POC)
+docs_dir: docs_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+nav:
+  - Getting Started: index.md
+  - API:
+      - ImageAPI.md: api/ImageAPI.md
+      - SnapshotAPI.md: api/SnapshotAPI.md
+      - VolumeAPI.md: api/VolumeAPI.md
+  - Models:
+      - Attachment: models/Attachment.md
+      - AvailabilityZone: models/AvailabilityZone.md
+      - CreateImage: models/CreateImage.md
+      - CreateImageRequest: models/CreateImageRequest.md
+      - CreateImageResponse: models/CreateImageResponse.md
+      - CreateSnapshot: models/CreateSnapshot.md
+      - CreateSnapshotRequest: models/CreateSnapshotRequest.md
+      - CreateSnapshotResponse: models/CreateSnapshotResponse.md
+      - CreateVolume: models/CreateVolume.md
+      - CreateVolumeRequest: models/CreateVolumeRequest.md
+      - CreateVolumeResponse: models/CreateVolumeResponse.md
+      - ErrorResponse: models/ErrorResponse.md
+      - ErrorResponseSub: models/ErrorResponseSub.md
+      - ExtendVolume: models/ExtendVolume.md
+      - ExtendVolumeRequest: models/ExtendVolumeRequest.md
+      - GetSnapshotResponse: models/GetSnapshotResponse.md
+      - GetVolumeResponse: models/GetVolumeResponse.md
+      - Image: models/Image.md
+      - ImageInstanceType: models/ImageInstanceType.md
+      - ImageMetaData: models/ImageMetaData.md
+      - ListSnapshotsResponse: models/ListSnapshotsResponse.md
+      - ListVolumesResponse: models/ListVolumesResponse.md
+      - ListVolumeTypesResponse: models/ListVolumeTypesResponse.md
+      - OsInfo: models/OsInfo.md
+      - Restore: models/Restore.md
+      - RestoreSnapshot: models/RestoreSnapshot.md
+      - RestoreSnapshotRequest: models/RestoreSnapshotRequest.md
+      - RestoreSnapshotResponse: models/RestoreSnapshotResponse.md
+      - Snapshot: models/Snapshot.md
+      - SnapshotResult: models/SnapshotResult.md
+      - Type: models/Type.md
+      - UpdateSnapshot: models/UpdateSnapshot.md
+      - UpdateSnapshotRequest: models/UpdateSnapshotRequest.md
+      - UpdateSnapshotResponse: models/UpdateSnapshotResponse.md
+      - UpdateVolume: models/UpdateVolume.md
+      - UpdateVolumeRequest: models/UpdateVolumeRequest.md
+      - UpdateVolumeResponse: models/UpdateVolumeResponse.md
+      - Volume: models/Volume.md
+      - VolumeResult: models/VolumeResult.md
