@@ -1,0 +1,5710 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../GetMysqlDefaultParameterGroupResponse/">
+      
+      
+        <link rel="next" href="../GetMysqlInstanceGroupResponse/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>GetMysqlInstanceGroupInstanceGroup - kc-sdk-go/v2/mysql (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getmysqlinstancegroupinstancegroup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/mysql (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/mysql (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/mysql (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GetMysqlInstanceGroupInstanceGroup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/mysql (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/mysql (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/mysql (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/BackupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/CustomParameterGroupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CustomParameterGroupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/DefaultParameterGroupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DefaultParameterGroupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/EngineVersionAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EngineVersionAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/InstanceAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/InstanceGroupAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceGroupAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApplyMode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ApplyMode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApplyMysqlParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ApplyMysqlParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApplyMysqlParameterGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ApplyMysqlParameterGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BackupSchedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupSchedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BackupScheduleRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupScheduleRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BackupScheduleType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupScheduleType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BackupStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BackupType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BackupType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ClusterType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClusterType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreatedCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreatedInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreatedInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlBackup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlBackup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlBackupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlBackupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlBackupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlBackupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlCustomParameterGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlCustomParameterGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlCustomParameterGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlCustomParameterGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlInstanceGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlInstanceGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateMysqlInstanceGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateMysqlInstanceGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CustomParameterGroupEvent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CustomParameterGroupEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataDetailParameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataDetailParameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataUpdateParameterRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataUpdateParameterRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DefaultParameterGroupEvent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DefaultParameterGroupEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DefaultParameterGroupInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DefaultParameterGroupInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EngineVersion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EngineVersion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExportMysqlInstanceLogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExportMysqlInstanceLogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExportMysqlInstanceLogsRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExportMysqlInstanceLogsRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendMysqlInstanceGroupVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtendMysqlInstanceGroupVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendMysqlInstanceGroupVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtendMysqlInstanceGroupVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtraInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtraInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtraInfoRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtraInfoRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flavor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flavor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlBackupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlBackupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlCustomParameterGroupCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlCustomParameterGroupCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlCustomParameterGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlCustomParameterGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlDefaultParameterGroupDefaultParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlDefaultParameterGroupDefaultParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlDefaultParameterGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlDefaultParameterGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlInstanceGroupInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlInstanceGroupInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newgetmysqlinstancegroupinstancegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewGetMysqlInstanceGroupInstanceGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newgetmysqlinstancegroupinstancegroupwithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewGetMysqlInstanceGroupInstanceGroupWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlicense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLicense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlicenseok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLicenseOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlicense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLicense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatorok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatorOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatornil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatorNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsourcebackupidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSourceBackupIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsourcebackupidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSourceBackupIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getismultiaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsMultiAz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getismultiazok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsMultiAzOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setismultiaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsMultiAz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnetworkinfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNetworkInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnetworkinfonil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNetworkInfoNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getspeccontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSpecContent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getspeccontentok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSpecContentOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setspeccontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSpecContent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancesok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstancesOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancesnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstancesNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getendpointok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEndpointOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setendpointnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEndpointNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getextrainfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetExtraInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setextrainfonil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetExtraInfoNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbackupscheduleok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetBackupScheduleOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbackupschedulenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetBackupScheduleNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getparametergroupok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetParameterGroupOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlInstanceGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlInstanceGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlInstanceGroupTopology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlInstanceGroupTopology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlInstanceGroupTopologyInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlInstanceGroupTopologyInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetMysqlRestorableTimeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetMysqlRestorableTimeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceGroupStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceGroupStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceRole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceRole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstanceStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InstanceStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListAvailableMysqlEngineVersionsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListAvailableMysqlEngineVersionsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlBackupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlBackupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlCustomParameterGroupEventsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlCustomParameterGroupEventsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlCustomParameterGroupsCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlCustomParameterGroupsCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlCustomParameterGroupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlCustomParameterGroupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlDefaultParameterGroupEventsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlDefaultParameterGroupEventsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlDefaultParameterGroupsDefaultParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlDefaultParameterGroupsDefaultParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlDefaultParameterGroupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlDefaultParameterGroupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsTopology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsTopology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsTopologyInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsTopologyInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsUsingCustomParameterGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsUsingCustomParameterGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceGroupsUsingDefaultParameterGroupResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceGroupsUsingDefaultParameterGroupResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstancesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstancesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstancesSpecContent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstancesSpecContent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListMysqlInstanceTypesFlavorsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListMysqlInstanceTypesFlavorsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogInfoRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LogInfoRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LogType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQLBackup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MySQLBackup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetworkInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetworkInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetworkInfoRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetworkInfoRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NetworkPort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetworkPort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Parameter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parameter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParameterGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterGroupStatus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParameterGroupStatus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterGroupType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParameterGroupType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParameterType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResetMysqlCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResetMysqlCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResetMysqlCustomParameterGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResetMysqlCustomParameterGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestartMysqlInstances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestartMysqlInstances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestartMysqlInstancesRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestartMysqlInstancesRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestorableTime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestorableTime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestoreSourceRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestoreSourceRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestoreSourceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestoreSourceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScaleInMysqlInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScaleInMysqlInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScaleInMysqlInstanceGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScaleInMysqlInstanceGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScaleOutMysqlInstanceGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScaleOutMysqlInstanceGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ScaleOutMysqlInstanceGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScaleOutMysqlInstanceGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpecContent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpecContent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpecContentRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpecContentRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StatusContent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StatusContent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SubnetInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SubnetInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SubnetInfoRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SubnetInfoRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlCustomParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlCustomParameterGroup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlCustomParameterGroupRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlCustomParameterGroupRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlInstanceGroupBackupSchedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlInstanceGroupBackupSchedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlInstanceGroupBackupScheduleRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlInstanceGroupBackupScheduleRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlSecurityGroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlSecurityGroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateMysqlSecurityGroupsRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateMysqlSecurityGroupsRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newgetmysqlinstancegroupinstancegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewGetMysqlInstanceGroupInstanceGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newgetmysqlinstancegroupinstancegroupwithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewGetMysqlInstanceGroupInstanceGroupWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlicense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLicense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlicenseok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLicenseOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlicense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLicense
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatorok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatorOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatornil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatorNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsourcebackupidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSourceBackupIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsourcebackupidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSourceBackupIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsourcebackupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSourceBackupId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getismultiaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsMultiAz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getismultiazok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsMultiAzOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setismultiaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsMultiAz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnetworkinfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNetworkInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnetworkinfonil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNetworkInfoNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetnetworkinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetNetworkInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getspeccontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSpecContent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getspeccontentok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSpecContentOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setspeccontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSpecContent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancesok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstancesOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancesnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstancesNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getendpointok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEndpointOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setendpointnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEndpointNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetendpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetEndpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getextrainfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetExtraInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setextrainfonil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetExtraInfoNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetextrainfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetExtraInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbackupscheduleok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetBackupScheduleOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setbackupschedulenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetBackupScheduleNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetbackupschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetBackupSchedule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getparametergroupok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetParameterGroupOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="getmysqlinstancegroupinstancegroup">GetMysqlInstanceGroupInstanceGroup</h1>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Id</strong></td>
+<td><strong>string</strong></td>
+<td>MySQL 인스턴스 그룹 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CreatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>UpdatedAt</strong></td>
+<td><strong>string</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td><strong>string</strong></td>
+<td>MySQL 라이선스 유형</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td><strong>string</strong></td>
+<td>MySQL 인스턴스 그룹 이름</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ProjectId</strong></td>
+<td><strong>string</strong></td>
+<td>프로젝트 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 그룹 설명</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Creator</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 그룹 생성자</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>SourceBackupId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스 그룹 생성에 사용된 백업 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsMultiAz</strong></td>
+<td><strong>bool</strong></td>
+<td>다중 AZ 구성 여부</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NetworkInfo</strong></td>
+<td>Pointer to <a href="../NetworkInfo/"><strong>NullableNetworkInfo</strong></a></td>
+<td>네트워크 구성 정보</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>SpecContent</strong></td>
+<td><a href="../SpecContent/"><strong>SpecContent</strong></a></td>
+<td>MySQL 인스턴스 그룹 구성 정보</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Instances</strong></td>
+<td>Pointer to <a href="../GetMysqlInstanceGroupTopology/"><strong>NullableGetMysqlInstanceGroupTopology</strong></a></td>
+<td>MySQL 인스턴스 목록</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Endpoint</strong></td>
+<td>Pointer to <strong>[]string</strong></td>
+<td>MySQL 접속 엔드포인트 목록</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ExtraInfo</strong></td>
+<td>Pointer to <a href="../ExtraInfo/"><strong>NullableExtraInfo</strong></a></td>
+<td>추가 정보</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td><a href="../InstanceGroupStatus/"><strong>InstanceGroupStatus</strong></a></td>
+<td>리소스의 현재 상태</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BackupSchedule</strong></td>
+<td>Pointer to <a href="../BackupSchedule/"><strong>NullableBackupSchedule</strong></a></td>
+<td>백업 스케줄</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ParameterGroup</strong></td>
+<td><a href="../ParameterGroup/"><strong>ParameterGroup</strong></a></td>
+<td>파라미터 그룹</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<h3 id="newgetmysqlinstancegroupinstancegroup">NewGetMysqlInstanceGroupInstanceGroup</h3>
+<p><code>func NewGetMysqlInstanceGroupInstanceGroup(id string, createdAt string, updatedAt string, license string, name string, projectId string, isMultiAz bool, specContent SpecContent, status InstanceGroupStatus, parameterGroup ParameterGroup, ) *GetMysqlInstanceGroupInstanceGroup</code></p>
+<p>NewGetMysqlInstanceGroupInstanceGroup instantiates a new GetMysqlInstanceGroupInstanceGroup object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed</p>
+<h3 id="newgetmysqlinstancegroupinstancegroupwithdefaults">NewGetMysqlInstanceGroupInstanceGroupWithDefaults</h3>
+<p><code>func NewGetMysqlInstanceGroupInstanceGroupWithDefaults() *GetMysqlInstanceGroupInstanceGroup</code></p>
+<p>NewGetMysqlInstanceGroupInstanceGroupWithDefaults instantiates a new GetMysqlInstanceGroupInstanceGroup object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set</p>
+<h3 id="getid">GetId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetId() string</code></p>
+<p>GetId returns the Id field if non-nil, zero value otherwise.</p>
+<h3 id="getidok">GetIdOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetIdOk() (*string, bool)</code></p>
+<p>GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setid">SetId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetId(v string)</code></p>
+<p>SetId sets Id field to given value.</p>
+<h3 id="getcreatedat">GetCreatedAt</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetCreatedAt() string</code></p>
+<p>GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getcreatedatok">GetCreatedAtOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetCreatedAtOk() (*string, bool)</code></p>
+<p>GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setcreatedat">SetCreatedAt</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetCreatedAt(v string)</code></p>
+<p>SetCreatedAt sets CreatedAt field to given value.</p>
+<h3 id="getupdatedat">GetUpdatedAt</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetUpdatedAt() string</code></p>
+<p>GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getupdatedatok">GetUpdatedAtOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetUpdatedAtOk() (*string, bool)</code></p>
+<p>GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setupdatedat">SetUpdatedAt</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetUpdatedAt(v string)</code></p>
+<p>SetUpdatedAt sets UpdatedAt field to given value.</p>
+<h3 id="getlicense">GetLicense</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetLicense() string</code></p>
+<p>GetLicense returns the License field if non-nil, zero value otherwise.</p>
+<h3 id="getlicenseok">GetLicenseOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetLicenseOk() (*string, bool)</code></p>
+<p>GetLicenseOk returns a tuple with the License field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setlicense">SetLicense</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetLicense(v string)</code></p>
+<p>SetLicense sets License field to given value.</p>
+<h3 id="getname">GetName</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetName() string</code></p>
+<p>GetName returns the Name field if non-nil, zero value otherwise.</p>
+<h3 id="getnameok">GetNameOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetNameOk() (*string, bool)</code></p>
+<p>GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setname">SetName</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetName(v string)</code></p>
+<p>SetName sets Name field to given value.</p>
+<h3 id="getprojectid">GetProjectId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetProjectId() string</code></p>
+<p>GetProjectId returns the ProjectId field if non-nil, zero value otherwise.</p>
+<h3 id="getprojectidok">GetProjectIdOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetProjectIdOk() (*string, bool)</code></p>
+<p>GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setprojectid">SetProjectId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetProjectId(v string)</code></p>
+<p>SetProjectId sets ProjectId field to given value.</p>
+<h3 id="getdescription">GetDescription</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetDescription() string</code></p>
+<p>GetDescription returns the Description field if non-nil, zero value otherwise.</p>
+<h3 id="getdescriptionok">GetDescriptionOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetDescriptionOk() (*string, bool)</code></p>
+<p>GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdescription">SetDescription</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetDescription(v string)</code></p>
+<p>SetDescription sets Description field to given value.</p>
+<h3 id="hasdescription">HasDescription</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasDescription() bool</code></p>
+<p>HasDescription returns a boolean if a field has been set.</p>
+<h3 id="setdescriptionnil">SetDescriptionNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetDescriptionNil(b bool)</code></p>
+<p>SetDescriptionNil sets the value for Description to be an explicit nil</p>
+<h3 id="unsetdescription">UnsetDescription</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetDescription()</code></p>
+<p>UnsetDescription ensures that no value is present for Description, not even an explicit nil</p>
+<h3 id="getcreator">GetCreator</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetCreator() string</code></p>
+<p>GetCreator returns the Creator field if non-nil, zero value otherwise.</p>
+<h3 id="getcreatorok">GetCreatorOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetCreatorOk() (*string, bool)</code></p>
+<p>GetCreatorOk returns a tuple with the Creator field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setcreator">SetCreator</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetCreator(v string)</code></p>
+<p>SetCreator sets Creator field to given value.</p>
+<h3 id="hascreator">HasCreator</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasCreator() bool</code></p>
+<p>HasCreator returns a boolean if a field has been set.</p>
+<h3 id="setcreatornil">SetCreatorNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetCreatorNil(b bool)</code></p>
+<p>SetCreatorNil sets the value for Creator to be an explicit nil</p>
+<h3 id="unsetcreator">UnsetCreator</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetCreator()</code></p>
+<p>UnsetCreator ensures that no value is present for Creator, not even an explicit nil</p>
+<h3 id="getsourcebackupid">GetSourceBackupId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetSourceBackupId() string</code></p>
+<p>GetSourceBackupId returns the SourceBackupId field if non-nil, zero value otherwise.</p>
+<h3 id="getsourcebackupidok">GetSourceBackupIdOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetSourceBackupIdOk() (*string, bool)</code></p>
+<p>GetSourceBackupIdOk returns a tuple with the SourceBackupId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setsourcebackupid">SetSourceBackupId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetSourceBackupId(v string)</code></p>
+<p>SetSourceBackupId sets SourceBackupId field to given value.</p>
+<h3 id="hassourcebackupid">HasSourceBackupId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasSourceBackupId() bool</code></p>
+<p>HasSourceBackupId returns a boolean if a field has been set.</p>
+<h3 id="setsourcebackupidnil">SetSourceBackupIdNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetSourceBackupIdNil(b bool)</code></p>
+<p>SetSourceBackupIdNil sets the value for SourceBackupId to be an explicit nil</p>
+<h3 id="unsetsourcebackupid">UnsetSourceBackupId</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetSourceBackupId()</code></p>
+<p>UnsetSourceBackupId ensures that no value is present for SourceBackupId, not even an explicit nil</p>
+<h3 id="getismultiaz">GetIsMultiAz</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetIsMultiAz() bool</code></p>
+<p>GetIsMultiAz returns the IsMultiAz field if non-nil, zero value otherwise.</p>
+<h3 id="getismultiazok">GetIsMultiAzOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetIsMultiAzOk() (*bool, bool)</code></p>
+<p>GetIsMultiAzOk returns a tuple with the IsMultiAz field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setismultiaz">SetIsMultiAz</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetIsMultiAz(v bool)</code></p>
+<p>SetIsMultiAz sets IsMultiAz field to given value.</p>
+<h3 id="getnetworkinfo">GetNetworkInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetNetworkInfo() NetworkInfo</code></p>
+<p>GetNetworkInfo returns the NetworkInfo field if non-nil, zero value otherwise.</p>
+<h3 id="getnetworkinfook">GetNetworkInfoOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetNetworkInfoOk() (*NetworkInfo, bool)</code></p>
+<p>GetNetworkInfoOk returns a tuple with the NetworkInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setnetworkinfo">SetNetworkInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetNetworkInfo(v NetworkInfo)</code></p>
+<p>SetNetworkInfo sets NetworkInfo field to given value.</p>
+<h3 id="hasnetworkinfo">HasNetworkInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasNetworkInfo() bool</code></p>
+<p>HasNetworkInfo returns a boolean if a field has been set.</p>
+<h3 id="setnetworkinfonil">SetNetworkInfoNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetNetworkInfoNil(b bool)</code></p>
+<p>SetNetworkInfoNil sets the value for NetworkInfo to be an explicit nil</p>
+<h3 id="unsetnetworkinfo">UnsetNetworkInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetNetworkInfo()</code></p>
+<p>UnsetNetworkInfo ensures that no value is present for NetworkInfo, not even an explicit nil</p>
+<h3 id="getspeccontent">GetSpecContent</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetSpecContent() SpecContent</code></p>
+<p>GetSpecContent returns the SpecContent field if non-nil, zero value otherwise.</p>
+<h3 id="getspeccontentok">GetSpecContentOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetSpecContentOk() (*SpecContent, bool)</code></p>
+<p>GetSpecContentOk returns a tuple with the SpecContent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setspeccontent">SetSpecContent</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetSpecContent(v SpecContent)</code></p>
+<p>SetSpecContent sets SpecContent field to given value.</p>
+<h3 id="getinstances">GetInstances</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetInstances() GetMysqlInstanceGroupTopology</code></p>
+<p>GetInstances returns the Instances field if non-nil, zero value otherwise.</p>
+<h3 id="getinstancesok">GetInstancesOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetInstancesOk() (*GetMysqlInstanceGroupTopology, bool)</code></p>
+<p>GetInstancesOk returns a tuple with the Instances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setinstances">SetInstances</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetInstances(v GetMysqlInstanceGroupTopology)</code></p>
+<p>SetInstances sets Instances field to given value.</p>
+<h3 id="hasinstances">HasInstances</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasInstances() bool</code></p>
+<p>HasInstances returns a boolean if a field has been set.</p>
+<h3 id="setinstancesnil">SetInstancesNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetInstancesNil(b bool)</code></p>
+<p>SetInstancesNil sets the value for Instances to be an explicit nil</p>
+<h3 id="unsetinstances">UnsetInstances</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetInstances()</code></p>
+<p>UnsetInstances ensures that no value is present for Instances, not even an explicit nil</p>
+<h3 id="getendpoint">GetEndpoint</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetEndpoint() []string</code></p>
+<p>GetEndpoint returns the Endpoint field if non-nil, zero value otherwise.</p>
+<h3 id="getendpointok">GetEndpointOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetEndpointOk() (*[]string, bool)</code></p>
+<p>GetEndpointOk returns a tuple with the Endpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setendpoint">SetEndpoint</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetEndpoint(v []string)</code></p>
+<p>SetEndpoint sets Endpoint field to given value.</p>
+<h3 id="hasendpoint">HasEndpoint</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasEndpoint() bool</code></p>
+<p>HasEndpoint returns a boolean if a field has been set.</p>
+<h3 id="setendpointnil">SetEndpointNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetEndpointNil(b bool)</code></p>
+<p>SetEndpointNil sets the value for Endpoint to be an explicit nil</p>
+<h3 id="unsetendpoint">UnsetEndpoint</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetEndpoint()</code></p>
+<p>UnsetEndpoint ensures that no value is present for Endpoint, not even an explicit nil</p>
+<h3 id="getextrainfo">GetExtraInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetExtraInfo() ExtraInfo</code></p>
+<p>GetExtraInfo returns the ExtraInfo field if non-nil, zero value otherwise.</p>
+<h3 id="getextrainfook">GetExtraInfoOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetExtraInfoOk() (*ExtraInfo, bool)</code></p>
+<p>GetExtraInfoOk returns a tuple with the ExtraInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setextrainfo">SetExtraInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetExtraInfo(v ExtraInfo)</code></p>
+<p>SetExtraInfo sets ExtraInfo field to given value.</p>
+<h3 id="hasextrainfo">HasExtraInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasExtraInfo() bool</code></p>
+<p>HasExtraInfo returns a boolean if a field has been set.</p>
+<h3 id="setextrainfonil">SetExtraInfoNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetExtraInfoNil(b bool)</code></p>
+<p>SetExtraInfoNil sets the value for ExtraInfo to be an explicit nil</p>
+<h3 id="unsetextrainfo">UnsetExtraInfo</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetExtraInfo()</code></p>
+<p>UnsetExtraInfo ensures that no value is present for ExtraInfo, not even an explicit nil</p>
+<h3 id="getstatus">GetStatus</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetStatus() InstanceGroupStatus</code></p>
+<p>GetStatus returns the Status field if non-nil, zero value otherwise.</p>
+<h3 id="getstatusok">GetStatusOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetStatusOk() (*InstanceGroupStatus, bool)</code></p>
+<p>GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setstatus">SetStatus</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetStatus(v InstanceGroupStatus)</code></p>
+<p>SetStatus sets Status field to given value.</p>
+<h3 id="getbackupschedule">GetBackupSchedule</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetBackupSchedule() BackupSchedule</code></p>
+<p>GetBackupSchedule returns the BackupSchedule field if non-nil, zero value otherwise.</p>
+<h3 id="getbackupscheduleok">GetBackupScheduleOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetBackupScheduleOk() (*BackupSchedule, bool)</code></p>
+<p>GetBackupScheduleOk returns a tuple with the BackupSchedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setbackupschedule">SetBackupSchedule</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetBackupSchedule(v BackupSchedule)</code></p>
+<p>SetBackupSchedule sets BackupSchedule field to given value.</p>
+<h3 id="hasbackupschedule">HasBackupSchedule</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) HasBackupSchedule() bool</code></p>
+<p>HasBackupSchedule returns a boolean if a field has been set.</p>
+<h3 id="setbackupschedulenil">SetBackupScheduleNil</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetBackupScheduleNil(b bool)</code></p>
+<p>SetBackupScheduleNil sets the value for BackupSchedule to be an explicit nil</p>
+<h3 id="unsetbackupschedule">UnsetBackupSchedule</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) UnsetBackupSchedule()</code></p>
+<p>UnsetBackupSchedule ensures that no value is present for BackupSchedule, not even an explicit nil</p>
+<h3 id="getparametergroup">GetParameterGroup</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetParameterGroup() ParameterGroup</code></p>
+<p>GetParameterGroup returns the ParameterGroup field if non-nil, zero value otherwise.</p>
+<h3 id="getparametergroupok">GetParameterGroupOk</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) GetParameterGroupOk() (*ParameterGroup, bool)</code></p>
+<p>GetParameterGroupOk returns a tuple with the ParameterGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setparametergroup">SetParameterGroup</h3>
+<p><code>func (o *GetMysqlInstanceGroupInstanceGroup) SetParameterGroup(v ParameterGroup)</code></p>
+<p>SetParameterGroup sets ParameterGroup field to given value.</p>
+<p><a href="../README.md#documentation-for-models">[Back to Model list]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a> <a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

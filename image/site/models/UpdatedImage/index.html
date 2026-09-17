@@ -1,0 +1,3680 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OsInfo/">
+      
+      
+        <link rel="next" href="../UpdateImage/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UpdatedImage - kc-sdk-go/v2/image (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#updatedimage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/image (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/image (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/image (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UpdatedImage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/image (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/image (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/image (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ImageAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AddImageShareMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddImageShareMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AddImageShareResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AddImageShareResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetImageResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetImageResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageInstanceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageInstanceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListImageSharedProjectsMember/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImageSharedProjectsMember
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListImageSharedProjectsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImageSharedProjectsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListImagesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListImagesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OsInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OsInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedImage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdatedImage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newupdatedimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewUpdatedImage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newupdatedimagewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewUpdatedImageWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdiskformatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskFormatOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdiskformatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskFormatNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcontainerformatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetContainerFormatOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainerformatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetContainerFormatNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getownerok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOwnerOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setownernil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOwnerNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmindiskok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinDiskOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmindisknil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinDiskNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getminramok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinRamOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setminramnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinRamNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvirtualsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVirtualSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvirtualsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVirtualSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getissharedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsSharedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setissharednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsSharedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvisibilityok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVisibilityOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvisibilitynil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVisibilityNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosinfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateImageRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImageRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateImageResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateImageResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newupdatedimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewUpdatedImage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newupdatedimagewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewUpdatedImageWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdiskformatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDiskFormatOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdiskformatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDiskFormatNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdiskformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDiskFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcontainerformatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetContainerFormatOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainerformatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetContainerFormatNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcontainerformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetContainerFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getownerok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOwnerOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setownernil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOwnerNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetowner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetOwner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmindiskok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinDiskOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmindisknil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinDiskNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmindisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMinDisk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getminramok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMinRamOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setminramnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMinRamNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetminram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMinRam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvirtualsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVirtualSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvirtualsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVirtualSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvirtualsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVirtualSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getissharedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsSharedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setissharednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsSharedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisshared" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsShared
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvisibilityok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVisibilityOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvisibilitynil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVisibilityNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvisibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVisibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getosinfook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOsInfoOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setosinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetOsInfo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="updatedimage">UpdatedImage</h1>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Id</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지의 고유 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지 이름</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>Pointer to <strong>NullableInt64</strong></td>
+<td>이미지 크기 (bytes 단위)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지의 상태</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>CreatedAt</strong></td>
+<td>Pointer to <strong>NullableTime</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>UpdatedAt</strong></td>
+<td>Pointer to <strong>NullableTime</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>DiskFormat</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지의 디스크 포맷</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ContainerFormat</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지의 컨테이너 형식</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Owner</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지 소유자(이미지를 소유한 프로젝트 ID)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>MinDisk</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>해당 이미지를 사용할 수 있는 최소 디스크 크기 (GB)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>MinRam</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>이미지를 사용할 수 있는 최소 메모리 크기 (MB)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>VirtualSize</strong></td>
+<td>Pointer to <strong>NullableInt64</strong></td>
+<td>이미지의 가상 디스크 크기</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsShared</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td>공유 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Visibility</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지의 공개 범위</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이미지에 대한 설명</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>InstanceType</strong></td>
+<td>Pointer to <a href="../ImageInstanceType/"><strong>NullableImageInstanceType</strong></a></td>
+<td>이미지와 호환 가능한 인스턴스 유형</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>OsInfo</strong></td>
+<td><a href="../OsInfo/"><strong>OsInfo</strong></a></td>
+<td>이미지의 운영체제 정보</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<h3 id="newupdatedimage">NewUpdatedImage</h3>
+<p><code>func NewUpdatedImage(osInfo OsInfo, ) *UpdatedImage</code></p>
+<p>NewUpdatedImage instantiates a new UpdatedImage object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed</p>
+<h3 id="newupdatedimagewithdefaults">NewUpdatedImageWithDefaults</h3>
+<p><code>func NewUpdatedImageWithDefaults() *UpdatedImage</code></p>
+<p>NewUpdatedImageWithDefaults instantiates a new UpdatedImage object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set</p>
+<h3 id="getid">GetId</h3>
+<p><code>func (o *UpdatedImage) GetId() string</code></p>
+<p>GetId returns the Id field if non-nil, zero value otherwise.</p>
+<h3 id="getidok">GetIdOk</h3>
+<p><code>func (o *UpdatedImage) GetIdOk() (*string, bool)</code></p>
+<p>GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setid">SetId</h3>
+<p><code>func (o *UpdatedImage) SetId(v string)</code></p>
+<p>SetId sets Id field to given value.</p>
+<h3 id="hasid">HasId</h3>
+<p><code>func (o *UpdatedImage) HasId() bool</code></p>
+<p>HasId returns a boolean if a field has been set.</p>
+<h3 id="setidnil">SetIdNil</h3>
+<p><code>func (o *UpdatedImage) SetIdNil(b bool)</code></p>
+<p>SetIdNil sets the value for Id to be an explicit nil</p>
+<h3 id="unsetid">UnsetId</h3>
+<p><code>func (o *UpdatedImage) UnsetId()</code></p>
+<p>UnsetId ensures that no value is present for Id, not even an explicit nil</p>
+<h3 id="getname">GetName</h3>
+<p><code>func (o *UpdatedImage) GetName() string</code></p>
+<p>GetName returns the Name field if non-nil, zero value otherwise.</p>
+<h3 id="getnameok">GetNameOk</h3>
+<p><code>func (o *UpdatedImage) GetNameOk() (*string, bool)</code></p>
+<p>GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setname">SetName</h3>
+<p><code>func (o *UpdatedImage) SetName(v string)</code></p>
+<p>SetName sets Name field to given value.</p>
+<h3 id="hasname">HasName</h3>
+<p><code>func (o *UpdatedImage) HasName() bool</code></p>
+<p>HasName returns a boolean if a field has been set.</p>
+<h3 id="setnamenil">SetNameNil</h3>
+<p><code>func (o *UpdatedImage) SetNameNil(b bool)</code></p>
+<p>SetNameNil sets the value for Name to be an explicit nil</p>
+<h3 id="unsetname">UnsetName</h3>
+<p><code>func (o *UpdatedImage) UnsetName()</code></p>
+<p>UnsetName ensures that no value is present for Name, not even an explicit nil</p>
+<h3 id="getsize">GetSize</h3>
+<p><code>func (o *UpdatedImage) GetSize() int64</code></p>
+<p>GetSize returns the Size field if non-nil, zero value otherwise.</p>
+<h3 id="getsizeok">GetSizeOk</h3>
+<p><code>func (o *UpdatedImage) GetSizeOk() (*int64, bool)</code></p>
+<p>GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setsize">SetSize</h3>
+<p><code>func (o *UpdatedImage) SetSize(v int64)</code></p>
+<p>SetSize sets Size field to given value.</p>
+<h3 id="hassize">HasSize</h3>
+<p><code>func (o *UpdatedImage) HasSize() bool</code></p>
+<p>HasSize returns a boolean if a field has been set.</p>
+<h3 id="setsizenil">SetSizeNil</h3>
+<p><code>func (o *UpdatedImage) SetSizeNil(b bool)</code></p>
+<p>SetSizeNil sets the value for Size to be an explicit nil</p>
+<h3 id="unsetsize">UnsetSize</h3>
+<p><code>func (o *UpdatedImage) UnsetSize()</code></p>
+<p>UnsetSize ensures that no value is present for Size, not even an explicit nil</p>
+<h3 id="getstatus">GetStatus</h3>
+<p><code>func (o *UpdatedImage) GetStatus() string</code></p>
+<p>GetStatus returns the Status field if non-nil, zero value otherwise.</p>
+<h3 id="getstatusok">GetStatusOk</h3>
+<p><code>func (o *UpdatedImage) GetStatusOk() (*string, bool)</code></p>
+<p>GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setstatus">SetStatus</h3>
+<p><code>func (o *UpdatedImage) SetStatus(v string)</code></p>
+<p>SetStatus sets Status field to given value.</p>
+<h3 id="hasstatus">HasStatus</h3>
+<p><code>func (o *UpdatedImage) HasStatus() bool</code></p>
+<p>HasStatus returns a boolean if a field has been set.</p>
+<h3 id="setstatusnil">SetStatusNil</h3>
+<p><code>func (o *UpdatedImage) SetStatusNil(b bool)</code></p>
+<p>SetStatusNil sets the value for Status to be an explicit nil</p>
+<h3 id="unsetstatus">UnsetStatus</h3>
+<p><code>func (o *UpdatedImage) UnsetStatus()</code></p>
+<p>UnsetStatus ensures that no value is present for Status, not even an explicit nil</p>
+<h3 id="getcreatedat">GetCreatedAt</h3>
+<p><code>func (o *UpdatedImage) GetCreatedAt() time.Time</code></p>
+<p>GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getcreatedatok">GetCreatedAtOk</h3>
+<p><code>func (o *UpdatedImage) GetCreatedAtOk() (*time.Time, bool)</code></p>
+<p>GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setcreatedat">SetCreatedAt</h3>
+<p><code>func (o *UpdatedImage) SetCreatedAt(v time.Time)</code></p>
+<p>SetCreatedAt sets CreatedAt field to given value.</p>
+<h3 id="hascreatedat">HasCreatedAt</h3>
+<p><code>func (o *UpdatedImage) HasCreatedAt() bool</code></p>
+<p>HasCreatedAt returns a boolean if a field has been set.</p>
+<h3 id="setcreatedatnil">SetCreatedAtNil</h3>
+<p><code>func (o *UpdatedImage) SetCreatedAtNil(b bool)</code></p>
+<p>SetCreatedAtNil sets the value for CreatedAt to be an explicit nil</p>
+<h3 id="unsetcreatedat">UnsetCreatedAt</h3>
+<p><code>func (o *UpdatedImage) UnsetCreatedAt()</code></p>
+<p>UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil</p>
+<h3 id="getupdatedat">GetUpdatedAt</h3>
+<p><code>func (o *UpdatedImage) GetUpdatedAt() time.Time</code></p>
+<p>GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getupdatedatok">GetUpdatedAtOk</h3>
+<p><code>func (o *UpdatedImage) GetUpdatedAtOk() (*time.Time, bool)</code></p>
+<p>GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setupdatedat">SetUpdatedAt</h3>
+<p><code>func (o *UpdatedImage) SetUpdatedAt(v time.Time)</code></p>
+<p>SetUpdatedAt sets UpdatedAt field to given value.</p>
+<h3 id="hasupdatedat">HasUpdatedAt</h3>
+<p><code>func (o *UpdatedImage) HasUpdatedAt() bool</code></p>
+<p>HasUpdatedAt returns a boolean if a field has been set.</p>
+<h3 id="setupdatedatnil">SetUpdatedAtNil</h3>
+<p><code>func (o *UpdatedImage) SetUpdatedAtNil(b bool)</code></p>
+<p>SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil</p>
+<h3 id="unsetupdatedat">UnsetUpdatedAt</h3>
+<p><code>func (o *UpdatedImage) UnsetUpdatedAt()</code></p>
+<p>UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil</p>
+<h3 id="getdiskformat">GetDiskFormat</h3>
+<p><code>func (o *UpdatedImage) GetDiskFormat() string</code></p>
+<p>GetDiskFormat returns the DiskFormat field if non-nil, zero value otherwise.</p>
+<h3 id="getdiskformatok">GetDiskFormatOk</h3>
+<p><code>func (o *UpdatedImage) GetDiskFormatOk() (*string, bool)</code></p>
+<p>GetDiskFormatOk returns a tuple with the DiskFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdiskformat">SetDiskFormat</h3>
+<p><code>func (o *UpdatedImage) SetDiskFormat(v string)</code></p>
+<p>SetDiskFormat sets DiskFormat field to given value.</p>
+<h3 id="hasdiskformat">HasDiskFormat</h3>
+<p><code>func (o *UpdatedImage) HasDiskFormat() bool</code></p>
+<p>HasDiskFormat returns a boolean if a field has been set.</p>
+<h3 id="setdiskformatnil">SetDiskFormatNil</h3>
+<p><code>func (o *UpdatedImage) SetDiskFormatNil(b bool)</code></p>
+<p>SetDiskFormatNil sets the value for DiskFormat to be an explicit nil</p>
+<h3 id="unsetdiskformat">UnsetDiskFormat</h3>
+<p><code>func (o *UpdatedImage) UnsetDiskFormat()</code></p>
+<p>UnsetDiskFormat ensures that no value is present for DiskFormat, not even an explicit nil</p>
+<h3 id="getcontainerformat">GetContainerFormat</h3>
+<p><code>func (o *UpdatedImage) GetContainerFormat() string</code></p>
+<p>GetContainerFormat returns the ContainerFormat field if non-nil, zero value otherwise.</p>
+<h3 id="getcontainerformatok">GetContainerFormatOk</h3>
+<p><code>func (o *UpdatedImage) GetContainerFormatOk() (*string, bool)</code></p>
+<p>GetContainerFormatOk returns a tuple with the ContainerFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setcontainerformat">SetContainerFormat</h3>
+<p><code>func (o *UpdatedImage) SetContainerFormat(v string)</code></p>
+<p>SetContainerFormat sets ContainerFormat field to given value.</p>
+<h3 id="hascontainerformat">HasContainerFormat</h3>
+<p><code>func (o *UpdatedImage) HasContainerFormat() bool</code></p>
+<p>HasContainerFormat returns a boolean if a field has been set.</p>
+<h3 id="setcontainerformatnil">SetContainerFormatNil</h3>
+<p><code>func (o *UpdatedImage) SetContainerFormatNil(b bool)</code></p>
+<p>SetContainerFormatNil sets the value for ContainerFormat to be an explicit nil</p>
+<h3 id="unsetcontainerformat">UnsetContainerFormat</h3>
+<p><code>func (o *UpdatedImage) UnsetContainerFormat()</code></p>
+<p>UnsetContainerFormat ensures that no value is present for ContainerFormat, not even an explicit nil</p>
+<h3 id="getowner">GetOwner</h3>
+<p><code>func (o *UpdatedImage) GetOwner() string</code></p>
+<p>GetOwner returns the Owner field if non-nil, zero value otherwise.</p>
+<h3 id="getownerok">GetOwnerOk</h3>
+<p><code>func (o *UpdatedImage) GetOwnerOk() (*string, bool)</code></p>
+<p>GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setowner">SetOwner</h3>
+<p><code>func (o *UpdatedImage) SetOwner(v string)</code></p>
+<p>SetOwner sets Owner field to given value.</p>
+<h3 id="hasowner">HasOwner</h3>
+<p><code>func (o *UpdatedImage) HasOwner() bool</code></p>
+<p>HasOwner returns a boolean if a field has been set.</p>
+<h3 id="setownernil">SetOwnerNil</h3>
+<p><code>func (o *UpdatedImage) SetOwnerNil(b bool)</code></p>
+<p>SetOwnerNil sets the value for Owner to be an explicit nil</p>
+<h3 id="unsetowner">UnsetOwner</h3>
+<p><code>func (o *UpdatedImage) UnsetOwner()</code></p>
+<p>UnsetOwner ensures that no value is present for Owner, not even an explicit nil</p>
+<h3 id="getmindisk">GetMinDisk</h3>
+<p><code>func (o *UpdatedImage) GetMinDisk() int32</code></p>
+<p>GetMinDisk returns the MinDisk field if non-nil, zero value otherwise.</p>
+<h3 id="getmindiskok">GetMinDiskOk</h3>
+<p><code>func (o *UpdatedImage) GetMinDiskOk() (*int32, bool)</code></p>
+<p>GetMinDiskOk returns a tuple with the MinDisk field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmindisk">SetMinDisk</h3>
+<p><code>func (o *UpdatedImage) SetMinDisk(v int32)</code></p>
+<p>SetMinDisk sets MinDisk field to given value.</p>
+<h3 id="hasmindisk">HasMinDisk</h3>
+<p><code>func (o *UpdatedImage) HasMinDisk() bool</code></p>
+<p>HasMinDisk returns a boolean if a field has been set.</p>
+<h3 id="setmindisknil">SetMinDiskNil</h3>
+<p><code>func (o *UpdatedImage) SetMinDiskNil(b bool)</code></p>
+<p>SetMinDiskNil sets the value for MinDisk to be an explicit nil</p>
+<h3 id="unsetmindisk">UnsetMinDisk</h3>
+<p><code>func (o *UpdatedImage) UnsetMinDisk()</code></p>
+<p>UnsetMinDisk ensures that no value is present for MinDisk, not even an explicit nil</p>
+<h3 id="getminram">GetMinRam</h3>
+<p><code>func (o *UpdatedImage) GetMinRam() int32</code></p>
+<p>GetMinRam returns the MinRam field if non-nil, zero value otherwise.</p>
+<h3 id="getminramok">GetMinRamOk</h3>
+<p><code>func (o *UpdatedImage) GetMinRamOk() (*int32, bool)</code></p>
+<p>GetMinRamOk returns a tuple with the MinRam field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setminram">SetMinRam</h3>
+<p><code>func (o *UpdatedImage) SetMinRam(v int32)</code></p>
+<p>SetMinRam sets MinRam field to given value.</p>
+<h3 id="hasminram">HasMinRam</h3>
+<p><code>func (o *UpdatedImage) HasMinRam() bool</code></p>
+<p>HasMinRam returns a boolean if a field has been set.</p>
+<h3 id="setminramnil">SetMinRamNil</h3>
+<p><code>func (o *UpdatedImage) SetMinRamNil(b bool)</code></p>
+<p>SetMinRamNil sets the value for MinRam to be an explicit nil</p>
+<h3 id="unsetminram">UnsetMinRam</h3>
+<p><code>func (o *UpdatedImage) UnsetMinRam()</code></p>
+<p>UnsetMinRam ensures that no value is present for MinRam, not even an explicit nil</p>
+<h3 id="getvirtualsize">GetVirtualSize</h3>
+<p><code>func (o *UpdatedImage) GetVirtualSize() int64</code></p>
+<p>GetVirtualSize returns the VirtualSize field if non-nil, zero value otherwise.</p>
+<h3 id="getvirtualsizeok">GetVirtualSizeOk</h3>
+<p><code>func (o *UpdatedImage) GetVirtualSizeOk() (*int64, bool)</code></p>
+<p>GetVirtualSizeOk returns a tuple with the VirtualSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setvirtualsize">SetVirtualSize</h3>
+<p><code>func (o *UpdatedImage) SetVirtualSize(v int64)</code></p>
+<p>SetVirtualSize sets VirtualSize field to given value.</p>
+<h3 id="hasvirtualsize">HasVirtualSize</h3>
+<p><code>func (o *UpdatedImage) HasVirtualSize() bool</code></p>
+<p>HasVirtualSize returns a boolean if a field has been set.</p>
+<h3 id="setvirtualsizenil">SetVirtualSizeNil</h3>
+<p><code>func (o *UpdatedImage) SetVirtualSizeNil(b bool)</code></p>
+<p>SetVirtualSizeNil sets the value for VirtualSize to be an explicit nil</p>
+<h3 id="unsetvirtualsize">UnsetVirtualSize</h3>
+<p><code>func (o *UpdatedImage) UnsetVirtualSize()</code></p>
+<p>UnsetVirtualSize ensures that no value is present for VirtualSize, not even an explicit nil</p>
+<h3 id="getisshared">GetIsShared</h3>
+<p><code>func (o *UpdatedImage) GetIsShared() bool</code></p>
+<p>GetIsShared returns the IsShared field if non-nil, zero value otherwise.</p>
+<h3 id="getissharedok">GetIsSharedOk</h3>
+<p><code>func (o *UpdatedImage) GetIsSharedOk() (*bool, bool)</code></p>
+<p>GetIsSharedOk returns a tuple with the IsShared field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setisshared">SetIsShared</h3>
+<p><code>func (o *UpdatedImage) SetIsShared(v bool)</code></p>
+<p>SetIsShared sets IsShared field to given value.</p>
+<h3 id="hasisshared">HasIsShared</h3>
+<p><code>func (o *UpdatedImage) HasIsShared() bool</code></p>
+<p>HasIsShared returns a boolean if a field has been set.</p>
+<h3 id="setissharednil">SetIsSharedNil</h3>
+<p><code>func (o *UpdatedImage) SetIsSharedNil(b bool)</code></p>
+<p>SetIsSharedNil sets the value for IsShared to be an explicit nil</p>
+<h3 id="unsetisshared">UnsetIsShared</h3>
+<p><code>func (o *UpdatedImage) UnsetIsShared()</code></p>
+<p>UnsetIsShared ensures that no value is present for IsShared, not even an explicit nil</p>
+<h3 id="getvisibility">GetVisibility</h3>
+<p><code>func (o *UpdatedImage) GetVisibility() string</code></p>
+<p>GetVisibility returns the Visibility field if non-nil, zero value otherwise.</p>
+<h3 id="getvisibilityok">GetVisibilityOk</h3>
+<p><code>func (o *UpdatedImage) GetVisibilityOk() (*string, bool)</code></p>
+<p>GetVisibilityOk returns a tuple with the Visibility field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setvisibility">SetVisibility</h3>
+<p><code>func (o *UpdatedImage) SetVisibility(v string)</code></p>
+<p>SetVisibility sets Visibility field to given value.</p>
+<h3 id="hasvisibility">HasVisibility</h3>
+<p><code>func (o *UpdatedImage) HasVisibility() bool</code></p>
+<p>HasVisibility returns a boolean if a field has been set.</p>
+<h3 id="setvisibilitynil">SetVisibilityNil</h3>
+<p><code>func (o *UpdatedImage) SetVisibilityNil(b bool)</code></p>
+<p>SetVisibilityNil sets the value for Visibility to be an explicit nil</p>
+<h3 id="unsetvisibility">UnsetVisibility</h3>
+<p><code>func (o *UpdatedImage) UnsetVisibility()</code></p>
+<p>UnsetVisibility ensures that no value is present for Visibility, not even an explicit nil</p>
+<h3 id="getdescription">GetDescription</h3>
+<p><code>func (o *UpdatedImage) GetDescription() string</code></p>
+<p>GetDescription returns the Description field if non-nil, zero value otherwise.</p>
+<h3 id="getdescriptionok">GetDescriptionOk</h3>
+<p><code>func (o *UpdatedImage) GetDescriptionOk() (*string, bool)</code></p>
+<p>GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdescription">SetDescription</h3>
+<p><code>func (o *UpdatedImage) SetDescription(v string)</code></p>
+<p>SetDescription sets Description field to given value.</p>
+<h3 id="hasdescription">HasDescription</h3>
+<p><code>func (o *UpdatedImage) HasDescription() bool</code></p>
+<p>HasDescription returns a boolean if a field has been set.</p>
+<h3 id="setdescriptionnil">SetDescriptionNil</h3>
+<p><code>func (o *UpdatedImage) SetDescriptionNil(b bool)</code></p>
+<p>SetDescriptionNil sets the value for Description to be an explicit nil</p>
+<h3 id="unsetdescription">UnsetDescription</h3>
+<p><code>func (o *UpdatedImage) UnsetDescription()</code></p>
+<p>UnsetDescription ensures that no value is present for Description, not even an explicit nil</p>
+<h3 id="getinstancetype">GetInstanceType</h3>
+<p><code>func (o *UpdatedImage) GetInstanceType() ImageInstanceType</code></p>
+<p>GetInstanceType returns the InstanceType field if non-nil, zero value otherwise.</p>
+<h3 id="getinstancetypeok">GetInstanceTypeOk</h3>
+<p><code>func (o *UpdatedImage) GetInstanceTypeOk() (*ImageInstanceType, bool)</code></p>
+<p>GetInstanceTypeOk returns a tuple with the InstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setinstancetype">SetInstanceType</h3>
+<p><code>func (o *UpdatedImage) SetInstanceType(v ImageInstanceType)</code></p>
+<p>SetInstanceType sets InstanceType field to given value.</p>
+<h3 id="hasinstancetype">HasInstanceType</h3>
+<p><code>func (o *UpdatedImage) HasInstanceType() bool</code></p>
+<p>HasInstanceType returns a boolean if a field has been set.</p>
+<h3 id="setinstancetypenil">SetInstanceTypeNil</h3>
+<p><code>func (o *UpdatedImage) SetInstanceTypeNil(b bool)</code></p>
+<p>SetInstanceTypeNil sets the value for InstanceType to be an explicit nil</p>
+<h3 id="unsetinstancetype">UnsetInstanceType</h3>
+<p><code>func (o *UpdatedImage) UnsetInstanceType()</code></p>
+<p>UnsetInstanceType ensures that no value is present for InstanceType, not even an explicit nil</p>
+<h3 id="getosinfo">GetOsInfo</h3>
+<p><code>func (o *UpdatedImage) GetOsInfo() OsInfo</code></p>
+<p>GetOsInfo returns the OsInfo field if non-nil, zero value otherwise.</p>
+<h3 id="getosinfook">GetOsInfoOk</h3>
+<p><code>func (o *UpdatedImage) GetOsInfoOk() (*OsInfo, bool)</code></p>
+<p>GetOsInfoOk returns a tuple with the OsInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setosinfo">SetOsInfo</h3>
+<p><code>func (o *UpdatedImage) SetOsInfo(v OsInfo)</code></p>
+<p>SetOsInfo sets OsInfo field to given value.</p>
+<p><a href="../README.md#documentation-for-models">[Back to Model list]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a> <a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

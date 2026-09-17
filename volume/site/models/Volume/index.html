@@ -1,0 +1,5479 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../UpdateVolumeResponse/">
+      
+      
+        <link rel="next" href="../VolumeResult/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Volume - kc-sdk-go/v2/volume (POC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#volume" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kc-sdk-go/v2/volume (POC)" class="md-header__button md-logo" aria-label="kc-sdk-go/v2/volume (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kc-sdk-go/v2/volume (POC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Volume
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kc-sdk-go/v2/volume (POC)" class="md-nav__button md-logo" aria-label="kc-sdk-go/v2/volume (POC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kc-sdk-go/v2/volume (POC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ImageAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/SnapshotAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SnapshotAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/VolumeAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VolumeAPI.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Attachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AvailabilityZone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AvailabilityZone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateImage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateImageRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateImageRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateImageResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateImageResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateSnapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateSnapshot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateSnapshotRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateSnapshotRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateSnapshotResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateSnapshotResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CreateVolumeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreateVolumeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ErrorResponseSub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ErrorResponseSub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtendVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExtendVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExtendVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetSnapshotResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetSnapshotResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GetVolumeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GetVolumeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageInstanceType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageInstanceType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageMetaData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ImageMetaData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListSnapshotsResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListSnapshotsResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListVolumesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListVolumesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListVolumeTypesResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ListVolumeTypesResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OsInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OsInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestoreSnapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestoreSnapshot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestoreSnapshotRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestoreSnapshotRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RestoreSnapshotResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RestoreSnapshotResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Snapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snapshot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SnapshotResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SnapshotResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateSnapshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateSnapshot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateSnapshotRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateSnapshotRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateSnapshotResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateSnapshotResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateVolume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateVolume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateVolumeRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateVolumeRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UpdateVolumeResponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UpdateVolumeResponse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volume
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volume
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newvolume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewVolume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvolumewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewVolumeWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisbootableok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBootableOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisbootablenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBootableNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmountpointok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMountPointOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmountpointnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMountPointNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmetadataok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMetadataOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmetadatanil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMetadataNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisencryptedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsEncryptedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisencryptednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsEncryptedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisrootok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsRootOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisrootnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsRootNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hastype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseridok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuseridnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUserIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavailabilityzoneok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAvailabilityZoneOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setavailabilityzonenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAvailabilityZoneNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattachstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAttachStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattachstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAttachStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlaunchedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLaunchedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haslaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlaunchedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLaunchedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getencryptionkeyidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEncryptionKeyIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setencryptionkeyidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEncryptionKeyIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpreviousstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetPreviousStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haspreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpreviousstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetPreviousStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstanceidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstanceidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancenameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancenamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getimagemetadataok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImageMetadataOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setimagemetadatanil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetImageMetadataNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvolumetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVolumeTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvolumetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVolumeTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VolumeResult/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VolumeResult
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#newvolume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewVolume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newvolumewithdefaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NewVolumeWithDefaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsizeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSizeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hassize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setsizenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetSizeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setnamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdescriptionok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetDescriptionOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdescriptionnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetDescriptionNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisbootableok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsBootableOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisbootablenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsBootableNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisbootable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsBootable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmountpointok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMountPointOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmountpointnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMountPointNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmountpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMountPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmetadataok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMetadataOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmetadatanil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetMetadataNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisencryptedok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsEncryptedOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisencryptednil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsEncryptedNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisencrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsEncrypted
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getisrootok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetIsRootOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setisrootnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetIsRootNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetisroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetIsRoot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hastype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsettype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuseridok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuseridnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUserIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetuserid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUserId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprojectidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProjectIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprojectidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetProjectIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetprojectid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetProjectId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getavailabilityzoneok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAvailabilityZoneOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setavailabilityzonenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAvailabilityZoneNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetavailabilityzone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetAvailabilityZone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattachstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAttachStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattachstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetAttachStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetattachstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetAttachStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlaunchedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetLaunchedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haslaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlaunchedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetLaunchedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetlaunchedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetLaunchedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getencryptionkeyidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetEncryptionKeyIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setencryptionkeyidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetEncryptionKeyIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetencryptionkeyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetEncryptionKeyId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpreviousstatusok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetPreviousStatusOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haspreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpreviousstatusnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetPreviousStatusNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetpreviousstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetPreviousStatus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcreatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetCreatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hascreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcreatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetCreatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetcreatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetCreatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getupdatedatok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUpdatedAtOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setupdatedatnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetUpdatedAtNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetupdatedat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetUpdatedAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstanceidok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceIdOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstanceidnil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceIdNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstanceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getinstancenameok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetInstanceNameOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setinstancenamenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetInstanceNameNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetinstancename" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetInstanceName
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getimagemetadataok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetImageMetadataOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setimagemetadatanil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetImageMetadataNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetimagemetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetImageMetadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvolumetypeok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetVolumeTypeOk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HasVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvolumetypenil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SetVolumeTypeNil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unsetvolumetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UnsetVolumeType
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="volume">Volume</h1>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Id</strong></td>
+<td><strong>string</strong></td>
+<td>볼륨 ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>Pointer to <strong>NullableInt32</strong></td>
+<td>볼륨 크기 (Bytes 단위)</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>현재 볼륨 상태</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨 이름</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨에 대한 설명</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsBootable</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td>부팅 가능 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>MountPoint</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨이 인스턴스에 마운트된 경로</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Metadata</strong></td>
+<td>Pointer to <strong>map[string]string</strong></td>
+<td>사용자 정의 메타데이터</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsEncrypted</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td>암호화 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>IsRoot</strong></td>
+<td>Pointer to <strong>NullableBool</strong></td>
+<td>볼륨이 루트 디스크인지 여부</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>스토리지 유형</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>UserId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨 소유 사용자 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ProjectId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨이 속한 프로젝트 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>AvailabilityZone</strong></td>
+<td>Pointer to <a href="../AvailabilityZone/"><strong>NullableAvailabilityZone</strong></a></td>
+<td>볼륨이 생성된 가용 영역</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>AttachStatus</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨 연결 상태</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>LaunchedAt</strong></td>
+<td>Pointer to <strong>NullableTime</strong></td>
+<td>볼륨이 인스턴스에 마지막으로 연결된 시각</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>EncryptionKeyId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨 암호화에 사용된 키의 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>PreviousStatus</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>이전 상태</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>CreatedAt</strong></td>
+<td>Pointer to <strong>NullableTime</strong></td>
+<td>리소스가 생성된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>UpdatedAt</strong></td>
+<td>Pointer to <strong>NullableTime</strong></td>
+<td>리소스가 마지막으로 수정된 시간 - ISO 8601 형식 - UTC 기준</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>InstanceId</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>인스턴스의 고유 ID</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>InstanceName</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>연결된 인스턴스 이름</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>ImageMetadata</strong></td>
+<td>Pointer to <a href="../ImageMetaData/"><strong>NullableImageMetaData</strong></a></td>
+<td>이미지에서 생성된 경우 해당 메타데이터</td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>VolumeType</strong></td>
+<td>Pointer to <strong>NullableString</strong></td>
+<td>볼륨 유형</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<h3 id="newvolume">NewVolume</h3>
+<p><code>func NewVolume(id string, ) *Volume</code></p>
+<p>NewVolume instantiates a new Volume object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed</p>
+<h3 id="newvolumewithdefaults">NewVolumeWithDefaults</h3>
+<p><code>func NewVolumeWithDefaults() *Volume</code></p>
+<p>NewVolumeWithDefaults instantiates a new Volume object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set</p>
+<h3 id="getid">GetId</h3>
+<p><code>func (o *Volume) GetId() string</code></p>
+<p>GetId returns the Id field if non-nil, zero value otherwise.</p>
+<h3 id="getidok">GetIdOk</h3>
+<p><code>func (o *Volume) GetIdOk() (*string, bool)</code></p>
+<p>GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setid">SetId</h3>
+<p><code>func (o *Volume) SetId(v string)</code></p>
+<p>SetId sets Id field to given value.</p>
+<h3 id="getsize">GetSize</h3>
+<p><code>func (o *Volume) GetSize() int32</code></p>
+<p>GetSize returns the Size field if non-nil, zero value otherwise.</p>
+<h3 id="getsizeok">GetSizeOk</h3>
+<p><code>func (o *Volume) GetSizeOk() (*int32, bool)</code></p>
+<p>GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setsize">SetSize</h3>
+<p><code>func (o *Volume) SetSize(v int32)</code></p>
+<p>SetSize sets Size field to given value.</p>
+<h3 id="hassize">HasSize</h3>
+<p><code>func (o *Volume) HasSize() bool</code></p>
+<p>HasSize returns a boolean if a field has been set.</p>
+<h3 id="setsizenil">SetSizeNil</h3>
+<p><code>func (o *Volume) SetSizeNil(b bool)</code></p>
+<p>SetSizeNil sets the value for Size to be an explicit nil</p>
+<h3 id="unsetsize">UnsetSize</h3>
+<p><code>func (o *Volume) UnsetSize()</code></p>
+<p>UnsetSize ensures that no value is present for Size, not even an explicit nil</p>
+<h3 id="getstatus">GetStatus</h3>
+<p><code>func (o *Volume) GetStatus() string</code></p>
+<p>GetStatus returns the Status field if non-nil, zero value otherwise.</p>
+<h3 id="getstatusok">GetStatusOk</h3>
+<p><code>func (o *Volume) GetStatusOk() (*string, bool)</code></p>
+<p>GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setstatus">SetStatus</h3>
+<p><code>func (o *Volume) SetStatus(v string)</code></p>
+<p>SetStatus sets Status field to given value.</p>
+<h3 id="hasstatus">HasStatus</h3>
+<p><code>func (o *Volume) HasStatus() bool</code></p>
+<p>HasStatus returns a boolean if a field has been set.</p>
+<h3 id="setstatusnil">SetStatusNil</h3>
+<p><code>func (o *Volume) SetStatusNil(b bool)</code></p>
+<p>SetStatusNil sets the value for Status to be an explicit nil</p>
+<h3 id="unsetstatus">UnsetStatus</h3>
+<p><code>func (o *Volume) UnsetStatus()</code></p>
+<p>UnsetStatus ensures that no value is present for Status, not even an explicit nil</p>
+<h3 id="getname">GetName</h3>
+<p><code>func (o *Volume) GetName() string</code></p>
+<p>GetName returns the Name field if non-nil, zero value otherwise.</p>
+<h3 id="getnameok">GetNameOk</h3>
+<p><code>func (o *Volume) GetNameOk() (*string, bool)</code></p>
+<p>GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setname">SetName</h3>
+<p><code>func (o *Volume) SetName(v string)</code></p>
+<p>SetName sets Name field to given value.</p>
+<h3 id="hasname">HasName</h3>
+<p><code>func (o *Volume) HasName() bool</code></p>
+<p>HasName returns a boolean if a field has been set.</p>
+<h3 id="setnamenil">SetNameNil</h3>
+<p><code>func (o *Volume) SetNameNil(b bool)</code></p>
+<p>SetNameNil sets the value for Name to be an explicit nil</p>
+<h3 id="unsetname">UnsetName</h3>
+<p><code>func (o *Volume) UnsetName()</code></p>
+<p>UnsetName ensures that no value is present for Name, not even an explicit nil</p>
+<h3 id="getdescription">GetDescription</h3>
+<p><code>func (o *Volume) GetDescription() string</code></p>
+<p>GetDescription returns the Description field if non-nil, zero value otherwise.</p>
+<h3 id="getdescriptionok">GetDescriptionOk</h3>
+<p><code>func (o *Volume) GetDescriptionOk() (*string, bool)</code></p>
+<p>GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setdescription">SetDescription</h3>
+<p><code>func (o *Volume) SetDescription(v string)</code></p>
+<p>SetDescription sets Description field to given value.</p>
+<h3 id="hasdescription">HasDescription</h3>
+<p><code>func (o *Volume) HasDescription() bool</code></p>
+<p>HasDescription returns a boolean if a field has been set.</p>
+<h3 id="setdescriptionnil">SetDescriptionNil</h3>
+<p><code>func (o *Volume) SetDescriptionNil(b bool)</code></p>
+<p>SetDescriptionNil sets the value for Description to be an explicit nil</p>
+<h3 id="unsetdescription">UnsetDescription</h3>
+<p><code>func (o *Volume) UnsetDescription()</code></p>
+<p>UnsetDescription ensures that no value is present for Description, not even an explicit nil</p>
+<h3 id="getisbootable">GetIsBootable</h3>
+<p><code>func (o *Volume) GetIsBootable() bool</code></p>
+<p>GetIsBootable returns the IsBootable field if non-nil, zero value otherwise.</p>
+<h3 id="getisbootableok">GetIsBootableOk</h3>
+<p><code>func (o *Volume) GetIsBootableOk() (*bool, bool)</code></p>
+<p>GetIsBootableOk returns a tuple with the IsBootable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setisbootable">SetIsBootable</h3>
+<p><code>func (o *Volume) SetIsBootable(v bool)</code></p>
+<p>SetIsBootable sets IsBootable field to given value.</p>
+<h3 id="hasisbootable">HasIsBootable</h3>
+<p><code>func (o *Volume) HasIsBootable() bool</code></p>
+<p>HasIsBootable returns a boolean if a field has been set.</p>
+<h3 id="setisbootablenil">SetIsBootableNil</h3>
+<p><code>func (o *Volume) SetIsBootableNil(b bool)</code></p>
+<p>SetIsBootableNil sets the value for IsBootable to be an explicit nil</p>
+<h3 id="unsetisbootable">UnsetIsBootable</h3>
+<p><code>func (o *Volume) UnsetIsBootable()</code></p>
+<p>UnsetIsBootable ensures that no value is present for IsBootable, not even an explicit nil</p>
+<h3 id="getmountpoint">GetMountPoint</h3>
+<p><code>func (o *Volume) GetMountPoint() string</code></p>
+<p>GetMountPoint returns the MountPoint field if non-nil, zero value otherwise.</p>
+<h3 id="getmountpointok">GetMountPointOk</h3>
+<p><code>func (o *Volume) GetMountPointOk() (*string, bool)</code></p>
+<p>GetMountPointOk returns a tuple with the MountPoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmountpoint">SetMountPoint</h3>
+<p><code>func (o *Volume) SetMountPoint(v string)</code></p>
+<p>SetMountPoint sets MountPoint field to given value.</p>
+<h3 id="hasmountpoint">HasMountPoint</h3>
+<p><code>func (o *Volume) HasMountPoint() bool</code></p>
+<p>HasMountPoint returns a boolean if a field has been set.</p>
+<h3 id="setmountpointnil">SetMountPointNil</h3>
+<p><code>func (o *Volume) SetMountPointNil(b bool)</code></p>
+<p>SetMountPointNil sets the value for MountPoint to be an explicit nil</p>
+<h3 id="unsetmountpoint">UnsetMountPoint</h3>
+<p><code>func (o *Volume) UnsetMountPoint()</code></p>
+<p>UnsetMountPoint ensures that no value is present for MountPoint, not even an explicit nil</p>
+<h3 id="getmetadata">GetMetadata</h3>
+<p><code>func (o *Volume) GetMetadata() map[string]string</code></p>
+<p>GetMetadata returns the Metadata field if non-nil, zero value otherwise.</p>
+<h3 id="getmetadataok">GetMetadataOk</h3>
+<p><code>func (o *Volume) GetMetadataOk() (*map[string]string, bool)</code></p>
+<p>GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setmetadata">SetMetadata</h3>
+<p><code>func (o *Volume) SetMetadata(v map[string]string)</code></p>
+<p>SetMetadata sets Metadata field to given value.</p>
+<h3 id="hasmetadata">HasMetadata</h3>
+<p><code>func (o *Volume) HasMetadata() bool</code></p>
+<p>HasMetadata returns a boolean if a field has been set.</p>
+<h3 id="setmetadatanil">SetMetadataNil</h3>
+<p><code>func (o *Volume) SetMetadataNil(b bool)</code></p>
+<p>SetMetadataNil sets the value for Metadata to be an explicit nil</p>
+<h3 id="unsetmetadata">UnsetMetadata</h3>
+<p><code>func (o *Volume) UnsetMetadata()</code></p>
+<p>UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil</p>
+<h3 id="getisencrypted">GetIsEncrypted</h3>
+<p><code>func (o *Volume) GetIsEncrypted() bool</code></p>
+<p>GetIsEncrypted returns the IsEncrypted field if non-nil, zero value otherwise.</p>
+<h3 id="getisencryptedok">GetIsEncryptedOk</h3>
+<p><code>func (o *Volume) GetIsEncryptedOk() (*bool, bool)</code></p>
+<p>GetIsEncryptedOk returns a tuple with the IsEncrypted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setisencrypted">SetIsEncrypted</h3>
+<p><code>func (o *Volume) SetIsEncrypted(v bool)</code></p>
+<p>SetIsEncrypted sets IsEncrypted field to given value.</p>
+<h3 id="hasisencrypted">HasIsEncrypted</h3>
+<p><code>func (o *Volume) HasIsEncrypted() bool</code></p>
+<p>HasIsEncrypted returns a boolean if a field has been set.</p>
+<h3 id="setisencryptednil">SetIsEncryptedNil</h3>
+<p><code>func (o *Volume) SetIsEncryptedNil(b bool)</code></p>
+<p>SetIsEncryptedNil sets the value for IsEncrypted to be an explicit nil</p>
+<h3 id="unsetisencrypted">UnsetIsEncrypted</h3>
+<p><code>func (o *Volume) UnsetIsEncrypted()</code></p>
+<p>UnsetIsEncrypted ensures that no value is present for IsEncrypted, not even an explicit nil</p>
+<h3 id="getisroot">GetIsRoot</h3>
+<p><code>func (o *Volume) GetIsRoot() bool</code></p>
+<p>GetIsRoot returns the IsRoot field if non-nil, zero value otherwise.</p>
+<h3 id="getisrootok">GetIsRootOk</h3>
+<p><code>func (o *Volume) GetIsRootOk() (*bool, bool)</code></p>
+<p>GetIsRootOk returns a tuple with the IsRoot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setisroot">SetIsRoot</h3>
+<p><code>func (o *Volume) SetIsRoot(v bool)</code></p>
+<p>SetIsRoot sets IsRoot field to given value.</p>
+<h3 id="hasisroot">HasIsRoot</h3>
+<p><code>func (o *Volume) HasIsRoot() bool</code></p>
+<p>HasIsRoot returns a boolean if a field has been set.</p>
+<h3 id="setisrootnil">SetIsRootNil</h3>
+<p><code>func (o *Volume) SetIsRootNil(b bool)</code></p>
+<p>SetIsRootNil sets the value for IsRoot to be an explicit nil</p>
+<h3 id="unsetisroot">UnsetIsRoot</h3>
+<p><code>func (o *Volume) UnsetIsRoot()</code></p>
+<p>UnsetIsRoot ensures that no value is present for IsRoot, not even an explicit nil</p>
+<h3 id="gettype">GetType</h3>
+<p><code>func (o *Volume) GetType() string</code></p>
+<p>GetType returns the Type field if non-nil, zero value otherwise.</p>
+<h3 id="gettypeok">GetTypeOk</h3>
+<p><code>func (o *Volume) GetTypeOk() (*string, bool)</code></p>
+<p>GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="settype">SetType</h3>
+<p><code>func (o *Volume) SetType(v string)</code></p>
+<p>SetType sets Type field to given value.</p>
+<h3 id="hastype">HasType</h3>
+<p><code>func (o *Volume) HasType() bool</code></p>
+<p>HasType returns a boolean if a field has been set.</p>
+<h3 id="settypenil">SetTypeNil</h3>
+<p><code>func (o *Volume) SetTypeNil(b bool)</code></p>
+<p>SetTypeNil sets the value for Type to be an explicit nil</p>
+<h3 id="unsettype">UnsetType</h3>
+<p><code>func (o *Volume) UnsetType()</code></p>
+<p>UnsetType ensures that no value is present for Type, not even an explicit nil</p>
+<h3 id="getuserid">GetUserId</h3>
+<p><code>func (o *Volume) GetUserId() string</code></p>
+<p>GetUserId returns the UserId field if non-nil, zero value otherwise.</p>
+<h3 id="getuseridok">GetUserIdOk</h3>
+<p><code>func (o *Volume) GetUserIdOk() (*string, bool)</code></p>
+<p>GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setuserid">SetUserId</h3>
+<p><code>func (o *Volume) SetUserId(v string)</code></p>
+<p>SetUserId sets UserId field to given value.</p>
+<h3 id="hasuserid">HasUserId</h3>
+<p><code>func (o *Volume) HasUserId() bool</code></p>
+<p>HasUserId returns a boolean if a field has been set.</p>
+<h3 id="setuseridnil">SetUserIdNil</h3>
+<p><code>func (o *Volume) SetUserIdNil(b bool)</code></p>
+<p>SetUserIdNil sets the value for UserId to be an explicit nil</p>
+<h3 id="unsetuserid">UnsetUserId</h3>
+<p><code>func (o *Volume) UnsetUserId()</code></p>
+<p>UnsetUserId ensures that no value is present for UserId, not even an explicit nil</p>
+<h3 id="getprojectid">GetProjectId</h3>
+<p><code>func (o *Volume) GetProjectId() string</code></p>
+<p>GetProjectId returns the ProjectId field if non-nil, zero value otherwise.</p>
+<h3 id="getprojectidok">GetProjectIdOk</h3>
+<p><code>func (o *Volume) GetProjectIdOk() (*string, bool)</code></p>
+<p>GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setprojectid">SetProjectId</h3>
+<p><code>func (o *Volume) SetProjectId(v string)</code></p>
+<p>SetProjectId sets ProjectId field to given value.</p>
+<h3 id="hasprojectid">HasProjectId</h3>
+<p><code>func (o *Volume) HasProjectId() bool</code></p>
+<p>HasProjectId returns a boolean if a field has been set.</p>
+<h3 id="setprojectidnil">SetProjectIdNil</h3>
+<p><code>func (o *Volume) SetProjectIdNil(b bool)</code></p>
+<p>SetProjectIdNil sets the value for ProjectId to be an explicit nil</p>
+<h3 id="unsetprojectid">UnsetProjectId</h3>
+<p><code>func (o *Volume) UnsetProjectId()</code></p>
+<p>UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil</p>
+<h3 id="getavailabilityzone">GetAvailabilityZone</h3>
+<p><code>func (o *Volume) GetAvailabilityZone() AvailabilityZone</code></p>
+<p>GetAvailabilityZone returns the AvailabilityZone field if non-nil, zero value otherwise.</p>
+<h3 id="getavailabilityzoneok">GetAvailabilityZoneOk</h3>
+<p><code>func (o *Volume) GetAvailabilityZoneOk() (*AvailabilityZone, bool)</code></p>
+<p>GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setavailabilityzone">SetAvailabilityZone</h3>
+<p><code>func (o *Volume) SetAvailabilityZone(v AvailabilityZone)</code></p>
+<p>SetAvailabilityZone sets AvailabilityZone field to given value.</p>
+<h3 id="hasavailabilityzone">HasAvailabilityZone</h3>
+<p><code>func (o *Volume) HasAvailabilityZone() bool</code></p>
+<p>HasAvailabilityZone returns a boolean if a field has been set.</p>
+<h3 id="setavailabilityzonenil">SetAvailabilityZoneNil</h3>
+<p><code>func (o *Volume) SetAvailabilityZoneNil(b bool)</code></p>
+<p>SetAvailabilityZoneNil sets the value for AvailabilityZone to be an explicit nil</p>
+<h3 id="unsetavailabilityzone">UnsetAvailabilityZone</h3>
+<p><code>func (o *Volume) UnsetAvailabilityZone()</code></p>
+<p>UnsetAvailabilityZone ensures that no value is present for AvailabilityZone, not even an explicit nil</p>
+<h3 id="getattachstatus">GetAttachStatus</h3>
+<p><code>func (o *Volume) GetAttachStatus() string</code></p>
+<p>GetAttachStatus returns the AttachStatus field if non-nil, zero value otherwise.</p>
+<h3 id="getattachstatusok">GetAttachStatusOk</h3>
+<p><code>func (o *Volume) GetAttachStatusOk() (*string, bool)</code></p>
+<p>GetAttachStatusOk returns a tuple with the AttachStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setattachstatus">SetAttachStatus</h3>
+<p><code>func (o *Volume) SetAttachStatus(v string)</code></p>
+<p>SetAttachStatus sets AttachStatus field to given value.</p>
+<h3 id="hasattachstatus">HasAttachStatus</h3>
+<p><code>func (o *Volume) HasAttachStatus() bool</code></p>
+<p>HasAttachStatus returns a boolean if a field has been set.</p>
+<h3 id="setattachstatusnil">SetAttachStatusNil</h3>
+<p><code>func (o *Volume) SetAttachStatusNil(b bool)</code></p>
+<p>SetAttachStatusNil sets the value for AttachStatus to be an explicit nil</p>
+<h3 id="unsetattachstatus">UnsetAttachStatus</h3>
+<p><code>func (o *Volume) UnsetAttachStatus()</code></p>
+<p>UnsetAttachStatus ensures that no value is present for AttachStatus, not even an explicit nil</p>
+<h3 id="getlaunchedat">GetLaunchedAt</h3>
+<p><code>func (o *Volume) GetLaunchedAt() time.Time</code></p>
+<p>GetLaunchedAt returns the LaunchedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getlaunchedatok">GetLaunchedAtOk</h3>
+<p><code>func (o *Volume) GetLaunchedAtOk() (*time.Time, bool)</code></p>
+<p>GetLaunchedAtOk returns a tuple with the LaunchedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setlaunchedat">SetLaunchedAt</h3>
+<p><code>func (o *Volume) SetLaunchedAt(v time.Time)</code></p>
+<p>SetLaunchedAt sets LaunchedAt field to given value.</p>
+<h3 id="haslaunchedat">HasLaunchedAt</h3>
+<p><code>func (o *Volume) HasLaunchedAt() bool</code></p>
+<p>HasLaunchedAt returns a boolean if a field has been set.</p>
+<h3 id="setlaunchedatnil">SetLaunchedAtNil</h3>
+<p><code>func (o *Volume) SetLaunchedAtNil(b bool)</code></p>
+<p>SetLaunchedAtNil sets the value for LaunchedAt to be an explicit nil</p>
+<h3 id="unsetlaunchedat">UnsetLaunchedAt</h3>
+<p><code>func (o *Volume) UnsetLaunchedAt()</code></p>
+<p>UnsetLaunchedAt ensures that no value is present for LaunchedAt, not even an explicit nil</p>
+<h3 id="getencryptionkeyid">GetEncryptionKeyId</h3>
+<p><code>func (o *Volume) GetEncryptionKeyId() string</code></p>
+<p>GetEncryptionKeyId returns the EncryptionKeyId field if non-nil, zero value otherwise.</p>
+<h3 id="getencryptionkeyidok">GetEncryptionKeyIdOk</h3>
+<p><code>func (o *Volume) GetEncryptionKeyIdOk() (*string, bool)</code></p>
+<p>GetEncryptionKeyIdOk returns a tuple with the EncryptionKeyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setencryptionkeyid">SetEncryptionKeyId</h3>
+<p><code>func (o *Volume) SetEncryptionKeyId(v string)</code></p>
+<p>SetEncryptionKeyId sets EncryptionKeyId field to given value.</p>
+<h3 id="hasencryptionkeyid">HasEncryptionKeyId</h3>
+<p><code>func (o *Volume) HasEncryptionKeyId() bool</code></p>
+<p>HasEncryptionKeyId returns a boolean if a field has been set.</p>
+<h3 id="setencryptionkeyidnil">SetEncryptionKeyIdNil</h3>
+<p><code>func (o *Volume) SetEncryptionKeyIdNil(b bool)</code></p>
+<p>SetEncryptionKeyIdNil sets the value for EncryptionKeyId to be an explicit nil</p>
+<h3 id="unsetencryptionkeyid">UnsetEncryptionKeyId</h3>
+<p><code>func (o *Volume) UnsetEncryptionKeyId()</code></p>
+<p>UnsetEncryptionKeyId ensures that no value is present for EncryptionKeyId, not even an explicit nil</p>
+<h3 id="getpreviousstatus">GetPreviousStatus</h3>
+<p><code>func (o *Volume) GetPreviousStatus() string</code></p>
+<p>GetPreviousStatus returns the PreviousStatus field if non-nil, zero value otherwise.</p>
+<h3 id="getpreviousstatusok">GetPreviousStatusOk</h3>
+<p><code>func (o *Volume) GetPreviousStatusOk() (*string, bool)</code></p>
+<p>GetPreviousStatusOk returns a tuple with the PreviousStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setpreviousstatus">SetPreviousStatus</h3>
+<p><code>func (o *Volume) SetPreviousStatus(v string)</code></p>
+<p>SetPreviousStatus sets PreviousStatus field to given value.</p>
+<h3 id="haspreviousstatus">HasPreviousStatus</h3>
+<p><code>func (o *Volume) HasPreviousStatus() bool</code></p>
+<p>HasPreviousStatus returns a boolean if a field has been set.</p>
+<h3 id="setpreviousstatusnil">SetPreviousStatusNil</h3>
+<p><code>func (o *Volume) SetPreviousStatusNil(b bool)</code></p>
+<p>SetPreviousStatusNil sets the value for PreviousStatus to be an explicit nil</p>
+<h3 id="unsetpreviousstatus">UnsetPreviousStatus</h3>
+<p><code>func (o *Volume) UnsetPreviousStatus()</code></p>
+<p>UnsetPreviousStatus ensures that no value is present for PreviousStatus, not even an explicit nil</p>
+<h3 id="getcreatedat">GetCreatedAt</h3>
+<p><code>func (o *Volume) GetCreatedAt() time.Time</code></p>
+<p>GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getcreatedatok">GetCreatedAtOk</h3>
+<p><code>func (o *Volume) GetCreatedAtOk() (*time.Time, bool)</code></p>
+<p>GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setcreatedat">SetCreatedAt</h3>
+<p><code>func (o *Volume) SetCreatedAt(v time.Time)</code></p>
+<p>SetCreatedAt sets CreatedAt field to given value.</p>
+<h3 id="hascreatedat">HasCreatedAt</h3>
+<p><code>func (o *Volume) HasCreatedAt() bool</code></p>
+<p>HasCreatedAt returns a boolean if a field has been set.</p>
+<h3 id="setcreatedatnil">SetCreatedAtNil</h3>
+<p><code>func (o *Volume) SetCreatedAtNil(b bool)</code></p>
+<p>SetCreatedAtNil sets the value for CreatedAt to be an explicit nil</p>
+<h3 id="unsetcreatedat">UnsetCreatedAt</h3>
+<p><code>func (o *Volume) UnsetCreatedAt()</code></p>
+<p>UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil</p>
+<h3 id="getupdatedat">GetUpdatedAt</h3>
+<p><code>func (o *Volume) GetUpdatedAt() time.Time</code></p>
+<p>GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.</p>
+<h3 id="getupdatedatok">GetUpdatedAtOk</h3>
+<p><code>func (o *Volume) GetUpdatedAtOk() (*time.Time, bool)</code></p>
+<p>GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setupdatedat">SetUpdatedAt</h3>
+<p><code>func (o *Volume) SetUpdatedAt(v time.Time)</code></p>
+<p>SetUpdatedAt sets UpdatedAt field to given value.</p>
+<h3 id="hasupdatedat">HasUpdatedAt</h3>
+<p><code>func (o *Volume) HasUpdatedAt() bool</code></p>
+<p>HasUpdatedAt returns a boolean if a field has been set.</p>
+<h3 id="setupdatedatnil">SetUpdatedAtNil</h3>
+<p><code>func (o *Volume) SetUpdatedAtNil(b bool)</code></p>
+<p>SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil</p>
+<h3 id="unsetupdatedat">UnsetUpdatedAt</h3>
+<p><code>func (o *Volume) UnsetUpdatedAt()</code></p>
+<p>UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil</p>
+<h3 id="getinstanceid">GetInstanceId</h3>
+<p><code>func (o *Volume) GetInstanceId() string</code></p>
+<p>GetInstanceId returns the InstanceId field if non-nil, zero value otherwise.</p>
+<h3 id="getinstanceidok">GetInstanceIdOk</h3>
+<p><code>func (o *Volume) GetInstanceIdOk() (*string, bool)</code></p>
+<p>GetInstanceIdOk returns a tuple with the InstanceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setinstanceid">SetInstanceId</h3>
+<p><code>func (o *Volume) SetInstanceId(v string)</code></p>
+<p>SetInstanceId sets InstanceId field to given value.</p>
+<h3 id="hasinstanceid">HasInstanceId</h3>
+<p><code>func (o *Volume) HasInstanceId() bool</code></p>
+<p>HasInstanceId returns a boolean if a field has been set.</p>
+<h3 id="setinstanceidnil">SetInstanceIdNil</h3>
+<p><code>func (o *Volume) SetInstanceIdNil(b bool)</code></p>
+<p>SetInstanceIdNil sets the value for InstanceId to be an explicit nil</p>
+<h3 id="unsetinstanceid">UnsetInstanceId</h3>
+<p><code>func (o *Volume) UnsetInstanceId()</code></p>
+<p>UnsetInstanceId ensures that no value is present for InstanceId, not even an explicit nil</p>
+<h3 id="getinstancename">GetInstanceName</h3>
+<p><code>func (o *Volume) GetInstanceName() string</code></p>
+<p>GetInstanceName returns the InstanceName field if non-nil, zero value otherwise.</p>
+<h3 id="getinstancenameok">GetInstanceNameOk</h3>
+<p><code>func (o *Volume) GetInstanceNameOk() (*string, bool)</code></p>
+<p>GetInstanceNameOk returns a tuple with the InstanceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setinstancename">SetInstanceName</h3>
+<p><code>func (o *Volume) SetInstanceName(v string)</code></p>
+<p>SetInstanceName sets InstanceName field to given value.</p>
+<h3 id="hasinstancename">HasInstanceName</h3>
+<p><code>func (o *Volume) HasInstanceName() bool</code></p>
+<p>HasInstanceName returns a boolean if a field has been set.</p>
+<h3 id="setinstancenamenil">SetInstanceNameNil</h3>
+<p><code>func (o *Volume) SetInstanceNameNil(b bool)</code></p>
+<p>SetInstanceNameNil sets the value for InstanceName to be an explicit nil</p>
+<h3 id="unsetinstancename">UnsetInstanceName</h3>
+<p><code>func (o *Volume) UnsetInstanceName()</code></p>
+<p>UnsetInstanceName ensures that no value is present for InstanceName, not even an explicit nil</p>
+<h3 id="getimagemetadata">GetImageMetadata</h3>
+<p><code>func (o *Volume) GetImageMetadata() ImageMetaData</code></p>
+<p>GetImageMetadata returns the ImageMetadata field if non-nil, zero value otherwise.</p>
+<h3 id="getimagemetadataok">GetImageMetadataOk</h3>
+<p><code>func (o *Volume) GetImageMetadataOk() (*ImageMetaData, bool)</code></p>
+<p>GetImageMetadataOk returns a tuple with the ImageMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setimagemetadata">SetImageMetadata</h3>
+<p><code>func (o *Volume) SetImageMetadata(v ImageMetaData)</code></p>
+<p>SetImageMetadata sets ImageMetadata field to given value.</p>
+<h3 id="hasimagemetadata">HasImageMetadata</h3>
+<p><code>func (o *Volume) HasImageMetadata() bool</code></p>
+<p>HasImageMetadata returns a boolean if a field has been set.</p>
+<h3 id="setimagemetadatanil">SetImageMetadataNil</h3>
+<p><code>func (o *Volume) SetImageMetadataNil(b bool)</code></p>
+<p>SetImageMetadataNil sets the value for ImageMetadata to be an explicit nil</p>
+<h3 id="unsetimagemetadata">UnsetImageMetadata</h3>
+<p><code>func (o *Volume) UnsetImageMetadata()</code></p>
+<p>UnsetImageMetadata ensures that no value is present for ImageMetadata, not even an explicit nil</p>
+<h3 id="getvolumetype">GetVolumeType</h3>
+<p><code>func (o *Volume) GetVolumeType() string</code></p>
+<p>GetVolumeType returns the VolumeType field if non-nil, zero value otherwise.</p>
+<h3 id="getvolumetypeok">GetVolumeTypeOk</h3>
+<p><code>func (o *Volume) GetVolumeTypeOk() (*string, bool)</code></p>
+<p>GetVolumeTypeOk returns a tuple with the VolumeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.</p>
+<h3 id="setvolumetype">SetVolumeType</h3>
+<p><code>func (o *Volume) SetVolumeType(v string)</code></p>
+<p>SetVolumeType sets VolumeType field to given value.</p>
+<h3 id="hasvolumetype">HasVolumeType</h3>
+<p><code>func (o *Volume) HasVolumeType() bool</code></p>
+<p>HasVolumeType returns a boolean if a field has been set.</p>
+<h3 id="setvolumetypenil">SetVolumeTypeNil</h3>
+<p><code>func (o *Volume) SetVolumeTypeNil(b bool)</code></p>
+<p>SetVolumeTypeNil sets the value for VolumeType to be an explicit nil</p>
+<h3 id="unsetvolumetype">UnsetVolumeType</h3>
+<p><code>func (o *Volume) UnsetVolumeType()</code></p>
+<p>UnsetVolumeType ensures that no value is present for VolumeType, not even an explicit nil</p>
+<p><a href="../README.md#documentation-for-models">[Back to Model list]</a> <a href="../README.md#documentation-for-api-endpoints">[Back to API list]</a> <a href="../README.md">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
