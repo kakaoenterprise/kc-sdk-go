@@ -272,6 +272,100 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#healthmonitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HealthMonitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highavailabilitygroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HighAvailabilityGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L7Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L7Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listener
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoadBalancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TargetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4821,6 +4915,100 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#healthmonitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HealthMonitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highavailabilitygroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HighAvailabilityGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L7Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L7Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listener" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listener
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoadBalancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targetgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TargetGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4848,8 +5036,91 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">loadbalancer</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">HealthMonitor</span><span class="p">.</span><span class="nx">CreateHealthMonitor</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">loadbalancer</span><span class="p">.</span><span class="nx">NewCreateHealthMonitorRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">loadbalancer</span><span class="p">.</span><span class="nx">NewCreateHealthMonitor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"&lt;targetGroupId&gt;"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">loadbalancer</span><span class="p">.</span><span class="nx">HEALTHMONITORTYPE_HTTP</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="healthmonitor"><a href="api/HealthMonitorAPI/">HealthMonitor</a></h3>
+<p><code>client.HealthMonitor.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateHealthMonitor — Create health monitor</li>
+<li>DeleteHealthMonitor — Delete health monitor</li>
+<li>GetTargetGroupHealthCheckSubnets — Get target group health check subnets</li>
+<li>GetTargetGroupHealthMonitor — Get target group health monitor</li>
+<li>UpdateHealthMonitor — Update health monitor</li>
+</ul>
+<h3 id="highavailabilitygroup"><a href="api/HighAvailabilityGroupAPI/">HighAvailabilityGroup</a></h3>
+<p><code>client.HighAvailabilityGroup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateHaGroup — Create HA group</li>
+<li>DeleteHaGroup — Delete HA group</li>
+<li>DetachHaGroupLoadBalancer — Detach HA group load balancer</li>
+<li>GetHaGroup — Get HA group</li>
+<li>ListHaGroups — List HA groups</li>
+<li>UpdateHaGroup — Update HA group</li>
+<li>UpdateHaGroupLoadBalancer — Update HA group load balancer</li>
+</ul>
+<h3 id="l7policy"><a href="api/L7PolicyAPI/">L7Policy</a></h3>
+<p><code>client.L7Policy.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateL7Policy — Create L7 policy</li>
+<li>DeleteL7Policy — Delete L7 policy</li>
+<li>GetL7Policy — Get L7 policy</li>
+<li>ListL7Policies — List L7 policies</li>
+<li>UpdateL7Policy — Update L7 policy</li>
+</ul>
+<h3 id="l7rule"><a href="api/L7RuleAPI/">L7Rule</a></h3>
+<p><code>client.L7Rule.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AddL7PolicyRule — Add L7 policy rule</li>
+<li>DeleteL7PolicyRule — Delete L7 policy rule</li>
+<li>GetL7PolicyRule — Get L7 policy rule</li>
+<li>ListL7PolicyRules — List L7 policy rules</li>
+<li>UpdateL7PolicyRule — Update L7 policy rule</li>
+</ul>
+<h3 id="listener"><a href="api/ListenerAPI/">Listener</a></h3>
+<p><code>client.Listener.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateListener — Create listener</li>
+<li>DeleteListener — Delete listener</li>
+<li>GetListener — Get listener</li>
+<li>ListListeners — List listeners</li>
+<li>UpdateListener — Update listener</li>
+</ul>
+<h3 id="loadbalancer"><a href="api/LoadBalancerAPI/">LoadBalancer</a></h3>
+<p><code>client.LoadBalancer.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AssociateNewPublicIp — Associate new public IP</li>
+<li>AssociatePublicIp — Associate public IP</li>
+<li>CreateLoadBalancer — Create load balancer</li>
+<li>DeleteLoadBalancer — Delete load balancer</li>
+<li>GetLoadBalancer — Get load balancer</li>
+<li>ListAvailabilityZones — List availability zones</li>
+<li>ListLoadBalancerTypes — List load balancer types</li>
+<li>ListLoadBalancers — List load balancers</li>
+<li>ListTlsCertificates — List TLS certificates</li>
+<li>RemovePublicIp — Remove public IP</li>
+<li>UpdateAccessLog — Update access log</li>
+<li>UpdateLoadBalancer — Update load balancer</li>
+</ul>
+<h3 id="targetgroup"><a href="api/TargetGroupAPI/">TargetGroup</a></h3>
+<p><code>client.TargetGroup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AddTarget — Add target</li>
+<li>CreateTargetGroup — Create target group</li>
+<li>DeleteTargetGroup — Delete target group</li>
+<li>GetTarget — Get target</li>
+<li>GetTargetGroup — Get target group</li>
+<li>ListTargetGroups — List target groups</li>
+<li>ListTargetsInTargetGroup — List targets in target group</li>
+<li>RemoveTarget — Remove target</li>
+<li>UpdateTarget — Update target</li>
+<li>UpdateTargetGroup — Update target group</li>
+<li>UpdateTargets — Update targets</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

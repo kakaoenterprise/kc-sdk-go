@@ -272,6 +272,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transitgateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitgatewayattachment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGatewayAttachment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitgatewayroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGatewayRouteTable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2469,6 +2519,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transitgateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitgatewayattachment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGatewayAttachment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transitgatewayroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TransitGatewayRouteTable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2496,8 +2596,52 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tgw</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">TransitGatewayRouteTable</span><span class="p">.</span><span class="nx">CreateTgwRouteTable</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">tgw</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTableRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">tgw</span><span class="p">.</span><span class="nx">NewCreateTgwRouteTable</span><span class="p">(</span><span class="s">"&lt;tgwId&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s">"&lt;name&gt;"</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="transitgateway"><a href="api/TransitGatewayAPI/">TransitGateway</a></h3>
+<p><code>client.TransitGateway.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateTransitGateway — Create transit gateway</li>
+<li>DeleteTransitGateway — Delete transit gateway</li>
+<li>GetTransitGateway — Get transit gateway</li>
+<li>ListTgwSharedProjects — List TGW shared projects</li>
+<li>ListTransitGateways — List transit gateways</li>
+<li>ShareTransitGateway — Share transit gateway</li>
+<li>UnshareTransitGateway — Unshare transit gateway</li>
+<li>UpdateTransitGateway — Update transit gateway</li>
+</ul>
+<h3 id="transitgatewayattachment"><a href="api/TransitGatewayAttachmentAPI/">TransitGatewayAttachment</a></h3>
+<p><code>client.TransitGatewayAttachment.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>ApproveTgwAttachment — Approve TGW attachment</li>
+<li>CreateTgwAttachment — Create TGW attachment</li>
+<li>DeleteTgwAttachment — Delete TGW attachment</li>
+<li>GetTgwAttachment — Get TGW attachment</li>
+<li>ListTgwAttachments — List TGW attachments</li>
+<li>RejectTgwAttachment — Reject TGW attachment</li>
+<li>UpdateTgwAttachment — Update TGW attachment</li>
+</ul>
+<h3 id="transitgatewayroutetable"><a href="api/TransitGatewayRouteTableAPI/">TransitGatewayRouteTable</a></h3>
+<p><code>client.TransitGatewayRouteTable.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateTgwRoute — Create TGW route</li>
+<li>CreateTgwRouteTable — Create TGW route table</li>
+<li>CreateTgwRouteTableAssociation — Create TGW route table association</li>
+<li>DeleteTgwRoute — Delete TGW route</li>
+<li>DeleteTgwRouteTable — Delete TGW route table</li>
+<li>DeleteTgwRouteTableAssociation — Delete TGW route table association</li>
+<li>GetTgwRouteTable — Get TGW route table</li>
+<li>ListTgwRouteTableAssociations — List TGW route table associations</li>
+<li>ListTgwRouteTables — List TGW route tables</li>
+<li>ListTgwRoutes — List TGW routes</li>
+<li>UpdateTgwRoute — Update TGW route</li>
+<li>UpdateTgwRouteTable — Update TGW route table</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

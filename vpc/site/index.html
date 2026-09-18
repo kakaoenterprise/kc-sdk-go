@@ -272,6 +272,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internetgateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InternetGateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networkinterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetworkInterface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subnet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpcroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPCRouteTable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2973,6 +3045,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internetgateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InternetGateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networkinterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetworkInterface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subnet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpcroutetable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPCRouteTable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3000,8 +3144,70 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">vpc</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">InternetGateway</span><span class="p">.</span><span class="nx">CreateInternetGateway</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">vpc</span><span class="p">.</span><span class="nx">NewCreateInternetGatewayRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">vpc</span><span class="p">.</span><span class="nx">NewCreateInternetGateway</span><span class="p">(),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="internetgateway"><a href="api/InternetGatewayAPI/">InternetGateway</a></h3>
+<p><code>client.InternetGateway.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateIgwAttachment — Create IGW attachment</li>
+<li>CreateInternetGateway — Create internet gateway</li>
+<li>DeleteIgwAttachment — Delete IGW attachment</li>
+<li>DeleteInternetGateway — Delete internet gateway</li>
+<li>GetInternetGateway — Get internet gateway</li>
+<li>ListInternetGateways — List internet gateways</li>
+<li>UpdateInternetGateway — Update internet gateway</li>
+</ul>
+<h3 id="networkinterface"><a href="api/NetworkInterfaceAPI/">NetworkInterface</a></h3>
+<p><code>client.NetworkInterface.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateNetworkInterface — Create network interface</li>
+<li>DeleteNetworkInterface — Delete network interface</li>
+<li>GetNetworkInterface — Get network interface</li>
+<li>ListNetworkInterfaces — List network interfaces</li>
+<li>UpdateNetworkInterface — Update network interface</li>
+<li>UpdateNetworkInterfaceAllowedAddresses — Update network interface allowed addresses</li>
+</ul>
+<h3 id="subnet"><a href="api/SubnetAPI/">Subnet</a></h3>
+<p><code>client.Subnet.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateSubnet — Create subnet</li>
+<li>DeleteSubnet — Delete subnet</li>
+<li>GetSubnet — Get subnet</li>
+<li>ListSubnetSharedProjects — List subnet shared projects</li>
+<li>ListSubnets — List subnets</li>
+<li>ShareSubnet — Share subnet</li>
+<li>UnshareSubnet — Unshare subnet</li>
+<li>UpdateSubnet — Update subnet</li>
+</ul>
+<h3 id="vpc"><a href="api/VPCAPI/">VPC</a></h3>
+<p><code>client.VPC.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateVpc — Create VPC</li>
+<li>DeleteVpc — Delete VPC</li>
+<li>GetVpc — Get VPC</li>
+<li>ListVpcs — List VPCs</li>
+<li>UpdateVpc — Update VPC</li>
+</ul>
+<h3 id="vpcroutetable"><a href="api/VPCRouteTableAPI/">VPCRouteTable</a></h3>
+<p><code>client.VPCRouteTable.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AddRoute — Add route</li>
+<li>CreateRouteTable — Create route table</li>
+<li>DeleteRoute — Delete route</li>
+<li>DeleteRouteTable — Delete route table</li>
+<li>GetRouteTable — Get route table</li>
+<li>ListRouteTableAssociations — List route table associations</li>
+<li>ListRouteTables — List route tables</li>
+<li>SetMainRouteTable — Set main route table</li>
+<li>UpdateRoute — Update route</li>
+<li>UpdateRouteTable — Update route table</li>
+<li>UpdateRouteTableAssociation — Update route table association</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

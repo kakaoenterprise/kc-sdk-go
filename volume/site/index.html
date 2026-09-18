@@ -272,6 +272,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1601,6 +1651,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1628,8 +1728,39 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">volume</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">CreateVolume</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">volume</span><span class="p">.</span><span class="nx">NewCreateVolumeRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">volume</span><span class="p">.</span><span class="nx">NewCreateVolume</span><span class="p">(</span><span class="s">"&lt;name&gt;"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">volume</span><span class="p">.</span><span class="nx">AVAILABILITYZONE_KR_CENTRAL_2_A</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="image"><a href="api/ImageAPI/">Image</a></h3>
+<p><code>client.Image.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateImage — Create image</li>
+</ul>
+<h3 id="snapshot"><a href="api/SnapshotAPI/">Snapshot</a></h3>
+<p><code>client.Snapshot.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateSnapshot — Create snapshot</li>
+<li>DeleteSnapshot — Delete snapshot</li>
+<li>GetSnapshot — Get snapshot</li>
+<li>ListSnapshots — List snapshots</li>
+<li>RestoreSnapshot — Restore snapshot</li>
+<li>UpdateSnapshot — Update snapshot</li>
+</ul>
+<h3 id="volume"><a href="api/VolumeAPI/">Volume</a></h3>
+<p><code>client.Volume.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateVolume — Create volume</li>
+<li>DeleteVolume — Delete volume</li>
+<li>ExtendVolume — Extend volume</li>
+<li>GetVolume — Get volume</li>
+<li>ListVolumeTypes — List volume types</li>
+<li>ListVolumes — List volumes</li>
+<li>UpdateVolume — Update volume</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

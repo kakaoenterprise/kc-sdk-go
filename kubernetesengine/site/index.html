@@ -272,6 +272,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetesengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KubernetesEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetesenginecluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KubernetesEngineCluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodepool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NodePool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3169,6 +3230,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetesengine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KubernetesEngine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetesenginecluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KubernetesEngineCluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodepool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NodePool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3196,8 +3318,60 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">kubernetesengine</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">KubernetesEngine</span><span class="p">.</span><span class="nx">ListAvailableKubernetesVersions</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="kubernetesengine"><a href="api/KubernetesEngineAPI/">KubernetesEngine</a></h3>
+<p><code>client.KubernetesEngine.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateServiceAgent — Create service agent</li>
+<li>GetKubernetesEngineQuota — Get Kubernetes Engine quotas</li>
+<li>GetServiceAgent — Get service agent</li>
+<li>ListAvailableKubernetesVersions — List available Kubernetes versions</li>
+<li>ListNodePoolImages — List node pool images</li>
+</ul>
+<h3 id="kubernetesenginecluster"><a href="api/KubernetesEngineClusterAPI/">KubernetesEngineCluster</a></h3>
+<p><code>client.KubernetesEngineCluster.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateCluster — Create cluster</li>
+<li>DeleteCluster — Delete cluster</li>
+<li>DeleteClusterNodes — Delete cluster nodes</li>
+<li>GetCluster — Get cluster</li>
+<li>GetClusterKubeconfig — Get cluster kubeconfig</li>
+<li>GetClusterQuota — Get cluster quotas</li>
+<li>ListClusterNodes — List cluster nodes</li>
+<li>ListClusterUpgradableVersions — List cluster upgradable versions</li>
+<li>ListClusters — List clusters</li>
+<li>SetClusterNodesCordon — Set cluster nodes cordon</li>
+<li>UpdateCluster — Update cluster</li>
+<li>UpgradeCluster — Upgrade cluster</li>
+</ul>
+<h3 id="node"><a href="api/NodeAPI/">Node</a></h3>
+<p><code>client.Node.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>GetClusterNode — Get cluster node</li>
+<li>GetClusterNodeDetails — Get cluster node details</li>
+</ul>
+<h3 id="nodepool"><a href="api/NodePoolAPI/">NodePool</a></h3>
+<p><code>client.NodePool.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateNodePool — Create node pool</li>
+<li>CreateNodePoolScheduledScaling — Create node pool scheduled scaling</li>
+<li>DeleteNodePool — Delete node pool</li>
+<li>DeleteNodePoolScheduledScaling — Delete node pool scheduled scaling</li>
+<li>GetNodePool — Get node pool</li>
+<li>ListNodePoolNodes — List node pool nodes</li>
+<li>ListNodePoolScheduledScalings — List node pool scheduled scalings</li>
+<li>ListNodePools — List node pools</li>
+<li>SetNodePoolNodeLabel — Set node pool node label</li>
+<li>SetNodePoolResourceBasedAutoScaling — Set node pool resource-based auto scaling</li>
+<li>SetNodePoolSecurityGroups — Set node pool security groups</li>
+<li>SetNodePoolUserScript — Set node pool user script</li>
+<li>UpdateNodePool — Update node pool</li>
+<li>UpgradeNodePool — Upgrade node pool</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

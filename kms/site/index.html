@@ -272,6 +272,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KeyVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PublicKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3057,6 +3118,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KeyVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PublicKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3084,8 +3206,60 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">kms</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Key</span><span class="p">.</span><span class="nx">CreateUserKey</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">kms</span><span class="p">.</span><span class="nx">NewCreateUserKeyRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">kms</span><span class="p">.</span><span class="nx">NewCreateUserKey</span><span class="p">(</span><span class="s">"&lt;name&gt;"</span><span class="p">,</span><span class="w"> </span><span class="nx">kms</span><span class="p">.</span><span class="nx">KEYTYPE_SYMMETRIC</span><span class="p">,</span><span class="w"> </span><span class="nx">kms</span><span class="p">.</span><span class="nx">KEYPURPOSE_SYMMETRIC_ENCRYPT_DECRYPT</span><span class="p">,</span><span class="w"> </span><span class="nx">kms</span><span class="p">.</span><span class="nx">KEYALGORITHM_AES256_GCM96</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="kms"><a href="api/KMSAPI/">KMS</a></h3>
+<p><code>client.KMS.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>ActivateKmsService — Activate KMS service</li>
+<li>GetKmsServiceStatus — Get KMS service status</li>
+</ul>
+<h3 id="key"><a href="api/KeyAPI/">Key</a></h3>
+<p><code>client.Key.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AddUserKeyAccessTargets — Add user key access targets</li>
+<li>BulkDeleteUserKeys — Bulk delete user keys</li>
+<li>CreateUserKey — Create user key</li>
+<li>DeleteUserKey — Delete user key</li>
+<li>GetKey — Get key</li>
+<li>GetKeyByName — Get key by name</li>
+<li>GetPublicKey — Get public key</li>
+<li>ListKeyAlgorithms — List key algorithms</li>
+<li>ListServiceKeys — List service keys</li>
+<li>ListSymmetricKeys — List symmetric keys</li>
+<li>ListUserKeyAccessTargets — List user key access targets</li>
+<li>ListUserKeys — List user keys</li>
+<li>RemoveUserKeyAccessTargets — Remove user key access targets</li>
+<li>UpdateUserKeyAccessControl — Update user key access control</li>
+<li>UpdateUserKeyRotation — Update user key rotation</li>
+</ul>
+<h3 id="keyversion"><a href="api/KeyVersionAPI/">KeyVersion</a></h3>
+<p><code>client.KeyVersion.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>BulkCancelScheduledKeyVersionDestruction — Bulk cancel scheduled key version destruction</li>
+<li>BulkScheduleKeyVersionDestruction — Bulk schedule key version destruction</li>
+<li>CancelScheduledKeyVersionDestruction — Cancel scheduled key version destruction</li>
+<li>CreateKeyVersion — Create key version</li>
+<li>DeactivateKeyVersion — Deactivate key version</li>
+<li>ListKeyVersions — List key versions</li>
+<li>ScheduleKeyVersionDestruction — Schedule key version destruction</li>
+</ul>
+<h3 id="publickey"><a href="api/PublicKeyAPI/">PublicKey</a></h3>
+<p><code>client.PublicKey.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateDataKey — Create data key</li>
+<li>DecryptData — Decrypt data</li>
+<li>EncryptData — Encrypt data</li>
+<li>GenerateHmac — Generate HMAC</li>
+<li>SignData — Sign data</li>
+<li>VerifyHmac — Verify HMAC</li>
+<li>VerifySignature — Verify signature</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

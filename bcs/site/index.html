@@ -272,6 +272,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keypair
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2609,6 +2648,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keypair
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2636,8 +2714,56 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bcs</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Keypair</span><span class="p">.</span><span class="nx">CreateKeypair</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">bcs</span><span class="p">.</span><span class="nx">NewCreateKeypairRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">bcs</span><span class="p">.</span><span class="nx">NewCreateKeypair</span><span class="p">(</span><span class="s">"&lt;name&gt;"</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="instance"><a href="api/InstanceAPI/">Instance</a></h3>
+<p><code>client.Instance.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>AssociateNewPublicIp — Associate new public IP</li>
+<li>AssociatePublicIp — Associate public IP</li>
+<li>AttachNetworkInterface — Attach network interface</li>
+<li>AttachSecurityGroup — Attach security group</li>
+<li>AttachVolume — Attach volume</li>
+<li>CreateInstance — Create instance</li>
+<li>DeleteInstance — Delete instance</li>
+<li>DetachNetworkInterface — Detach network interface</li>
+<li>DetachSecurityGroup — Detach security group</li>
+<li>DetachVolume — Detach volume</li>
+<li>GetInstance — Get instance</li>
+<li>GetInstanceConsoleLog — Get instance console log</li>
+<li>GetInstancePassword — Get instance password</li>
+<li>GetInstanceType — Get instance type</li>
+<li>HardRebootInstance — Hard reboot instance</li>
+<li>ListInstanceActionLogs — List instance action logs</li>
+<li>ListInstanceNetworkInterfaces — List instance network interfaces</li>
+<li>ListInstanceTypes — List instance types (flavors)</li>
+<li>ListInstances — List instances</li>
+<li>OperateInstance — Operate instances</li>
+<li>RebuildInstance — Rebuild instance</li>
+<li>RemovePublicIp — Remove public IP</li>
+<li>ResizeInstance — Resize instance</li>
+<li>ShelveInstance — Shelve instance</li>
+<li>SoftRebootInstance — Soft reboot instance</li>
+<li>StartInstance — Start instance</li>
+<li>StopInstance — Stop instance</li>
+<li>UnshelveInstance — Unshelve instance</li>
+<li>UpdateInstance — Update instance</li>
+<li>UpdateInstanceVolume — Update instance volume</li>
+<li>UpdateNetworkInterfaceAllowedAddresses — Update network interface allowed addresses</li>
+</ul>
+<h3 id="keypair"><a href="api/KeypairAPI/">Keypair</a></h3>
+<p><code>client.Keypair.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateKeypair — Create keypair</li>
+<li>DeleteKeypair — Delete keypair</li>
+<li>GetKeypair — Get keypair</li>
+<li>ListKeypairs — List keypairs</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는

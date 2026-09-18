@@ -272,6 +272,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CustomParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaultparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DefaultParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instancegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InstanceGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3449,6 +3532,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 가능한 리소스와 오퍼레이션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사용 가능한 리소스와 오퍼레이션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CustomParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaultparametergroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DefaultParameterGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instancegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InstanceGroup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3476,8 +3642,72 @@
 
 <span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
 <span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+<span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Backup</span><span class="p">.</span><span class="nx">CreateMysqlBackup</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">NewCreateMysqlBackupRequest</span><span class="p">(</span>
+<span class="w">    </span><span class="o">*</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">NewCreateMysqlBackup</span><span class="p">(</span><span class="s">"&lt;name&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s">"&lt;instanceGroupId&gt;"</span><span class="p">),</span>
+<span class="p">))</span>
 </code></pre></div>
 <p>저수준 빌더 인터페이스(Execute 체인)가 필요하면 <code>NewAPIClient</code>를 직접 사용합니다.</p>
+<h2 id="_2">사용 가능한 리소스와 오퍼레이션</h2>
+<h3 id="backup"><a href="api/BackupAPI/">Backup</a></h3>
+<p><code>client.Backup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateMysqlBackup — Create MySQL backup</li>
+<li>DeleteMysqlBackup — Delete MySQL backup</li>
+<li>GetMysqlBackup — Get MySQL backup</li>
+<li>ListMysqlBackups — List MySQL backups</li>
+</ul>
+<h3 id="customparametergroup"><a href="api/CustomParameterGroupAPI/">CustomParameterGroup</a></h3>
+<p><code>client.CustomParameterGroup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>CreateMysqlCustomParameterGroup — Create MySQL custom parameter group</li>
+<li>DeleteMysqlCustomParameterGroup — Delete MySQL custom parameter group</li>
+<li>GetMysqlCustomParameterGroup — Get MySQL custom parameter group</li>
+<li>ListMysqlCustomParameterGroupEvents — List MySQL custom parameter group events</li>
+<li>ListMysqlCustomParameterGroups — List MySQL custom parameter groups</li>
+<li>ResetMysqlCustomParameterGroup — Reset MySQL custom parameter group</li>
+<li>RollbackMysqlCustomParameterGroups — Rollback MySQL custom parameter groups</li>
+<li>UpdateMysqlCustomParameterGroup — Update MySQL custom parameter group</li>
+</ul>
+<h3 id="defaultparametergroup"><a href="api/DefaultParameterGroupAPI/">DefaultParameterGroup</a></h3>
+<p><code>client.DefaultParameterGroup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>GetMysqlDefaultParameterGroup — Get MySQL default parameter group</li>
+<li>ListMysqlDefaultParameterGroupEvents — List MySQL default parameter group events</li>
+<li>ListMysqlDefaultParameterGroups — List MySQL default parameter groups</li>
+</ul>
+<h3 id="engineversion"><a href="api/EngineVersionAPI/">EngineVersion</a></h3>
+<p><code>client.EngineVersion.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>ListAvailableMysqlEngineVersions — List available MySQL engine versions</li>
+</ul>
+<h3 id="instance"><a href="api/InstanceAPI/">Instance</a></h3>
+<p><code>client.Instance.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>ExportMysqlInstanceLogs — Export MySQL instance logs</li>
+<li>ListMysqlInstanceTypesFlavors — List MySQL instance types (flavors)</li>
+<li>ListMysqlInstances — List MySQL instances</li>
+<li>RestartMysqlInstances — Restart MySQL instance</li>
+</ul>
+<h3 id="instancegroup"><a href="api/InstanceGroupAPI/">InstanceGroup</a></h3>
+<p><code>client.InstanceGroup.&lt;오퍼레이션&gt;(ctx, ...)</code></p>
+<ul>
+<li>ApplyMysqlParameterGroup — Apply MySQL parameter group</li>
+<li>CreateMysqlInstanceGroup — Create MySQL instance group</li>
+<li>DeleteMysqlInstanceGroup — Delete MySQL instance group</li>
+<li>ExtendMysqlInstanceGroupVolume — Extend MySQL instance group volume</li>
+<li>GetMysqlInstanceGroup — Get MySQL instance group</li>
+<li>GetMysqlRestorableTime — Get MySQL restorable time</li>
+<li>ListMysqlInstanceGroups — List MySQL instance groups</li>
+<li>ListMysqlInstanceGroupsUsingCustomParameterGroup — List MySQL instance groups using custom parameter group</li>
+<li>ListMysqlInstanceGroupsUsingDefaultParameterGroup — List MySQL instance groups using default parameter group</li>
+<li>RetryMysqlParameterGroupSync — Retry MySQL parameter group sync</li>
+<li>ScaleInMysqlInstanceGroup — Scale in MySQL instance group</li>
+<li>ScaleOutMysqlInstanceGroup — Scale out MySQL instance group</li>
+<li>SwitchoverMysqlInstanceGroup — Switchover MySQL instance group</li>
+<li>UpdateMysqlInstanceGroupBackupSchedule — Update MySQL backup schedule</li>
+<li>UpdateMysqlSecurityGroups — Update MySQL security groups</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">임시(POC) 문서</p>
 <p>이 문서는 public pkg.go.dev 배포 전까지 제공되는 임시 문서입니다. 정식 배포 이후에는
